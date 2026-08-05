@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
       }
 
       const genAI = new GoogleGenerativeAI(API_KEY);
-      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+      const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
 
       const prompt = `
         You are an expert curriculum designer. Generate a structured course syllabus for the topic: "${topic}".

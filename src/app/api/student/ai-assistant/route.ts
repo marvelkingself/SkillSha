@@ -109,7 +109,7 @@ INSTRUCTIONS:
 
     // 6. Initialize Gemini
     const genAI = new GoogleGenerativeAI(API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
 
     // Format chat history for Gemini's API
     // Gemini chat expects: { role: 'user' | 'model', parts: [{ text: string }] }
@@ -122,7 +122,7 @@ INSTRUCTIONS:
     // In @google/generative-ai, we can pass systemInstruction option to getGenerativeModel or startChat.
     const chat = model.startChat({
       history: formattedHistory,
-      systemInstruction: systemPrompt,
+      systemInstruction: { role: "system", parts: [{ text: systemPrompt }] },
     });
 
     const result = await chat.sendMessage(message);
