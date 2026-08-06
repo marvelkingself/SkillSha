@@ -42,10 +42,9 @@ export default function RootLayout({
             `,
           }}
         />
-        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
         {/* Simple inline script to read theme from local storage or system preference to prevent flash of wrong theme */}
         <script
@@ -87,7 +86,7 @@ export default function RootLayout({
 
         {/* Interactive Cursor Glow Spotlight */}
         <div id="interactive-bg-glow" className="fixed inset-0 pointer-events-none z-[-2] opacity-0 transition-opacity duration-1000 select-none">
-            <div className="absolute w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_closest-side,rgba(255,69,0,0.05),transparent_100%)] dark:bg-[radial-gradient(circle_closest-side,rgba(255,69,0,0.03),transparent_100%)]"></div>
+            <div className="absolute w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_closest-side,rgba(13,148,136,0.05),transparent_100%)] dark:bg-[radial-gradient(circle_closest-side,rgba(13,148,136,0.03),transparent_100%)]"></div>
         </div>
         
         {/* Full-bleed top grid background (hero only) */}

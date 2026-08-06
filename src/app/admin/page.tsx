@@ -364,7 +364,7 @@ export default function AdminPage() {
 
             <button
               type="submit"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white text-xs font-bold uppercase tracking-wider hover:shadow-[0_4px_20px_rgba(255,85,0,0.3)] transition-all cursor-pointer"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white text-xs font-bold uppercase tracking-wider hover:shadow-[0_4px_20px_rgba(13,148,136,0.3)] transition-all cursor-pointer"
             >
               Verify Credentials
             </button>
@@ -448,7 +448,7 @@ export default function AdminPage() {
               }}
               className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
                 activeTab === tab.id
-                  ? "bg-gradient-to-r from-brand-orange to-brand-red text-white shadow-[0_4px_15px_rgba(255,85,0,0.25)]"
+                  ? "bg-gradient-to-r from-brand-orange to-brand-red text-white shadow-[0_4px_15px_rgba(13,148,136,0.25)]"
                   : "bg-white/50 border border-zinc-200/60 dark:bg-zinc-900/40 dark:border-white/5 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
               }`}
             >

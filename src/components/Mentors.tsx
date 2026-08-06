@@ -11,7 +11,7 @@ export default function Mentors() {
             <div className="hidden md:block flex-grow flex-shrink-0 min-w-0"></div>
             
             {/* Mentor 1 */}
-            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(255,69,0,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
+            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(13,148,136,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
               <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
               <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
                 <img src="/files/Mentors/mentor-photo-1.webp" alt="Aarav Sharma" className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
@@ -30,7 +30,7 @@ export default function Mentors() {
             </div>
 
             {/* Mentor 2 */}
-            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(255,69,0,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
+            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(13,148,136,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
               <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
               <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
                 <img src="/files/Mentors/mentor-photo-2.webp" alt="Rohan Mehta" className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
@@ -49,7 +49,7 @@ export default function Mentors() {
             </div>
 
             {/* Mentor 3 */}
-            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(255,69,0,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
+            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(13,148,136,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
               <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
               <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
                 <img src="/files/Mentors/mentor-photo-3.webp" alt="Aditi Rao" className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
@@ -68,7 +68,7 @@ export default function Mentors() {
             </div>
 
             {/* Mentor 4 */}
-            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(255,69,0,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
+            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(13,148,136,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
               <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
               <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
                 <img src="/files/Mentors/mentor-photo-4.webp" alt="Ishan Verma" className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
@@ -87,7 +87,7 @@ export default function Mentors() {
             </div>
 
             {/* Mentor 5 */}
-            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(255,69,0,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
+            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(13,148,136,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
               <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
               <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
                 <img src="/files/Mentors/mentor-photo-5.webp" alt="Devendra Singh" className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />

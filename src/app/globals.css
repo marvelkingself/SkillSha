@@ -3,8 +3,10 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-brand-orange: #FF5500;
-  --color-brand-red: #FF1100;
+  --color-brand-orange: #0D9488;
+  --color-brand-red: #0369A1;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Base Body Styles */
@@ -83,7 +85,7 @@ body {
 
 /* Gradients */
 .text-gradient {
-    background: linear-gradient(135deg, #FF6B00 0%, #FF2000 100%);
+    background: linear-gradient(135deg, var(--color-brand-orange) 0%, var(--color-brand-red) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -238,7 +240,7 @@ body {
 }
 .logo-pill:hover { transform: scale(1.05); box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
 .dark .logo-pill { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.09); }
-.dark .logo-pill:hover { box-shadow: 0 4px 20px rgba(255,69,0,0.15); border-color: rgba(255,69,0,0.3); }
+.dark .logo-pill:hover { box-shadow: 0 4px 20px rgba(13,148,136,0.15); border-color: rgba(13,148,136,0.3); }
 .logo-pill img { width: 28px; height: 28px; object-fit: contain; border-radius: 6px; }
 .logo-pill span { font-size: 13px; font-weight: 600; color: #374151; }
 .dark .logo-pill span { color: #d1d5db; }
