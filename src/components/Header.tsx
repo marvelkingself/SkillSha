@@ -79,9 +79,9 @@ export default function Header() {
             : 'bg-white/70 dark:bg-zinc-950/70 border border-zinc-200/50 dark:border-white/5 shadow-[0_8px_30px_rgba(0,0,0,0.03)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.3)]'
         }`}>
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2 cursor-pointer group transition-transform duration-300 hover:scale-[1.02]">
-            <img src="/files/logo.svg" alt="SkillSha Logo" className="h-9 w-auto object-contain block dark:hidden" />
-            <img src="/files/logo-dark.svg" alt="SkillSha Logo" className="h-9 w-auto object-contain hidden dark:block" />
+          <Link href="/" className="flex items-center gap-1 cursor-pointer group transition-transform duration-300 hover:scale-[1.02]">
+            <img src="/files/logo-icon.png" alt="SkillSha Logo" className="h-8 w-auto object-contain" />
+            <span className="text-2xl font-black tracking-tight text-zinc-900 dark:text-white">Skill<span className="text-brand-orange">Sha</span></span>
           </Link>
 
           {/* Navigation Links with Elegant Floating Pill Hover & Professional Dropdown */}
@@ -210,7 +210,7 @@ export default function Header() {
                   window.dispatchEvent(new Event('openCounselingModal'));
                 }
               }}
-              className="px-5 py-2 rounded-full bg-gradient-to-r from-brand-orange to-brand-red hover:shadow-[0_4px_20px_rgba(13,148,136,0.3)] text-white font-bold text-xs uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-300"
+              className="px-5 py-2 rounded-full bg-gradient-to-r from-brand-orange to-brand-red hover:shadow-[0_4px_20px_rgba(37,99,235,0.3)] text-white font-bold text-xs uppercase tracking-wider hover:scale-105 active:scale-95 transition-all duration-300"
             >
               Apply Now
             </button>
@@ -220,9 +220,9 @@ export default function Header() {
 
       {/* Mobile Header */}
       <header className="md:hidden fixed top-4 left-4 right-4 z-40 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl border border-zinc-200/50 dark:border-white/5 rounded-2xl px-4 py-2.5 flex justify-between items-center shadow-[0_8px_30px_rgb(0,0,0,0.03)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-300">
-        <Link href="/" className="flex items-center gap-2 cursor-pointer">
-          <img src="/files/logo.svg" alt="SkillSha Logo" className="h-8 w-auto object-contain block dark:hidden" />
-          <img src="/files/logo-dark.svg" alt="SkillSha Logo" className="h-8 w-auto object-contain hidden dark:block" />
+        <Link href="/" className="flex items-center gap-1 cursor-pointer">
+          <img src="/files/logo-icon.png" alt="SkillSha Logo" className="h-8 w-auto object-contain" />
+          <span className="text-xl font-black tracking-tight text-zinc-900 dark:text-white">Skill<span className="text-brand-orange">Sha</span></span>
         </Link>
         
         <button onClick={toggleTheme} aria-label="Toggle dark mode" className="bulb-btn relative p-2 rounded-full border border-zinc-200/40 dark:border-white/5 bg-zinc-50/50 dark:bg-zinc-900/30 hover:bg-zinc-100 dark:hover:bg-white/10 active:scale-95 transition-all duration-300">

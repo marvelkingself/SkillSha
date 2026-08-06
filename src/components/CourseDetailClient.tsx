@@ -548,7 +548,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto self-center lg:self-start">
                 <button
                   onClick={openCounseling}
-                  className="magnetic-btn w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white font-semibold text-[15px] hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(13,148,136,0.3)] cursor-pointer"
+                  className="magnetic-btn w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white font-semibold text-[15px] hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(37,99,235,0.3)] cursor-pointer"
                 >
                   Talk to Program Advisor
                 </button>
@@ -668,12 +668,12 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 border-color: rgba(255,255,255,0.06);
             }
             .mc.mc-open {
-                border-color: rgba(13,148,136,0.3);
-                box-shadow: 0 4px 18px rgba(13,148,136,0.07);
+                border-color: rgba(37,99,235,0.3);
+                box-shadow: 0 4px 18px rgba(37,99,235,0.07);
             }
             .dark .mc.mc-open {
-                border-color: rgba(13,148,136,0.35);
-                box-shadow: 0 4px 22px rgba(13,148,136,0.13);
+                border-color: rgba(37,99,235,0.35);
+                box-shadow: 0 4px 22px rgba(37,99,235,0.13);
             }
             .mc-btn {
                 width: 100%;
@@ -697,9 +697,9 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 font-weight: 700;
                 letter-spacing: 0.08em;
                 text-transform: uppercase;
-                color: #0D9488;
-                background: rgba(13,148,136,0.08);
-                border: 1px solid rgba(13,148,136,0.18);
+                color: #2563EB;
+                background: rgba(37,99,235,0.08);
+                border: 1px solid rgba(37,99,235,0.18);
                 border-radius: 6px;
                 margin-bottom: 5px;
             }
@@ -712,7 +712,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 margin: 0;
             }
             .dark .mc-title { color: #fff; }
-            .mc-btn:hover .mc-title { color: #0D9488; }
+            .mc-btn:hover .mc-title { color: #2563EB; }
             .mc-chevron {
                 flex-shrink: 0;
                 width: 22px;
@@ -732,11 +732,11 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 color: #71717a;
             }
             .mc-btn:hover .mc-chevron {
-                background: #0D9488;
+                background: #2563EB;
                 border-color: transparent;
                 color: #fff;
             }
-            .mc.mc-open .mc-chevron { transform: rotate(90deg); background: #0D9488; border-color: transparent; color: #fff; }
+            .mc.mc-open .mc-chevron { transform: rotate(90deg); background: #2563EB; border-color: transparent; color: #fff; }
             .mc-body {
                 max-height: 0;
                 overflow: hidden;
@@ -760,7 +760,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
 
             /* ── LED rail ───────────────────────────────────────── */
             #bracket-active, #timeline-progress-ticks {
-                filter: drop-shadow(0 0 4px rgba(13,148,136,0.8)) drop-shadow(0 0 2px rgba(3,105,161,1));
+                filter: drop-shadow(0 0 4px rgba(37,99,235,0.8)) drop-shadow(0 0 2px rgba(30,58,138,1));
             }
             @media (max-width: 767px) {
                 .curr-rail-wrap { padding-left: 26px !important; }
@@ -1059,7 +1059,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                     <line x1="0" y1="2" x2="18" y2="2" stroke="currentColor" strokeWidth="1.5" className="text-zinc-300 dark:text-white/[0.08]" />
                   </pattern>
                   <pattern id="ticks-active" width="28" height="6" patternUnits="userSpaceOnUse">
-                    <line x1="0" y1="2" x2="18" y2="2" stroke="#0D9488" strokeWidth="1.5" />
+                    <line x1="0" y1="2" x2="18" y2="2" stroke="#2563EB" strokeWidth="1.5" />
                   </pattern>
                   <clipPath id="active-ticks-clip" clipPathUnits="objectBoundingBox">
                     <rect id="active-ticks-clip-rect" x="0" y="0" width="1" height="0" />
@@ -1072,7 +1072,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                   <line x1="0" y1="17" x2="40" y2="17" stroke="currentColor" strokeWidth="1.5" />
                   <line x1="0" y1="22" x2="40" y2="22" stroke="currentColor" strokeWidth="1.5" />
                 </g>
-                <g stroke="#0D9488" id="bracket-active" className="transition-opacity duration-150 hidden md:block opacity-0">
+                <g stroke="#2563EB" id="bracket-active" className="transition-opacity duration-150 hidden md:block opacity-0">
                   <line x1="0" y1="2"  x2="40" y2="2"  strokeWidth="1.5" />
                   <line x1="0" y1="7"  x2="40" y2="7"  strokeWidth="1.5" />
                   <line x1="0" y1="12" x2="40" y2="12" strokeWidth="1.5" />
@@ -1157,7 +1157,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                   <div className="relative flex items-center justify-center shrink-0 w-[52px] h-[52px]">
                     <svg className="w-full h-full progress-circle-svg transform -rotate-90" viewBox="0 0 40 40">
                       <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" strokeWidth="3" className="text-zinc-200 dark:text-white/[0.06]" />
-                      <circle id="progress-circle" cx="20" cy="20" r="18" fill="none" stroke="#0D9488" strokeWidth="3" strokeDasharray="113.1" strokeDashoffset="113.1" strokeLinecap="round" className="transition-all duration-300" style={{ filter: "drop-shadow(0 0 3px rgba(13,148,136,0.85))" }} />
+                      <circle id="progress-circle" cx="20" cy="20" r="18" fill="none" stroke="#2563EB" strokeWidth="3" strokeDasharray="113.1" strokeDashoffset="113.1" strokeLinecap="round" className="transition-all duration-300" style={{ filter: "drop-shadow(0 0 3px rgba(37,99,235,0.85))" }} />
                     </svg>
                     <span id="progress-text" className="absolute font-bold text-[12px] text-zinc-900 dark:text-white">0%</span>
                   </div>
@@ -1212,7 +1212,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 </div>
 
                 <div className="space-y-3 pt-4 border-t border-zinc-200/60 dark:border-white/[0.06]">
-                  <button className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red hover:opacity-95 text-white font-bold text-sm shadow-[0_4px_20px_rgba(13,148,136,0.25)] hover:shadow-[0_4px_30px_rgba(13,148,136,0.45)] transition-all duration-300 active:scale-98" onClick={openCounseling}>
+                  <button className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red hover:opacity-95 text-white font-bold text-sm shadow-[0_4px_20px_rgba(37,99,235,0.25)] hover:shadow-[0_4px_30px_rgba(37,99,235,0.45)] transition-all duration-300 active:scale-98" onClick={openCounseling}>
                     <span>Talk to Advisor</span>
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                   </button>
@@ -1228,7 +1228,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </div>
 
           <div className="mt-8 flex justify-center lg:hidden">
-            <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white font-semibold text-sm hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-[0_0_18px_rgba(13,148,136,0.22)] hover:shadow-[0_0_28px_rgba(13,148,136,0.4)]" onClick={openCounseling}>
+            <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white font-semibold text-sm hover:scale-[1.02] active:scale-95 transition-all duration-200 shadow-[0_0_18px_rgba(37,99,235,0.22)] hover:shadow-[0_0_28px_rgba(37,99,235,0.4)]" onClick={openCounseling}>
               View Full Curriculum
             </button>
           </div>
@@ -1252,11 +1252,11 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
               .pp-scroll-track::-webkit-scrollbar { height: 5px; }
               .pp-scroll-track::-webkit-scrollbar-track { background: transparent; }
               .pp-scroll-track::-webkit-scrollbar-thumb {
-                background: rgba(13,148,136,0.25);
+                background: rgba(37,99,235,0.25);
                 border-radius: 100px;
               }
               .pp-scroll-track::-webkit-scrollbar-thumb:hover {
-                background: rgba(13,148,136,0.5);
+                background: rgba(37,99,235,0.5);
               }
               .pp-card {
                 flex-shrink: 0;
@@ -1320,7 +1320,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 font-weight: 800;
                 letter-spacing: 0.12em;
                 text-transform: uppercase;
-                color: #0D9488;
+                color: #2563EB;
                 margin-bottom: 3px;
               }
               .pp-tagline {
@@ -1596,7 +1596,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 <div className="pt-4 border-t border-zinc-100 dark:border-white/5">
                   <button
                     onClick={openCounseling}
-                    className="magnetic-btn w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white font-semibold text-[15px] hover:scale-[1.02] active:scale-95 shadow-[0_4px_20px_rgba(13,148,136,0.3)] cursor-pointer"
+                    className="magnetic-btn w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white font-semibold text-[15px] hover:scale-[1.02] active:scale-95 shadow-[0_4px_20px_rgba(37,99,235,0.3)] cursor-pointer"
                   >
                     Talk to Program Advisor
                   </button>

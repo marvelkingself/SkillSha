@@ -337,9 +337,9 @@ export default function AdminPage() {
         </div>
         <div className="w-full max-w-md bg-white/70 dark:bg-zinc-900/60 backdrop-blur-xl border border-zinc-200/50 dark:border-white/5 rounded-3xl p-8 shadow-[0_20px_50px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
           <div className="text-center mb-8">
-            <Link href="/" className="inline-block mb-4">
-              <img src="/files/logo.svg" alt="SkillSha Logo" className="h-6 w-auto block dark:hidden mx-auto" />
-              <img src="/files/logo-dark.svg" alt="SkillSha Logo" className="h-6 w-auto hidden dark:block mx-auto" />
+            <Link href="/" className="inline-flex items-center justify-center gap-1 mb-4">
+              <img src="/files/logo-icon.png" alt="SkillSha Logo" className="h-9 w-auto object-contain" />
+              <span className="text-lg font-black tracking-tight text-zinc-900 dark:text-white">Skill<span className="text-brand-orange">Sha</span></span>
             </Link>
             <h1 className="text-xl font-bold tracking-tight">Institutional Access Panel</h1>
             <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Please authenticate to access the administration dashboard</p>
@@ -364,7 +364,7 @@ export default function AdminPage() {
 
             <button
               type="submit"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white text-xs font-bold uppercase tracking-wider hover:shadow-[0_4px_20px_rgba(13,148,136,0.3)] transition-all cursor-pointer"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white text-xs font-bold uppercase tracking-wider hover:shadow-[0_4px_20px_rgba(37,99,235,0.3)] transition-all cursor-pointer"
             >
               Verify Credentials
             </button>
@@ -384,9 +384,9 @@ export default function AdminPage() {
       {/* Admin Navbar */}
       <header className="sticky top-0 z-40 bg-[#FAF9F6]/85 dark:bg-[#050505]/85 backdrop-blur-md border-b border-zinc-200/50 dark:border-white/5 py-4 px-6 md:px-12 flex items-center justify-between">
         <div className="flex items-center gap-6">
-          <Link href="/">
-            <img src="/files/logo.svg" alt="SkillSha Logo" className="h-6 w-auto block dark:hidden" />
-            <img src="/files/logo-dark.svg" alt="SkillSha Logo" className="h-6 w-auto hidden dark:block" />
+          <Link href="/" className="flex items-center gap-1">
+            <img src="/files/logo-icon.png" alt="SkillSha Logo" className="h-9 w-auto object-contain" />
+            <span className="text-lg font-black tracking-tight text-zinc-900 dark:text-white">Skill<span className="text-brand-orange">Sha</span></span>
           </Link>
           <span className="hidden sm:inline-block text-[10px] font-bold uppercase tracking-widest text-brand-orange bg-brand-orange/10 px-2 py-0.5 rounded-md">
             Enterprise Admin
@@ -448,7 +448,7 @@ export default function AdminPage() {
               }}
               className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
                 activeTab === tab.id
-                  ? "bg-gradient-to-r from-brand-orange to-brand-red text-white shadow-[0_4px_15px_rgba(13,148,136,0.25)]"
+                  ? "bg-gradient-to-r from-brand-orange to-brand-red text-white shadow-[0_4px_15px_rgba(37,99,235,0.25)]"
                   : "bg-white/50 border border-zinc-200/60 dark:bg-zinc-900/40 dark:border-white/5 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
               }`}
             >

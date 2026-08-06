@@ -86,7 +86,7 @@ export default function RootLayout({
 
         {/* Interactive Cursor Glow Spotlight */}
         <div id="interactive-bg-glow" className="fixed inset-0 pointer-events-none z-[-2] opacity-0 transition-opacity duration-1000 select-none">
-            <div className="absolute w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_closest-side,rgba(13,148,136,0.05),transparent_100%)] dark:bg-[radial-gradient(circle_closest-side,rgba(13,148,136,0.03),transparent_100%)]"></div>
+            <div className="absolute w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_closest-side,rgba(37,99,235,0.05),transparent_100%)] dark:bg-[radial-gradient(circle_closest-side,rgba(37,99,235,0.03),transparent_100%)]"></div>
         </div>
         
         {/* Full-bleed top grid background (hero only) */}

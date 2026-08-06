@@ -153,9 +153,9 @@ export default function CertificatePage() {
               
               <div className="relative z-10 text-center py-8">
                 {/* Logo */}
-                <div className="flex justify-center mb-6">
-                  <img src="/files/logo.svg" alt="SkillSha Logo" className="h-7 w-auto object-contain block dark:hidden" />
-                  <img src="/files/logo-dark.svg" alt="SkillSha Logo" className="h-7 w-auto object-contain hidden dark:block" />
+                <div className="flex items-center justify-center gap-1 mb-6">
+                  <img src="/files/logo-icon.png" alt="SkillSha Logo" className="h-10 w-auto object-contain" />
+                  <span className="text-xl font-black tracking-tight text-zinc-900 dark:text-white">Skill<span className="text-brand-orange">Sha</span></span>
                 </div>
 
                 <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">

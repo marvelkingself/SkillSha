@@ -136,7 +136,7 @@ export default function Hero() {
                 window.dispatchEvent(new Event('openCounselingModal'));
               }
             }}
-            className="magnetic-btn relative inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white font-semibold text-base overflow-hidden transition-all hover:scale-[1.02] active:scale-95 w-full sm:w-fit shadow-[0_0_20px_rgba(13,148,136,0.3)]"
+            className="magnetic-btn relative inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white font-semibold text-base overflow-hidden transition-all hover:scale-[1.02] active:scale-95 w-full sm:w-fit shadow-[0_0_20px_rgba(37,99,235,0.3)]"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
             Start Free counseling
@@ -144,7 +144,7 @@ export default function Hero() {
         </div>
 
         <div className="relative group perspective-1000 w-full">
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden glass-panel p-1 transform transition-all duration-700 hover:shadow-[0_0_40px_rgba(13,148,136,0.2)] border-zinc-200 dark:border-white/10 group-hover:border-brand-orange/50">
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden glass-panel p-1 transform transition-all duration-700 hover:shadow-[0_0_40px_rgba(37,99,235,0.2)] border-zinc-200 dark:border-white/10 group-hover:border-brand-orange/50">
             <div
               className="relative w-full h-full rounded-xl overflow-hidden bg-zinc-900 flex items-center justify-center"
             >
@@ -167,18 +167,18 @@ export default function Hero() {
                     className="absolute inset-0 z-10 cursor-pointer flex items-center justify-center"
                   >
                     {/* Play/Pause Button Overlay */}
-                    <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full bg-transparent border border-white/30 dark:border-white/10 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-brand-orange/60 hover:shadow-[0_0_20px_rgba(13,148,136,0.2)] transform ${isPlaying
+                    <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full bg-transparent border border-white/30 dark:border-white/10 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-brand-orange/60 hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] transform ${isPlaying
                         ? "opacity-0 scale-90 group-hover/video:opacity-100 group-hover/video:scale-100"
                         : "opacity-100 scale-100"
                       }`}>
                       {isPlaying ? (
                         /* Pause icon */
-                        <svg className="w-6 h-6 md:w-7 md:h-7 text-brand-orange drop-shadow-[0_2px_8px_rgba(13,148,136,0.3)]" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-6 h-6 md:w-7 md:h-7 text-brand-orange drop-shadow-[0_2px_8px_rgba(37,99,235,0.3)]" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                         </svg>
                       ) : (
                         /* Play icon */
-                        <svg className="w-6 h-6 md:w-7 md:h-7 text-brand-orange ml-0.5 drop-shadow-[0_2px_8px_rgba(13,148,136,0.3)]" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-6 h-6 md:w-7 md:h-7 text-brand-orange ml-0.5 drop-shadow-[0_2px_8px_rgba(37,99,235,0.3)]" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z" />
                         </svg>
                       )}
@@ -201,8 +201,8 @@ export default function Hero() {
 
                   {/* Play Button Center */}
                   <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none">
-                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-transparent border border-white/30 dark:border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:border-brand-orange/60 group-hover:shadow-[0_0_20px_rgba(13,148,136,0.2)]">
-                      <svg className="w-6 h-6 md:w-7 md:h-7 text-brand-orange ml-0.5 drop-shadow-[0_2px_8px_rgba(13,148,136,0.3)]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-transparent border border-white/30 dark:border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:border-brand-orange/60 group-hover:shadow-[0_0_20px_rgba(37,99,235,0.2)]">
+                      <svg className="w-6 h-6 md:w-7 md:h-7 text-brand-orange ml-0.5 drop-shadow-[0_2px_8px_rgba(37,99,235,0.3)]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                     </div>
                   </div>
 

@@ -105,7 +105,7 @@ export default function Testimonials() {
                     <svg className="w-4 h-4 text-zinc-800 ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                   </div>
                   <div className="absolute bottom-5 left-0 right-0 flex justify-center opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-brand-orange text-white text-sm md:text-sm font-bold py-1.5 px-6 rounded-full shadow-[0_4px_14px_rgba(13,148,136,0.3)] transform group-hover:-translate-y-1 transition-transform duration-300">
+                    <div className="bg-brand-orange text-white text-sm md:text-sm font-bold py-1.5 px-6 rounded-full shadow-[0_4px_14px_rgba(37,99,235,0.3)] transform group-hover:-translate-y-1 transition-transform duration-300">
                       {t.name}
                     </div>
                   </div>

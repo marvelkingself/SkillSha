@@ -28,9 +28,9 @@ export default function Footer() {
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6 mb-10">
                 {/* Brand */}
                 <div className="col-span-2">
-                    <div className="flex items-center gap-2 mb-4">
-                        <img src="/files/logo.svg" alt="SkillSha" className="h-8 w-auto block dark:hidden" />
-                        <img src="/files/logo-dark.svg" alt="SkillSha" className="h-8 w-auto hidden dark:block" />
+                    <div className="flex items-center gap-1 mb-4">
+                        <img src="/files/logo-icon.png" alt="SkillSha" className="h-11 w-auto object-contain" />
+                        <span className="text-xl font-black tracking-tight text-zinc-900 dark:text-white">Skill<span className="text-brand-orange">Sha</span></span>
                     </div>
                     <p className="text-zinc-500 dark:text-zinc-400 text-[13px] leading-relaxed mb-5 max-w-sm">India&apos;s leading AI-native academy for creators, founders, and engineers. We train the next generation of digital builders through project-based, mentor-led programs.</p>
                     {!subscribed ? (
