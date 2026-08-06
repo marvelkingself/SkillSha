@@ -154,7 +154,7 @@ export default function Hero() {
                   <iframe 
                     ref={iframeRef}
                     className="w-full h-full absolute inset-0 pointer-events-none" 
-                    src="https://www.youtube.com/embed/ZYf92LLh_R0?enablejsapi=1&controls=0&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
+                    src="https://www.youtube.com/watch?v=sgVJPhMHnys" 
                     title="YouTube video player" 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
