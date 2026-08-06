@@ -191,7 +191,14 @@ export default function Hero() {
                   className="relative w-full h-full cursor-pointer"
                   onClick={() => setVideoOpen(true)}
                 >
-                  <div className="absolute inset-0 bg-[url('/files/hero-placeholder.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-1000"></div>
+                  {/* <div className="absolute inset-0 bg-[url('/files/hero-placeholder.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-1000"></div> */}
+
+                  <div
+    className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
+    style={{
+        backgroundImage: "url('https://img.youtube.com/vi/sgVJPhMHnys/maxresdefault.jpg')"
+    }}
+></div>
                   
                   {/* Play Button Center */}
                   <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none">
