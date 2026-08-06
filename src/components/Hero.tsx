@@ -37,7 +37,7 @@ export default function Hero() {
       tag.src = "https://www.youtube.com/iframe_api";
       const firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-      
+
       const previousCallback = (window as any).onYouTubeIframeAPIReady;
       (window as any).onYouTubeIframeAPIReady = () => {
         if (previousCallback) previousCallback();
@@ -57,7 +57,7 @@ export default function Hero() {
       if (playerRef.current) {
         try {
           playerRef.current.destroy();
-        } catch (e) {}
+        } catch (e) { }
         playerRef.current = null;
       }
     };
@@ -80,7 +80,7 @@ export default function Hero() {
           const target = +(el.getAttribute('data-target') || 0);
           const suffix = el.getAttribute('data-suffix') || '';
           const decimal = el.getAttribute('data-decimal') === 'true';
-          
+
           let t0: number | null = null;
           const tick = (ts: number) => {
             if (!t0) t0 = ts;
@@ -97,7 +97,7 @@ export default function Hero() {
 
     const el = document.getElementById('hero-stats');
     if (el) observer.observe(el);
-    
+
     return () => observer.disconnect();
   }, []);
 
@@ -109,11 +109,11 @@ export default function Hero() {
             <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"></div>
             <span className="text-[10px] font-bold uppercase tracking-widest text-brand-orange">AI-Native Academy</span>
           </div>
-          
+
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-4">
             Learn Future-Proof Skills By Building <span className="text-gradient">Real Systems</span>
           </h1>
-          
+
           <p className="text-zinc-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed mb-6 max-w-lg">
             A compact, intensive ecosystem for creators, founders, and engineers building the next generation of digital tools.
           </p>
@@ -129,7 +129,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <button 
+          <button
             onClick={(e) => {
               e.preventDefault();
               if (typeof window !== 'undefined') {
@@ -145,42 +145,41 @@ export default function Hero() {
 
         <div className="relative group perspective-1000 w-full">
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden glass-panel p-1 transform transition-all duration-700 hover:shadow-[0_0_40px_rgba(13,148,136,0.2)] border-zinc-200 dark:border-white/10 group-hover:border-brand-orange/50">
-            <div 
+            <div
               className="relative w-full h-full rounded-xl overflow-hidden bg-zinc-900 flex items-center justify-center"
             >
               {videoOpen ? (
                 <div className="relative w-full h-full group/video">
                   {/* YouTube Iframe with pointer-events-none */}
-                  <iframe 
+                  <iframe
                     ref={iframeRef}
-                    className="w-full h-full absolute inset-0 pointer-events-none" 
-                    src="https://www.youtube.com/embed/ZYf92LLh_R0?enablejsapi=1&controls=0&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=0" 
-                    title="YouTube video player" 
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    className="w-full h-full absolute inset-0 pointer-events-none"
+                    src="https://www.youtube.com/embed/sgVJPhMHnys?enablejsapi=1&controls=0&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=0"
+                    title="Skillsha | IT Training Institute"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                   ></iframe>
-                  
+
                   {/* Custom Interceptor Overlay */}
-                  <div 
+                  <div
                     onClick={togglePlay}
                     className="absolute inset-0 z-10 cursor-pointer flex items-center justify-center"
                   >
                     {/* Play/Pause Button Overlay */}
-                    <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full bg-transparent border border-white/30 dark:border-white/10 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-brand-orange/60 hover:shadow-[0_0_20px_rgba(13,148,136,0.2)] transform ${
-                      isPlaying 
-                        ? "opacity-0 scale-90 group-hover/video:opacity-100 group-hover/video:scale-100" 
+                    <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full bg-transparent border border-white/30 dark:border-white/10 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-brand-orange/60 hover:shadow-[0_0_20px_rgba(13,148,136,0.2)] transform ${isPlaying
+                        ? "opacity-0 scale-90 group-hover/video:opacity-100 group-hover/video:scale-100"
                         : "opacity-100 scale-100"
-                    }`}>
+                      }`}>
                       {isPlaying ? (
                         /* Pause icon */
                         <svg className="w-6 h-6 md:w-7 md:h-7 text-brand-orange drop-shadow-[0_2px_8px_rgba(13,148,136,0.3)]" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                         </svg>
                       ) : (
                         /* Play icon */
                         <svg className="w-6 h-6 md:w-7 md:h-7 text-brand-orange ml-0.5 drop-shadow-[0_2px_8px_rgba(13,148,136,0.3)]" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
+                          <path d="M8 5v14l11-7z" />
                         </svg>
                       )}
                     </div>
@@ -191,20 +190,27 @@ export default function Hero() {
                   className="relative w-full h-full cursor-pointer"
                   onClick={() => setVideoOpen(true)}
                 >
-                  <div className="absolute inset-0 bg-[url('/files/hero-placeholder.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-1000"></div>
+                  {/* <div className="absolute inset-0 bg-[url('/files/hero-placeholder.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-1000"></div> */}
+
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
+                    style={{
+                      backgroundImage: "url('https://img.youtube.com/vi/sgVJPhMHnys/maxresdefault.jpg')"
+                    }}
+                  ></div>
 
                   {/* Play Button Center */}
                   <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none">
-                      <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-transparent border border-white/30 dark:border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:border-brand-orange/60 group-hover:shadow-[0_0_20px_rgba(13,148,136,0.2)]">
-                          <svg className="w-6 h-6 md:w-7 md:h-7 text-brand-orange ml-0.5 drop-shadow-[0_2px_8px_rgba(13,148,136,0.3)]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                      </div>
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-transparent border border-white/30 dark:border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:border-brand-orange/60 group-hover:shadow-[0_0_20px_rgba(13,148,136,0.2)]">
+                      <svg className="w-6 h-6 md:w-7 md:h-7 text-brand-orange ml-0.5 drop-shadow-[0_2px_8px_rgba(13,148,136,0.3)]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                    </div>
                   </div>
 
                   <div className="absolute bottom-4 left-5 right-5 z-10 flex justify-between items-end pointer-events-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                      <div>
-                          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-1">Build, don&apos;t spectate.</h2>
-                          <p className="text-xs text-zinc-300 font-medium">Click to watch video</p>
-                      </div>
+                    <div>
+                      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-1">Build, don&apos;t spectate.</h2>
+                      <p className="text-xs text-zinc-300 font-medium">Click to watch video</p>
+                    </div>
                   </div>
                 </div>
               )}
@@ -230,7 +236,7 @@ export default function Hero() {
           </div>
           <div className="stat-counter glass-panel rounded-2xl border border-zinc-200 dark:border-white/8 p-4 md:p-5 text-center hover:border-brand-orange/30 transition-all duration-300">
             <div className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-0.5 flex items-center justify-center gap-1">
-              <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
               <span data-target="4.9" data-suffix="" data-decimal="true">0</span>
             </div>
             <div className="text-[11px] md:text-xs text-zinc-500 dark:text-zinc-400 font-medium uppercase tracking-wider">Rating</div>
@@ -242,7 +248,7 @@ export default function Hero() {
       <section className="mt-6 animate-reveal delay-100 active max-w-full">
         <div className="border border-zinc-200 dark:border-white/10 rounded-[24px] p-4 md:p-8 bg-white dark:bg-white/[0.02] dark:backdrop-blur-xl shadow-sm transition-colors duration-300 overflow-hidden relative">
           <p className="text-[13px] md:text-[15px] text-zinc-500 dark:text-[#9CA3AF] mb-4 md:mb-5 font-medium pl-1 text-center md:text-left">Trusted Technologies & Industry Ecosystems</p>
-          
+
           <div className="marquee-track flex gap-3 md:gap-4 select-none">
             {/* Array mapped twice for seamless infinite scroll */}
             {[1, 2].map((group) => (
