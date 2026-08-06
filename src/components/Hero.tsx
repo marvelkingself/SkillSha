@@ -151,15 +151,15 @@ export default function Hero() {
               {videoOpen ? (
                 <div className="relative w-full h-full group/video">
                   {/* YouTube Iframe with pointer-events-none */}
-                  <iframe 
-                    ref={iframeRef}
-                    className="w-full h-full absolute inset-0 pointer-events-none" 
-                    src="https://www.youtube.com/embed/sgVJPhMHnys?rel=0" 
-                    title="YouTube video player" 
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerPolicy="strict-origin-when-cross-origin"
-                  ></iframe>
+                 <iframe
+  ref={iframeRef}
+  className="w-full h-full absolute inset-0 pointer-events-none"
+  src="https://www.youtube.com/embed/sgVJPhMHnys?enablejsapi=1&controls=0&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=0"
+  title="Decobens Interior Design"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerPolicy="strict-origin-when-cross-origin"
+></iframe>
                   
                   {/* Custom Interceptor Overlay */}
                   <div 
