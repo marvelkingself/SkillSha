@@ -4,8 +4,8 @@ import "./globals.css";
 import GlobalInteraction from "@/components/GlobalInteraction";
 
 export const metadata: Metadata = {
-  title: "SkillSha | Professional AI & Engineering Education",
-  description: "Master AI Engineering, Full-Stack Development, UI/UX, and Product Management.",
+  title: "SkillSha | Best IT Training Institute in Noida",
+  description: "SkillSha is a live, mentor-led IT training institute in Noida offering AI Engineering, Full-Stack Development, UI/UX Design, and Product Management programs with placement assistance.",
 };
 
 export default function RootLayout({

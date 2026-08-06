@@ -111,11 +111,11 @@ export default function Hero() {
           </div>
 
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-4">
-            Learn Future-Proof Skills By Building <span className="text-gradient">Real Systems</span>
+            Best IT Training Institute in <span className="text-gradient">Noida</span>
           </h1>
 
           <p className="text-zinc-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed mb-6 max-w-lg">
-            A compact, intensive ecosystem for creators, founders, and engineers building the next generation of digital tools.
+            Learn future-proof skills in AI Engineering, Full-Stack Development, UI/UX Design, and more. Build real, deployed systems with mentors who&apos;ve shipped at OpenAI, Meta, and Stripe. Live cohorts running across Noida, Delhi, and 10+ other cities.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mb-6 text-sm text-zinc-700 dark:text-zinc-300 font-medium">
