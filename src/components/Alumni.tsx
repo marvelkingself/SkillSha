@@ -342,10 +342,10 @@ export default function Alumni() {
         
         <div className="w-full lg:w-[35%] flex flex-col items-center lg:items-start text-center lg:text-left z-10 shrink-0">
           <h2 className="text-3xl md:text-4xl lg:text-[40px] font-light text-zinc-900 dark:text-white leading-[1.1] tracking-tight mb-3 md:mb-4">
-            Strong <span className="font-semibold text-brand-orange">Alumni base</span>
+            Strong <span className="font-semibold text-brand-orange">Alumni Base</span> at SkillSha
           </h2>
           <p className="text-zinc-500 dark:text-zinc-400 text-[14px] md:text-base lg:text-lg leading-relaxed mb-0 max-w-md">
-            Our alumni are entrepreneurs who have raised capital, leaders working with Founders directly in fast growing startups.
+            SkillSha&apos;s alumni network includes entrepreneurs who&apos;ve raised startup capital, along with leaders now working directly with founders at fast-growing companies.
           </p>
         </div>
         
@@ -432,9 +432,9 @@ export function AlumniCompanies() {
         <div className="text-center mb-10 px-4">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-orange mb-3">Alumni Network</p>
           <h2 className="text-2xl md:text-[36px] font-semibold text-zinc-900 dark:text-white leading-tight">
-            Our Alumni Work at <span className="text-gradient">the Best Companies</span>
+            SkillSha Alumni Work at <span className="text-gradient">the Best Companies</span>
           </h2>
-          <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-2">Placed across 500+ companies worldwide.</p>
+          <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-2">SkillSha graduates placed across 500+ companies worldwide.</p>
         </div>
 
         <div className="relative">

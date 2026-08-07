@@ -35,10 +35,10 @@ const programs: Program[] = [
       </svg>
     ),
     title: 'AI Engineering',
-    subtitle: 'Build AI Systems For The Modern Economy',
-    description: 'Learn prompt engineering, AI automation, LLM workflows, AI agents, and enterprise AI systems through practical implementation and real-world projects.',
+    subtitle: 'Become Job-Ready in AI Systems',
+    description: "SkillSha's AI Engineering course covers prompt engineering, AI agents, workflow automation, and enterprise LLM applications through hands-on, real-world projects.",
     duration: '20 Weeks',
-    salary: '₹ 8.9 LPA',
+    salary: '₹12L+',
     svgBg: (
       <svg className="w-20 h-20 text-brand-orange/[0.08] dark:text-brand-orange/[0.05] mr-[-10px] mt-[-5px] animate-spin-slow" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
         <circle cx="50" cy="50" r="30" strokeDasharray="4 4"/>
@@ -64,8 +64,8 @@ const programs: Program[] = [
       { name: 'Prompt Engineering', domain: 'openai.com' },
       { name: 'AI Agents', domain: 'openai.com' },
       { name: 'Workflow Automation', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400 flex-shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> },
-      { name: 'Chatbot Systems', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-rose-400 flex-shrink-0"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> },
-      { name: 'LLM Applications', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400 flex-shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> },
+      { name: 'Chatbots', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-rose-400 flex-shrink-0"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> },
+      { name: 'LLM Apps', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400 flex-shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> },
       { name: 'AI Product Building', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400 flex-shrink-0"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg> },
     ],
     professions: ['developer', 'marketer', 'ca', 'doctor', 'nurse', 'lawyer', 'corporate']
@@ -74,10 +74,10 @@ const programs: Program[] = [
     id: 'full-stack-development',
     icon: 'code',
     title: 'Full-Stack Development',
-    subtitle: 'Build Modern Web Applications',
-    description: 'Master frontend, backend, databases, APIs, cloud infrastructure, and deployment systems used by modern startups and SaaS companies.',
+    subtitle: 'Become a Job-Ready Full-Stack Developer',
+    description: 'Learn modern frontend, backend, database, API, and cloud deployment skills used by startups and SaaS companies at SkillSha, Noida.',
     duration: '20 Weeks',
-    salary: '₹ 8.9 LPA',
+    salary: '₹12L+',
     svgBg: (
       <svg className="w-20 h-20 text-brand-orange/[0.08] dark:text-brand-orange/[0.05] mr-[-10px] mt-[-5px] animate-pulse-soft" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
         <rect x="10" y="15" width="80" height="20" rx="4"/>
@@ -94,7 +94,7 @@ const programs: Program[] = [
       { name: 'Node.js', domain: 'nodejs.org' },
       { name: 'APIs & Databases', domain: 'postgresql.org' },
       { name: 'Cloud Deployment', domain: 'aws.amazon.com' },
-      { name: 'Authentication', domain: 'auth0.com' },
+      { name: 'Auth', domain: 'auth0.com' },
       { name: 'SaaS Architecture', domain: 'stripe.com' },
     ],
     professions: ['developer']
@@ -103,10 +103,10 @@ const programs: Program[] = [
     id: 'digital-marketing',
     icon: 'ads_click',
     title: 'Digital Marketing',
-    subtitle: 'Learn Growth & Digital Marketing Systems',
-    description: 'Build high-converting campaigns across Meta, Google, YouTube, and modern digital channels using data-driven marketing strategies.',
+    subtitle: 'Master Growth Marketing with SkillSha',
+    description: "Build data-driven, high-converting campaigns across Meta Ads, Google Ads, and YouTube through SkillSha's practical digital marketing training.",
     duration: '20 Weeks',
-    salary: '₹ 8.9 LPA',
+    salary: '₹12L+',
     svgBg: (
       <svg className="w-20 h-20 text-brand-orange/[0.08] dark:text-brand-orange/[0.05] mr-[-10px] mt-[-5px] animate-float" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
         <path d="M0 80 Q 25 50, 50 60 T 100 20" strokeWidth="1.5"/>
@@ -132,10 +132,10 @@ const programs: Program[] = [
     id: 'ui-ux-design',
     icon: 'polyline',
     title: 'UI/UX Design',
-    subtitle: 'Design Premium Digital Experiences',
-    description: 'Learn interface design, UX systems, motion design, and modern product thinking for apps, SaaS products, and digital brands.',
+    subtitle: 'Design Careers Start Here',
+    description: "SkillSha's UI/UX design course trains you in interface design, UX systems, and motion design for modern apps and SaaS products.",
     duration: '20 Weeks',
-    salary: '₹ 8.9 LPA',
+    salary: '₹12L+',
     svgBg: (
       <svg className="w-20 h-20 text-brand-orange/[0.08] dark:text-brand-orange/[0.05] mr-[-10px] mt-[-5px] animate-float" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
         <path d="M10 50 C 30 20, 70 80, 90 50" strokeWidth="1.5"/>
@@ -161,10 +161,10 @@ const programs: Program[] = [
     id: 'data-science-ai',
     icon: 'database',
     title: 'Data Science & AI',
-    subtitle: 'Turn Data Into Intelligent Decisions',
-    description: 'Master Python, analytics, machine learning, predictive systems, and AI-powered data workflows.',
+    subtitle: 'Launch a Career in Data Science',
+    description: "Master Python, machine learning, predictive modeling, and AI-driven data workflows with SkillSha's hands-on data science training program.",
     duration: '20 Weeks',
-    salary: '₹ 8.9 LPA',
+    salary: '₹12L+',
     svgBg: (
       <svg className="w-20 h-20 text-brand-orange/[0.08] dark:text-brand-orange/[0.05] mr-[-10px] mt-[-5px] animate-pulse-soft" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
         <circle cx="30" cy="30" r="4" fill="currentColor"/>
@@ -191,10 +191,10 @@ const programs: Program[] = [
     id: 'product-management',
     icon: 'route',
     title: 'Product Management',
-    subtitle: 'Build Products People Actually Use',
-    description: 'Learn product strategy, user research, growth systems, and execution frameworks used by successful technology companies.',
+    subtitle: 'Become a Job-Ready Product Manager',
+    description: "Learn product strategy, user research, and growth frameworks used by top tech companies through SkillSha's product management program.",
     duration: '20 Weeks',
-    salary: '₹ 8.9 LPA',
+    salary: '₹12L+',
     svgBg: (
       <svg className="w-20 h-20 text-brand-orange/[0.08] dark:text-brand-orange/[0.05] mr-[-10px] mt-[-5px] animate-float" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
         <line x1="10" y1="20" x2="90" y2="20" strokeDasharray="2 2"/>
@@ -209,10 +209,10 @@ const programs: Program[] = [
     includes: [
       { name: 'Product Strategy', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-violet-400 flex-shrink-0"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> },
       { name: 'User Research', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400 flex-shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> },
-      { name: 'Product Analytics', domain: 'analytics.google.com' },
+      { name: 'Analytics', domain: 'analytics.google.com' },
       { name: 'Roadmapping', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-violet-400 flex-shrink-0"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> },
       { name: 'Growth Systems', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-orange-400 flex-shrink-0"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg> },
-      { name: 'Agile Workflows', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-violet-400 flex-shrink-0"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> },
+      { name: 'Agile', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-violet-400 flex-shrink-0"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> },
     ],
     professions: ['corporate', 'developer']
   },
@@ -221,9 +221,9 @@ const programs: Program[] = [
     icon: 'candlestick_chart',
     title: 'Algorithmic Trading',
     subtitle: 'Build Automated Trading Systems',
-    description: 'Learn quantitative trading, automated execution systems, market analysis, and financial data modeling.',
+    description: 'SkillSha teaches quantitative trading, automated execution, and financial data modeling for careers in algorithmic and fintech trading.',
     duration: '20 Weeks',
-    salary: '₹ 8.9 LPA',
+    salary: '₹12L+',
     svgBg: (
       <svg className="w-20 h-20 text-brand-orange/[0.08] dark:text-brand-orange/[0.05] mr-[-10px] mt-[-5px] animate-pulse-soft" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
         <rect x="20" y="30" width="10" height="40" rx="1"/>
@@ -236,23 +236,23 @@ const programs: Program[] = [
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-rose-500"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
     ),
     includes: [
-      { name: 'Quantitative Strategies', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-rose-400 flex-shrink-0"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> },
+      { name: 'Quant Strategies', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-rose-400 flex-shrink-0"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> },
       { name: 'Trading Bots', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-rose-400 flex-shrink-0"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> },
       { name: 'Financial Data', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-cyan-400 flex-shrink-0"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg> },
       { name: 'Risk Management', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-rose-400 flex-shrink-0"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> },
-      { name: 'Python For Trading', domain: 'python.org' },
-      { name: 'Automation Systems', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-400 flex-shrink-0"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg> },
+      { name: 'Python', domain: 'python.org' },
+      { name: 'Automation', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-400 flex-shrink-0"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg> },
     ],
     professions: ['ca', 'corporate']
   },
   {
     id: 'graphic-designing',
     icon: 'brush',
-    title: 'Graphic Designing',
-    subtitle: 'Master Visual Design & Brand Identity',
-    description: 'Learn professional graphic design. Master color theory, vector illustrations, editorial layout, and logo design using Figma, Photoshop & Illustrator.',
+    title: 'Graphic Design',
+    subtitle: 'Master Visual Design with SkillSha',
+    description: "Learn brand identity, typography, and illustration using Figma, Photoshop, and Illustrator through SkillSha's professional graphic design course.",
     duration: '20 Weeks',
-    salary: '₹ 8.9 LPA',
+    salary: '₹12L+',
     svgBg: (
       <svg className="w-20 h-20 text-brand-orange/[0.08] dark:text-brand-orange/[0.05] mr-[-10px] mt-[-5px] animate-float" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
         <rect x="20" y="20" width="60" height="60" rx="4"/>
@@ -264,11 +264,11 @@ const programs: Program[] = [
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-fuchsia-500"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.63-.77 1.63-1.7 0-.43-.16-.83-.41-1.16a.81.81 0 0 1-.16-.48c0-.44.35-.79.79-.79H15c4.97 0 9-4.03 9-9 0-4.97-4.03-9-9-9Z"/></svg>
     ),
     includes: [
-      { name: 'Adobe Illustrator', domain: 'adobe.com' },
-      { name: 'Adobe Photoshop', domain: 'adobe.com' },
+      { name: 'Illustrator', domain: 'adobe.com' },
+      { name: 'Photoshop', domain: 'adobe.com' },
       { name: 'Figma', domain: 'figma.com' },
       { name: 'Brand Identity', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-fuchsia-400 flex-shrink-0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> },
-      { name: 'Typography Systems', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-violet-400 flex-shrink-0"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg> },
+      { name: 'Typography', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-violet-400 flex-shrink-0"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg> },
       { name: 'Visual Hierarchy', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-orange-400 flex-shrink-0"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="9" y2="18"/></svg> },
     ],
     professions: ['designer', 'marketer']
@@ -277,10 +277,10 @@ const programs: Program[] = [
     id: 'mental-health-wellness',
     icon: 'self_care',
     title: 'Mental Health & Wellness',
-    subtitle: 'Build Modern Wellness Businesses',
-    description: 'Learn coaching systems, wellness branding, community building, and digital wellness business models.',
+    subtitle: 'Build a Wellness Business',
+    description: "SkillSha's wellness program covers coaching systems, branding, and community building for launching modern digital wellness businesses.",
     duration: '20 Weeks',
-    salary: '₹ 8.9 LPA',
+    salary: '₹12L+',
     svgBg: (
       <svg className="w-20 h-20 text-brand-orange/[0.08] dark:text-brand-orange/[0.05] mr-[-10px] mt-[-5px] animate-pulse-soft" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
         <circle cx="50" cy="50" r="40" strokeDasharray="4 4"/>
@@ -295,8 +295,7 @@ const programs: Program[] = [
       { name: 'Community Building', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-pink-400 flex-shrink-0"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> },
       { name: 'Digital Wellness', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal-400 flex-shrink-0"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> },
       { name: 'Personal Branding', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400 flex-shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> },
-      { name: 'Program Creation', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400 flex-shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> },
-      { name: 'Biohacking Fundamentals', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-teal-400 flex-shrink-0"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> },
+      { name: 'Program Design', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400 flex-shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> },
     ],
     professions: ['doctor', 'nurse']
   }
@@ -430,8 +429,8 @@ export default function Programs({ className = "mt-24" }: { className?: string }
           </span>
           <span className="text-[11px] font-semibold text-zinc-600 dark:text-zinc-300 uppercase tracking-widest">Industry-Led Programs</span>
         </div>
-        <h2 className="text-[32px] md:text-[42px] font-bold tracking-tight text-zinc-900 dark:text-white mb-4 leading-[1.1]"><span className="text-brand-orange">Build</span> Real Skills.<br className="md:hidden" /> Ship Real Products.</h2>
-        <p className="text-[14px] md:text-[16px] text-zinc-500 dark:text-[#9CA3AF] leading-relaxed max-w-[600px] font-medium">Skip the theory. Learn directly from operators who have built products at OpenAI, Meta, Stripe, and Framer.</p>
+        <h2 className="text-[32px] md:text-[42px] font-bold tracking-tight text-zinc-900 dark:text-white mb-4 leading-[1.1]"><span className="text-brand-orange">Build</span> Real Skills.<br className="md:hidden" /> Launch Real Products with SkillSha.</h2>
+        <p className="text-[14px] md:text-[16px] text-zinc-500 dark:text-[#9CA3AF] leading-relaxed max-w-[600px] font-medium">Learn directly from industry operators who&apos;ve built products at OpenAI, Meta, and Framer — not just theory-based trainers.</p>
       </div>
 
       <div className="max-w-7xl mx-auto px-1.5 md:px-0">

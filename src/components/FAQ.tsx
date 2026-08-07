@@ -3,32 +3,32 @@ import { useState } from "react";
 
 const FAQS = [
   {
-    q: "Which SkillSha course is best for a complete beginner?",
-    a: "Full-Stack Development and UI/UX Design are our most beginner-friendly programs. No prior coding or design experience is required. Our counseling team maps your background to the right track during the free demo session.",
+    q: "Which SkillSha course is best for beginners in Noida?",
+    a: "SkillSha's Full-Stack Development and UI/UX Design courses are ideal for beginners — no prior coding or design experience is needed. Our counselling team recommends the right track during your free demo session.",
   },
   {
-    q: "Does SkillSha offer a placement guarantee?",
-    a: "We provide structured placement assistance for every graduating batch, including resume reviews, mock interviews, and direct referrals to our 500+ hiring partners. We don't promise a guaranteed job offer, since outcomes depend on individual performance, but our placement rate is published and verifiable.",
+    q: "Does SkillSha provide a certificate after course completion?",
+    a: "Yes, SkillSha issues a verifiable, industry-recognized certificate to every student who completes their course and final capstone project.",
   },
   {
-    q: "Are classes online, offline, or hybrid?",
-    a: "All programs run live online with mentor-led sessions, so you can join from Noida, Delhi, Gurugram, or any other city we serve. Recordings are provided for every session.",
+    q: "How is SkillSha different from free YouTube courses?",
+    a: "SkillSha combines structured mentor-led training, live doubt-solving, real projects, and placement support — advantages free YouTube content cannot offer.",
   },
   {
-    q: "How long are the courses and what is the fee structure?",
-    a: "Most programs run 12 to 20 weeks depending on the track. Fees vary by course, so check the individual course page for exact pricing, EMI options, and scholarship eligibility.",
+    q: "Does SkillSha guarantee placement after training?",
+    a: "SkillSha provides complete placement assistance — resume support, mock interviews, and direct referrals — though final outcomes depend on individual performance.",
   },
   {
-    q: "Do I get a certificate after completing the course?",
-    a: "Yes. Every graduate receives a verifiable SkillSha certificate with a unique credential ID that can be checked on our certificate verification page.",
+    q: "Can SkillSha students switch batches after missing a class?",
+    a: "Yes, all SkillSha sessions are recorded, and students can freely switch to any parallel batch without losing their progress.",
   },
   {
-    q: "What is the difference between SkillSha and free YouTube courses?",
-    a: "Free content teaches concepts, while SkillSha builds job-ready skills through live mentorship, structured projects, code reviews, and placement support. That accountability and feedback loop is what self-paced free content can't replicate.",
+    q: "Does SkillSha offer online, offline, or hybrid classes?",
+    a: "SkillSha offers online, offline, and hybrid IT training formats across Noida, and online classes in Delhi and other pan-Indian cities.",
   },
   {
-    q: "Can I switch batches if I miss a live session?",
-    a: "Yes, all sessions are recorded and batch transfers are supported within the same program, subject to seat availability.",
+    q: "What is the course duration and fee structure at SkillSha?",
+    a: "Most SkillSha courses run for 20 weeks with affordable, EMI-friendly pricing that varies slightly by course and city.",
   },
 ];
 

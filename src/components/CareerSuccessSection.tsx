@@ -1,14 +1,8 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { CITIES_LIST } from "@/data/cities";
-import { COURSES_DATA } from "@/data/courses";
-import { JourneySection } from "@/components/JourneySection/JourneySection";
 
 export default function CareerSuccessSection() {
-  const defaultCourseId = Object.keys(COURSES_DATA)[0] || "ai-engineering";
-
   const triggerCounselingModal = (e: React.MouseEvent) => {
     e.preventDefault();
     if (typeof window !== "undefined") {
@@ -18,63 +12,6 @@ export default function CareerSuccessSection() {
 
   return (
     <section id="career-success" className="mt-20 mb-24 max-w-full px-1 md:px-0 space-y-24">
-
-      {/* ── Sub-section 1: Cities & Local SEO ─────────────────────── */}
-      <div className="relative overflow-hidden rounded-[32px] border border-zinc-200/80 dark:border-white/5 bg-white/50 dark:bg-white/[0.01] backdrop-blur-xl p-8 md:p-12 shadow-sm animate-reveal">
-        {/* Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-brand-orange/[0.04] dark:bg-brand-orange/[0.02] rounded-full blur-[100px] pointer-events-none -z-10" />
-
-        <div className="text-center max-w-[800px] mx-auto mb-10">
-          <div className="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 dark:bg-white/5 border border-brand-orange/20 dark:border-white/10 mb-4">
-            <span className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-brand-orange dark:text-zinc-300">
-              Local Career Centers
-            </span>
-          </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-zinc-900 dark:text-white mb-4 leading-tight">
-            IT Training Courses Available In
-          </h2>
-          <p className="text-zinc-500 dark:text-zinc-400 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
-            Find your nearest city and start your journey with Skillsha's industry-focused IT training programs.
-          </p>
-        </div>
-
-        {/* City Chips Wrap */}
-        <nav className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto">
-          {CITIES_LIST.map((city) => (
-            <Link
-              key={city.slug}
-              href={`/${defaultCourseId}/${city.slug}`}
-              className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-full bg-white dark:bg-[#0c0c0c] border border-zinc-200 dark:border-white/10 hover:border-brand-orange/45 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(37,99,235,0.08)] dark:hover:shadow-[0_8px_20px_rgba(37,99,235,0.05)] transition-all duration-300 group font-semibold text-[12px] md:text-sm text-zinc-800 dark:text-zinc-200"
-            >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-orange"></span>
-              </span>
-              {city.name}
-            </Link>
-          ))}
-        </nav>
-      </div>
-
-      {/* ── Sub-section 2: Interactive Career Journey ────────────── */}
-      <div className="space-y-8 animate-reveal delay-100">
-        <div className="text-center max-w-[800px] mx-auto">
-          <div className="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 dark:bg-white/5 border border-brand-orange/20 dark:border-white/10 mb-2">
-            <span className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-brand-orange dark:text-zinc-300">
-              The Path to Growth
-            </span>
-          </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-zinc-900 dark:text-white mb-2 leading-tight">
-            Your Journey to a Successful Tech Career
-          </h2>
-          <p className="text-zinc-500 dark:text-zinc-400 text-sm md:text-base leading-relaxed">
-            Click on each milestone step below to preview how we align your training to actual industry standards.
-          </p>
-        </div>
-
-        {/* Modular Animated Career Journey Map */}
-        <JourneySection />
-      </div>
 
       {/* ── Sub-section 3: Learning Comparison ──────────────────── */}
       <div className="space-y-12 animate-reveal delay-200">

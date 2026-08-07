@@ -29,11 +29,11 @@ export default function Comparison() {
       <div className="mb-10 text-center md:text-left">
         <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4 mb-3 justify-center md:justify-start">
           <h2 className="text-[24px] md:text-4xl lg:text-[40px] font-semibold text-zinc-900 dark:text-white leading-[1.1] tracking-tight">
-            Why Not Just Free YouTube Courses?
+            SkillSha vs. Free YouTube Courses — What&apos;s the Difference?
           </h2>
           <span className="bg-brand-orange text-white text-[11px] md:text-xs font-bold uppercase tracking-wider py-1.5 px-3 rounded shadow-sm w-max mx-auto md:mx-0">Comparison</span>
         </div>
-        <p className="text-zinc-500 dark:text-zinc-400 text-[13px] md:text-[15px]">SkillSha vs. other institutes vs. self-taught free content.</p>
+        <p className="text-zinc-500 dark:text-zinc-400 text-[13px] md:text-[15px]">Compare SkillSha&apos;s structured training against other institutes and free self-taught content.</p>
       </div>
 
       {/* Desktop table */}

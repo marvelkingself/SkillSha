@@ -1,29 +1,6 @@
 import React from "react";
 
 export default function WhyChooseSkillsha() {
-  const faqs = [
-    {
-      q: "Why should you choose Skillsha for IT training?",
-      a: "Skillsha combines practical learning, real-world projects, expert trainers, and placement assistance to prepare students for successful IT careers instead of only providing theoretical knowledge.",
-    },
-    {
-      q: "Does Skillsha provide live project experience?",
-      a: "Yes. Students work on real-world projects using modern technologies and industry workflows, helping them build strong portfolios and practical experience.",
-    },
-    {
-      q: "Does Skillsha help students with placements?",
-      a: "Yes. Skillsha provides placement assistance including resume optimization, mock interviews, interview preparation, and career guidance.",
-    },
-    {
-      q: "Are the trainers certified and experienced?",
-      a: "Yes. Our trainers are experienced software professionals with real industry expertise and hands-on development experience.",
-    },
-    {
-      q: "Are flexible class timings available?",
-      a: "Yes. Skillsha offers weekday, weekend, and flexible batches suitable for students and working professionals.",
-    },
-  ];
-
   return (
     <section id="why-choose-skillsha" className="mt-20 mb-24 max-w-full px-1 md:px-0">
       {/* Redesigned Premium Section Header */}
@@ -252,63 +229,6 @@ export default function WhyChooseSkillsha() {
               </div>
             </div>
           </div>
-        </div>
-
-      </div>
-
-      {/* Redesigned GEO FAQ Section: Premium Split Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pt-16 border-t border-zinc-200/80 dark:border-white/5">
-        
-        {/* Left Side: GEO Context & Intro */}
-        <section className="lg:col-span-5 flex flex-col justify-between animate-reveal">
-          <div className="max-w-md">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 border border-emerald-500/20 text-emerald-500 text-[10px] font-bold uppercase tracking-wider mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              Knowledge base
-            </div>
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-zinc-900 dark:text-white mb-5 tracking-tight leading-tight">
-              Why should you choose Skillsha for IT training?
-            </h2>
-            <p className="text-zinc-500 dark:text-zinc-400 text-sm md:text-base leading-relaxed mb-6 font-medium">
-              Skillsha focuses on practical learning, live projects, experienced mentors, and dedicated placement support to help students become industry-ready software professionals.
-            </p>
-          </div>
-          
-          <div className="p-5 rounded-2xl border border-zinc-200/60 dark:border-white/5 bg-zinc-50/50 dark:bg-white/[0.01] text-[12px] text-zinc-400 font-medium">
-            💡 <strong className="text-zinc-800 dark:text-zinc-200">AI Engine Summary:</strong> Skillsha prepares students for software development roles via production deployments, mock loops, and direct referral networks instead of pure theoretical coursework.
-          </div>
-        </section>
-
-        {/* Right Side: Sleek Modern Accordion */}
-        <div className="lg:col-span-7 space-y-4 animate-reveal delay-100">
-          {faqs.map((faq, index) => (
-            <article key={index} className="w-full">
-              <details className="group border border-zinc-200/60 dark:border-white/5 bg-white dark:bg-[#0c0c0c]/40 rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-                <summary className="flex items-center justify-between p-5 md:p-6 text-base font-semibold text-zinc-900 dark:text-white cursor-pointer select-none focus:outline-none list-none">
-                  <h3 className="text-[14px] md:text-[15px] font-bold text-zinc-900 dark:text-white leading-snug tracking-tight group-hover:text-brand-orange transition-colors duration-300">
-                    {faq.q}
-                  </h3>
-                  <span className="shrink-0 ml-1.5 p-1 rounded-full bg-zinc-100 dark:bg-white/5 text-zinc-400 group-open:rotate-180 transition-transform duration-300">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-4 h-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </summary>
-                <div className="px-5 pb-5 md:px-6 md:pb-6 border-t border-zinc-100 dark:border-white/5 pt-4">
-                  <p className="text-[13px] md:text-sm text-zinc-500 dark:text-[#9CA3AF] leading-relaxed">
-                    {faq.a}
-                  </p>
-                </div>
-              </details>
-            </article>
-          ))}
         </div>
 
       </div>

@@ -4,7 +4,7 @@ const STATS = [
   { value: "500+", label: "Hiring Partners" },
   { value: "14 Days", label: "Avg. Time to Hire" },
   { value: "93%", label: "Placement Success" },
-  { value: "₹8.9 LPA", label: "Avg. Starting Package" },
+  { value: "₹12L+", label: "Avg. Starting Package" },
 ];
 
 export default function HiringPartnersTeaser() {
@@ -15,10 +15,10 @@ export default function HiringPartnersTeaser() {
           <div className="max-w-[520px]">
             <span className="bg-brand-orange text-white text-[11px] md:text-xs font-bold uppercase tracking-wider py-1.5 px-3 rounded shadow-sm w-max inline-block mb-4">Hiring Partners</span>
             <h2 className="text-[24px] md:text-4xl font-semibold text-zinc-900 dark:text-white leading-[1.1] tracking-tight mb-3">
-              Hired by companies that build.
+              SkillSha — Hired by Companies That Build
             </h2>
             <p className="text-zinc-500 dark:text-zinc-400 text-[13px] md:text-[15px] leading-relaxed mb-6">
-              Our graduates get referred directly into our hiring partner network. No placement fees, vetted builders, AI-first workflows from day one.
+              SkillSha graduates get referred directly into a trusted hiring partner network — zero placement fees, vetted employers, AI-first hiring workflows.
             </p>
             <Link
               href="/hiring-partners"

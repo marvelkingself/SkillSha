@@ -45,9 +45,9 @@ export default function ApplicationCTA() {
         <div className="relative z-10 flex flex-col w-full min-h-[400px]">
           
           <div className="border-l-[1.5px] border-white/20 pl-4 md:pl-5 mb-10 md:mb-12 max-w-[800px]">
-            <p className="text-[13px] md:text-[15px] text-zinc-400 font-medium mb-3">AI & Product focus</p>
+            <p className="text-[13px] md:text-[15px] text-zinc-400 font-medium mb-3">AI & Product Focus</p>
             <h2 className="text-2xl md:text-3xl lg:text-[38px] font-semibold text-white leading-[1.2] tracking-tight">
-              Build real AI products,<br className="hidden md:block" /> launch on product hunt<br className="hidden md:block" /> and get 100 paying<br className="hidden md:block" /> customers
+              Build Real AI Products<br className="hidden md:block" /> with SkillSha —<br className="hidden md:block" /> Launch on Product Hunt
             </h2>
           </div>
 
@@ -58,8 +58,8 @@ export default function ApplicationCTA() {
                 <svg className="w-6 h-6 text-zinc-300 group-hover:text-brand-orange transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               </div>
               <div className="flex flex-col justify-center">
-                <h3 className="text-white text-[15px] md:text-[16px] font-semibold leading-tight tracking-tight mb-0.5 whitespace-nowrap">150 Hours AI Curriculum</h3>
-                <p className="text-zinc-400 text-[12px] md:text-[13px] leading-snug whitespace-nowrap">From no-code to fine-tuning</p>
+                <h3 className="text-white text-[15px] md:text-[16px] font-semibold leading-tight tracking-tight mb-0.5 whitespace-nowrap">150 Hrs AI Curriculum</h3>
+                <p className="text-zinc-400 text-[12px] md:text-[13px] leading-snug whitespace-nowrap">No-code to fine-tuning</p>
               </div>
             </div>
 
@@ -89,7 +89,7 @@ export default function ApplicationCTA() {
               </div>
               <div className="flex flex-col justify-center">
                 <h3 className="text-white text-[15px] md:text-[16px] font-semibold leading-tight tracking-tight mb-0.5 whitespace-nowrap">Product Building Blocks</h3>
-                <p className="text-zinc-400 text-[12px] md:text-[13px] leading-snug whitespace-nowrap">Learn UI, APIs, and databases.</p>
+                <p className="text-zinc-400 text-[12px] md:text-[13px] leading-snug whitespace-nowrap">UI, APIs, Databases</p>
               </div>
             </div>
 
