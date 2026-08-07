@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { CITIES_LIST } from "@/data/cities";
 
 export default function Header() {
   const [isDark, setIsDark] = useState(false);
@@ -81,7 +82,10 @@ export default function Header() {
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-1 cursor-pointer group transition-transform duration-300 hover:scale-[1.02]">
             <img src="/files/logo-icon.png" alt="SkillSha Logo" className="h-8 w-auto object-contain" />
-            <span className="text-2xl font-black tracking-tight text-zinc-900 dark:text-white">Skill<span className="text-brand-orange">Sha</span></span>
+            <div className="flex flex-col leading-none">
+              <span className="text-2xl font-black tracking-tight text-zinc-900 dark:text-white">Skill<span className="text-brand-orange">Sha</span></span>
+              <span className="text-[9px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">IT Training Institute</span>
+            </div>
           </Link>
 
           {/* Navigation Links with Elegant Floating Pill Hover & Professional Dropdown */}
@@ -155,9 +159,29 @@ export default function Header() {
               </div>
             </div>
             
-            <Link href="/fee-payment" className="px-4 py-2 rounded-full hover:bg-zinc-100/80 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white transition-all duration-300">Fee Payment</Link>
-            <Link href="/placement-report" className="px-4 py-2 rounded-full hover:bg-zinc-100/80 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white transition-all duration-300">Placement Report</Link>
-            <Link href="/#alumni" className="px-4 py-2 rounded-full hover:bg-zinc-100/80 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white transition-all duration-300">Alumni</Link>
+            {/* Locations Dropdown */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 px-4 py-2 rounded-full hover:bg-zinc-100/80 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white transition-all duration-300 cursor-pointer uppercase font-semibold text-xs text-zinc-500 dark:text-zinc-400 border-none outline-none">
+                Locations
+                <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+
+              {/* Dropdown Menu */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[280px] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.5)] p-2.5 grid grid-cols-2 gap-0.5 text-left normal-case">
+                  {CITIES_LIST.map((city) => (
+                    <Link key={city.slug} href={`/ai-engineering/${city.slug}`} className="px-3 py-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white text-[11px] font-bold transition-all">{city.name}</Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <Link href="/placement-report" className="px-4 py-2 rounded-full hover:bg-zinc-100/80 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white transition-all duration-300">Placements</Link>
+            <Link href="/about" className="px-4 py-2 rounded-full hover:bg-zinc-100/80 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white transition-all duration-300">About</Link>
+            <Link href="/blog" className="px-4 py-2 rounded-full hover:bg-zinc-100/80 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white transition-all duration-300">Blog</Link>
+            <Link href="/contact" className="px-4 py-2 rounded-full hover:bg-zinc-100/80 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white transition-all duration-300">Contact</Link>
             
             {/* More Dropdown */}
             <div className="relative group">
@@ -171,8 +195,9 @@ export default function Header() {
               {/* Dropdown Menu */}
               <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[180px] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                 <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.5)] p-2.5 flex flex-col gap-0.5 text-left normal-case">
-                  <Link href="/about" className="px-3 py-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white text-[11px] font-bold transition-all">About Us</Link>
                   <Link href="/courses" className="px-3 py-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white text-[11px] font-bold transition-all">All Courses</Link>
+                  <Link href="/fee-payment" className="px-3 py-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white text-[11px] font-bold transition-all">Fee Payment</Link>
+                  <Link href="/#alumni" className="px-3 py-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white text-[11px] font-bold transition-all">Alumni</Link>
                   <Link href="/hiring-partners" className="px-3 py-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white text-[11px] font-bold transition-all">Hiring Partners</Link>
                   <Link href="/#mentors" className="px-3 py-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white text-[11px] font-bold transition-all">Mentors</Link>
                   <Link href="/events" className="px-3 py-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white text-[11px] font-bold transition-all">Events</Link>
@@ -225,15 +250,28 @@ export default function Header() {
           <span className="text-xl font-black tracking-tight text-zinc-900 dark:text-white">Skill<span className="text-brand-orange">Sha</span></span>
         </Link>
         
-        <button onClick={toggleTheme} aria-label="Toggle dark mode" className="bulb-btn relative p-2 rounded-full border border-zinc-200/40 dark:border-white/5 bg-zinc-50/50 dark:bg-zinc-900/30 hover:bg-zinc-100 dark:hover:bg-white/10 active:scale-95 transition-all duration-300">
-          <svg className="bulb-icon w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path className="bulb-glass" d="M12 2a7 7 0 0 0-4 12.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26A7 7 0 0 0 12 2z"/>
-            <rect className="bulb-base" x="9" y="18" width="6" height="1.5" rx="0.75"/>
-            <rect className="bulb-base" x="9.5" y="20" width="5" height="1.5" rx="0.75"/>
-            <line className="bulb-shine" x1="9" y1="8" x2="9" y2="11" strokeLinecap="round" strokeWidth="1.5"/>
-            <line className="bulb-shine" x1="11" y1="6.5" x2="11" y2="8" strokeLinecap="round" strokeWidth="1"/>
-          </svg>
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              if (typeof window !== 'undefined') {
+                window.dispatchEvent(new Event('openCounselingModal'));
+              }
+            }}
+            className="px-3.5 py-2 rounded-full bg-gradient-to-r from-brand-orange to-brand-red text-white font-bold text-[11px] uppercase tracking-wider active:scale-95 transition-all duration-300"
+          >
+            Enroll Now
+          </button>
+          <button onClick={toggleTheme} aria-label="Toggle dark mode" className="bulb-btn relative p-2 rounded-full border border-zinc-200/40 dark:border-white/5 bg-zinc-50/50 dark:bg-zinc-900/30 hover:bg-zinc-100 dark:hover:bg-white/10 active:scale-95 transition-all duration-300">
+            <svg className="bulb-icon w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path className="bulb-glass" d="M12 2a7 7 0 0 0-4 12.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26A7 7 0 0 0 12 2z"/>
+              <rect className="bulb-base" x="9" y="18" width="6" height="1.5" rx="0.75"/>
+              <rect className="bulb-base" x="9.5" y="20" width="5" height="1.5" rx="0.75"/>
+              <line className="bulb-shine" x1="9" y1="8" x2="9" y2="11" strokeLinecap="round" strokeWidth="1.5"/>
+              <line className="bulb-shine" x1="11" y1="6.5" x2="11" y2="8" strokeLinecap="round" strokeWidth="1"/>
+            </svg>
+          </button>
+        </div>
       </header>
     </>
   );

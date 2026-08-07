@@ -7,7 +7,7 @@ export default function Mentors() {
         <h2 className="text-[20px] md:text-[24px] font-medium mb-4 md:mb-6 tracking-tight text-zinc-900 dark:text-white px-1 md:px-0">Industry Mentors & Operators</h2>
 
         <div className="flex flex-col xl:flex-row gap-6 xl:gap-4 w-full">
-          <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-3 md:gap-4 pb-2 xl:pb-4 px-1 xl:px-0 xl:flex-1 items-center">
+          <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-3 md:gap-4 pt-4 pb-2 xl:pb-4 px-1 xl:px-0 xl:flex-1 items-center">
             <div className="hidden md:block flex-grow flex-shrink-0 min-w-0"></div>
             
             {/* Mentor 1 */}

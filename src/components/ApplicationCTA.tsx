@@ -3,23 +3,32 @@ import React, { useState, useEffect } from 'react';
 
 export default function ApplicationCTA() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0 });
+  const [upcomingBatches, setUpcomingBatches] = useState<string[]>([]);
 
   useEffect(() => {
     const updateCountdown = () => {
       const now = new Date();
       const target = new Date(now.getFullYear(), now.getMonth() + 1, 1);
       const diff = target.getTime() - now.getTime();
-      
+
       if (diff <= 0) return;
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      
+
       setTimeLeft({ days, hours, mins });
     };
 
     updateCountdown();
     const interval = setInterval(updateCountdown, 60000); // update every minute
+
+    const now = new Date();
+    const batches = [1, 2, 3].map((offset) => {
+      const d = new Date(now.getFullYear(), now.getMonth() + offset, 1);
+      return d.toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' });
+    });
+    setUpcomingBatches(batches);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -42,7 +51,7 @@ export default function ApplicationCTA() {
             </h2>
           </div>
 
-          <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:gap-5 mb-8 md:mb-12 pb-4 md:pb-0 w-full xl:grid xl:grid-cols-4">
+          <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:gap-5 mb-8 md:mb-12 pt-2 pb-4 md:pb-0 w-full xl:grid xl:grid-cols-4">
             
             <div className="snap-start flex-shrink-0 w-[280px] sm:w-[320px] xl:w-full bg-zinc-900/80 backdrop-blur-sm border border-white/10 rounded-[20px] p-4 flex items-center gap-4 shadow-2xl hover:-translate-y-1 hover:border-brand-orange/50 hover:shadow-[0_10px_40px_-10px_rgba(37,99,235,0.3)] transition-all duration-300 group cursor-default">
               <div className="w-12 h-12 flex-shrink-0 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-brand-orange/10 group-hover:border-brand-orange/30 transition-colors">
@@ -128,6 +137,15 @@ export default function ApplicationCTA() {
               </div>
             </div>
           </div>
+
+          {upcomingBatches.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2 mt-6 pt-6 border-t border-white/10">
+              <span className="text-zinc-400 text-[11px] uppercase tracking-[0.15em] font-bold mr-1">Upcoming Batches</span>
+              {upcomingBatches.map((date, i) => (
+                <span key={i} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white text-[11px] font-semibold">{date}</span>
+              ))}
+            </div>
+          )}
 
         </div>
       </div>

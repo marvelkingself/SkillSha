@@ -10,6 +10,18 @@ const testimonials = [
   { name: 'Bhumi', img: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop', video: '/files/testimo/testvideo.mp4' },
 ];
 
+const aggregateRatingJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "SkillSha Career Programs",
+  provider: { "@type": "Organization", name: "SkillSha" },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: testimonials.length,
+  },
+};
+
 export default function Testimonials() {
   const [playingId, setPlayingId] = useState<number | null>(null);
   const [modalVideo, setModalVideo] = useState<string | null>(null);
@@ -41,6 +53,7 @@ export default function Testimonials() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingJsonLd) }} />
       <style dangerouslySetInnerHTML={{__html: `
         .testimonial-card {
             flex: 1;
