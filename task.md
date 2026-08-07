@@ -1,0 +1,13 @@
+- [x] Create `CareerSuccessSection.tsx` component
+- [x] Import and render `CareerSuccessSection` component in `src/app/page.tsx`
+- [x] Verify build with `npm run build`
+- [x] Create Modular Components
+  - [x] Create `JourneySidebar.tsx`
+  - [x] Create `JourneyAvatar.tsx`
+  - [x] Create `JourneyNode.tsx`
+  - [x] Create `JourneyTooltip.tsx`
+  - [x] Create `JourneyPath.tsx`
+  - [x] Create `JourneyMap.tsx`
+  - [x] Create `JourneySection.tsx`
+- [x] Refactor Landing Page Section
+  - [x] Modify `CareerSuccessSection.tsx` to include `JourneySection`
