@@ -593,12 +593,12 @@ export default function ContactPage() {
                 
                 {/* Office address */}
                 <div className="space-y-4 text-left">
-                  <h3 className="text-base font-extrabold uppercase tracking-wide text-zinc-950 dark:text-white flex items-center gap-2 font-heading">
+                  <h3 className="text-base font-extrabold uppercase tracking-wide text-zinc-955 dark:text-white flex items-center gap-2 font-heading">
                     <MapPin className="w-5 h-5 text-brand-orange" />
                     Our Office Location (Offline Support)
                   </h3>
-                  <div className="bg-zinc-50/50 dark:bg-[#080808]/20 border border-zinc-100 dark:border-white/5 p-5 rounded-2xl">
-                    <p className="text-[13px] text-zinc-800 dark:text-zinc-200 font-bold leading-relaxed">
+                  <div className="bg-brand-orange/[0.04] dark:bg-brand-orange/[0.02] border-l-4 border-l-brand-orange border-y border-r border-zinc-200 dark:border-white/5 p-5.5 rounded-2xl shadow-[0_4px_20px_rgba(249,115,22,0.02)] transition-all duration-500">
+                    <p className="text-[13px] text-zinc-900 dark:text-zinc-200 font-extrabold leading-relaxed">
                       Skillsha - IT Training & Placement Institute<br />
                       Prem Nagar, Ram Rahim Market, Loni, Ghaziabad, Uttar Pradesh - 201102
                     </p>
@@ -610,7 +610,7 @@ export default function ContactPage() {
 
                 {/* Social media stay connected */}
                 <div className="space-y-4 text-left">
-                  <h3 className="text-base font-extrabold uppercase tracking-wide text-zinc-950 dark:text-white flex items-center gap-2 font-heading">
+                  <h3 className="text-base font-extrabold uppercase tracking-wide text-zinc-955 dark:text-white flex items-center gap-2 font-heading">
                     <Globe className="w-5 h-5 text-brand-orange" />
                     We’re Social – Stay Connected
                   </h3>
@@ -623,8 +623,10 @@ export default function ContactPage() {
                       { 
                         name: "Instagram: @skillsha_", 
                         url: "https://instagram.com/skillsha_", 
+                        iconClass: "text-pink-500 group-hover:text-white",
+                        hoverClass: "hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:border-transparent hover:text-white hover:shadow-[0_8px_20px_rgba(238,42,123,0.25)]",
                         icon: (
-                          <svg className="w-4 h-4 text-brand-orange shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg className="w-4 h-4 shrink-0 transition-colors" stroke="currentColor" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -634,8 +636,10 @@ export default function ContactPage() {
                       { 
                         name: "Facebook: Skillsha", 
                         url: "https://facebook.com/skillsha_", 
+                        iconClass: "text-blue-500 group-hover:text-white",
+                        hoverClass: "hover:bg-[#1877F2] hover:border-transparent hover:text-white hover:shadow-[0_8px_20px_rgba(24,119,242,0.25)]",
                         icon: (
-                          <svg className="w-4 h-4 text-brand-orange shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg className="w-4 h-4 shrink-0 transition-colors" stroke="currentColor" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                           </svg>
                         )
@@ -643,8 +647,10 @@ export default function ContactPage() {
                       { 
                         name: "Pinterest: @skillsha_", 
                         url: "https://pinterest.com/skillsha_", 
+                        iconClass: "text-rose-600 group-hover:text-white",
+                        hoverClass: "hover:bg-[#BD081C] hover:border-transparent hover:text-white hover:shadow-[0_8px_20px_rgba(189,8,28,0.25)]",
                         icon: (
-                          <svg className="w-4 h-4 text-brand-orange shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg className="w-4 h-4 shrink-0 transition-colors" stroke="currentColor" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M8 22a9 9 0 0 1-1.91-5.18c0-2.45.69-5.18 1.91-7.82C6.73 7.82 6 6.32 6 4.5 6 2 8 0 11.5 0 16 0 19.5 3 19.5 7.5c0 4.2-2.2 7-5.5 7-1.1 0-2.1-.6-2.5-1.4l-1 3.9c-.4 1.5-1.5 3.3-2.2 4.3A9 9 0 1 1 8 22z"></path>
                           </svg>
                         )
@@ -652,8 +658,10 @@ export default function ContactPage() {
                       { 
                         name: "Twitter (X): @skillsha_", 
                         url: "https://twitter.com/skillsha_", 
+                        iconClass: "text-zinc-800 dark:text-zinc-200 group-hover:text-white dark:group-hover:text-black",
+                        hoverClass: "hover:bg-black dark:hover:bg-white hover:border-transparent hover:text-white dark:hover:text-black hover:shadow-[0_8px_20px_rgba(255,255,255,0.15)]",
                         icon: (
-                          <svg className="w-4 h-4 text-brand-orange shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg className="w-4 h-4 shrink-0 transition-colors" stroke="currentColor" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                           </svg>
                         )
@@ -664,9 +672,9 @@ export default function ContactPage() {
                         href={soc.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2.5 p-3 bg-zinc-50/50 dark:bg-white/[0.02] border border-zinc-100 dark:border-white/5 rounded-xl text-[11px] text-zinc-700 dark:text-zinc-300 font-semibold hover:border-brand-orange/30 hover:text-brand-orange transition-all duration-300"
+                        className={`group flex items-center gap-2.5 p-3 bg-zinc-50/50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/5 rounded-xl text-[11px] text-zinc-700 dark:text-zinc-300 font-extrabold transition-all duration-300 ${soc.hoverClass}`}
                       >
-                        {soc.icon}
+                        <span className={soc.iconClass}>{soc.icon}</span>
                         <span>{soc.name}</span>
                       </a>
                     ))}
