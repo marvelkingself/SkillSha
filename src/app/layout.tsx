@@ -33,7 +33,18 @@ export default function RootLayout({
       <head>
         {/* Preload LCP Image for instant paint */}
         <link rel="preload" href="https://img.youtube.com/vi/sgVJPhMHnys/maxresdefault.jpg" as="image" fetchPriority="high" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var l = document.createElement('link');
+                l.rel = 'stylesheet';
+                l.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap';
+                document.head.appendChild(l);
+              })();
+            `,
+          }}
+        />
         {/* Simple inline script to read theme from local storage or system preference to prevent flash of wrong theme */}
         <script
           dangerouslySetInnerHTML={{
