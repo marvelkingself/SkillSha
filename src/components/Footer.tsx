@@ -426,7 +426,7 @@ export default function Footer() {
                 <div className="flex gap-6">
                     <Link href="/privacy-policy" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Privacy Policy</Link>
                     <Link href="/terms-and-conditions" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Terms of Service</Link>
-                    <a href="#" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Refund Policy</a>
+                    <Link href="/refund-policy" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Refund Policy</Link>
                     <a href="#" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Sitemap</a>
                 </div>
             </div>
