@@ -129,13 +129,13 @@ export default function Mentors() {
             </div>
 
             <div className="absolute inset-0 mt-20 xl:mt-24 z-20 pointer-events-none">
-              <img src="/files/Mentors/mentor-photo-1.webp" className="absolute top-[25%] left-[10%] w-[18px] h-[18px] md:w-[20px] md:h-[20px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md" />
-              <img src="/files/Mentors/mentor-photo-2.webp" className="absolute top-[35%] left-[25%] w-[14px] h-[14px] md:w-[16px] md:h-[16px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md opacity-80" />
-              <img src="/files/Mentors/mentor-photo-3.webp" className="absolute top-[65%] left-[30%] w-[16px] h-[16px] md:w-[18px] md:h-[18px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md" />
-              <img src="/files/Mentors/mentor-photo-4.webp" className="absolute top-[50%] left-[55%] w-[22px] h-[22px] md:w-[26px] md:h-[26px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-lg" />
-              <img src="/files/Mentors/mentor-photo-5.webp" className="absolute top-[75%] left-[65%] w-[14px] h-[14px] md:w-[16px] md:h-[16px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-sm opacity-90" />
-              <img src="/files/Alumni/alumni-photo-1.webp" className="absolute top-[60%] left-[80%] w-[16px] h-[16px] md:w-[18px] md:h-[18px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md opacity-80" />
-              <img src="/files/Alumni/alumni-photo-2.webp" className="absolute top-[80%] left-[90%] w-[18px] h-[18px] md:w-[20px] md:h-[20px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md" />
+              <img src="/files/Mentors/mentor-photo-1.webp" alt="" className="absolute top-[25%] left-[10%] w-[18px] h-[18px] md:w-[20px] md:h-[20px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md" />
+              <img src="/files/Mentors/mentor-photo-2.webp" alt="" className="absolute top-[35%] left-[25%] w-[14px] h-[14px] md:w-[16px] md:h-[16px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md opacity-80" />
+              <img src="/files/Mentors/mentor-photo-3.webp" alt="" className="absolute top-[65%] left-[30%] w-[16px] h-[16px] md:w-[18px] md:h-[18px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md" />
+              <img src="/files/Mentors/mentor-photo-4.webp" alt="" className="absolute top-[50%] left-[55%] w-[22px] h-[22px] md:w-[26px] md:h-[26px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-lg" />
+              <img src="/files/Mentors/mentor-photo-5.webp" alt="" className="absolute top-[75%] left-[65%] w-[14px] h-[14px] md:w-[16px] md:h-[16px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-sm opacity-90" />
+              <img src="/files/Alumni/alumni-photo-1.webp" alt="" className="absolute top-[60%] left-[80%] w-[16px] h-[16px] md:w-[18px] md:h-[18px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md opacity-80" />
+              <img src="/files/Alumni/alumni-photo-2.webp" alt="" className="absolute top-[80%] left-[90%] w-[18px] h-[18px] md:w-[20px] md:h-[20px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md" />
             </div>
           </div>
         </div>

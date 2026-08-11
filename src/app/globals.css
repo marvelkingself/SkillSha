@@ -5,8 +5,8 @@
 @theme {
   --color-brand-orange: #2563EB;
   --color-brand-red: #1E3A8A;
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Base Body Styles */

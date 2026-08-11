@@ -105,7 +105,7 @@ export default function Testimonials() {
                     src={t.video} 
                     playsInline 
                     muted 
-                    preload="auto" 
+                    preload="none" 
                     loop 
                     style={{ visibility: isPlaying ? 'visible' : 'hidden' }}
                   ></video>

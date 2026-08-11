@@ -1,7 +1,22 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { DM_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import GlobalInteraction from "@/components/GlobalInteraction";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "SkillSha | Best IT Training Institute in Noida",
@@ -16,35 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-P5NFQTKB');
-            `,
-          }}
-        />
-        {/* End Google Tag Manager */}
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RCRBGKM1Q" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', 'G-8RCRBGKM1Q');
-            `,
-          }}
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+        {/* Preload LCP Image for instant paint */}
+        <link rel="preload" href="https://img.youtube.com/vi/sgVJPhMHnys/maxresdefault.jpg" as="image" fetchPriority="high" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
         {/* Simple inline script to read theme from local storage or system preference to prevent flash of wrong theme */}
         <script
@@ -59,7 +47,27 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="relative min-h-screen overflow-x-clip bg-[#FAF9F6] dark:bg-[#050505] text-zinc-900 dark:text-white transition-colors duration-300 selection:bg-brand-orange selection:text-white pb-32 md:pb-0 font-sans" suppressHydrationWarning>
+      <body className={`${dmSans.variable} ${spaceGrotesk.variable} relative min-h-screen overflow-x-clip bg-[#FAF9F6] dark:bg-[#050505] text-zinc-900 dark:text-white transition-colors duration-300 selection:bg-brand-orange selection:text-white pb-32 md:pb-0 font-sans`} suppressHydrationWarning>
+        {/* Google Tag Manager */}
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P5NFQTKB');
+          `}
+        </Script>
+        {/* Google tag (gtag.js) */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-8RCRBGKM1Q" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-8RCRBGKM1Q');
+          `}
+        </Script>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
