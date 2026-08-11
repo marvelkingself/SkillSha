@@ -280,7 +280,7 @@ export default function ContactPage() {
                   <div className="space-y-1 text-left">
                     <h4 className="text-[12px] font-extrabold text-zinc-900 dark:text-white uppercase tracking-wider">📱 Call or WhatsApp</h4>
                     <p className="text-[12px] text-zinc-700 dark:text-zinc-300 font-extrabold">
-                      Mobile: +91-XXXXXXXXXX
+                      Mobile: <a href="tel:+917303082191" className="text-brand-orange hover:underline font-bold">+91 7303082191</a>
                     </p>
                     <p className="text-[10px] text-zinc-400 dark:text-zinc-500 font-semibold">
                       (Available: Monday to Saturday | 10:00 AM to 7:00 PM)

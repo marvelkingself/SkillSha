@@ -528,7 +528,7 @@ export default function RefundPolicyPage() {
                       </span>
                       <p className="text-zinc-900 dark:text-white font-bold flex items-center gap-1.5">
                         <Phone className="w-3.5 h-3.5 text-brand-orange" />
-                        +91-XXXXXXXXXX
+                        <a href="tel:+917303082191" className="text-brand-orange hover:underline font-extrabold">+91 7303082191</a>
                       </p>
                     </div>
                   </div>
