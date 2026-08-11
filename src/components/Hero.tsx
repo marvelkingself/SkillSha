@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   const [videoOpen, setVideoOpen] = useState(false);
@@ -192,10 +193,12 @@ export default function Hero() {
                 >
                   {/* <div className="absolute inset-0 bg-[url('/files/hero-placeholder.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-1000"></div> */}
 
-                  <img
+                  <Image
                     src="https://img.youtube.com/vi/sgVJPhMHnys/maxresdefault.jpg"
                     alt="Skillsha Video Preview"
-                    fetchPriority="high"
+                    width={640}
+                    height={360}
+                    priority
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
 
