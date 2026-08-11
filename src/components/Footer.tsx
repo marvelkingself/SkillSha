@@ -424,7 +424,7 @@ export default function Footer() {
             <div className="border-t border-zinc-100 dark:border-white/5 pt-6 mt-2 flex flex-col md:flex-row gap-3 justify-between items-center">
                 <p className="text-xs text-zinc-400">&copy; 2026 SkillSha. All rights reserved.</p>
                 <div className="flex gap-6">
-                    <a href="#" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Privacy Policy</a>
+                    <Link href="/privacy-policy" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Privacy Policy</Link>
                     <a href="#" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Terms of Service</a>
                     <a href="#" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Refund Policy</a>
                     <a href="#" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Sitemap</a>
