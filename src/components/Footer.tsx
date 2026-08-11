@@ -427,6 +427,7 @@ export default function Footer() {
                     <Link href="/privacy-policy" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Privacy Policy</Link>
                     <Link href="/terms-and-conditions" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Terms of Service</Link>
                     <Link href="/refund-policy" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Refund Policy</Link>
+                    <Link href="/disclaimer" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Disclaimer</Link>
                     <a href="#" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Sitemap</a>
                 </div>
             </div>
