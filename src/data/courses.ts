@@ -465,83 +465,172 @@ export const COURSES_DATA: Record<string, CourseData> = {
     salary: "₹ 9.5 LPA",
     liveSessions: "45+ hrs",
     projects: "12+",
-    milestoneWord: "Nine",
+    milestoneWord: "Six",
     milestones: [
       {
         number: 1,
-        title: "Gen AI Copywriting & Funnel Building",
+        title: "Funnel Strategy & AI Copywriting (Weeks 1-2)",
         modules: [
           {
-            title: "AI Content Machinery",
+            title: "Marketing Psychology & Funnels",
             icon: "psychology",
             color: "orange",
             bullets: [
-              { title: "Prompting for Hook Scripts", desc: "for Reels/Shorts/TikToks", icon: "balance" },
-              { title: "Copywriting Personalization", desc: "at scale with LLMs", icon: "article" },
-              { title: "AI Email Marketing Campaigns", desc: "that land in inbox", icon: "trending_up" },
-              { title: "AI-Powered SEO Audits", desc: "and automatic content updates", icon: "map" }
+              { title: "Pirate Funnels (AARRR Framework)", desc: "acquisition to retention logic", icon: "funnel_chart" },
+              { title: "Unit Economics (CAC, LTV, ROI)", desc: "tracking core marketing health", icon: "payments" },
+              { title: "Competitor Intelligence Tools", desc: "spying on competitor meta ads", icon: "find_in_page" },
+              { title: "AI-Augmented ICP Personas", desc: "defining audiences with LLM agent sheets", icon: "groups" }
             ]
           },
           {
-            title: "High-Converting Funnels",
-            icon: "filter_alt",
+            title: "Copywriting & Prompt Systems",
+            icon: "terminal",
             color: "blue",
             bullets: [
-              { title: "Understanding modern funnels", desc: "(AARRR framework)", icon: "funnel_chart" },
-              { title: "AIDA model framework", desc: "for landing page copies", icon: "text_snippet" },
-              { title: "Conversion rate optimization", desc: "using hotjar & mixpanel", icon: "payments" }
+              { title: "AIDA & PAS Writing Frameworks", desc: "for high-converting copies", icon: "edit_note" },
+              { title: "Claude & ChatGPT Persona Tuning", desc: "building writing brand voices", icon: "text_snippet" },
+              { title: "High-CTR Ad Hooks & Copy", desc: "generating social media posts at scale", icon: "photo_library" },
+              { title: "Structured Campaign Prompts", desc: "creating multi-step content loops", icon: "link" }
             ]
           }
         ]
       },
       {
         number: 2,
-        title: "Paid Acquisition & AI Campaign Engines",
+        title: "AI Media & Website Engines (Weeks 3-4)",
         modules: [
           {
-            title: "Meta & Google Ads with AI",
-            icon: "ads_click",
+            title: "AI Media & Video Generation",
+            icon: "movie_creation",
             color: "indigo",
             bullets: [
-              { title: "Setting up automated ad accounts", desc: "and campaign structures", icon: "edit_note" },
-              { title: "Targeting optimization", desc: "via AI customer segments", icon: "photo_library" },
-              { title: "Analytics & attribution setups", desc: "for scaling budgets", icon: "query_stats" }
+              { title: "Midjourney & Firefly Prompting", desc: "for premium visual ad graphics", icon: "photo_library" },
+              { title: "Figma UI & Figma AI Layouts", desc: "designing conversion landing pages", icon: "palette" },
+              { title: "Short-Form Video Production", desc: "using script-to-video prompt tools", icon: "movie" },
+              { title: "AI Voiceovers & Captions", desc: "using ElevenLabs and CapCut", icon: "volume_up" }
             ]
           },
           {
-            title: "AI Media & Creative Engines",
-            icon: "movie_creation",
+            title: "Business Web Architecture",
+            icon: "web",
             color: "emerald",
             bullets: [
-              { title: "Designing high CTR creatives", desc: "using Figma AI & Canva AI", icon: "photo_library" },
-              { title: "Video ad generation prompts", desc: "for AI-generated shorts", icon: "movie" },
-              { title: "Automated custom creative formats", desc: "for multi-channel Ads", icon: "check" }
+              { title: "WordPress Core Setup", desc: "installation and performance optimization", icon: "settings" },
+              { title: "Visual Builders (Elementor)", desc: "building responsive brand portfolios", icon: "table_chart" },
+              { title: "Shopify eCommerce Layouts", desc: "designing high-converting product pages", icon: "shopping_cart" },
+              { title: "Core Web Vitals Speed Auditing", desc: "caching, CDNs, and file size checks", icon: "bolt" }
             ]
           }
         ]
       },
       {
         number: 3,
-        title: "Career Growth & Real-World Capstone",
+        title: "SEO & Paid Meta Campaigns (Weeks 5-6)",
         modules: [
           {
-            title: "Live Audits & Capstone",
-            icon: "business_center",
-            color: "violet",
+            title: "SEO & Generative Engine Optimization",
+            icon: "query_stats",
+            color: "rose",
             bullets: [
-              { title: "Running live campaign setups", desc: "with active budgets", icon: "timeline" },
-              { title: "Attribution tracking audits", desc: "on live traffic", icon: "check" },
-              { title: "End-to-end performance reports", desc: "for portfolio presentations", icon: "article" }
+              { title: "On-Page, Off-Page & Technical Audits", desc: "using SEMrush and Ahrefs", icon: "find_in_page" },
+              { title: "GEO (Generative Engine Optimization)", desc: "ranking in Perplexity and Gemini", icon: "psychology" },
+              { title: "AI Keyword Intent Clustering", desc: "automating keyword sheets using LLMs", icon: "map" },
+              { title: "Local Schema Markup Setups", desc: "for regional search placements", icon: "location_on" }
             ]
           },
           {
-            title: "Placement & Mentorship",
-            icon: "handshake",
+            title: "Meta Ads Dynamic Targeting",
+            icon: "ads_click",
+            color: "violet",
+            bullets: [
+              { title: "Meta Campaign Architecture", desc: "leads, conversions, custom events", icon: "edit_note" },
+              { title: "Advantage+ Targeting Setup", desc: "lookalikes, broad targeting logic", icon: "groups" },
+              { title: "Dynamic Creative Optimization", desc: "auto-testing ad visual assets", icon: "photo_library" },
+              { title: "Multi-Stage Retargeting Funnels", desc: "warming cold traffic systematically", icon: "timeline" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 4,
+        title: "Google Search Ads & Server Tagging (Weeks 7-8)",
+        modules: [
+          {
+            title: "Google Ads & YouTube Campaigns",
+            icon: "campaign",
             color: "teal",
             bullets: [
-              { title: "100% Placement assistance", desc: "with top hiring partners", icon: "check" },
-              { title: "Resume building with AI tools", desc: "that beat ATS screenings", icon: "article" },
-              { title: "Mock interview sessions", desc: "with industry marketing leads", icon: "groups" }
+              { title: "Google Search Match Types", desc: "broad, phrase, exact bid tactics", icon: "find_in_page" },
+              { title: "Demand Gen & Display Ad Funnels", desc: "scaling brand impressions globally", icon: "photo_library" },
+              { title: "Bidding Algorithms (tCPA, tROAS)", desc: "maximizing automated budgets", icon: "trending_up" },
+              { title: "YouTube Video Ad Placements", desc: "setting skippable and bumper ads", icon: "movie" }
+            ]
+          },
+          {
+            title: "GTM Server-Side Tagging",
+            icon: "analytics",
+            color: "amber",
+            bullets: [
+              { title: "GTM Server Containers", desc: "bypassing browser ad-blockers", icon: "settings" },
+              { title: "GA4 Custom Event Attribution", desc: "building multi-touch models", icon: "table_chart" },
+              { title: "First-Party Data Capture Loops", desc: "storing secure user identifier info", icon: "lock" },
+              { title: "Stape.io / AWS Cloud Configs", desc: "hosting tracking endpoints", icon: "cloud" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 5,
+        title: "Lifecycle & Outbound Automation (Weeks 9-10)",
+        modules: [
+          {
+            title: "LinkedIn & B2B Outbound Engagements",
+            icon: "handshake",
+            color: "indigo",
+            bullets: [
+              { title: "LinkedIn Creator Optimization", desc: "writing authority growth loops", icon: "person" },
+              { title: "Clay Data Scraping Pipelines", desc: "automating lead list qualification", icon: "link" },
+              { title: "Instantly.ai Outreach setups", desc: "cold email warming and variables", icon: "email" },
+              { title: "B2B Social Outbound Workflows", desc: "using PhantomBuster actions", icon: "timeline" }
+            ]
+          },
+          {
+            title: "Lifecycle Email Marketing",
+            icon: "email",
+            color: "blue",
+            bullets: [
+              { title: "Klaviyo/ActiveCampaign Lists", desc: "capturing high-intent subscribers", icon: "list" },
+              { title: "Automated Lifecycle Flows", desc: "welcome, cart abandon, winback paths", icon: "loop" },
+              { title: "A/B Subject & CTR Optimization", desc: "maximizing open rate percentage", icon: "check" },
+              { title: "Email Deliverability DNS Keys", desc: "configuring DKIM, SPF, DMARC logs", icon: "lock" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 6,
+        title: "Programmatic Scaling & Career Prep (Weeks 11-12)",
+        modules: [
+          {
+            title: "Programmatic SEO & Automations",
+            icon: "timeline",
+            color: "emerald",
+            bullets: [
+              { title: "Programmatic Landing Page sheets", desc: "generating bulk ranking targets", icon: "table_chart" },
+              { title: "Make.com & Zapier Growth Loops", desc: "syncing leads from ads to CRM", icon: "loop" },
+              { title: "n8n AI Web scraper workflows", desc: "automating weekly content pulls", icon: "article" },
+              { title: "Custom CRM AI Chatbots", desc: "responding instantly to lead requests", icon: "chat" }
+            ]
+          },
+          {
+            title: "Agency Blueprint & Career Acceleration",
+            icon: "business_center",
+            color: "orange",
+            bullets: [
+              { title: "Freelance Client Pricing Retainers", desc: "setting up hourly and performance bids", icon: "payments" },
+              { title: "Loom Audit Client Acquisition", desc: "winning high-ticket contracts", icon: "movie" },
+              { title: "Upwork & Fiverr Profile Tuning", desc: "optimizing for search rankings", icon: "person" },
+              { title: "Interview Practice & ATS Resume", desc: "mock panels with marketing leaders", icon: "groups" }
             ]
           }
         ]
