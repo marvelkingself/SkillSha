@@ -106,6 +106,13 @@ export default function Header() {
                   <div className="grid grid-cols-12 gap-5">
                     {/* Courses List */}
                     <div className="col-span-8 grid grid-cols-2 gap-x-4 gap-y-3">
+                      <Link href="/digital-marketing-with-gen-ai" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-amber-500/[0.04] dark:hover:bg-amber-500/[0.02] border border-amber-500/25 transition-all text-left">
+                        <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-amber-500 transition-colors flex items-center gap-1.5">
+                          Digital Marketing with Gen AI
+                          <span className="px-1 text-[8px] bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded font-extrabold tracking-wider leading-normal">FLAGSHIP</span>
+                        </span>
+                        <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Acquisition, Google/Meta Ads, AI engines</span>
+                      </Link>
                       <Link href="/ai-engineering" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
                         <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">AI Engineering</span>
                         <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">LLMs, fine-tuning, RAG architectures</span>

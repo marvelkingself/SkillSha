@@ -457,6 +457,127 @@ export const COURSES_DATA: Record<string, CourseData> = {
       { q: "Will I learn about cloud and DevOps?", a: "Yes, you will learn to build, containerize (Docker), and deploy apps on Vercel, Heroku, and AWS." }
     ]
   },
+  "digital-marketing-with-gen-ai": {
+    title: "Digital Marketing with Gen AI",
+    typewriter: ["Gen AI Marketing", "Meta & Google Ads", "AI Content Engines", "Automation Funnels", "Data-Driven Growth"],
+    description: "Master the future of marketing. Combine core growth marketing strategies with Generative AI tools to build high-converting ad engines, automate campaign copy, optimize landing pages, and scale brand distribution.",
+    duration: "12 Weeks",
+    salary: "₹ 9.5 LPA",
+    liveSessions: "45+ hrs",
+    projects: "12+",
+    milestoneWord: "Nine",
+    milestones: [
+      {
+        number: 1,
+        title: "Gen AI Copywriting & Funnel Building",
+        modules: [
+          {
+            title: "AI Content Machinery",
+            icon: "psychology",
+            color: "orange",
+            bullets: [
+              { title: "Prompting for Hook Scripts", desc: "for Reels/Shorts/TikToks", icon: "balance" },
+              { title: "Copywriting Personalization", desc: "at scale with LLMs", icon: "article" },
+              { title: "AI Email Marketing Campaigns", desc: "that land in inbox", icon: "trending_up" },
+              { title: "AI-Powered SEO Audits", desc: "and automatic content updates", icon: "map" }
+            ]
+          },
+          {
+            title: "High-Converting Funnels",
+            icon: "filter_alt",
+            color: "blue",
+            bullets: [
+              { title: "Understanding modern funnels", desc: "(AARRR framework)", icon: "funnel_chart" },
+              { title: "AIDA model framework", desc: "for landing page copies", icon: "text_snippet" },
+              { title: "Conversion rate optimization", desc: "using hotjar & mixpanel", icon: "payments" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 2,
+        title: "Paid Acquisition & AI Campaign Engines",
+        modules: [
+          {
+            title: "Meta & Google Ads with AI",
+            icon: "ads_click",
+            color: "indigo",
+            bullets: [
+              { title: "Setting up automated ad accounts", desc: "and campaign structures", icon: "edit_note" },
+              { title: "Targeting optimization", desc: "via AI customer segments", icon: "photo_library" },
+              { title: "Analytics & attribution setups", desc: "for scaling budgets", icon: "query_stats" }
+            ]
+          },
+          {
+            title: "AI Media & Creative Engines",
+            icon: "movie_creation",
+            color: "emerald",
+            bullets: [
+              { title: "Designing high CTR creatives", desc: "using Figma AI & Canva AI", icon: "photo_library" },
+              { title: "Video ad generation prompts", desc: "for AI-generated shorts", icon: "movie" },
+              { title: "Automated custom creative formats", desc: "for multi-channel Ads", icon: "check" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 3,
+        title: "Career Growth & Real-World Capstone",
+        modules: [
+          {
+            title: "Live Audits & Capstone",
+            icon: "business_center",
+            color: "violet",
+            bullets: [
+              { title: "Running live campaign setups", desc: "with active budgets", icon: "timeline" },
+              { title: "Attribution tracking audits", desc: "on live traffic", icon: "check" },
+              { title: "End-to-end performance reports", desc: "for portfolio presentations", icon: "article" }
+            ]
+          },
+          {
+            title: "Placement & Mentorship",
+            icon: "handshake",
+            color: "teal",
+            bullets: [
+              { title: "100% Placement assistance", desc: "with top hiring partners", icon: "check" },
+              { title: "Resume building with AI tools", desc: "that beat ATS screenings", icon: "article" },
+              { title: "Mock interview sessions", desc: "with industry marketing leads", icon: "groups" }
+            ]
+          }
+        ]
+      }
+    ],
+    faqs: [
+      { q: "Is prior marketing or programming knowledge required?", a: "No prior experience is needed. We start from target audience definition and copywriting fundamentals before layering in advanced Generative AI automation." },
+      { q: "Will I get to manage active budgets?", a: "Yes. The program includes hands-on modules where you structure, deploy, and analyze live ads using real target budgets." }
+    ],
+    portfolioProjects: [
+      {
+        milestone: 1,
+        codename: "AURA",
+        tagline: "Build Your AI Content Machine",
+        description: "Develop a custom-tailored prompt library for generating ad copy hooks, email drip sequences, and blog posts with high CTR ratings.",
+        bg: "#F9C5C0",
+        shape: "star4"
+      },
+      {
+        milestone: 2,
+        codename: "ECHO",
+        tagline: "Deploy a Live AI Campaign Funnel",
+        description: "Build an optimized landing page, deploy Meta ads with AI creative tools, and set up tracking analytics for conversion optimization.",
+        bg: "#C5E3F9",
+        shape: "diamond"
+      },
+      {
+        milestone: 3,
+        codename: "NEXUS",
+        tagline: "Automate Growth Workflows",
+        description: "Set up multi-step automated marketing pipelines connecting scraping tools, LLMs, and social posting systems.",
+        bg: "#D4F1C5",
+        shape: "hexburst"
+      }
+    ]
+  },
   "digital-marketing": {
     title: "Digital Marketing",
     typewriter: ["Meta & Google Ads", "Growth Strategy", "Conversion Funnels", "Data Analytics"],

@@ -23,6 +23,38 @@ interface Program {
 }
 const programs: Program[] = [
   {
+    id: 'digital-marketing-with-gen-ai',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-500 animate-pulse">
+        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+        <circle cx="12" cy="12" r="4" fill="currentColor" className="text-amber-500/40" />
+      </svg>
+    ),
+    title: 'Digital Marketing with Gen AI',
+    subtitle: 'Master AI-Driven Acquisition & Growth',
+    description: "Combine copywriting, Meta Ads, and SEO with advanced Generative AI content and video automation engines for modern scale.",
+    duration: '12 Weeks',
+    salary: '₹15L+',
+    svgBg: (
+      <svg className="w-20 h-20 text-amber-500/[0.08] dark:text-amber-500/[0.05] mr-[-10px] mt-[-5px] animate-spin-slow" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
+        <polygon points="50,15 90,85 10,85" strokeDasharray="3 3"/>
+        <circle cx="50" cy="55" r="15"/>
+      </svg>
+    ),
+    mobileIcon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-500 animate-pulse"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+    ),
+    includes: [
+      { name: 'AI Copywriting', domain: 'openai.com' },
+      { name: 'AI Video Creatives', domain: 'runwayml.com' },
+      { name: 'Meta & Google Ads', domain: 'meta.com' },
+      { name: 'Growth Loops', domain: 'ycombinator.com' },
+      { name: 'Funnel Automation', domain: 'stripe.com' },
+      { name: 'Data Insights', domain: 'mixpanel.com' },
+    ],
+    professions: ['marketer', 'corporate', 'ca', 'lawyer', 'doctor']
+  },
+  {
     id: 'ai-engineering',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-orange">
@@ -303,6 +335,13 @@ const programs: Program[] = [
 
 const getProgramColors = (id: string) => {
   switch (id) {
+    case 'digital-marketing-with-gen-ai':
+      return {
+        bg: 'bg-amber-500/10 dark:bg-amber-500/15',
+        border: 'border-amber-500/35 dark:border-amber-500/25',
+        text: 'text-amber-500 dark:text-amber-400',
+        shadow: 'shadow-[0_0_20px_rgba(245,158,11,0.25)]'
+      };
     case 'ai-engineering':
       return {
         bg: 'bg-brand-orange/10 dark:bg-brand-orange/15',
@@ -435,10 +474,27 @@ export default function Programs({ className = "mt-24" }: { className?: string }
 
       <div className="max-w-7xl mx-auto px-1.5 md:px-0">
         <div className="hidden md:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
-          {programs.map((program) => (
-            <Link key={program.id} href={`/${program.id}`} className="block relative bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[24px] p-6 lg:p-8 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 group flex flex-col h-full cursor-pointer overflow-hidden z-10">
-              
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/0 via-transparent to-brand-orange/0 group-hover:from-brand-orange/[0.03] group-hover:to-transparent transition-colors duration-500 -z-10 pointer-events-none"></div>
+          {programs.map((program) => {
+            const isFlagship = program.id === 'digital-marketing-with-gen-ai';
+            return (
+              <Link 
+                key={program.id} 
+                href={`/${program.id}`} 
+                className={`block relative bg-white dark:bg-[#0c0c0c] rounded-[24px] p-6 lg:p-8 transition-all duration-500 hover:-translate-y-1.5 group flex flex-col h-full cursor-pointer overflow-hidden z-10 ${
+                  isFlagship 
+                    ? 'border-2 border-amber-500/60 dark:border-amber-500/40 shadow-[0_4px_30px_rgba(245,158,11,0.08)] dark:shadow-[0_4px_30px_rgba(245,158,11,0.05)] hover:shadow-[0_20px_40px_-15px_rgba(245,158,11,0.2)] dark:hover:shadow-[0_20px_40px_-15px_rgba(245,158,11,0.15)] hover:border-amber-500' 
+                    : 'border border-zinc-200/80 dark:border-white/5 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40'
+                }`}
+              >
+                {isFlagship && (
+                  <div className="absolute top-0 right-0 z-30">
+                    <span className="inline-flex items-center gap-1 px-3.5 py-1 rounded-bl-2xl bg-gradient-to-r from-amber-500 to-orange-600 text-white text-[9px] font-extrabold uppercase tracking-widest shadow-md">
+                      🔥 FLAGSHIP
+                    </span>
+                  </div>
+                )}
+                
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/0 via-transparent to-brand-orange/0 group-hover:from-brand-orange/[0.03] group-hover:to-transparent transition-colors duration-500 -z-10 pointer-events-none"></div>
               <div className="relative overflow-hidden border-b border-zinc-200/80 dark:border-white/10 -mx-6 -mt-6 lg:-mx-8 lg:-mt-8 p-5 lg:p-6 mb-5 lg:mb-6 rounded-t-[24px] h-[95px] md:h-[105px] flex items-center justify-between bg-gradient-to-r from-brand-orange/[0.03] to-transparent dark:from-brand-orange/[0.05] dark:to-transparent backdrop-blur-md select-none">
                 <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] bg-grid pointer-events-none"></div>
                 <div className="absolute -right-4 -bottom-10 w-28 h-28 rounded-full bg-brand-orange/[0.03] blur-xl pointer-events-none"></div>
@@ -509,19 +565,33 @@ export default function Programs({ className = "mt-24" }: { className?: string }
                 </div>
               </div>
             </Link>
-          ))}
+          );
+        })}
         </div>
  
         {/* Mobile Accordion */}
         <div className="flex flex-col gap-2.5 md:hidden px-0">
-          {programs.map((program) => (
-            <div 
-              key={program.id} 
-              className={`bg-zinc-50/80 dark:bg-[#161616] border border-zinc-200 dark:border-white/5 rounded-[20px] p-4 shadow-md overflow-hidden transition-all duration-300 course-card cursor-pointer ${
-                expandedCardId === program.id ? 'course-card-expanded' : ''
-              }`} 
-              onClick={() => toggleCard(program.id)}
-            >
+          {programs.map((program) => {
+            const isFlagship = program.id === 'digital-marketing-with-gen-ai';
+            return (
+              <div 
+                key={program.id} 
+                className={`relative overflow-hidden transition-all duration-300 course-card cursor-pointer rounded-[20px] p-4 shadow-md ${
+                  isFlagship 
+                    ? 'bg-amber-500/[0.04] dark:bg-amber-500/[0.02] border-2 border-amber-500/50 dark:border-amber-500/35 shadow-[0_4px_20px_rgba(245,158,11,0.08)]'
+                    : 'bg-zinc-50/80 dark:bg-[#161616] border border-zinc-200 dark:border-white/5'
+                } ${
+                  expandedCardId === program.id ? 'course-card-expanded' : ''
+                }`} 
+                onClick={() => toggleCard(program.id)}
+              >
+                {isFlagship && (
+                  <div className="absolute top-0 right-0 z-20">
+                    <span className="inline-flex items-center gap-0.5 px-2.5 py-0.5 rounded-bl-lg bg-gradient-to-r from-amber-500 to-orange-600 text-white text-[8px] font-extrabold uppercase tracking-widest leading-none">
+                      FLAGSHIP
+                    </span>
+                  </div>
+                )}
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-[14px] bg-gradient-to-br from-white to-zinc-50 dark:from-zinc-800 dark:to-[#1a1a1a] border border-zinc-200/80 dark:border-white/10 flex items-center justify-center flex-shrink-0 shadow-sm dark:shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
                   {program.mobileIcon}
@@ -585,7 +655,8 @@ export default function Programs({ className = "mt-24" }: { className?: string }
                 </div>
               </div>
             </div>
-          ))}
+          );
+        })}
         </div>
       </div>
     </section>
