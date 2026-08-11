@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { CITIES_LIST } from "@/data/cities";
 
@@ -81,7 +82,7 @@ export default function Header() {
         }`}>
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-1 cursor-pointer group transition-transform duration-300 hover:scale-[1.02]">
-            <img src="/files/logo-icon.png" alt="SkillSha Logo" className="h-8 w-auto object-contain" />
+            <Image src="/files/logo-icon.png" alt="SkillSha Logo" width={34} height={32} priority className="h-8 w-auto object-contain" />
             <div className="flex flex-col leading-none">
               <span className="text-2xl font-black tracking-tight text-zinc-900 dark:text-white">Skill<span className="text-brand-orange">Sha</span></span>
               <span className="text-[9px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">IT Training Institute</span>
@@ -246,7 +247,7 @@ export default function Header() {
       {/* Mobile Header */}
       <header className="md:hidden fixed top-4 left-4 right-4 z-40 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl border border-zinc-200/50 dark:border-white/5 rounded-2xl px-4 py-2.5 flex justify-between items-center shadow-[0_8px_30px_rgb(0,0,0,0.03)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-300">
         <Link href="/" className="flex items-center gap-1 cursor-pointer">
-          <img src="/files/logo-icon.png" alt="SkillSha Logo" className="h-8 w-auto object-contain" />
+          <Image src="/files/logo-icon.png" alt="SkillSha Logo" width={34} height={32} priority className="h-8 w-auto object-contain" />
           <span className="text-xl font-black tracking-tight text-zinc-900 dark:text-white">Skill<span className="text-brand-orange">Sha</span></span>
         </Link>
         

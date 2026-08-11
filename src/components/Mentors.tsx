@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Mentors() {
   return (
     <section id="mentors" className="mt-10 mb-14 animate-reveal delay-200 max-w-full active">
@@ -14,7 +16,7 @@ export default function Mentors() {
             <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
               <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
               <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
-                <img src="/files/Mentors/mentor-photo-1.webp" alt="Aarav Sharma" className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
+                <Image src="/files/Mentors/mentor-photo-1.webp" alt="Aarav Sharma" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h4 className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Aarav Sharma</h4>
               <p className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">AI Systems Engineer</p>
@@ -33,7 +35,7 @@ export default function Mentors() {
             <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
               <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
               <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
-                <img src="/files/Mentors/mentor-photo-2.webp" alt="Rohan Mehta" className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
+                <Image src="/files/Mentors/mentor-photo-2.webp" alt="Rohan Mehta" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h4 className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Rohan Mehta</h4>
               <p className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">Growth Strategist</p>
@@ -52,7 +54,7 @@ export default function Mentors() {
             <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
               <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
               <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
-                <img src="/files/Mentors/mentor-photo-3.webp" alt="Aditi Rao" className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
+                <Image src="/files/Mentors/mentor-photo-3.webp" alt="Aditi Rao" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h4 className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Aditi Rao</h4>
               <p className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">Full-Stack Architect</p>
@@ -71,7 +73,7 @@ export default function Mentors() {
             <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
               <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
               <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
-                <img src="/files/Mentors/mentor-photo-4.webp" alt="Ishan Verma" className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
+                <Image src="/files/Mentors/mentor-photo-4.webp" alt="Ishan Verma" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h4 className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Ishan Verma</h4>
               <p className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">Product Designer</p>
@@ -90,7 +92,7 @@ export default function Mentors() {
             <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
               <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
               <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
-                <img src="/files/Mentors/mentor-photo-5.webp" alt="Devendra Singh" className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
+                <Image src="/files/Mentors/mentor-photo-5.webp" alt="Devendra Singh" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h4 className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Devendra Singh</h4>
               <p className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">Cybersecurity Lead</p>
@@ -129,13 +131,13 @@ export default function Mentors() {
             </div>
 
             <div className="absolute inset-0 mt-20 xl:mt-24 z-20 pointer-events-none">
-              <img src="/files/Mentors/mentor-photo-1.webp" alt="" className="absolute top-[25%] left-[10%] w-[18px] h-[18px] md:w-[20px] md:h-[20px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md" />
-              <img src="/files/Mentors/mentor-photo-2.webp" alt="" className="absolute top-[35%] left-[25%] w-[14px] h-[14px] md:w-[16px] md:h-[16px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md opacity-80" />
-              <img src="/files/Mentors/mentor-photo-3.webp" alt="" className="absolute top-[65%] left-[30%] w-[16px] h-[16px] md:w-[18px] md:h-[18px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md" />
-              <img src="/files/Mentors/mentor-photo-4.webp" alt="" className="absolute top-[50%] left-[55%] w-[22px] h-[22px] md:w-[26px] md:h-[26px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-lg" />
-              <img src="/files/Mentors/mentor-photo-5.webp" alt="" className="absolute top-[75%] left-[65%] w-[14px] h-[14px] md:w-[16px] md:h-[16px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-sm opacity-90" />
-              <img src="/files/Alumni/alumni-photo-1.webp" alt="" className="absolute top-[60%] left-[80%] w-[16px] h-[16px] md:w-[18px] md:h-[18px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md opacity-80" />
-              <img src="/files/Alumni/alumni-photo-2.webp" alt="" className="absolute top-[80%] left-[90%] w-[18px] h-[18px] md:w-[20px] md:h-[20px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md" />
+              <Image src="/files/Mentors/mentor-photo-1.webp" alt="" width={20} height={20} className="absolute top-[25%] left-[10%] w-[18px] h-[18px] md:w-[20px] md:h-[20px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md" />
+              <Image src="/files/Mentors/mentor-photo-2.webp" alt="" width={16} height={16} className="absolute top-[35%] left-[25%] w-[14px] h-[14px] md:w-[16px] md:h-[16px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md opacity-80" />
+              <Image src="/files/Mentors/mentor-photo-3.webp" alt="" width={18} height={18} className="absolute top-[65%] left-[30%] w-[16px] h-[16px] md:w-[18px] md:h-[18px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md" />
+              <Image src="/files/Mentors/mentor-photo-4.webp" alt="" width={26} height={26} className="absolute top-[50%] left-[55%] w-[22px] h-[22px] md:w-[26px] md:h-[26px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-lg" />
+              <Image src="/files/Mentors/mentor-photo-5.webp" alt="" width={16} height={16} className="absolute top-[75%] left-[65%] w-[14px] h-[14px] md:w-[16px] md:h-[16px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-sm opacity-90" />
+              <Image src="/files/Alumni/alumni-photo-1.webp" alt="" width={18} height={18} className="absolute top-[60%] left-[80%] w-[16px] h-[16px] md:w-[18px] md:h-[18px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md opacity-80" />
+              <Image src="/files/Alumni/alumni-photo-2.webp" alt="" width={20} height={20} className="absolute top-[80%] left-[90%] w-[18px] h-[18px] md:w-[20px] md:h-[20px] rounded-full border border-zinc-200 dark:border-white/20 object-cover shadow-md" />
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Footer() {
@@ -29,7 +30,7 @@ export default function Footer() {
                 {/* Brand */}
                 <div className="col-span-2">
                     <div className="flex items-center gap-1 mb-4">
-                        <img src="/files/logo-icon.png" alt="SkillSha" className="h-11 w-auto object-contain" />
+                        <Image src="/files/logo-icon.png" alt="SkillSha" width={42} height={40} className="h-11 w-auto object-contain" />
                         <span className="text-xl font-black tracking-tight text-zinc-900 dark:text-white">Skill<span className="text-brand-orange">Sha</span></span>
                     </div>
                     <p className="text-zinc-500 dark:text-zinc-400 text-[13px] leading-relaxed mb-5 max-w-sm">India&apos;s leading AI-native academy for creators, founders, and engineers. We train the next generation of digital builders through project-based, mentor-led programs.</p>
