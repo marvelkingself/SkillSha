@@ -19,7 +19,7 @@ export interface TeamGroup {
 
 export const FOUNDERS_DATA: TeamMember[] = [
   {
-    name: "[Founder Name A]",
+    name: "Amir Khan",
     role: "Co-Founder & CEO",
     bio: "A visionary leader driving technical educational accessibility, strategic industry alliances, and active student outcomes worldwide.",
     expertise: ["Strategic Growth", "Product Direction", "Partnership Networks", "Curriculum Strategy"],
@@ -30,7 +30,7 @@ export const FOUNDERS_DATA: TeamMember[] = [
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
   },
   {
-    name: "[Founder Name B]",
+    name: "Shad Ansari",
     role: "Co-Founder & CTO",
     bio: "An engineering pioneer focusing on modern AI runtime integrations, builder pedagogy, and high-performance educational platform runtimes.",
     expertise: ["AI Systems Architectures", "Developer Advocacy", "Pedagogical Runtimes", "Engineering Operations"],
