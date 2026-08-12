@@ -45,6 +45,32 @@ export interface CourseData {
   portfolioProjects?: PortfolioProject[];
 }
 
+export const COURSE_SLUG_MAP: Record<string, string> = {
+  "ai-engineering": "ai-engineering-course",
+  "full-stack-development": "full-stack-development-course",
+  "digital-marketing-with-gen-ai": "digital-marketing-course-with-gen-ai",
+  "digital-marketing": "digital-marketing-course",
+  "ui-ux-design": "ui-ux-design-course",
+  "data-science-ai": "data-science-course",
+  "product-management": "product-management-course",
+  "algorithmic-trading": "algorithmic-trading-course",
+  "graphic-designing": "graphic-design-course",
+  "mental-health-wellness": "mental-health-wellness-course",
+  "ai-healthcare-doctor": "ai-healthcare-doctor-course",
+  "ai-clinical-nurse": "ai-clinical-nurse-course",
+  "ai-finance-ca": "ai-finance-ca-course"
+};
+
+export function getCourseSlugById(id: string): string {
+  return COURSE_SLUG_MAP[id] || `${id}-course`;
+}
+
+export function getCourseIdBySlug(slug: string): string | undefined {
+  return Object.keys(COURSE_SLUG_MAP).find(
+    (key) => COURSE_SLUG_MAP[key] === slug
+  );
+}
+
 export const COURSES_DATA: Record<string, CourseData> = {
   "ai-engineering": {
     title: "AI Engineering",

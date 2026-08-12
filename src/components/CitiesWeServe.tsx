@@ -18,7 +18,7 @@ export default function CitiesWeServe() {
         {CITIES_LIST.map((city) => (
           <Link
             key={city.slug}
-            href={`/ai-engineering/${city.slug}`}
+            href={`/course/ai-engineering-course/${city.slug}`}
             className="group flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] hover:border-brand-orange/50 hover:bg-brand-orange/5 transition-all duration-300"
           >
             <svg className="w-3.5 h-3.5 text-brand-orange" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

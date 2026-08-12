@@ -58,14 +58,14 @@ export default function Footer() {
                 <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-4">Programs</h4>
                     <ul className="space-y-2.5">
-                        <li><Link href="/digital-marketing-with-gen-ai" className="text-[13px] text-amber-500 font-bold hover:text-amber-600 transition-colors flex items-center gap-1.5">Digital Marketing with Gen AI <span className="text-[9px] bg-gradient-to-r from-amber-500 to-orange-500 text-white px-1.5 py-0.5 rounded font-extrabold tracking-wider scale-90">FLAGSHIP</span></Link></li>
-                        <li><Link href="/ai-engineering" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering</Link></li>
-                        <li><Link href="/ui-ux-design" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design</Link></li>
-                        <li><Link href="/data-science-ai" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science & AI</Link></li>
-                        <li><Link href="/product-management" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Product Management</Link></li>
-                        <li><Link href="/algorithmic-trading" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Algorithmic Trading</Link></li>
-                        <li><Link href="/graphic-designing" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Graphic Designing</Link></li>
-                        <li><Link href="/mental-health-wellness" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Mental Health & Wellness</Link></li>
+                        <li><Link href="/course/digital-marketing-course-with-gen-ai" className="text-[13px] text-amber-500 font-bold hover:text-amber-600 transition-colors flex items-center gap-1.5">Digital Marketing with Gen AI <span className="text-[9px] bg-gradient-to-r from-amber-500 to-orange-500 text-white px-1.5 py-0.5 rounded font-extrabold tracking-wider scale-90">FLAGSHIP</span></Link></li>
+                        <li><Link href="/course/ai-engineering-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering</Link></li>
+                        <li><Link href="/course/ui-ux-design-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design</Link></li>
+                        <li><Link href="/course/data-science-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science & AI</Link></li>
+                        <li><Link href="/course/product-management-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Product Management</Link></li>
+                        <li><Link href="/course/algorithmic-trading-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Algorithmic Trading</Link></li>
+                        <li><Link href="/course/graphic-design-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Graphic Designing</Link></li>
+                        <li><Link href="/course/mental-health-wellness-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Mental Health & Wellness</Link></li>
                     </ul>
                 </div>
 

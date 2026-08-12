@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { getCourseSlugById } from '@/data/courses';
 
 interface IncludeItem {
   name: string;
@@ -479,7 +480,7 @@ export default function Programs({ className = "mt-24" }: { className?: string }
             return (
               <Link 
                 key={program.id} 
-                href={`/${program.id}`} 
+                href={`/course/${getCourseSlugById(program.id)}`} 
                 className={`block relative bg-white dark:bg-[#0c0c0c] rounded-[24px] p-6 lg:p-8 transition-all duration-500 hover:-translate-y-1.5 group flex flex-col h-full cursor-pointer overflow-hidden z-10 ${
                   isFlagship 
                     ? 'border-2 border-amber-500/60 dark:border-amber-500/40 shadow-[0_4px_30px_rgba(245,158,11,0.08)] dark:shadow-[0_4px_30px_rgba(245,158,11,0.05)] hover:shadow-[0_20px_40px_-15px_rgba(245,158,11,0.2)] dark:hover:shadow-[0_20px_40px_-15px_rgba(245,158,11,0.15)] hover:border-amber-500' 
@@ -648,7 +649,7 @@ export default function Programs({ className = "mt-24" }: { className?: string }
                       </div>
                     </div>
                     
-                    <Link href={`/${program.id}`} className="mt-5 w-full block text-center py-3 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white text-[13px] font-bold tracking-wide shadow-md shadow-brand-orange/20 hover:scale-[1.02] active:scale-95 transition-all">
+                    <Link href={`/course/${getCourseSlugById(program.id)}`} className="mt-5 w-full block text-center py-3 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white text-[13px] font-bold tracking-wide shadow-md shadow-brand-orange/20 hover:scale-[1.02] active:scale-95 transition-all">
                       Explore Curriculum
                     </Link>
                   </div>

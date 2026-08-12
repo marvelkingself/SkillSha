@@ -1,15 +1,15 @@
-import { COURSES_DATA } from "@/data/courses";
+import { COURSES_DATA, COURSE_SLUG_MAP, getCourseIdBySlug } from "@/data/courses";
 import { CITIES_LIST } from "@/data/cities";
 import { notFound } from "next/navigation";
 import CourseDetailClient from "@/components/CourseDetailClient";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
-  const paths: Array<{ id: string; city: string }> = [];
+  const paths: Array<{ slug: string; city: string }> = [];
   
-  Object.keys(COURSES_DATA).forEach((id) => {
+  Object.values(COURSE_SLUG_MAP).forEach((slug) => {
     CITIES_LIST.forEach((city) => {
-      paths.push({ id, city: city.slug });
+      paths.push({ slug, city: city.slug });
     });
   });
   
@@ -17,12 +17,13 @@ export async function generateStaticParams() {
 }
 
 interface PageProps {
-  params: Promise<{ id: string; city: string }>;
+  params: Promise<{ slug: string; city: string }>;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { id, city } = await params;
-  const data = COURSES_DATA[id];
+  const { slug, city } = await params;
+  const id = getCourseIdBySlug(slug);
+  const data = id ? COURSES_DATA[id] : null;
   const cityInfo = CITIES_LIST.find((c) => c.slug === city);
   
   if (!data || !cityInfo) {
@@ -37,11 +38,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function CityCoursePage({ params }: PageProps) {
-  const { id, city } = await params;
-  const data = COURSES_DATA[id];
+  const { slug, city } = await params;
+  const id = getCourseIdBySlug(slug);
+  const data = id ? COURSES_DATA[id] : null;
   const cityInfo = CITIES_LIST.find((c) => c.slug === city);
 
-  if (!data || !cityInfo) {
+  if (!id || !data || !cityInfo) {
     notFound();
   }
 

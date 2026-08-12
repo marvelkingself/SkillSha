@@ -1,19 +1,20 @@
-import { COURSES_DATA } from "@/data/courses";
+import { COURSES_DATA, COURSE_SLUG_MAP, getCourseIdBySlug } from "@/data/courses";
 import { notFound } from "next/navigation";
 import CourseDetailClient from "@/components/CourseDetailClient";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
-  return Object.keys(COURSES_DATA).map((id) => ({ id }));
+  return Object.values(COURSE_SLUG_MAP).map((slug) => ({ slug }));
 }
 
 interface PageProps {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { id } = await params;
-  const data = COURSES_DATA[id];
+  const { slug } = await params;
+  const id = getCourseIdBySlug(slug);
+  const data = id ? COURSES_DATA[id] : null;
   if (!data) {
     return {
       title: "Course Not Found | SkillSha",
@@ -26,10 +27,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function CourseDetailPage({ params }: PageProps) {
-  const { id } = await params;
-  const data = COURSES_DATA[id];
+  const { slug } = await params;
+  const id = getCourseIdBySlug(slug);
+  const data = id ? COURSES_DATA[id] : null;
 
-  if (!data) {
+  if (!id || !data) {
     notFound();
   }
 

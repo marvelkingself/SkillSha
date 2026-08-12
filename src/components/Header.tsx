@@ -106,38 +106,38 @@ export default function Header() {
                   <div className="grid grid-cols-12 gap-5">
                     {/* Courses List */}
                     <div className="col-span-8 grid grid-cols-2 gap-x-4 gap-y-3">
-                      <Link href="/digital-marketing-with-gen-ai" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-amber-500/[0.04] dark:hover:bg-amber-500/[0.02] border border-amber-500/25 transition-all text-left">
+                      <Link href="/course/digital-marketing-course-with-gen-ai" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-amber-500/[0.04] dark:hover:bg-amber-500/[0.02] border border-amber-500/25 transition-all text-left">
                         <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-amber-500 transition-colors flex items-center gap-1.5">
                           Digital Marketing with Gen AI
                           <span className="px-1 text-[8px] bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded font-extrabold tracking-wider leading-normal">FLAGSHIP</span>
                         </span>
                         <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Acquisition, Google/Meta Ads, AI engines</span>
                       </Link>
-                      <Link href="/ai-engineering" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
+                      <Link href="/course/ai-engineering-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
                         <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">AI Engineering</span>
                         <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">LLMs, fine-tuning, RAG architectures</span>
                       </Link>
-                      <Link href="/ui-ux-design" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
+                      <Link href="/course/ui-ux-design-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
                         <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">UI/UX Design</span>
                         <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Figma, spatial UI, design systems</span>
                       </Link>
-                      <Link href="/data-science-ai" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
+                      <Link href="/course/data-science-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
                         <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Data Science & AI</span>
                         <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Neural networks, python, analytics</span>
                       </Link>
-                      <Link href="/product-management" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
+                      <Link href="/course/product-management-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
                         <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Product Management</span>
                         <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Metrics, growth, product strategy</span>
                       </Link>
-                      <Link href="/algorithmic-trading" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
+                      <Link href="/course/algorithmic-trading-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
                         <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Algorithmic Trading</span>
                         <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Quant strategies, backtesting, systems</span>
                       </Link>
-                      <Link href="/graphic-designing" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
+                      <Link href="/course/graphic-design-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
                         <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Graphic Designing</span>
                         <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Visual design, branding, vector art</span>
                       </Link>
-                      <Link href="/mental-health-wellness" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all col-span-2 text-left">
+                      <Link href="/course/mental-health-wellness-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all col-span-2 text-left">
                         <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Mental Health & Wellness</span>
                         <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Somatic scan, circadian entrainment, and biohacking systems</span>
                       </Link>
@@ -180,7 +180,7 @@ export default function Header() {
               <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[280px] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                 <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.5)] p-2.5 grid grid-cols-2 gap-0.5 text-left normal-case">
                   {CITIES_LIST.map((city) => (
-                    <Link key={city.slug} href={`/ai-engineering/${city.slug}`} className="px-3 py-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white text-[11px] font-bold transition-all">{city.name}</Link>
+                    <Link key={city.slug} href={`/course/ai-engineering-course/${city.slug}`} className="px-3 py-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white text-[11px] font-bold transition-all">{city.name}</Link>
                   ))}
                 </div>
               </div>
