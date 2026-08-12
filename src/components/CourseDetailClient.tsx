@@ -121,6 +121,275 @@ function PortfolioShape({ shape }: { shape: string }) {
   }
 }
 
+// ── Custom subcomponents for Digital Marketing with Gen AI ──────────
+
+function DigitalMarketingWhySection() {
+  return (
+    <section className="mt-16 mb-12 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="text-center mb-10">
+        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
+          The Marketing Revolution
+        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white tracking-tight">
+          Why Digital Marketing + Gen AI?
+        </h2>
+        <p className="text-zinc-500 dark:text-zinc-400 mt-3 font-medium text-[15px] max-w-xl mx-auto leading-relaxed">
+          Traditional digital marketing courses teach frameworks from 2015. Skillsha integrates Generative AI from day one to give you a 10x competitive edge.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        {/* Left Card: Traditional Marketer */}
+        <div className="p-6 md:p-8 rounded-3xl border border-zinc-200 dark:border-white/5 bg-zinc-50/50 dark:bg-zinc-900/10 flex flex-col justify-between">
+          <div>
+            <h3 className="text-lg font-bold text-zinc-700 dark:text-zinc-300 mb-6 flex items-center gap-2">
+              <span className="material-symbols-outlined text-zinc-400">history</span>
+              Traditional Marketer (Outdated & Slow)
+            </h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-red-500 shrink-0 mt-0.5">close</span>
+                <span className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">
+                  <strong>Manual Copywriting:</strong> Spends hours writing single ad copies or blog articles from scratch.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-red-500 shrink-0 mt-0.5">close</span>
+                <span className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">
+                  <strong>Generic Creatives:</strong> Relies on stock images or slow design requests that delay campaign launches.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-red-500 shrink-0 mt-0.5">close</span>
+                <span className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">
+                  <strong>Basic Tracking:</strong> Struggles with standard conversion metrics without understanding attribution modeling.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-red-500 shrink-0 mt-0.5">close</span>
+                <span className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">
+                  <strong>Manual Outreach:</strong> Spends hours copy-pasting outbound B2B emails and leads one-by-one.
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div className="mt-8 pt-4 border-t border-zinc-200 dark:border-white/5 text-zinc-400 text-xs font-semibold uppercase tracking-wider">
+            Lower Efficiency • Standard Output
+          </div>
+        </div>
+
+        {/* Right Card: Skillsha AI Marketer */}
+        <div className="p-6 md:p-8 rounded-3xl border border-brand-orange/30 dark:border-brand-orange/20 bg-brand-orange/[0.02] dark:bg-brand-orange/[0.04] flex flex-col justify-between relative overflow-hidden">
+          <div className="absolute top-0 right-0 bg-brand-orange text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-bl-xl">
+            10x Efficient
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-6 flex items-center gap-2">
+              <span className="material-symbols-outlined text-brand-orange">bolt</span>
+              Skillsha AI Marketer (Standard-Setting)
+            </h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+                <span className="text-sm text-zinc-700 dark:text-zinc-300 font-semibold">
+                  <strong>AI Content Engines:</strong> Drafts highly personalized, on-brand copy, hooks, and drafts in seconds.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+                <span className="text-sm text-zinc-700 dark:text-zinc-300 font-semibold">
+                  <strong>AI Graphic Gen:</strong> Prompt-engineers custom visual creative ad designs via Midjourney/Firefly.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+                <span className="text-sm text-zinc-700 dark:text-zinc-300 font-semibold">
+                  <strong>Data Attribution:</strong> Masters GA4 advanced tracking schemas, predictive analytics, and GTM server containment.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-emerald-500 shrink-0 mt-0.5">check_circle</span>
+                <span className="text-sm text-zinc-700 dark:text-zinc-300 font-semibold">
+                  <strong>Outbound Pipelines:</strong> Automates B2B outbound scraper tables, Clay databases, and Make/n8n workflows.
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div className="mt-8 pt-4 border-t border-brand-orange/15 text-brand-orange text-xs font-bold uppercase tracking-wider">
+            High Velocity • Multiplied ROI
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DigitalMarketingToolsSection() {
+  const tools = [
+    { name: "ChatGPT & Claude", category: "AI Writing & Strategy", desc: "Crafting multi-step campaign copy & hooks", icon: "terminal" },
+    { name: "Midjourney", category: "AI Image Design", desc: "Generating premium ad graphics & banner designs", icon: "photo_library" },
+    { name: "Meta Ads Manager", category: "Paid Traffic Acquisition", desc: "Setting up lookalike targeting & scale campaigns", icon: "ads_click" },
+    { name: "Google Ads", category: "Search Ad Placement", desc: "Configuring match types and bidding algorithms", icon: "campaign" },
+    { name: "Google Analytics 4", category: "Analytics & Tracking", desc: "Analyzing customer attribution conversion loops", icon: "analytics" },
+    { name: "Google Tag Manager", category: "Server-Side Tagging", desc: "Deploying secure server containers for GA4 data", icon: "settings" },
+    { name: "Make.com & Zapier", category: "Marketing Automation", desc: "Syncing leads dynamically from Meta/Google to CRMs", icon: "loop" },
+    { name: "Clay", category: "B2B Database Scraping", desc: "Writing pipelines to crawl and enrich corporate leads", icon: "link" },
+    { name: "Klaviyo", category: "Lifecycle Email Flows", desc: "Building welcome loops and cart winback automations", icon: "email" },
+    { name: "Figma & Canva", category: "Visual UI Design", desc: "Drafting high-converting responsive web layouts", icon: "palette" },
+    { name: "CapCut & CapCut AI", category: "Video Production", desc: "Editing hooks, adding captions and voice effects", icon: "movie" },
+    { name: "SEMrush / Ahrefs", category: "SEO & GEO Discovery", desc: "Spying competitor keywords and local schemes", icon: "search" }
+  ];
+
+  return (
+    <section className="mt-16 mb-20 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="text-center mb-10">
+        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
+          Technology Toolkit
+        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white tracking-tight">
+          Tools & Platforms You will Master
+        </h2>
+        <p className="text-zinc-500 dark:text-zinc-400 mt-3 font-medium text-[15px] max-w-xl mx-auto leading-relaxed">
+          Master the complete technology stack that top digital marketing agencies and companies use to run campaigns.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+        {tools.map((t, idx) => (
+          <div key={idx} className="p-5 rounded-2xl border border-zinc-200/80 dark:border-white/5 bg-white/40 dark:bg-zinc-900/10 hover:border-brand-orange/30 dark:hover:border-brand-orange/20 transition-all duration-300 hover:-translate-y-0.5 group">
+            <div className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-brand-orange group-hover:scale-105 transition-transform">{t.icon}</span>
+              <div>
+                <h4 className="text-[14px] font-bold text-zinc-900 dark:text-white">{t.name}</h4>
+                <span className="text-[10px] text-brand-orange font-semibold uppercase tracking-wider mt-0.5 block">{t.category}</span>
+              </div>
+            </div>
+            <p className="text-zinc-500 dark:text-zinc-400 text-xs mt-3 leading-relaxed font-sans">{t.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function DigitalMarketingCareerSection() {
+  const roles = [
+    { title: "Growth Marketing Manager", salary: "₹12 - 18 LPA", scope: "SaaS, scaleups, high-growth brands", duties: "Build experiment loops, scale customer acquisition and manage ad spend" },
+    { title: "Paid Ads Specialist (PPC)", salary: "₹8 - 12 LPA", scope: "Agencies, eCommerce, retail brands", duties: "Draft campaign structure, run A/B tests, and optimize ROI budgets" },
+    { title: "SEO & GEO Specialist", salary: "₹7 - 10 LPA", scope: "Tech Hubs, local services, global blogs", duties: "Audit on-page layouts, structure Schema, and optimize for AI Search engine rankings" },
+    { title: "Content Marketing Manager", salary: "₹6 - 9 LPA", scope: "B2B tech, media, consumer products", duties: "Define content calendars, run AI-assisted copy production, and distribute value" },
+    { title: "Social Media Brand Manager", salary: "₹5 - 8 LPA", scope: "Lifestyle startups, design hubs, influencers", duties: "Establish visual identity, prompt AI assets, and engage community threads" }
+  ];
+
+  return (
+    <section className="mt-16 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="text-center mb-10">
+        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
+          Career Outcomes
+        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white tracking-tight">
+          Job Roles & Salary Opportunities
+        </h2>
+        <p className="text-zinc-500 dark:text-zinc-400 mt-3 font-medium text-[15px] max-w-xl mx-auto leading-relaxed">
+          The demand for marketers who understand Generative AI is skyrocketing. Here are the target roles and starting salary ranges.
+        </p>
+      </div>
+
+      <div className="space-y-4 mt-8">
+        {roles.map((r, idx) => (
+          <div key={idx} className="p-6 rounded-2xl border border-zinc-200/80 dark:border-white/5 bg-white/40 dark:bg-zinc-900/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="space-y-1 md:max-w-xl">
+              <div className="flex items-center gap-2.5 flex-wrap">
+                <h4 className="text-[15px] font-extrabold text-zinc-900 dark:text-white">{r.title}</h4>
+                <span className="px-2 py-0.5 text-[9px] font-bold bg-zinc-100 dark:bg-white/5 text-zinc-500 dark:text-zinc-400 rounded-md uppercase tracking-wider">{r.scope}</span>
+              </div>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans">{r.duties}</p>
+            </div>
+            <div className="text-left md:text-right shrink-0">
+              <span className="text-[10px] uppercase font-bold text-zinc-400 dark:text-zinc-500 block">Avg Starting Salary</span>
+              <span className="text-lg font-black text-brand-orange">{r.salary}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function DigitalMarketingEligibilitySection() {
+  return (
+    <section className="mt-8 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Column 1: Who is this for? */}
+        <div className="p-6 md:p-8 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/40 dark:bg-zinc-900/10">
+          <h3 className="text-lg font-bold text-zinc-950 dark:text-white mb-6 flex items-center gap-2">
+            <span className="material-symbols-outlined text-brand-orange">groups</span>
+            Who Should Join This Program?
+          </h3>
+          <ul className="space-y-4">
+            <li className="flex items-start gap-3">
+              <span className="material-symbols-outlined text-brand-orange shrink-0 mt-0.5">school</span>
+              <div>
+                <h4 className="text-[13px] font-bold text-zinc-900 dark:text-white">Graduates & Career Changers</h4>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5 font-sans leading-relaxed">Transition from generic administrative, support, or tech roles into high-leverage growth marketing.</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="material-symbols-outlined text-brand-orange shrink-0 mt-0.5">trending_up</span>
+              <div>
+                <h4 className="text-[13px] font-bold text-zinc-900 dark:text-white">Traditional Digital Marketers</h4>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5 font-sans leading-relaxed">Upgrade your toolkit with Generative AI prompting, B2B outbound scrapers, and server-side GA4 tag configurations.</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="material-symbols-outlined text-brand-orange shrink-0 mt-0.5">business_center</span>
+              <div>
+                <h4 className="text-[13px] font-bold text-zinc-900 dark:text-white">Entrepreneurs & Freelancers</h4>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5 font-sans leading-relaxed">Build client-acquisition pipelines, scale your local service listings, and structure high-ticket retargeting campaigns.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        {/* Column 2: Prerequisites */}
+        <div className="p-6 md:p-8 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/40 dark:bg-zinc-900/10 flex flex-col justify-between">
+          <div>
+            <h3 className="text-lg font-bold text-zinc-950 dark:text-white mb-6 flex items-center gap-2">
+              <span className="material-symbols-outlined text-brand-orange">verified_user</span>
+              Program Prerequisites
+            </h3>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-6 font-sans">
+              We start from absolute basics. You do NOT need any prior coding background or digital marketing knowledge to succeed in this course.
+            </p>
+            <ul className="space-y-3.5">
+              <li className="flex items-center gap-2.5">
+                <span className="material-symbols-outlined text-brand-orange text-lg">laptop_mac</span>
+                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold">A laptop or computer (Windows, macOS, or Linux)</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="material-symbols-outlined text-brand-orange text-lg">wifi</span>
+                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold">Reliable internet connection (for live classes and tools)</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="material-symbols-outlined text-brand-orange text-lg">schedule</span>
+                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold">5-6 hours of weekly commitment for classes & labs</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="material-symbols-outlined text-brand-orange text-lg">emoji_objects</span>
+                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold">Curiosity and desire to build practical campaigns</span>
+              </li>
+            </ul>
+          </div>
+          <div className="mt-8 pt-4 border-t border-zinc-200 dark:border-white/10 flex items-center gap-2 text-zinc-400 text-[11px] font-bold uppercase tracking-wider">
+            <span className="material-symbols-outlined text-brand-orange text-sm">info</span>
+            No marketing experience or degree required.
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function CourseDetailClient({ id, data, city }: CourseDetailClientProps) {
   const [typewriterIndex, setTypewriterIndex] = useState(0);
   const [typewriterText, setTypewriterText] = useState("");
@@ -1045,6 +1314,8 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </div>
         </section>
 
+        {id === "digital-marketing-with-gen-ai" && <DigitalMarketingWhySection />}
+
         {/* Curriculum Timeline Section */}
         <section id="curriculum" className="mt-16 mb-20 animate-reveal delay-200 w-full relative z-20">
           
@@ -1234,6 +1505,8 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </div>
         </section>
 
+        {id === "digital-marketing-with-gen-ai" && <DigitalMarketingToolsSection />}
+
         {/* Portfolio Projects Section */}
         {data.portfolioProjects && data.portfolioProjects.length > 0 && (
           <section id="portfolio-projects" className="mt-16 mb-20 animate-reveal delay-200 w-full">
@@ -1408,6 +1681,13 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </section>
         )}
 
+        {id === "digital-marketing-with-gen-ai" && (
+          <>
+            <DigitalMarketingCareerSection />
+            <DigitalMarketingEligibilitySection />
+          </>
+        )}
+
         {/* Certificate Spotlight Section */}
         <section className="py-12 px-0 z-20 relative">
           <div className="w-full p-8 md:p-12 rounded-3xl border border-zinc-200/60 dark:border-white/5 bg-zinc-50/50 dark:bg-zinc-900/30 backdrop-blur-sm shadow-xl">
@@ -1468,7 +1748,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                           This is to certify
                         </span>
                         <span className="text-lg md:text-xl font-serif italic font-semibold text-brand-orange mt-1 block">
-                          ***Learner Name***
+                          Jane Doe
                         </span>
                       </div>
                       
@@ -1477,18 +1757,18 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                           has successfully completed
                         </span>
                         <span className="text-[9px] font-bold text-zinc-700 dark:text-zinc-300 mt-0.5 block">
-                          ****Duration**** of
+                          {data.duration} of
                         </span>
                       </div>
 
                       <div>
                         <span className="text-sm md:text-md font-extrabold tracking-tight text-brand-orange block leading-tight px-2">
-                          ***Program Name***
+                          {data.title}
                         </span>
                       </div>
                       
                       <p className="text-[8px] text-zinc-400 dark:text-zinc-500 italic max-w-[220px] mx-auto leading-relaxed">
-                        We found him/her pretty active and confident in assigned projects.
+                        Demonstrating practical proficiency across projects, labs, and campaign builds.
                       </p>
                     </div>
 
