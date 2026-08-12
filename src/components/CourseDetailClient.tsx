@@ -234,10 +234,15 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
 
 function DigitalMarketingDifferencesSection({ data }: { data: CourseData }) {
   const content = data.flagshipContent?.differences;
-  if (!content) return null;
+  if (!content || content.length < 4) return null;
+
+  const diff1 = content[0];
+  const diff2 = content[1];
+  const diff3 = content[2];
+  const diff4 = content[3];
 
   return (
-    <section className="mt-12 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
+    <section className="mt-16 mb-24 w-full max-w-5xl mx-auto px-4 md:px-0">
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
           Course USPs
@@ -245,27 +250,203 @@ function DigitalMarketingDifferencesSection({ data }: { data: CourseData }) {
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
           What Makes This Digital Marketing Course Different?
         </h2>
+        <p className="text-sm text-zinc-400 mt-2 max-w-lg mx-auto leading-relaxed">
+          Forget generic slide-decks. We build modern growth campaigners with active portfolios, live budgets, and verified credentials.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-        {content.map((diff: any, idx: number) => (
-          <div key={idx} className="p-6 md:p-8 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 hover:border-brand-orange/20 transition-all duration-300 flex flex-col justify-between">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+        
+        {/* Card 1: Real-World Projects (Spans 2 columns on desktop) */}
+        <div className="md:col-span-2 p-6 md:p-8 rounded-3xl border border-zinc-200/80 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 hover:border-brand-orange/30 transition-all duration-300 flex flex-col md:flex-row justify-between gap-6 shadow-sm overflow-hidden relative group">
+          <div className="flex-1 flex flex-col justify-between z-10">
             <div>
-              <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-4 flex items-center gap-2">
-                <span className="material-symbols-outlined text-brand-orange shrink-0">workspace_premium</span>
-                {diff.title}
+              <h3 className="text-lg font-bold text-zinc-950 dark:text-white mb-4 flex items-center gap-2">
+                <span className="material-symbols-outlined text-brand-orange shrink-0">dashboard_customize</span>
+                {diff1.title}
               </h3>
-              <ul className="space-y-3">
-                {diff.bullets.map((bullet: string, bIdx: number) => (
+              <ul className="space-y-2.5">
+                {diff1.bullets.map((bullet: string, bIdx: number) => (
                   <li key={bIdx} className="flex items-start gap-2.5">
-                    <span className="material-symbols-outlined text-brand-orange text-xs shrink-0 mt-1">check</span>
+                    <span className="material-symbols-outlined text-brand-orange text-[13px] shrink-0 mt-0.5">check_circle</span>
                     <span className="text-xs text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed">{bullet}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
-        ))}
+          
+          {/* Mini Interactive Funnel Dashboard */}
+          <div className="w-full md:w-56 h-fit bg-zinc-100 dark:bg-zinc-950/80 border border-zinc-200 dark:border-white/5 rounded-2xl p-4 self-center relative z-10 shrink-0 font-mono shadow-md">
+            <div className="flex items-center justify-between mb-3 border-b border-zinc-200 dark:border-white/10 pb-2">
+              <div className="flex items-center gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-red-400" />
+                <div className="w-2 h-2 rounded-full bg-yellow-400" />
+                <div className="w-2 h-2 rounded-full bg-green-400" />
+              </div>
+              <span className="text-[9px] text-zinc-400">funnel_metrics.json</span>
+            </div>
+            <div className="space-y-3">
+              <div>
+                <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
+                  <span>Awareness</span>
+                  <span className="text-brand-orange">85%</span>
+                </div>
+                <div className="h-1.5 w-full bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden">
+                  <div className="h-full bg-brand-orange rounded-full" style={{ width: "85%" }} />
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
+                  <span>Consideration</span>
+                  <span className="text-amber-500">55%</span>
+                </div>
+                <div className="h-1.5 w-full bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden">
+                  <div className="h-full bg-amber-500 rounded-full" style={{ width: "55%" }} />
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
+                  <span>Conversion</span>
+                  <span className="text-emerald-500 font-bold">24%</span>
+                </div>
+                <div className="h-1.5 w-full bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden">
+                  <div className="h-full bg-emerald-500 rounded-full" style={{ width: "24%" }} />
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-1">
+              <span className="px-1.5 py-0.5 rounded bg-brand-orange/10 border border-brand-orange/20 text-[8px] text-brand-orange">Meta Ads</span>
+              <span className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-white/5 border border-zinc-300 dark:border-white/10 text-[8px] text-zinc-400">GTM tag</span>
+              <span className="px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[8px] text-emerald-500">ROAS positive</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Card 2: GitHub Portfolio (Spans 1 column on desktop) */}
+        <div className="md:col-span-1 p-6 md:p-8 rounded-3xl border border-zinc-200/80 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between gap-6 shadow-sm overflow-hidden relative group">
+          <div className="z-10">
+            <h3 className="text-lg font-bold text-zinc-950 dark:text-white mb-4 flex items-center gap-2">
+              <span className="material-symbols-outlined text-brand-orange shrink-0">terminal</span>
+              {diff2.title}
+            </h3>
+            <ul className="space-y-2.5">
+              {diff2.bullets.map((bullet: string, bIdx: number) => (
+                <li key={bIdx} className="flex items-start gap-2.5">
+                  <span className="material-symbols-outlined text-brand-orange text-[13px] shrink-0 mt-0.5">check_circle</span>
+                  <span className="text-xs text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Mini Code Terminal */}
+          <div className="w-full bg-zinc-950 border border-white/5 rounded-xl p-3 font-mono text-[9px] text-emerald-400 shadow-inner">
+            <div className="flex items-center gap-1.5 mb-2 pb-1 border-b border-white/5">
+              <div className="w-1.5 h-1.5 rounded-full bg-zinc-700" />
+              <span className="text-zinc-500 text-[8px]">automation_script.py</span>
+            </div>
+            <div className="space-y-0.5">
+              <div><span className="text-zinc-500">1</span> <span className="text-indigo-400">def</span> <span className="text-blue-400">track_conversions</span>(api):</div>
+              <div><span className="text-zinc-500">2</span>     leads = api.fetch()</div>
+              <div><span className="text-zinc-500">3</span>     <span className="text-amber-500">if</span> leads.roas &gt; <span className="text-amber-300">3.2</span>:</div>
+              <div><span className="text-zinc-500">4</span>         scale_campaign(api.id)</div>
+              <div className="text-[8px] text-zinc-500 mt-2 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                git commit verified
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Card 3: Industry-Recognized Certification (Spans 1 column on desktop) */}
+        <div className="md:col-span-1 p-6 md:p-8 rounded-3xl border border-zinc-200/80 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 hover:border-brand-orange/30 transition-all duration-300 flex flex-col justify-between gap-6 shadow-sm overflow-hidden relative group">
+          <div className="z-10">
+            <h3 className="text-lg font-bold text-zinc-950 dark:text-white mb-4 flex items-center gap-2">
+              <span className="material-symbols-outlined text-brand-orange shrink-0">workspace_premium</span>
+              {diff3.title}
+            </h3>
+            <ul className="space-y-2.5">
+              {diff3.bullets.map((bullet: string, bIdx: number) => (
+                <li key={bIdx} className="flex items-start gap-2.5">
+                  <span className="material-symbols-outlined text-brand-orange text-[13px] shrink-0 mt-0.5">check_circle</span>
+                  <span className="text-xs text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Premium Vector Certificate Mock */}
+          <div className="w-full h-24 rounded-xl border border-zinc-200 dark:border-white/5 bg-zinc-100 dark:bg-zinc-950/40 relative flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-tr from-brand-orange/5 via-transparent to-transparent" />
+            <div className="text-center relative z-10 flex flex-col items-center">
+              <svg className="w-10 h-10 text-brand-orange animate-pulse" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.746 3.746 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+              </svg>
+              <span className="text-[8px] uppercase tracking-widest text-zinc-500 mt-2 font-bold font-sans">SkillSha Certified</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Card 4: Live Campaigns (Spans 2 columns on desktop) */}
+        <div className="md:col-span-2 p-6 md:p-8 rounded-3xl border border-zinc-200/80 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 hover:border-brand-orange/30 transition-all duration-300 flex flex-col md:flex-row justify-between gap-6 shadow-sm overflow-hidden relative group">
+          <div className="flex-1 flex flex-col justify-between z-10">
+            <div>
+              <h3 className="text-lg font-bold text-zinc-950 dark:text-white mb-4 flex items-center gap-2">
+                <span className="material-symbols-outlined text-brand-orange shrink-0">campaign</span>
+                {diff4.title}
+              </h3>
+              <ul className="space-y-2.5">
+                {diff4.bullets.map((bullet: string, bIdx: number) => (
+                  <li key={bIdx} className="flex items-start gap-2.5">
+                    <span className="material-symbols-outlined text-brand-orange text-[13px] shrink-0 mt-0.5">check_circle</span>
+                    <span className="text-xs text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Live Campaign Dashboard */}
+          <div className="w-full md:w-56 bg-zinc-100 dark:bg-zinc-950/80 border border-zinc-200 dark:border-white/5 rounded-2xl p-4 self-center relative z-10 shrink-0 font-mono shadow-md">
+            <div className="flex justify-between items-center mb-2 pb-1 border-b border-zinc-200 dark:border-white/5">
+              <span className="text-[8px] text-zinc-400">Live Campaign Tracker</span>
+              <span className="text-[8px] text-emerald-500 flex items-center gap-1">
+                <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
+                Active
+              </span>
+            </div>
+            <div className="grid grid-cols-2 gap-2 mb-3">
+              <div className="bg-zinc-200/50 dark:bg-white/5 p-2 rounded-lg border border-zinc-300/40 dark:border-white/5">
+                <span className="text-[7px] text-zinc-400 block">Ad Spend</span>
+                <span className="text-xs font-bold text-zinc-900 dark:text-white">₹5,000</span>
+              </div>
+              <div className="bg-zinc-200/50 dark:bg-white/5 p-2 rounded-lg border border-zinc-300/40 dark:border-white/5">
+                <span className="text-[7px] text-zinc-400 block">Conversions</span>
+                <span className="text-xs font-bold text-zinc-900 dark:text-white">48 leads</span>
+              </div>
+            </div>
+            <div className="bg-emerald-500/10 border border-emerald-500/25 p-2 rounded-lg flex justify-between items-center">
+              <span className="text-[8px] text-emerald-500 font-bold">ROAS</span>
+              <span className="text-xs font-extrabold text-emerald-500">3.2x</span>
+            </div>
+            
+            {/* Small SVG Sparkline */}
+            <div className="w-full h-8 mt-3 relative overflow-hidden">
+              <svg className="w-full h-full" viewBox="0 0 100 24" preserveAspectRatio="none">
+                <path d="M0,20 Q15,8 30,16 T60,6 T90,14 T100,2" fill="none" stroke="rgb(16 185 129)" strokeWidth="1.5" />
+                <path d="M0,20 Q15,8 30,16 T60,6 T90,14 T100,2 L100,24 L0,24 Z" fill="url(#sparklineGrad)" opacity="0.1" />
+                <defs>
+                  <linearGradient id="sparklineGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="rgb(16 185 129)" />
+                    <stop offset="100%" stopColor="transparent" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );
