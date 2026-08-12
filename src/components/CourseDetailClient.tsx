@@ -123,108 +123,158 @@ function PortfolioShape({ shape }: { shape: string }) {
 
 // ── Custom subcomponents for Digital Marketing with Gen AI ──────────
 
-function DigitalMarketingWhySection() {
+function DigitalMarketingWhySection({ data }: { data: CourseData }) {
+  const content = data.flagshipContent?.whyChooseList;
+  if (!content) return null;
+
   return (
-    <section className="mt-16 mb-12 w-full max-w-5xl mx-auto px-4 md:px-0">
-      <div className="text-center mb-10">
+    <section className="mt-16 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
-          The Marketing Revolution
+          Why Choose Skillsha?
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white tracking-tight">
-          Why Digital Marketing + Gen AI?
+        <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+          Why Choose Skillsha's Digital Marketing Course with Gen AI?
         </h2>
         <p className="text-zinc-500 dark:text-zinc-400 mt-3 font-medium text-[15px] max-w-xl mx-auto leading-relaxed">
-          Traditional digital marketing courses teach frameworks from 2015. Skillsha integrates Generative AI from day one to give you a 10x competitive edge.
+          Here is what makes Skillsha different in the crowded Digital Marketing Course market.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-        {/* Left Card: Traditional Marketer */}
-        <div className="p-6 md:p-8 rounded-3xl border border-zinc-200 dark:border-white/5 bg-zinc-50/50 dark:bg-zinc-900/10 flex flex-col justify-between">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        {/* Placement Card */}
+        <div className="p-6 md:p-8 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 flex flex-col justify-between hover:border-brand-orange/20 transition-all duration-300">
           <div>
-            <h3 className="text-lg font-bold text-zinc-700 dark:text-zinc-300 mb-6 flex items-center gap-2">
-              <span className="material-symbols-outlined text-zinc-400">history</span>
-              Traditional Marketer (Outdated & Slow)
+            <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-6 flex items-center gap-2">
+              <span className="material-symbols-outlined text-brand-orange">verified_user</span>
+              100% Placement Support—Proven Results Globally
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-red-500 shrink-0 mt-0.5">close</span>
-                <span className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">
-                  <strong>Manual Copywriting:</strong> Spends hours writing single ad copies or blog articles from scratch.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-red-500 shrink-0 mt-0.5">close</span>
-                <span className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">
-                  <strong>Generic Creatives:</strong> Relies on stock images or slow design requests that delay campaign launches.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-red-500 shrink-0 mt-0.5">close</span>
-                <span className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">
-                  <strong>Basic Tracking:</strong> Struggles with standard conversion metrics without understanding attribution modeling.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-red-500 shrink-0 mt-0.5">close</span>
-                <span className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">
-                  <strong>Manual Outreach:</strong> Spends hours copy-pasting outbound B2B emails and leads one-by-one.
-                </span>
-              </li>
+              {content.placement.map((item: string, idx: number) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="material-symbols-outlined text-brand-orange shrink-0 mt-0.5 text-sm">check_circle</span>
+                  <span className="text-sm text-zinc-600 dark:text-zinc-300 font-medium font-sans leading-relaxed">{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
-          <div className="mt-8 pt-4 border-t border-zinc-200 dark:border-white/5 text-zinc-400 text-xs font-semibold uppercase tracking-wider">
-            Lower Efficiency • Standard Output
+          <div className="mt-8 pt-4 border-t border-zinc-100 dark:border-white/5 text-zinc-500 dark:text-zinc-400 text-xs italic font-medium leading-relaxed">
+            Last year, 94% of Digital Marketing Course graduates secured jobs within 60 days. That's not a promise—that's our track record.
           </div>
         </div>
 
-        {/* Right Card: Skillsha AI Marketer */}
-        <div className="p-6 md:p-8 rounded-3xl border border-brand-orange/30 dark:border-brand-orange/20 bg-brand-orange/[0.02] dark:bg-brand-orange/[0.04] flex flex-col justify-between relative overflow-hidden">
-          <div className="absolute top-0 right-0 bg-brand-orange text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-bl-xl">
-            10x Efficient
-          </div>
+        {/* AI Integration Card */}
+        <div className="p-6 md:p-8 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 flex flex-col justify-between hover:border-brand-orange/20 transition-all duration-300">
           <div>
             <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-6 flex items-center gap-2">
               <span className="material-symbols-outlined text-brand-orange">bolt</span>
-              Skillsha AI Marketer (Standard-Setting)
+              Gen AI Integration—Your Competitive Edge
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-emerald-500 shrink-0 mt-0.5">check_circle</span>
-                <span className="text-sm text-zinc-700 dark:text-zinc-300 font-semibold">
-                  <strong>AI Content Engines:</strong> Drafts highly personalized, on-brand copy, hooks, and drafts in seconds.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-emerald-500 shrink-0 mt-0.5">check_circle</span>
-                <span className="text-sm text-zinc-700 dark:text-zinc-300 font-semibold">
-                  <strong>AI Graphic Gen:</strong> Prompt-engineers custom visual creative ad designs via Midjourney/Firefly.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-emerald-500 shrink-0 mt-0.5">check_circle</span>
-                <span className="text-sm text-zinc-700 dark:text-zinc-300 font-semibold">
-                  <strong>Data Attribution:</strong> Masters GA4 advanced tracking schemas, predictive analytics, and GTM server containment.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-emerald-500 shrink-0 mt-0.5">check_circle</span>
-                <span className="text-sm text-zinc-700 dark:text-zinc-300 font-semibold">
-                  <strong>Outbound Pipelines:</strong> Automates B2B outbound scraper tables, Clay databases, and Make/n8n workflows.
-                </span>
-              </li>
+              {content.ai.map((item: string, idx: number) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="material-symbols-outlined text-brand-orange shrink-0 mt-0.5 text-sm">bolt</span>
+                  <span className="text-sm text-zinc-600 dark:text-zinc-300 font-medium font-sans leading-relaxed">{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
-          <div className="mt-8 pt-4 border-t border-brand-orange/15 text-brand-orange text-xs font-bold uppercase tracking-wider">
-            High Velocity • Multiplied ROI
+          <div className="mt-8 pt-4 border-t border-zinc-100 dark:border-white/5 text-zinc-500 dark:text-zinc-400 text-xs italic font-medium leading-relaxed">
+            Every recruiter is looking for digital marketers who understand AI. Our Digital Marketing Course makes you exactly that professional.
           </div>
+        </div>
+      </div>
+
+      {/* Trainers Subsection */}
+      <div className="mt-12">
+        <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-6 text-center">Expert Trainers with Global Industry Experience</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {content.trainers.map((trainer: any, idx: number) => (
+            <div key={idx} className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 hover:border-brand-orange/20 transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <h4 className="text-md font-bold text-brand-orange">{trainer.name}</h4>
+                <span className="text-xs text-zinc-400 dark:text-zinc-500 block mb-4">{trainer.title}</span>
+                <ul className="space-y-2">
+                  {trainer.bullets.map((bullet: string, bIdx: number) => (
+                    <li key={bIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
+                      <span className="text-brand-orange select-none shrink-0">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-white/5">
+                <p className="text-xs italic text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed">
+                  Students say: &ldquo;{trainer.quote}&rdquo;
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Pricing Intro Card */}
+      <div className="mt-8 p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 hover:border-brand-orange/20 transition-all duration-300">
+        <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-4">Affordable Yet Premium Quality</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {content.pricing.slice(0, 5).map((priceLine: string, pIdx: number) => (
+            <div key={pIdx} className="flex items-center gap-2.5">
+              <span className="material-symbols-outlined text-brand-orange text-sm shrink-0">local_offer</span>
+              <span className="text-xs text-zinc-600 dark:text-zinc-300 font-medium font-sans">{priceLine}</span>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-white/5 text-xs text-zinc-500 dark:text-zinc-400 italic">
+          {content.pricing[5]}
         </div>
       </div>
     </section>
   );
 }
 
-function DigitalMarketingToolsSection() {
+function DigitalMarketingDifferencesSection({ data }: { data: CourseData }) {
+  const content = data.flagshipContent?.differences;
+  if (!content) return null;
+
+  return (
+    <section className="mt-12 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
+          Course USPs
+        </div>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+          What Makes This Digital Marketing Course Different?
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        {content.map((diff: any, idx: number) => (
+          <div key={idx} className="p-6 md:p-8 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 hover:border-brand-orange/20 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-4 flex items-center gap-2">
+                <span className="material-symbols-outlined text-brand-orange shrink-0">workspace_premium</span>
+                {diff.title}
+              </h3>
+              <ul className="space-y-3">
+                {diff.bullets.map((bullet: string, bIdx: number) => (
+                  <li key={bIdx} className="flex items-start gap-2.5">
+                    <span className="material-symbols-outlined text-brand-orange text-xs shrink-0 mt-1">check</span>
+                    <span className="text-xs text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function DigitalMarketingToolsSection({ data }: { data: CourseData }) {
+  const content = data.flagshipContent?.skills;
+  if (!content) return null;
+
   const tools = [
     { name: "ChatGPT & Claude", category: "AI Writing & Strategy", desc: "Crafting multi-step campaign copy & hooks", icon: "terminal" },
     { name: "Midjourney", category: "AI Image Design", desc: "Generating premium ad graphics & banner designs", icon: "photo_library" },
@@ -241,19 +291,20 @@ function DigitalMarketingToolsSection() {
   ];
 
   return (
-    <section className="mt-16 mb-20 w-full max-w-5xl mx-auto px-4 md:px-0">
-      <div className="text-center mb-10">
+    <section className="mt-16 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
-          Technology Toolkit
+          Toolkit & Skills
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white tracking-tight">
-          Tools & Platforms You will Master
+        <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+          Skills & Platforms You will Master
         </h2>
         <p className="text-zinc-500 dark:text-zinc-400 mt-3 font-medium text-[15px] max-w-xl mx-auto leading-relaxed">
           Master the complete technology stack that top digital marketing agencies and companies use to run campaigns.
         </p>
       </div>
 
+      {/* Grid of master tools */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
         {tools.map((t, idx) => (
           <div key={idx} className="p-5 rounded-2xl border border-zinc-200/80 dark:border-white/5 bg-white/40 dark:bg-zinc-900/10 hover:border-brand-orange/30 dark:hover:border-brand-orange/20 transition-all duration-300 hover:-translate-y-0.5 group">
@@ -268,47 +319,22 @@ function DigitalMarketingToolsSection() {
           </div>
         ))}
       </div>
-    </section>
-  );
-}
 
-function DigitalMarketingCareerSection() {
-  const roles = [
-    { title: "Growth Marketing Manager", salary: "₹12 - 18 LPA", scope: "SaaS, scaleups, high-growth brands", duties: "Build experiment loops, scale customer acquisition and manage ad spend" },
-    { title: "Paid Ads Specialist (PPC)", salary: "₹8 - 12 LPA", scope: "Agencies, eCommerce, retail brands", duties: "Draft campaign structure, run A/B tests, and optimize ROI budgets" },
-    { title: "SEO & GEO Specialist", salary: "₹7 - 10 LPA", scope: "Tech Hubs, local services, global blogs", duties: "Audit on-page layouts, structure Schema, and optimize for AI Search engine rankings" },
-    { title: "Content Marketing Manager", salary: "₹6 - 9 LPA", scope: "B2B tech, media, consumer products", duties: "Define content calendars, run AI-assisted copy production, and distribute value" },
-    { title: "Social Media Brand Manager", salary: "₹5 - 8 LPA", scope: "Lifestyle startups, design hubs, influencers", duties: "Establish visual identity, prompt AI assets, and engage community threads" }
-  ];
-
-  return (
-    <section className="mt-16 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
-      <div className="text-center mb-10">
-        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
-          Career Outcomes
-        </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white tracking-tight">
-          Job Roles & Salary Opportunities
-        </h2>
-        <p className="text-zinc-500 dark:text-zinc-400 mt-3 font-medium text-[15px] max-w-xl mx-auto leading-relaxed">
-          The demand for marketers who understand Generative AI is skyrocketing. Here are the target roles and starting salary ranges.
-        </p>
-      </div>
-
-      <div className="space-y-4 mt-8">
-        {roles.map((r, idx) => (
-          <div key={idx} className="p-6 rounded-2xl border border-zinc-200/80 dark:border-white/5 bg-white/40 dark:bg-zinc-900/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div className="space-y-1 md:max-w-xl">
-              <div className="flex items-center gap-2.5 flex-wrap">
-                <h4 className="text-[15px] font-extrabold text-zinc-900 dark:text-white">{r.title}</h4>
-                <span className="px-2 py-0.5 text-[9px] font-bold bg-zinc-100 dark:bg-white/5 text-zinc-500 dark:text-zinc-400 rounded-md uppercase tracking-wider">{r.scope}</span>
-              </div>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans">{r.duties}</p>
-            </div>
-            <div className="text-left md:text-right shrink-0">
-              <span className="text-[10px] uppercase font-bold text-zinc-400 dark:text-zinc-500 block">Avg Starting Salary</span>
-              <span className="text-lg font-black text-brand-orange">{r.salary}</span>
-            </div>
+      {/* Grid of detailed skills category */}
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {content.map((sk: any, idx: number) => (
+          <div key={idx} className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
+            <h4 className="text-sm font-bold text-zinc-955 dark:text-white mb-4 border-b border-zinc-100 dark:border-white/5 pb-2">
+              {sk.category}
+            </h4>
+            <ul className="space-y-2">
+              {sk.list.map((item: string, iIdx: number) => (
+                <li key={iIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
+                  <span className="text-brand-orange select-none">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
@@ -316,75 +342,376 @@ function DigitalMarketingCareerSection() {
   );
 }
 
-function DigitalMarketingEligibilitySection() {
+function DigitalMarketingPlacementSection({ data }: { data: CourseData }) {
+  const content = data.flagshipContent?.placement;
+  if (!content) return null;
+
   return (
-    <section className="mt-8 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Column 1: Who is this for? */}
-        <div className="p-6 md:p-8 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/40 dark:bg-zinc-900/10">
-          <h3 className="text-lg font-bold text-zinc-950 dark:text-white mb-6 flex items-center gap-2">
-            <span className="material-symbols-outlined text-brand-orange">groups</span>
-            Who Should Join This Program?
+    <section className="mt-16 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
+          Placement Support
+        </div>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+          100% Placement Support—How Skillsha Helps You Land Jobs
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* During Course Timeline */}
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
+          <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-6 flex items-center gap-2">
+            <span className="material-symbols-outlined text-brand-orange">timeline</span>
+            During Your Course
           </h3>
-          <ul className="space-y-4">
-            <li className="flex items-start gap-3">
-              <span className="material-symbols-outlined text-brand-orange shrink-0 mt-0.5">school</span>
-              <div>
-                <h4 className="text-[13px] font-bold text-zinc-900 dark:text-white">Graduates & Career Changers</h4>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5 font-sans leading-relaxed">Transition from generic administrative, support, or tech roles into high-leverage growth marketing.</p>
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="material-symbols-outlined text-brand-orange shrink-0 mt-0.5">trending_up</span>
-              <div>
-                <h4 className="text-[13px] font-bold text-zinc-900 dark:text-white">Traditional Digital Marketers</h4>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5 font-sans leading-relaxed">Upgrade your toolkit with Generative AI prompting, B2B outbound scrapers, and server-side GA4 tag configurations.</p>
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="material-symbols-outlined text-brand-orange shrink-0 mt-0.5">business_center</span>
-              <div>
-                <h4 className="text-[13px] font-bold text-zinc-900 dark:text-white">Entrepreneurs & Freelancers</h4>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5 font-sans leading-relaxed">Build client-acquisition pipelines, scale your local service listings, and structure high-ticket retargeting campaigns.</p>
-              </div>
-            </li>
+          <ul className="space-y-4 relative pl-4 border-l border-zinc-100 dark:border-white/5">
+            {content.during.map((step: string, sIdx: number) => (
+              <li key={sIdx} className="relative text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
+                <span className="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-brand-orange border border-white dark:border-zinc-900"></span>
+                {step}
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Column 2: Prerequisites */}
-        <div className="p-6 md:p-8 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/40 dark:bg-zinc-900/10 flex flex-col justify-between">
+        {/* After Course Support */}
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 flex flex-col justify-between">
           <div>
-            <h3 className="text-lg font-bold text-zinc-950 dark:text-white mb-6 flex items-center gap-2">
-              <span className="material-symbols-outlined text-brand-orange">verified_user</span>
-              Program Prerequisites
+            <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-6 flex items-center gap-2">
+              <span className="material-symbols-outlined text-brand-orange">work</span>
+              After You Complete
             </h3>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-6 font-sans">
-              We start from absolute basics. You do NOT need any prior coding background or digital marketing knowledge to succeed in this course.
-            </p>
-            <ul className="space-y-3.5">
-              <li className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-brand-orange text-lg">laptop_mac</span>
-                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold">A laptop or computer (Windows, macOS, or Linux)</span>
+            <ul className="space-y-3">
+              {content.after.map((item: string, aIdx: number) => (
+                <li key={aIdx} className="flex items-start gap-2 text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
+                  <span className="text-brand-orange">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Hiring Network */}
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 flex flex-col justify-between">
+          <div>
+            <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-6 flex items-center gap-2">
+              <span className="material-symbols-outlined text-brand-orange">handshake</span>
+              Our Hiring Network
+            </h3>
+            <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-4 font-sans leading-relaxed">We are connected with:</p>
+            <ul className="space-y-3">
+              {content.network.map((net: string, nIdx: number) => (
+                <li key={nIdx} className="flex items-start gap-2 text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
+                  <span className="text-brand-orange">•</span>
+                  <span>{net}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
+  const content = data.flagshipContent?.careers;
+  if (!content) return null;
+
+  return (
+    <section className="mt-16 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
+          Career Outcomes
+        </div>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+          Career Opportunities After Your Digital Marketing Course
+        </h2>
+      </div>
+
+      {/* Row list of roles */}
+      <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-4">In-Demand Job Roles Worldwide</h3>
+      <div className="space-y-4">
+        {content.roles.map((r: any, idx: number) => (
+          <div key={idx} className="p-6 rounded-2xl border border-zinc-200/80 dark:border-white/5 bg-white/40 dark:bg-zinc-900/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="space-y-1 md:max-w-xl">
+              <div className="flex items-center gap-2.5 flex-wrap">
+                <h4 className="text-[15px] font-extrabold text-zinc-900 dark:text-white">{r.title}</h4>
+                <span className="px-2 py-0.5 text-[9px] font-bold bg-zinc-100 dark:bg-white/5 text-zinc-500 dark:text-zinc-400 rounded-md uppercase tracking-wider">{r.availability}</span>
+              </div>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans">{r.duties}</p>
+            </div>
+            <div className="text-left md:text-right shrink-0">
+              <span className="text-[10px] uppercase font-bold text-zinc-400 dark:text-zinc-500 block">Starting Salary Range</span>
+              <span className="text-lg font-black text-brand-orange">{r.salary}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Growth Paths grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
+          <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-4">Career Growth Path</h3>
+          <ul className="space-y-2">
+            {content.growth.map((grow: string, gIdx: number) => (
+              <li key={gIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
+                <span className="text-brand-orange">•</span>
+                <span>{grow}</span>
               </li>
-              <li className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-brand-orange text-lg">wifi</span>
-                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold">Reliable internet connection (for live classes and tools)</span>
+            ))}
+          </ul>
+        </div>
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
+          <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-4">Salary Growth Globally</h3>
+          <ul className="space-y-2">
+            {content.salaryGrowth.map((sal: string, sIdx: number) => (
+              <li key={sIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
+                <span className="text-brand-orange">•</span>
+                <span>{sal}</span>
               </li>
-              <li className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-brand-orange text-lg">schedule</span>
-                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold">5-6 hours of weekly commitment for classes & labs</span>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <p className="text-xs text-zinc-500 dark:text-zinc-400 italic mt-6 leading-relaxed text-center font-sans">
+        The digital marketing job market is growing worldwide. Companies need skilled professionals, and there's a shortage of people who understand AI-integrated marketing.
+      </p>
+    </section>
+  );
+}
+
+function DigitalMarketingStoriesSection({ data }: { data: CourseData }) {
+  const content = data.flagshipContent?.stories;
+  if (!content) return null;
+
+  const stats = [
+    { label: "Placement Rate", val: "94%", desc: "Within 60 days of completion" },
+    { label: "Starting Salary", val: "$2.5k-$4k", desc: "Average monthly range globally" },
+    { label: "Salary Growth", val: "+50%", desc: "Common package increase" },
+    { label: "Graduate Satisfaction", val: "98%", desc: "Would recommend the course" }
+  ];
+
+  return (
+    <section className="mt-16 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
+          Alumni Success
+        </div>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+          Success Stories—Digital Marketing Course Graduates Worldwide
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {content.map((story: any, idx: number) => (
+          <div key={idx} className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-2 mb-4 border-b border-zinc-100 dark:border-white/5 pb-2">
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">{story.name}</h4>
+                <div className="text-[10px] text-right font-sans">
+                  <span className="text-zinc-400 block">Before: {story.before}</span>
+                  <span className="text-brand-orange font-bold block">After: {story.after}</span>
+                </div>
+              </div>
+              <p className="text-xs text-zinc-600 dark:text-zinc-300 italic font-sans leading-relaxed mb-4">
+                &ldquo;{story.body}&rdquo;
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-white/5 text-xs font-bold text-brand-orange font-sans">
+              Result: {story.result}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Placement statistics bento */}
+      <div className="mt-8 p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
+        <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-6 text-center">Global Placement Statistics from Our Digital Marketing Course</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {stats.map((st, idx) => (
+            <div key={idx} className="text-center p-3 rounded-2xl bg-zinc-50 dark:bg-white/5 border border-zinc-150 dark:border-white/[0.03]">
+              <span className="text-2xl font-black text-brand-orange block">{st.val}</span>
+              <span className="text-[10px] font-bold text-zinc-800 dark:text-white block mt-1">{st.label}</span>
+              <span className="text-[9px] text-zinc-400 dark:text-zinc-500 block leading-tight mt-0.5">{st.desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DigitalMarketingPricingSection({ data }: { data: CourseData }) {
+  const content = data.flagshipContent?.pricingDetail;
+  if (!content) return null;
+
+  return (
+    <section className="mt-16 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
+          Investment
+        </div>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+          Digital Marketing Course Pricing—Flexible Payment Options
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Cost comparison table */}
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 flex flex-col justify-between col-span-1">
+          <div>
+            <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-6">Transparent, Affordable Pricing</h3>
+            <div className="space-y-3 font-sans text-xs">
+              {content.rows.map((row: any, rIdx: number) => (
+                <div key={rIdx} className={`flex items-center justify-between py-2 border-b border-zinc-100 dark:border-white/5 ${rIdx === 3 ? 'text-brand-orange font-bold text-sm' : 'text-zinc-600 dark:text-zinc-400'}`}>
+                  <span>{row.cost}</span>
+                  <span>{row.amount}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-6 text-[10px] text-zinc-400 dark:text-zinc-500 leading-relaxed font-sans">
+            Currency Reference (approximate): ₹13,000 ≈ $156 USD ≈ €145 EUR. Payment accepted in multiple currencies.
+          </div>
+        </div>
+
+        {/* Installments & Corporate Options */}
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 flex flex-col justify-between col-span-1">
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-4">Installment Plans (0% Interest)</h3>
+              <ul className="space-y-2">
+                {content.installments.map((inst: string, iIdx: number) => (
+                  <li key={iIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
+                    <span className="text-brand-orange">•</span>
+                    <span>{inst}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-2">Corporate Discounts</h3>
+              <ul className="space-y-2">
+                {content.discounts.map((disc: string, dIdx: number) => (
+                  <li key={dIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
+                    <span className="text-brand-orange">•</span>
+                    <span>{disc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* What's Included */}
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 col-span-1">
+          <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-4">What's Included</h3>
+          <ul className="space-y-2 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+            {content.includes.map((item: string, idx: number) => (
+              <li key={idx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
+                <span className="text-brand-orange select-none font-bold">✓</span>
+                <span>{item}</span>
               </li>
-              <li className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-brand-orange text-lg">emoji_objects</span>
-                <span className="text-xs text-zinc-700 dark:text-zinc-300 font-semibold">Curiosity and desire to build practical campaigns</span>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DigitalMarketingEnrollmentSection({ data }: { data: CourseData }) {
+  const content = data.flagshipContent?.enrollment;
+  const quickFacts = data.flagshipContent?.quickFacts;
+  if (!content) return null;
+
+  return (
+    <section className="mt-16 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
+          Join Us
+        </div>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+          How to Enroll in Our Digital Marketing Course
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Step List */}
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 col-span-2 space-y-6">
+          {content.map((stepObj: any, idx: number) => (
+            <div key={idx} className="flex gap-4 items-start">
+              <div className="w-16 h-10 rounded-xl bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center font-black text-brand-orange text-sm shrink-0">
+                {stepObj.step}
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">{stepObj.title}</h4>
+                <ul className="space-y-1">
+                  {stepObj.bullets.map((bullet: string, bIdx: number) => (
+                    <li key={bIdx} className="text-xs text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-1.5">
+                      <span className="text-brand-orange select-none">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Prerequisites & Quick Facts */}
+        <div className="col-span-1 space-y-6">
+          <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
+            <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-4">What You Need to Get Started</h3>
+            <ul className="space-y-3 font-sans text-xs text-zinc-600 dark:text-zinc-400">
+              <li className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-brand-orange text-sm">laptop_mac</span>
+                <span>Laptop or computer</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-brand-orange text-sm">wifi</span>
+                <span>Reliable internet connection</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-brand-orange text-sm">edit_note</span>
+                <span>Notebook for notes</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-brand-orange text-sm">emoji_objects</span>
+                <span>Your curiosity and commitment</span>
               </li>
             </ul>
           </div>
-          <div className="mt-8 pt-4 border-t border-zinc-200 dark:border-white/10 flex items-center gap-2 text-zinc-400 text-[11px] font-bold uppercase tracking-wider">
-            <span className="material-symbols-outlined text-brand-orange text-sm">info</span>
-            No marketing experience or degree required.
+
+          <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
+            <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-4">Quick Facts</h3>
+            <ul className="space-y-2 text-xs font-sans text-zinc-600 dark:text-zinc-400">
+              {quickFacts.map((fact: string, idx: number) => (
+                <li key={idx} className="flex items-start gap-2 leading-relaxed">
+                  <span className="text-brand-orange select-none">•</span>
+                  <span>{fact}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function DigitalMarketingDisclaimerSection({ data }: { data: CourseData }) {
+  const disclaimer = data.flagshipContent?.disclaimer;
+  if (!disclaimer) return null;
+
+  return (
+    <section className="mt-8 mb-12 w-full max-w-5xl mx-auto px-4 md:px-0">
+      <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-zinc-50/50 dark:bg-zinc-900/20 text-center">
+        <p className="text-[11px] text-zinc-400 dark:text-zinc-500 font-sans leading-relaxed max-w-3xl mx-auto">
+          {disclaimer}
+        </p>
       </div>
     </section>
   );
@@ -776,9 +1103,15 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 {city && <span className="text-zinc-900 dark:text-white block sm:inline">in {city}</span>}
               </h1>
 
-              <p className="text-zinc-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed mb-6 max-w-lg font-sans">
-                {data.description} {city ? `Learn from absolute industry leaders and accelerate your career path directly from ${city}.` : ""}
-              </p>
+              {id === "digital-marketing-with-gen-ai" && data.flagshipContent?.heroSubtext ? (
+                <div className="text-zinc-600 dark:text-zinc-400 text-[14px] md:text-[15px] leading-relaxed mb-6 max-w-xl font-sans whitespace-pre-line">
+                  {data.flagshipContent.heroSubtext}
+                </div>
+              ) : (
+                <p className="text-zinc-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed mb-6 max-w-lg font-sans">
+                  {data.description} {city ? `Learn from absolute industry leaders and accelerate your career path directly from ${city}.` : ""}
+                </p>
+              )}
 
               {/* Dynamic Stats */}
               <div className="flex flex-nowrap justify-center lg:justify-start items-center gap-3 mb-6 pt-4 border-t border-zinc-200 dark:border-white/10 w-full lg:w-fit self-center lg:self-start overflow-hidden">
@@ -1314,7 +1647,12 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </div>
         </section>
 
-        {id === "digital-marketing-with-gen-ai" && <DigitalMarketingWhySection />}
+        {id === "digital-marketing-with-gen-ai" && (
+          <>
+            <DigitalMarketingWhySection data={data} />
+            <DigitalMarketingDifferencesSection data={data} />
+          </>
+        )}
 
         {/* Curriculum Timeline Section */}
         <section id="curriculum" className="mt-16 mb-20 animate-reveal delay-200 w-full relative z-20">
@@ -1505,7 +1843,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </div>
         </section>
 
-        {id === "digital-marketing-with-gen-ai" && <DigitalMarketingToolsSection />}
+        {id === "digital-marketing-with-gen-ai" && <DigitalMarketingToolsSection data={data} />}
 
         {/* Portfolio Projects Section */}
         {data.portfolioProjects && data.portfolioProjects.length > 0 && (
@@ -1681,12 +2019,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </section>
         )}
 
-        {id === "digital-marketing-with-gen-ai" && (
-          <>
-            <DigitalMarketingCareerSection />
-            <DigitalMarketingEligibilitySection />
-          </>
-        )}
+        {id === "digital-marketing-with-gen-ai" && <DigitalMarketingPlacementSection data={data} />}
 
         {/* Certificate Spotlight Section */}
         <section className="py-12 px-0 z-20 relative">
@@ -1888,6 +2221,15 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </div>
         </section>
 
+        {id === "digital-marketing-with-gen-ai" && (
+          <>
+            <DigitalMarketingCareerSection data={data} />
+            <DigitalMarketingStoriesSection data={data} />
+            <DigitalMarketingPricingSection data={data} />
+            <DigitalMarketingEnrollmentSection data={data} />
+          </>
+        )}
+
         {/* FAQs Accordion */}
         <section id="faqs" className="mt-8 mb-24 max-w-[800px] mx-auto px-4 md:px-0">
           <div className="mb-10 text-center">
@@ -1930,6 +2272,8 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
         </section>
 
         <AlumniCompanies />
+
+        {id === "digital-marketing-with-gen-ai" && <DigitalMarketingDisclaimerSection data={data} />}
       </main>
 
       <Footer />

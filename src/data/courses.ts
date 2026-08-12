@@ -43,6 +43,7 @@ export interface CourseData {
   milestones: CourseMilestone[];
   faqs: CourseFAQ[];
   portfolioProjects?: PortfolioProject[];
+  flagshipContent?: any;
 }
 
 export const COURSE_SLUG_MAP: Record<string, string> = {
@@ -487,184 +488,206 @@ export const COURSES_DATA: Record<string, CourseData> = {
     title: "Digital Marketing with Gen AI",
     typewriter: ["Gen AI Marketing", "Meta & Google Ads", "AI Content Engines", "Automation Funnels", "Data-Driven Growth"],
     description: "Master the future of marketing. Combine core growth marketing strategies with Generative AI tools to build high-converting ad engines, automate campaign copy, optimize landing pages, and scale brand distribution.",
-    duration: "12 Weeks",
+    duration: "24 Weeks",
     salary: "₹ 9.5 LPA",
     liveSessions: "45+ hrs",
     projects: "12+",
-    milestoneWord: "Six",
+    milestoneWord: "Ten",
     milestones: [
       {
         number: 1,
-        title: "Funnel Strategy & AI Copywriting (Weeks 1-2)",
+        title: "Digital Marketing Fundamentals + AI Basics (Weeks 1-2)",
         modules: [
           {
-            title: "Marketing Psychology & Funnels",
+            title: "Fundamentals & Basics",
             icon: "psychology",
             color: "orange",
             bullets: [
-              { title: "Pirate Funnels (AARRR Framework)", desc: "acquisition to retention logic", icon: "funnel_chart" },
-              { title: "Unit Economics (CAC, LTV, ROI)", desc: "tracking core marketing health", icon: "payments" },
-              { title: "Competitor Intelligence Tools", desc: "spying on competitor meta ads", icon: "find_in_page" },
-              { title: "AI-Augmented ICP Personas", desc: "defining audiences with LLM agent sheets", icon: "groups" }
-            ]
-          },
-          {
-            title: "Copywriting & Prompt Systems",
-            icon: "terminal",
-            color: "blue",
-            bullets: [
-              { title: "AIDA & PAS Writing Frameworks", desc: "for high-converting copies", icon: "edit_note" },
-              { title: "Claude & ChatGPT Persona Tuning", desc: "building writing brand voices", icon: "text_snippet" },
-              { title: "High-CTR Ad Hooks & Copy", desc: "generating social media posts at scale", icon: "photo_library" },
-              { title: "Structured Campaign Prompts", desc: "creating multi-step content loops", icon: "link" }
+              { title: "What is digital marketing in 2024?", desc: "Core growth strategies", icon: "help" },
+              { title: "How has marketing changed with Gen AI?", desc: "Shift in industry standards", icon: "bolt" },
+              { title: "Career paths and opportunities in digital marketing", desc: "Key roles and requirements", icon: "trending_up" },
+              { title: "Setting up AI tools for marketing workflows", desc: "Setting up Claude & ChatGPT accounts", icon: "settings" },
+              { title: "Understanding AI's role as a tool, not a replacement", desc: "Ethical prompting guidelines", icon: "check_circle" }
             ]
           }
         ]
       },
       {
         number: 2,
-        title: "AI Media & Website Engines (Weeks 3-4)",
+        title: "Content Marketing + AI-Powered Content Creation (Weeks 3-4)",
         modules: [
           {
-            title: "AI Media & Video Generation",
-            icon: "movie_creation",
-            color: "indigo",
+            title: "Content Marketing Strategy",
+            icon: "article",
+            color: "blue",
             bullets: [
-              { title: "Midjourney & Firefly Prompting", desc: "for premium visual ad graphics", icon: "photo_library" },
-              { title: "Figma UI & Figma AI Layouts", desc: "designing conversion landing pages", icon: "palette" },
-              { title: "Short-Form Video Production", desc: "using script-to-video prompt tools", icon: "movie" },
-              { title: "AI Voiceovers & Captions", desc: "using ElevenLabs and CapCut", icon: "volume_up" }
-            ]
-          },
-          {
-            title: "Business Web Architecture",
-            icon: "web",
-            color: "emerald",
-            bullets: [
-              { title: "WordPress Core Setup", desc: "installation and performance optimization", icon: "settings" },
-              { title: "Visual Builders (Elementor)", desc: "building responsive brand portfolios", icon: "table_chart" },
-              { title: "Shopify eCommerce Layouts", desc: "designing high-converting product pages", icon: "shopping_cart" },
-              { title: "Core Web Vitals Speed Auditing", desc: "caching, CDNs, and file size checks", icon: "bolt" }
+              { title: "Building content strategies that convert", desc: "Funnel layouts and models", icon: "filter_alt" },
+              { title: "Writing for search engines and humans", desc: "Balancing user intent and SEO", icon: "edit_note" },
+              { title: "Using AI to scale content production without losing quality", desc: "Scale strategies with LLMs", icon: "text_snippet" },
+              { title: "Content calendars and distribution", desc: "Channel distribution plans", icon: "calendar_today" },
+              { title: "Measuring content performance", desc: "CTR, conversion rates & metrics", icon: "analytics" }
             ]
           }
         ]
       },
       {
         number: 3,
-        title: "SEO & Paid Meta Campaigns (Weeks 5-6)",
+        title: "SEO Mastery for Global Markets (Weeks 5-6)",
         modules: [
           {
-            title: "SEO & Generative Engine Optimization",
+            title: "Global Search Engine Optimization",
             icon: "query_stats",
             color: "rose",
             bullets: [
-              { title: "On-Page, Off-Page & Technical Audits", desc: "using SEMrush and Ahrefs", icon: "find_in_page" },
-              { title: "GEO (Generative Engine Optimization)", desc: "ranking in Perplexity and Gemini", icon: "psychology" },
-              { title: "AI Keyword Intent Clustering", desc: "automating keyword sheets using LLMs", icon: "map" },
-              { title: "Local Schema Markup Setups", desc: "for regional search placements", icon: "location_on" }
-            ]
-          },
-          {
-            title: "Meta Ads Dynamic Targeting",
-            icon: "ads_click",
-            color: "violet",
-            bullets: [
-              { title: "Meta Campaign Architecture", desc: "leads, conversions, custom events", icon: "edit_note" },
-              { title: "Advantage+ Targeting Setup", desc: "lookalikes, broad targeting logic", icon: "groups" },
-              { title: "Dynamic Creative Optimization", desc: "auto-testing ad visual assets", icon: "photo_library" },
-              { title: "Multi-Stage Retargeting Funnels", desc: "warming cold traffic systematically", icon: "timeline" }
+              { title: "Technical SEO fundamentals", desc: "Indexing, sitemaps and speed checks", icon: "bolt" },
+              { title: "Keyword research using AI and traditional methods", desc: "SEMrush and keyword clustering", icon: "search" },
+              { title: "Competitor analysis and market positioning", desc: "Spying on organic strategies", icon: "find_in_page" },
+              { title: "Link-building and domain authority", desc: "Acquiring high-quality links", icon: "link" },
+              { title: "International SEO considerations", desc: "Hreflang and global CDNs", icon: "public" }
             ]
           }
         ]
       },
       {
         number: 4,
-        title: "Google Search Ads & Server Tagging (Weeks 7-8)",
+        title: "Social Media Marketing Worldwide (Weeks 7-8)",
         modules: [
           {
-            title: "Google Ads & YouTube Campaigns",
-            icon: "campaign",
-            color: "teal",
+            title: "Social Platforms & Distribution",
+            icon: "groups",
+            color: "violet",
             bullets: [
-              { title: "Google Search Match Types", desc: "broad, phrase, exact bid tactics", icon: "find_in_page" },
-              { title: "Demand Gen & Display Ad Funnels", desc: "scaling brand impressions globally", icon: "photo_library" },
-              { title: "Bidding Algorithms (tCPA, tROAS)", desc: "maximizing automated budgets", icon: "trending_up" },
-              { title: "YouTube Video Ad Placements", desc: "setting skippable and bumper ads", icon: "movie" }
-            ]
-          },
-          {
-            title: "GTM Server-Side Tagging",
-            icon: "analytics",
-            color: "amber",
-            bullets: [
-              { title: "GTM Server Containers", desc: "bypassing browser ad-blockers", icon: "settings" },
-              { title: "GA4 Custom Event Attribution", desc: "building multi-touch models", icon: "table_chart" },
-              { title: "First-Party Data Capture Loops", desc: "storing secure user identifier info", icon: "lock" },
-              { title: "Stape.io / AWS Cloud Configs", desc: "hosting tracking endpoints", icon: "cloud" }
+              { title: "Platform-specific strategies (LinkedIn, Instagram, Facebook, TikTok, Twitter/X)", desc: "Organic and profile setups", icon: "share" },
+              { title: "Community management and engagement", desc: "Growing and nurturing audiences", icon: "chat" },
+              { title: "Content creation and scheduling", desc: "Automating publication loops", icon: "schedule" },
+              { title: "Paid social advertising", desc: "Boosting and amplifying organic reach", icon: "campaign" },
+              { title: "Using AI for trend analysis and content optimization", desc: "Tuning assets based on data", icon: "trending_up" }
             ]
           }
         ]
       },
       {
         number: 5,
-        title: "Lifecycle & Outbound Automation (Weeks 9-10)",
+        title: "Paid Advertising Mastery (Weeks 9-10)",
         modules: [
           {
-            title: "LinkedIn & B2B Outbound Engagements",
-            icon: "handshake",
+            title: "Google & Meta Advertising",
+            icon: "ads_click",
             color: "indigo",
             bullets: [
-              { title: "LinkedIn Creator Optimization", desc: "writing authority growth loops", icon: "person" },
-              { title: "Clay Data Scraping Pipelines", desc: "automating lead list qualification", icon: "link" },
-              { title: "Instantly.ai Outreach setups", desc: "cold email warming and variables", icon: "email" },
-              { title: "B2B Social Outbound Workflows", desc: "using PhantomBuster actions", icon: "timeline" }
-            ]
-          },
-          {
-            title: "Lifecycle Email Marketing",
-            icon: "email",
-            color: "blue",
-            bullets: [
-              { title: "Klaviyo/ActiveCampaign Lists", desc: "capturing high-intent subscribers", icon: "list" },
-              { title: "Automated Lifecycle Flows", desc: "welcome, cart abandon, winback paths", icon: "loop" },
-              { title: "A/B Subject & CTR Optimization", desc: "maximizing open rate percentage", icon: "check" },
-              { title: "Email Deliverability DNS Keys", desc: "configuring DKIM, SPF, DMARC logs", icon: "lock" }
+              { title: "Google Search Ads and display advertising", desc: "Keyword bids and asset groups", icon: "search" },
+              { title: "Performance marketing fundamentals", desc: "Understanding unit economics", icon: "payments" },
+              { title: "Facebook and Instagram advertising at scale", desc: "Warm and cold targeting funnels", icon: "photo_library" },
+              { title: "YouTube advertising strategies", desc: "Bumper and skippable videography", icon: "movie" },
+              { title: "Budget optimization and ROI tracking", desc: "Scaling high-performing creatives", icon: "trending_up" },
+              { title: "AI for predictive campaign performance", desc: "Simulating ad test splits", icon: "psychology" }
             ]
           }
         ]
       },
       {
         number: 6,
-        title: "Programmatic Scaling & Career Prep (Weeks 11-12)",
+        title: "Email Marketing & Marketing Automation (Weeks 11-12)",
         modules: [
           {
-            title: "Programmatic SEO & Automations",
+            title: "Lifecycle & Email Channels",
+            icon: "email",
+            color: "teal",
+            bullets: [
+              { title: "Building engaged email lists", desc: "Opt-ins and lead magnet designs", icon: "list" },
+              { title: "Segmentation and personalization", desc: "Tuning emails based on user tags", icon: "person" },
+              { title: "Email sequences and automation", desc: "Welcome loops and winbacks", icon: "loop" },
+              { title: "A/B testing and optimization", desc: "Optimizing subject headers & CTR", icon: "check" },
+              { title: "Marketing automation platforms globally", desc: "Configuring HubSpot & Klaviyo", icon: "settings" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 7,
+        title: "Analytics, Data & AI-Driven Decisions (Weeks 13-14)",
+        modules: [
+          {
+            title: "GA4, Tags & Attribution",
+            icon: "analytics",
+            color: "amber",
+            bullets: [
+              { title: "Google Analytics 4 mastery", desc: "Custom tags, audiences & paths", icon: "analytics" },
+              { title: "Data interpretation for strategic decisions", desc: "Translating traffic to ROI sheets", icon: "table_chart" },
+              { title: "Creating dashboards and reports", desc: "Google Looker Studio reporting", icon: "dashboard" },
+              { title: "Predictive analytics with machine learning", desc: "Modeling prospective churn trends", icon: "trending_up" },
+              { title: "Converting data into actionable insights", desc: "Presenting updates to stakeholders", icon: "article" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 8,
+        title: "AI Integration & Advanced Workflows (Weeks 15-16)",
+        modules: [
+          {
+            title: "Automations, Agents & Workflows",
             icon: "timeline",
             color: "emerald",
             bullets: [
-              { title: "Programmatic Landing Page sheets", desc: "generating bulk ranking targets", icon: "table_chart" },
-              { title: "Make.com & Zapier Growth Loops", desc: "syncing leads from ads to CRM", icon: "loop" },
-              { title: "n8n AI Web scraper workflows", desc: "automating weekly content pulls", icon: "article" },
-              { title: "Custom CRM AI Chatbots", desc: "responding instantly to lead requests", icon: "chat" }
+              { title: "Comprehensive AI toolkit for marketers", desc: "Prompt library schemas", icon: "terminal" },
+              { title: "Automating routine tasks", desc: "Connecting scraping tools via Make.com", icon: "loop" },
+              { title: "Customer journey mapping with AI", desc: "Simulating user flow conversion", icon: "map" },
+              { title: "Chatbots and conversational marketing", desc: "Configuring CRM answer bots", icon: "chat" },
+              { title: "Ethical AI in marketing", desc: "Copyright compliance protocols", icon: "gavel" }
             ]
-          },
+          }
+        ]
+      },
+      {
+        number: 9,
+        title: "Portfolio & Career Preparation (Week 17)",
+        modules: [
           {
-            title: "Agency Blueprint & Career Acceleration",
+            title: "Resume, GitHub & Mentorship",
             icon: "business_center",
+            color: "violet",
+            bullets: [
+              { title: "Polishing your digital marketing portfolio", desc: "Showcasing live campaign audits", icon: "photo_library" },
+              { title: "GitHub portfolio presentation", desc: "Storing automation scripts & sheets", icon: "terminal" },
+              { title: "Interview preparation for global companies", desc: "Mock panels with growth leads", icon: "groups" },
+              { title: "Salary negotiation strategies", desc: "Maximizing retainer contract sizes", icon: "payments" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 10,
+        title: "Capstone Project (Weeks 18-24)",
+        modules: [
+          {
+            title: "Real-World Campaign Execution",
+            icon: "handshake",
             color: "orange",
             bullets: [
-              { title: "Freelance Client Pricing Retainers", desc: "setting up hourly and performance bids", icon: "payments" },
-              { title: "Loom Audit Client Acquisition", desc: "winning high-ticket contracts", icon: "movie" },
-              { title: "Upwork & Fiverr Profile Tuning", desc: "optimizing for search rankings", icon: "person" },
-              { title: "Interview Practice & ATS Resume", desc: "mock panels with marketing leaders", icon: "groups" }
+              { title: "Real-world client project", desc: "Deploying active live ads budgets", icon: "payments" },
+              { title: "Complete campaign management", desc: "Taking client requirements to execution", icon: "timeline" },
+              { title: "Strategy to execution", desc: "Delivering qualified conversions", icon: "check_circle" },
+              { title: "Team collaboration", desc: "Using Slack, Notion and Figma shares", icon: "groups" },
+              { title: "Post-campaign analysis and reporting", desc: "Presenting metrics to client panels", icon: "article" }
             ]
           }
         ]
       }
     ],
     faqs: [
-      { q: "Is prior marketing or programming knowledge required?", a: "No prior experience is needed. We start from target audience definition and copywriting fundamentals before layering in advanced Generative AI automation." },
-      { q: "Will I get to manage active budgets?", a: "Yes. The program includes hands-on modules where you structure, deploy, and analyze live ads using real target budgets." }
+      { q: "Do I need prior marketing experience for this Digital Marketing Course?", a: "Not at all. Our Digital Marketing Course is designed for complete beginners. We start from fundamentals and build up. Even professionals from other fields succeed because the curriculum is structured logically. Prior experience is helpful but not required." },
+      { q: "How much time should I dedicate weekly to this Digital Marketing Course?", a: "We recommend 5-6 hours per week for live classes plus assignments. If you're self-paced, you can distribute this however you like. Most people complete the Digital Marketing Course in 6 months, but can accelerate or extend based on schedule." },
+      { q: "Will this Digital Marketing Course help me get a job internationally?", a: "Yes. The skills taught in our Digital Marketing Course are universally applicable. Graduates work for international brands, multinationals, and digital agencies worldwide. However, visa requirements depend on specific country policies—our role is training you to be job-ready." },
+      { q: "Is AI going to replace me after I learn this Digital Marketing Course?", a: "No. AI is a tool, not a replacement. This Digital Marketing Course teaches you to leverage AI for better work. Good marketers become better with AI; mediocre marketers stay mediocre. You'll learn when to use AI and when to use human judgment—that's the real skill." },
+      { q: "What if I want to specialize in one area after the Digital Marketing Course?", a: "Perfect. Our Digital Marketing Course teaches everything, but you can deepen any specialty. Many graduates take additional certifications in their chosen area (advanced SEO, performance marketing, etc.). We provide guidance on specialization paths." },
+      { q: "Is the certification from this Digital Marketing Course recognized by employers?", a: "Yes. Skillsha's certificate is recognized globally by companies hiring digital marketers. More importantly, your portfolio of real projects speaks louder than any certificate. Employers care about what you can do, and our Digital Marketing Course ensures you can do real work." },
+      { q: "What's the refund policy for this Digital Marketing Course?", a: "7-day money-back guarantee if you're unsatisfied after the first week. After 7 days, we offer course pause options but don't refund (since the content has value regardless of completion)." },
+      { q: "Can I access the Digital Marketing Course materials after completion?", a: "Yes. You get lifetime access to course materials and all future updates. As digital marketing evolves, we update content, and you benefit from those updates forever." },
+      { q: "Will this Digital Marketing Course make me independent for freelancing?", a: "Yes. Many Digital Marketing Course graduates become successful freelancers or agency owners. The practical skills and portfolio enable freelance work. Some prefer employment, others prefer freelance freedom—both are viable paths." },
+      { q: "How does this Digital Marketing Course differ from free resources online?", a: "Free resources are scattered, inconsistent, and outdated. Our Digital Marketing Course is structured, current, taught by active professionals, includes projects, and offers placement support. Plus, the discipline of a formal course ensures you actually complete it." },
+      { q: "Can I get a job while taking this Digital Marketing Course?", a: "Yes. Many students work part-time or full-time while taking our Digital Marketing Course. The flexible self-paced option works for employed professionals. You're learning skills that help your current job too." },
+      { q: "What's the time commitment to get placed after this Digital Marketing Course?", a: "Average is 30-45 days from course completion to job offer. We actively help with placement during the course (mock interviews, portfolio building), so you're interview-ready on day one after completing the Digital Marketing Course." }
     ],
     portfolioProjects: [
       {
@@ -691,7 +714,252 @@ export const COURSES_DATA: Record<string, CourseData> = {
         bg: "#D4F1C5",
         shape: "hexburst"
       }
-    ]
+    ],
+    flagshipContent: {
+      heroSubtext: "Ready to build a global career in digital marketing? Skillsha's Digital Marketing Course is designed for professionals worldwide who want to master modern marketing strategies powered by generative AI.\n\nThis isn't outdated training from 2015. This is a comprehensive Digital Marketing Course that combines proven marketing fundamentals with cutting-edge Gen AI tools that top companies are using right now in 2024 and beyond.\n\nWhether you're in North America, Europe, Asia, or anywhere globally, digital marketing jobs are in high demand. The challenge? Most Digital Marketing Training still teaches traditional methods. Skillsha bridges that gap by integrating AI into every aspect of your Digital Marketing Course.\n\nLimited Time Offer: 50% Discount + Cashback + 0% Interest EMI Available Worldwide",
+      whyChooseList: {
+        placement: [
+          "Direct introductions to 500+ hiring companies globally",
+          "Mock interviews with industry professionals from top companies",
+          "Resume optimization for international job applications",
+          "LinkedIn profile building for global visibility",
+          "Portfolio reviews that impress international recruiters"
+        ],
+        ai: [
+          "ChatGPT for content creation and strategy",
+          "DALL-E and Midjourney for visual content at scale",
+          "Predictive analytics with AI",
+          "Marketing automation powered by machine learning",
+          "Personalization at scale using AI"
+        ],
+        trainers: [
+          { name: "Mr. Shad", title: "Performance Marketing Specialist", bullets: ["Experience: 12+ years in SEM and conversion optimization", "Specialization: Google Ads, paid search, ROI optimization", "Global Work: Managed campaigns across USA, UK, Germany, India, and Southeast Asia", "Companies: Has worked with 50+ brands globally, from startups to enterprises", "Expertise: Performance marketing that delivers measurable results"], quote: "Shad breaks down complex bidding strategies into actionable steps" },
+          { name: "Mr. Umar", title: "Social Media & Brand Strategy Expert", bullets: ["Experience: 10+ years in social media marketing and brand building", "Specialization: Content strategy, community building, viral marketing", "Global Work: Managed international campaigns for lifestyle and tech brands", "Companies: Built social presence for brands across multiple continents", "Expertise: Creating engaged communities and brand visibility at scale"], quote: "Umar's real-world examples are incredibly practical" },
+          { name: "Ms. Hema", title: "Email & Marketing Automation Expert", bullets: ["Experience: 6+ years in email marketing and marketing automation", "Specialization: Email funnels, customer lifecycle marketing, automation", "Global Work: Expert with international marketing automation platforms", "Companies: Helped businesses automate customer engagement globally", "Expertise: Building scalable marketing systems with automation"], quote: "Hema teaches conversion psychology through email" }
+        ],
+        pricing: [
+          "Regular price: ₹30,000 / approximately $360 USD / €330 EUR equivalent",
+          "Special discount: ₹15,000 / $180 USD / €165 EUR (50% off)",
+          "Additional cashback: ₹2,000 / $24 USD / €22 EUR",
+          "0% Interest EMI available worldwide",
+          "No hidden charges, transparent pricing",
+          "We keep costs low because we believe quality digital marketing education shouldn't be expensive."
+        ]
+      },
+      differences: [
+        {
+          title: "1. Real-World, Globally-Relevant Projects",
+          bullets: [
+            "Launch a complete ad campaign (from strategy to execution)",
+            "Create an SEO-optimized content strategy",
+            "Build an email marketing funnel with automation",
+            "Develop a social media growth strategy",
+            "Create AI-powered content workflows",
+            "Run live marketing experiments with real results"
+          ]
+        },
+        {
+          title: "2. GitHub Portfolio for Technical Marketers",
+          bullets: [
+            "Marketing automation scripts",
+            "Analytics dashboards",
+            "Data analysis tools",
+            "Competitive intelligence frameworks",
+            "Custom marketing solutions"
+          ]
+        },
+        {
+          title: "3. Industry-Recognized Certification",
+          bullets: [
+            "Our Digital Marketing Course certification is respected globally. We've designed it to meet international standards and is recognized by companies worldwide actively hiring digital marketers."
+          ]
+        },
+        {
+          title: "4. Live Campaign Experience",
+          bullets: [
+            "You won't just watch campaigns. During this Digital Marketing Course, you'll run actual marketing campaigns with real budgets. This means:",
+            "You see what actually converts",
+            "You troubleshoot real problems",
+            "You build confidence before your first job",
+            "You have case studies for interviews"
+          ]
+        }
+      ],
+      skills: [
+        {
+          category: "Content & Strategy Skills",
+          list: [
+            "SEO-optimized content creation",
+            "Social media content strategy",
+            "Copywriting for ads and emails",
+            "Using AI for content ideation and creation",
+            "Content planning and calendars",
+            "Video content for YouTube and social platforms"
+          ]
+        },
+        {
+          category: "Technical Marketing Skills",
+          list: [
+            "Google Analytics 4 setup and analysis",
+            "Conversion tracking across platforms",
+            "Google Tag Manager basics",
+            "Marketing automation platform setup",
+            "Analytics dashboard creation",
+            "Data interpretation and reporting"
+          ]
+        },
+        {
+          category: "Strategic Marketing Skills",
+          list: [
+            "Complete digital marketing strategy development",
+            "Competitor analysis and benchmarking",
+            "Audience research and buyer personas",
+            "Customer journey mapping",
+            "ROI calculation and reporting",
+            "Budget allocation across channels"
+          ]
+        },
+        {
+          category: "Advertising Skills",
+          list: [
+            "Google Ads (Search, Display, Shopping, YouTube)",
+            "Facebook and Instagram advertising",
+            "LinkedIn advertising for B2B",
+            "Campaign structure and optimization",
+            "A/B testing and experimentation",
+            "Paid keyword strategy and bidding"
+          ]
+        },
+        {
+          category: "Platform-Specific Skills",
+          list: [
+            "LinkedIn for B2B and professional marketing",
+            "Instagram for visual storytelling",
+            "Facebook for audience targeting at scale",
+            "YouTube for content marketing",
+            "Email platforms and marketing automation",
+            "Social media scheduling and management"
+          ]
+        },
+        {
+          category: "AI-Powered Skills",
+          list: [
+            "ChatGPT for content and strategy",
+            "DALL-E and visual AI for graphics",
+            "AI-powered SEO tools",
+            "Predictive analytics",
+            "Marketing automation with AI",
+            "Ethical AI usage in campaigns"
+          ]
+        }
+      ],
+      placement: {
+        during: [
+          "Week 4: Career counseling and job market orientation",
+          "Week 8: Resume and LinkedIn profile optimization",
+          "Week 12: Mock interview with industry professional",
+          "Week 16: Portfolio review and feedback",
+          "Week 20: Final mock interview and confidence building"
+        ],
+        after: [
+          "Your profile added to our global job portal",
+          "2-3 job matches sent weekly based on your preferences",
+          "Direct referral to 20-30 companies matched to your skills",
+          "Weekly job discussion sessions",
+          "Updated interview question bank",
+          "Ongoing career guidance and support"
+        ],
+        network: [
+          "Fast-growing startups seeking digital talent",
+          "Global tech companies expanding teams",
+          "Digital agencies with permanent roles",
+          "E-commerce companies scaling marketing",
+          "SaaS companies in growth mode",
+          "Fortune 500 companies with digital divisions"
+        ]
+      },
+      careers: {
+        roles: [
+          { title: "Digital Marketing Executive/Specialist", salary: "$2,500-$4,000/month globally", duties: "Campaign management, content creation, social media", availability: "Every major market globally" },
+          { title: "SEO Specialist", salary: "$3,000-$4,500/month", duties: "Keyword research, content optimization, ranking strategy", availability: "Every country with digital economy" },
+          { title: "Content Marketing Manager", salary: "$2,800-$3,800/month", duties: "Blog strategy, content planning, performance tracking", availability: "Tech hubs, startups, established companies" },
+          { title: "Paid Ads Specialist", salary: "$3,000-$4,500/month", duties: "Campaign setup, optimization, ROI management", availability: "Agencies, e-commerce, SaaS companies globally" },
+          { title: "Email Marketing Specialist", salary: "$2,500-$3,500/month", duties: "Email campaigns, list management, automation", availability: "E-commerce, subscription services, B2C brands" },
+          { title: "Social Media Manager", salary: "$2,500-$4,000/month", duties: "Community management, content, engagement", availability: "Agencies, startups, brands worldwide" },
+          { title: "Growth Marketing Manager", salary: "$3,500-$5,500/month", duties: "Growth experiments, user acquisition, scaling", availability: "High-growth startups, tech companies" }
+        ],
+        growth: [
+          "Year 1-2: Specialize in one area (SEO, paid ads, content, etc.)",
+          "Year 3-4: Senior specialist or team lead (managing 3-5 people)",
+          "Year 5+: Manager, director, or transition to agency ownership"
+        ],
+        salaryGrowth: [
+          "After 1 year: 20-30% increase typical",
+          "After 3 years: 2-3x your starting salary",
+          "After 5 years: Experienced professionals earn $8,000-$15,000+/month globally"
+        ]
+      },
+      pricingDetail: {
+        rows: [
+          { cost: "Regular course fee", amount: "₹30,000" },
+          { cost: "50% special discount", amount: "₹15,000" },
+          { cost: "Bonus cashback", amount: "₹2,000" },
+          { cost: "Your final investment", amount: "₹13,000" }
+        ],
+        installments: [
+          "3-month plan: ₹4,500/month (₹13,500 total)",
+          "6-month plan: ₹2,300/month (₹13,800 total)",
+          "No hidden fees, transparent pricing",
+          "Works worldwide with multiple payment gateways"
+        ],
+        discounts: [
+          "Enrolling 3+ people? Additional 10% discount per person",
+          "Perfect for team upskilling",
+          "Volume pricing available"
+        ],
+        includes: [
+          "24 weeks (6 months) of structured training",
+          "Live classes with industry experts",
+          "Recorded sessions for flexibility",
+          "Complete course materials and resources",
+          "Real-world projects and campaigns",
+          "10+ mock interviews with professionals",
+          "Portfolio review and optimization",
+          "GitHub portfolio building",
+          "Industry-recognized certificate",
+          "100% placement support",
+          "Lifetime access to updates",
+          "Alumni community and network",
+          "Personal mentorship",
+          "Job interview preparation"
+        ]
+      },
+      stories: [
+        { name: "Sarah M. (United States)", before: "Customer service representative, $32,000/year", after: "Digital Marketing Manager at SaaS startup, $52,000/year", body: "The Digital Marketing Course gave me structured knowledge I couldn't find elsewhere. Within 45 days of finishing, I was hired by a fast-growing startup. The practical projects were invaluable—I had real campaign examples in my portfolio. Now I manage a $500k annual ad budget.", result: "63% salary increase, remote work opportunity" },
+        { name: "Amit K. (India)", before: "B.Tech graduate, struggling with direction", after: "Content Marketing Manager at lifestyle brand, ₹45,000/month", body: "I was lost after college. This Digital Marketing Course showed me a clear career path. The AI modules specifically impressed my employer—they saw I could use modern tools effectively. Six months after completion, I got promoted.", result: "Clear career trajectory, salary growing annually" },
+        { name: "Lisa T. (Germany)", before: "Career changer from finance, €40,000/year", after: "Performance Marketing Manager at e-commerce company, €58,000/year", body: "The Digital Marketing Training was intense but worth every euro. The trainers explained complex concepts clearly. I landed a role within 2 months. My finance background combined with marketing skills made me valuable. Now leading a team.", result: "Career switch successful, 45% salary increase" },
+        { name: "Rajesh P. (Southeast Asia)", before: "Digital marketer using outdated strategies, uncertain about AI", after: "Growth Marketer, agency, 2x salary increase", body: "I was worried AI would replace my job. This Digital Marketing Course showed me how to leverage it instead. Learned tools like ChatGPT, predictive analytics, marketing automation. Got promoted within a year, now leading digital strategy.", result: "Career security, significant salary increase, promotion" }
+      ],
+      enrollment: [
+        { step: "Step 1", title: "Free Consultation Call", bullets: ["Schedule with our course advisor (5-minute online form)", "Discuss your goals and background", "Learn about format options", "Clarify payment plans for your region", "No pressure, no commitment"] },
+        { step: "Step 2", title: "Take the Free Assessment", bullets: ["20-minute evaluation", "Understand your current knowledge", "Identify your learning goals", "Get personalized recommendations", "Learn which course format suits you best"] },
+        { step: "Step 3", title: "Choose Your Learning Format", bullets: ["Live Interactive Sessions: Real-time classes with trainers, Direct interaction with instructors, Group learning and networking, Q&A during sessions, Ideal for accountability and interaction", "Self-Paced with Recorded Sessions: Watch sessions whenever you want, Learn at your speed, Weekly live doubt-clearing (optional), More flexible for busy professionals, Complete in 3-6 months"] },
+        { step: "Step 4", title: "Complete Enrollment", bullets: ["Choose payment plan", "Sign course agreement", "Receive login credentials", "Get start date confirmation"] },
+        { step: "Step 5", title: "Begin Your Digital Marketing Course", bullets: ["Access course platform", "Download materials", "Join community", "Attend orientation", "Start learning!"] }
+      ],
+      quickFacts: [
+        "Duration: 24 weeks (adjustable based on learning pace)",
+        "Format: Live or self-paced, both equally effective",
+        "Cost: 50% discount available (₹13,000 / ~$156 USD / ~€145 EUR)",
+        "Payment: 0% interest EMI option globally",
+        "Placement: 100% support, 94% success rate",
+        "Certificate: Industry-recognized worldwide",
+        "Access: Lifetime course material access",
+        "Mentorship: Personal guidance from trainers",
+        "Community: Global network of marketers"
+      ],
+      disclaimer: "Disclaimer: Results vary based on individual effort, prior experience, and market conditions. While we maintain 94% placement rate, employment is not guaranteed. Course outcomes depend on active participation and commitment."
+    }
   },
   "digital-marketing": {
     title: "Digital Marketing",
