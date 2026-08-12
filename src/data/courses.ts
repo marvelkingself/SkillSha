@@ -50,6 +50,7 @@ export const COURSE_SLUG_MAP: Record<string, string> = {
   "ai-engineering": "ai-engineering-course",
   "full-stack-development": "full-stack-development-course",
   "digital-marketing-with-gen-ai": "digital-marketing-course-with-gen-ai",
+  "digital-marketing-noida": "digital-marketing-course-in-noida-with-gen-ai",
   "digital-marketing": "digital-marketing-course",
   "ui-ux-design": "ui-ux-design-course",
   "data-science-ai": "data-science-course",
@@ -957,6 +958,476 @@ export const COURSES_DATA: Record<string, CourseData> = {
         "Access: Lifetime course material access",
         "Mentorship: Personal guidance from trainers",
         "Community: Global network of marketers"
+      ],
+      disclaimer: "Disclaimer: Results vary based on individual effort, prior experience, and market conditions. While we maintain 94% placement rate, employment is not guaranteed. Course outcomes depend on active participation and commitment."
+    }
+  },
+  "digital-marketing-noida": {
+    title: "Digital Marketing Course in Noida with Gen AI",
+    typewriter: ["Noida Growth Marketing", "Meta & Google Ads", "AI Content Engines", "NCR Campaigns", "Data-Driven Strategy"],
+    description: "Master the future of marketing in Noida. Combine core growth marketing strategies with Generative AI tools to build high-converting ad engines, automate campaign copy, optimize landing pages, and scale brand distribution.",
+    duration: "24 Weeks",
+    salary: "₹ 9.5 LPA",
+    liveSessions: "45+ hrs",
+    projects: "12+",
+    milestoneWord: "Ten",
+    milestones: [
+      {
+        number: 1,
+        title: "Digital Marketing Foundations + AI Basics (Weeks 1-2)",
+        modules: [
+          {
+            title: "Foundations & Noida Market",
+            icon: "psychology",
+            color: "orange",
+            bullets: [
+              { title: "What digital marketing actually is (beyond buzzwords)", desc: "Core concepts", icon: "help" },
+              { title: "Noida's digital marketing job market—what companies are hiring", desc: "Local hiring landscapes", icon: "location_on" },
+              { title: "Gen AI fundamentals for marketers", desc: "Understanding the shift", icon: "bolt" },
+              { title: "Setting up your AI tools for marketing", desc: "Workspace setups", icon: "settings" },
+              { title: "Understanding the difference between AI automation and strategic thinking", desc: "Strategy vs output", icon: "check_circle" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 2,
+        title: "Content Marketing + AI-Powered Content Creation (Weeks 3-4)",
+        modules: [
+          {
+            title: "Content Marketing Strategy",
+            icon: "article",
+            color: "blue",
+            bullets: [
+              { title: "Building a content strategy that converts", desc: "Funnel alignment", icon: "filter_alt" },
+              { title: "Writing for search engines and humans", desc: "Readability and search rules", icon: "edit_note" },
+              { title: "Using AI tools to accelerate content creation (without losing quality)", desc: "Scale strategies", icon: "text_snippet" },
+              { title: "Content calendars and publishing schedules", desc: "Organizing distribution", icon: "calendar_today" },
+              { title: "Measuring content performance with real metrics", desc: "Performance tracking", icon: "analytics" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 3,
+        title: "SEO Mastery for Noida & NCR Markets (Weeks 5-6)",
+        modules: [
+          {
+            title: "Local & Technical SEO",
+            icon: "query_stats",
+            color: "rose",
+            bullets: [
+              { title: "Technical SEO that actually improves rankings", desc: "Site speed and indexing", icon: "bolt" },
+              { title: "Keyword research using both traditional and AI methods", desc: "Noida and global terms", icon: "search" },
+              { title: "Competitor analysis and differentiation", desc: "Noida competitor analysis", icon: "find_in_page" },
+              { title: "Link-building strategies that work", desc: "Domain authority acquisition", icon: "link" },
+              { title: "Local SEO for Noida and NCR businesses", desc: "GMB and local queries", icon: "location_on" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 4,
+        title: "Social Media Marketing + Community Building (Weeks 7-8)",
+        modules: [
+          {
+            title: "Social Platforms & Listening",
+            icon: "groups",
+            color: "violet",
+            bullets: [
+              { title: "Platform-specific strategies (LinkedIn, Instagram, Facebook, Twitter/X)", desc: "Brand building", icon: "share" },
+              { title: "Content creation and scheduling", desc: "Automating posts", icon: "schedule" },
+              { title: "Community management and engagement", desc: "Direct interactions", icon: "chat" },
+              { title: "Using AI for social listening and trend analysis", desc: "Scoping viral hooks", icon: "trending_up" },
+              { title: "Paid social advertising with strategic AI optimization", desc: "Targeted campaigns", icon: "campaign" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 5,
+        title: "Paid Advertising Mastery (Google Ads & Facebook Ads) (Weeks 9-10)",
+        modules: [
+          {
+            title: "Paid Ads & Bidding",
+            icon: "ads_click",
+            color: "indigo",
+            bullets: [
+              { title: "Google Search Ads fundamentals and advanced strategies", desc: "Bidding and keywords", icon: "search" },
+              { title: "Performance marketing tactics", desc: "NCR ROI economics", icon: "payments" },
+              { title: "Facebook and Instagram advertising", desc: "Creative targeting", icon: "photo_library" },
+              { title: "Audience targeting and segmentation", desc: "Audience builders", icon: "groups" },
+              { title: "ROI tracking and optimization", desc: "Maximizing budget spend", icon: "trending_up" },
+              { title: "Using AI to predict ad performance", desc: "CTR forecasting", icon: "psychology" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 6,
+        title: "Email Marketing & Marketing Automation (Weeks 11-12)",
+        modules: [
+          {
+            title: "Automation & Nurturing",
+            icon: "email",
+            color: "teal",
+            bullets: [
+              { title: "Building an email list that converts", desc: "Lead magnet structure", icon: "list" },
+              { title: "Segmentation and personalization", desc: "Custom email paths", icon: "person" },
+              { title: "Email sequences and automation", desc: "Welcome and winbacks", icon: "loop" },
+              { title: "A/B testing and optimization", desc: "Subject and CTA experiments", icon: "check" },
+              { title: "Using AI for subject line generation and send-time optimization", desc: "Optimizing delivery", icon: "settings" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 7,
+        title: "Analytics, Data & AI-Driven Decision Making (Weeks 13-14)",
+        modules: [
+          {
+            title: "GA4 & Data interpretation",
+            icon: "analytics",
+            color: "amber",
+            bullets: [
+              { title: "Google Analytics 4 mastery", desc: "Tracking metrics", icon: "analytics" },
+              { title: "Creating dashboards that matter", desc: "Visualizations", icon: "dashboard" },
+              { title: "Data interpretation for non-technical people", desc: "Simple insights", icon: "table_chart" },
+              { title: "Predictive analytics with AI", desc: "Modeling trends", icon: "trending_up" },
+              { title: "Building reports that influence decisions", desc: "Decision tracking", icon: "article" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 8,
+        title: "AI Tools Integration & Advanced Workflows (Weeks 15-16)",
+        modules: [
+          {
+            title: "Workflows & Automations",
+            icon: "timeline",
+            color: "emerald",
+            bullets: [
+              { title: "Comprehensive AI tool kit for digital marketers", desc: "Selecting the best LLMs", icon: "terminal" },
+              { title: "Automating repetitive tasks", desc: "Make and Zapier connections", icon: "loop" },
+              { title: "AI-powered customer journey mapping", desc: "Tracing conversions", icon: "map" },
+              { title: "Building chatbots for customer engagement", desc: "Chat integrations", icon: "chat" },
+              { title: "Ethical AI usage in marketing", desc: "Best practices", icon: "gavel" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 9,
+        title: "Portfolio & Career Preparation (Week 17)",
+        modules: [
+          {
+            title: "Resume & Portfolio Preparation",
+            icon: "business_center",
+            color: "violet",
+            bullets: [
+              { title: "Polishing your digital marketing portfolio", desc: "Highlighting Noida case studies", icon: "photo_library" },
+              { title: "GitHub portfolio for technical marketers", desc: "Publishing automation scripts", icon: "terminal" },
+              { title: "Interview preparation and confidence building", desc: "Local mock panels", icon: "groups" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 10,
+        title: "Live Project & Capstone (Weeks 18-24)",
+        modules: [
+          {
+            title: "Capstone Client Project",
+            icon: "handshake",
+            color: "orange",
+            bullets: [
+              { title: "Real client project (often resulting in actual work opportunities)", desc: "Noida client projects", icon: "payments" },
+              { title: "Strategy development to execution", desc: "Campaign roadmap", icon: "timeline" },
+              { title: "Team-based digital marketing campaigns", desc: "Group coordination", icon: "groups" },
+              { title: "Post-campaign analysis and reporting", desc: "Final ROI sheets", icon: "article" }
+            ]
+          }
+        ]
+      }
+    ],
+    faqs: [
+      { q: "Do I need prior marketing experience to join the Digital Marketing Course in Noida?", a: "Not at all. Our Digital Marketing Course in Noida is designed for complete beginners. Even if you're coming from a different field, we start from basics. That said, professionals with non-marketing backgrounds also benefit from learning modern AI-integrated strategies. The curriculum is structured for all levels." },
+      { q: "Will the Digital Marketing Course in Noida help me get a job in Noida specifically?", a: "Yes, 60% of our Digital Marketing Course in Noida graduates get placed in Noida itself (tech parks in Sectors 62, 63, and corporate offices in Sector 18). Another 25% get placed in Delhi, and 15% in other NCR areas. Our placement network is strongest in Noida and NCR." },
+      { q: "Is the AI component in the Digital Marketing Course in Noida replacing actual marketing skills?", a: "No. AI is a tool we're teaching you to use better. The Digital Marketing Course in Noida teaches you both marketing fundamentals and how to apply AI tools effectively. Real marketing strategy still requires human thinking. AI helps you execute faster, not think differently." },
+      { q: "Can I take the Digital Marketing Course in Noida while working a full-time job?", a: "Yes. We offer both live and recorded session options. Many working professionals take 4-6 hours per week for our Digital Marketing Course in Noida and complete it in 6 months. Some accelerate and finish in 4 months. It's flexible." },
+      { q: "What if I want to specialize in just one area (like SEO or Paid Ads)?", a: "Our Digital Marketing Course in Noida teaches everything, but you can certainly deepen your expertise in specific areas during the course. We have elective modules and advanced sessions. After completing the course, some graduates take additional specialized certifications." },
+      { q: "Does the Digital Marketing Course in Noida certificate have value with employers in Noida and NCR?", a: "Yes. Skillsha's certificate is recognized by companies actively hiring in Noida and NCR. Plus, during the Digital Marketing Course in Noida, you build a portfolio of real work that's more impressive than any certificate. Employers care about what you can do, which we ensure through practical projects." },
+      { q: "What's the refund policy if I'm not satisfied with the Digital Marketing Course in Noida?", a: "We offer a 7-day money-back guarantee. If you're not satisfied after attending the first week of the Digital Marketing Course in Noida, we'll refund your full investment. No questions asked. After 7 days, we offer to pause the course if you need a break, but refunds aren't applicable (since the content will have value regardless)." },
+      { q: "Will learning AI tools in the Digital Marketing Course in Noida make me dependent on them?", a: "No. The Digital Marketing Course in Noida teaches you when to use AI and when to rely on human judgment. We emphasize that AI is a multiplier—good marketers become better marketers with AI. Poor marketers stay poor. You'll learn to think first, then use AI to execute faster." },
+      { q: "How much time should I dedicate daily to the Digital Marketing Course in Noida?", a: "We recommend 3-4 hours per week for live classes plus 2-3 hours for assignments and projects. If you're self-paced, you can spread this however you like. Total commitment: 5-6 hours per week over 24 weeks (6 months) to complete the Digital Marketing Course in Noida properly." },
+      { q: "Can I get a job abroad with this Digital Marketing Course in Noida certification?", a: "International job requirements vary, but the digital marketing skills taught in our Digital Marketing Course in Noida are universally applicable. Many graduates work for international brands or companies with offices in other countries. However, visa sponsorship and international positions depend on specific company policies—not just your certification." },
+      { q: "What's the difference between Skillsha's Digital Marketing Course in Noida and other courses?", a: "Three things: (1) Our trainers actively practice what they teach—they're not just teachers, (2) We focus on AI integration, which most competitors don't, (3) Our placement support is structured and results-backed (94% placement rate). Compare this with generic online courses that teach outdated strategies." },
+      { q: "Is the Digital Marketing Course in Noida updated regularly?", a: "Yes. Digital marketing changes fast. We update the Digital Marketing Course in Noida quarterly to reflect new tools, platforms, and AI capabilities. Alumni also get lifetime access to course updates, so your knowledge doesn't become obsolete." }
+    ],
+    portfolioProjects: [
+      {
+        milestone: 1,
+        codename: "AURA",
+        tagline: "Build Your Noida AI Content Machine",
+        description: "Develop a custom prompt library for generating ad copy hooks, email drip sequences, and blog posts matching Noida agencies requirements.",
+        bg: "#F9C5C0",
+        shape: "star4"
+      },
+      {
+        milestone: 2,
+        codename: "ECHO",
+        tagline: "Deploy a Live AI Campaign in NCR",
+        description: "Build an optimized landing page, deploy Meta ads with AI creative tools, and set up tracking analytics for Noida local businesses.",
+        bg: "#C5E3F9",
+        shape: "diamond"
+      },
+      {
+        milestone: 3,
+        codename: "NEXUS",
+        tagline: "Automate NCR Growth Workflows",
+        description: "Set up multi-step automated marketing pipelines connecting scraping tools, LLMs, and social posting systems for Sector 62 tech hubs.",
+        bg: "#D4F1C5",
+        shape: "hexburst"
+      }
+    ],
+    flagshipContent: {
+      heroSubtext: "Are you looking to build a career in digital marketing? Skillsha's Digital Marketing Course in Noida is your answer. This isn't just any training program—it's a complete transformation journey that combines traditional digital marketing expertise with cutting-edge generative AI tools that shape today's marketing industry.\n\nNoida has become a hub for digital talent, and companies across NCR are actively hiring skilled digital marketers. The only problem? Most courses teach you outdated strategies. Our Digital Marketing Course in Noida bridges that gap by teaching you AI-powered marketing techniques that companies actually use right now.\n\nSpecial Offer: Get 50% Discount (₹15,000 instead of ₹30,000) + ₹2,000 Cashback + 0% Interest EMI Available",
+      whyChooseList: {
+        placement: [
+          "Direct job introductions to 500+ hiring companies in NCR",
+          "Mock interviews conducted by industry professionals",
+          "Resume and portfolio reviews tailored to job market demands",
+          "LinkedIn optimization workshops",
+          "Job readiness assessment before placement"
+        ],
+        ai: [
+          "ChatGPT, DALL-E, and specialized marketing AI that professionals use daily",
+          "AI for faster campaign creation, better targeting, and smarter content strategy",
+          "AI predictive modeling for performance marketing budgets"
+        ],
+        trainers: [
+          { name: "Mr. Shad", title: "Performance Marketing Expert", bullets: ["12+ years in digital marketing", "Specialization: SEM (Search Engine Marketing) and conversion rate optimization", "Background: Worked with 50+ brands ranging from startups to Fortune 500 companies", "Key strength: He'll teach you how to make every rupee of ad spend count"], quote: "Shad explains complex bidding strategies in simple terms" },
+          { name: "Mr. Umar", title: "Social Media & Brand Strategy Specialist", bullets: ["10+ years in social media marketing and brand building", "Specialization: Creating viral campaigns and building engaged communities", "Background: Has managed social media for lifestyle, tech, and e-commerce brands", "Key strength: Practical tactics that actually build brand presence on social platforms"], quote: "Umar's case studies made everything click for me" },
+          { name: "Ms. Hema", title: "Email & Marketing Automation Expert", bullets: ["6+ years in email marketing and marketing automation", "Specialization: Building email funnels that convert and marketing automation workflows", "Background: Expert in platforms like Mailchimp, ActiveCampaign, HubSpot", "Key strength: Shows you how to nurture leads into paying customers"], quote: "Hema's email sequences taught me conversion psychology" }
+        ],
+        pricing: [
+          "Regular Fee: ₹30,000",
+          "Special Discount: ₹15,000 (50% Off)",
+          "Bonus: ₹2,000 Cashback",
+          "EMI Option: 0% Interest Available",
+          "No hidden charges. No surprise fees. Just honest pricing.",
+          "We save on overhead to keep prices affordable for Noida students."
+        ]
+      },
+      differences: [
+        {
+          title: "1. Real-World Projects You'll Actually Build",
+          bullets: [
+            "A complete Facebook ad campaign for a real product (from strategy to execution)",
+            "An SEO-optimized blog strategy and content calendar",
+            "A full email marketing funnel with automation",
+            "A YouTube channel growth strategy",
+            "An AI-powered content creation workflow",
+            "A social media analytics dashboard"
+          ]
+        },
+        {
+          title: "2. GitHub Portfolio Building",
+          bullets: [
+            "Marketing automation scripts",
+            "Analytics dashboards",
+            "Keyword research tools",
+            "Competitive analysis frameworks"
+          ]
+        },
+        {
+          title: "3. Industry-Recognized Certification",
+          bullets: [
+            "Our Digital Marketing Course in Noida gives you a certification that Noida, Delhi, and NCR companies recognize. We've partnered with industry bodies to ensure our certification holds actual weight."
+          ]
+        },
+        {
+          title: "4. Live Campaigns—Learn by Doing",
+          bullets: [
+            "You won't just watch our trainers work. In our Digital Marketing Course in Noida, you'll run live marketing campaigns with real budgets and real results.",
+            "You see what actually converts and what doesn't",
+            "You learn to troubleshoot real campaign issues",
+            "You build confidence before your first job"
+          ]
+        }
+      ],
+      skills: [
+        {
+          category: "Content Skills",
+          list: [
+            "Writing SEO-optimized blog posts",
+            "Creating engaging social media content",
+            "Copywriting for ads and emails",
+            "Using AI for rapid content creation",
+            "Content strategy and planning",
+            "Video script writing for YouTube"
+          ]
+        },
+        {
+          category: "Technical Skills",
+          list: [
+            "Google Analytics 4 setup and analysis",
+            "Google Search Console management",
+            "Conversion tracking and implementation",
+            "Tag Manager (GTM) basics",
+            "Basic marketing automation setup",
+            "Dashboard creation for performance tracking"
+          ]
+        },
+        {
+          category: "Strategy Skills",
+          list: [
+            "Building complete digital marketing strategies",
+            "Competitor analysis and benchmarking",
+            "Audience research and buyer persona creation",
+            "Customer journey mapping",
+            "ROI calculation and reporting",
+            "Budget allocation across channels"
+          ]
+        },
+        {
+          category: "Advertising Skills",
+          list: [
+            "Google Ads (Search, Display, Shopping, YouTube)",
+            "Facebook and Instagram advertising",
+            "LinkedIn advertising for B2B",
+            "Campaign structure and optimization",
+            "A/B testing and experimentation",
+            "Paid search keyword strategy"
+          ]
+        },
+        {
+          category: "Platform-Specific Skills",
+          list: [
+            "LinkedIn for professional marketing",
+            "Instagram for visual storytelling",
+            "Facebook for audience targeting",
+            "YouTube for content marketing",
+            "Email platforms and automation",
+            "Social media scheduling and management"
+          ]
+        },
+        {
+          category: "AI-Powered Skills",
+          list: [
+            "ChatGPT for content ideation and creation",
+            "DALL-E and Midjourney for visual content",
+            "AI-powered SEO tools",
+            "Predictive analytics with AI",
+            "Marketing automation with AI",
+            "Ethical AI usage in campaigns"
+          ]
+        }
+      ],
+      placement: {
+        during: [
+          "Week 4: Career counseling session about Noida's job market",
+          "Week 8: Resume and LinkedIn profile optimization workshop",
+          "Week 12: Mock interview round 1",
+          "Week 16: Portfolio review with industry feedback",
+          "Week 20: Mock interview round 2 (real feedback from actual hiring managers)"
+        ],
+        after: [
+          "Your profile is added to our job portal (500+ active job openings)",
+          "Dedicated placement coordinator sends you 2-3 job recommendations per week",
+          "We forward your profile to 20-30 relevant companies directly",
+          "You attend weekly job discussion sessions to practice interviews",
+          "We provide updated interview question sets based on latest hiring trends",
+          "Certificate and skill verification letters for employers"
+        ],
+        network: [
+          "Growing startups in Noida Tech Park",
+          "IT services companies in Sector 62",
+          "E-commerce brands (Delhi-based, expanding to NCR)",
+          "Agencies specializing in digital marketing services",
+          "In-house marketing teams at mid-sized companies",
+          "MNCs with digital transformation initiatives"
+        ]
+      },
+      careers: {
+        roles: [
+          { title: "Digital Marketing Executive", salary: "₹2.5 - 3.5 Lakh/year", duties: "Campaign management, content creation, social media", availability: "Startups, agencies, e-commerce brands" },
+          { title: "SEO Specialist", salary: "₹3 - 4.5 Lakh/year", duties: "Keyword research, content optimization, rank tracking", availability: "Digital agencies, SaaS companies, e-commerce" },
+          { title: "Content Marketing Executive", salary: "₹2.8 - 3.8 Lakh/year", duties: "Blog writing, content calendar, content performance", availability: "Tech startups, B2B companies, publications" },
+          { title: "Paid Ads Specialist (Google/Facebook Ads)", salary: "₹3 - 4 Lakh/year", duties: "Campaign setup, optimization, ROI tracking", availability: "Performance marketing agencies, e-commerce, SaaS" },
+          { title: "Email Marketing Specialist", salary: "₹2.5 - 3.5 Lakh/year", duties: "Email campaigns, list management, automation", availability: "E-commerce, subscription services, B2C brands" },
+          { title: "Social Media Manager", salary: "₹2.5 - 3.5 Lakh/year", duties: "Community management, content scheduling, engagement", availability: "Startups, agencies, brands, NGOs" },
+          { title: "Growth Marketer/Growth Hacker", salary: "₹3.5 - 5 Lakh/year", duties: "Viral marketing, growth experiments, user acquisition", availability: "High-growth startups in Noida and NCR" },
+          { title: "Marketing Analyst", salary: "₹3 - 4 Lakh/year", duties: "Data analysis, reporting, strategy recommendations", availability: "E-commerce, tech companies, consulting firms" }
+        ],
+        growth: [
+          "Year 1-2: Specialist in one area (SEO, Paid Ads, Social Media, etc.)",
+          "Year 3-4: Senior Specialist or Team Lead (managing 3-4 people)",
+          "Year 5+: Marketing Manager, Campaign Director, or transition to agency leadership"
+        ],
+        salaryGrowth: [
+          "After 2 years: ₹4-6 Lakh per year",
+          "After 4 years: ₹6-10 Lakh per year",
+          "After 6 years: ₹10-15 Lakh+ per year (in management roles)"
+        ]
+      },
+      pricingDetail: {
+        rows: [
+          { cost: "Regular Course Fee", amount: "₹30,000" },
+          { cost: "Special Discount (50% Off)", amount: "₹15,000" },
+          { cost: "Bonus Cashback", amount: "₹2,000" },
+          { cost: "Final Investment", amount: "₹13,000" }
+        ],
+        installments: [
+          "3-month plan: ₹4,500/month (₹13,500 total)",
+          "6-month plan: ₹2,300/month (₹13,800 total)",
+          "No hidden fees, transparent pricing",
+          "Works worldwide with multiple payment gateways"
+        ],
+        discounts: [
+          "Enrolling 3+ people? Additional 10% discount per person",
+          "Perfect for team upskilling in Noida",
+          "Volume pricing available"
+        ],
+        includes: [
+          "24 weeks of structured training (6 months)",
+          "Access to all course materials and recordings",
+          "Real-world project with live campaign management",
+          "10+ mock interviews with industry professionals",
+          "Portfolio review sessions",
+          "GitHub portfolio building",
+          "Industry-recognized certificate",
+          "100% placement support with job introductions",
+          "Lifetime access to updated course materials",
+          "Alumni community access (Noida and NCR professionals)",
+          "Personal mentorship from trainers",
+          "Job interview preparation materials"
+        ]
+      },
+      stories: [
+        { name: "Priya M. (Noida)", before: "Working as a customer service executive, earning ₹2 Lakh/year", after: "Digital Marketing Executive at Sector 62 startup, earning ₹3.8 Lakh/year", body: "I was stuck in customer service with no technical skills. The Digital Marketing Course in Noida at Skillsha taught me everything from SEO to paid ads. Within 45 days of course completion, I got placed. The AI modules specifically helped me stand out.", result: "90% salary increase, promotion after 1 year" },
+        { name: "Arjun K. (Greater Noida)", before: "B.Tech graduate struggling to find relevant work", after: "Content Marketing Specialist, Delhi brand, earning ₹3.2 Lakh/year", body: "I didn't know what digital marketing was when I started. By week 2 of the Digital Marketing Course in Noida, everything clicked. The content module was the game-changer. Now I manage content for a brand that reaches 500k people monthly.", result: "First job in his interest area, clear career path" },
+        { name: "Neha S. (Sector 18, Noida)", before: "Freelancer doing basic social media, income unpredictable", after: "Social Media Manager at Fintech startup, earning ₹2.8 Lakh/year + bonus", body: "The structured curriculum of the Digital Marketing Course in Noida helped me move beyond just posting content. I learned strategy, analytics, and how to measure what actually works. I now manage social for a company targeting millennial investors.", result: "Stable income, health insurance, growth potential" },
+        { name: "Rohit P. (Noida)", before: "Marketing professional stuck using outdated strategies", after: "Senior Digital Marketer at e-commerce brand, earning ₹5.5 Lakh/year", body: "The AI integration in the Digital Marketing Course in Noida was exactly what I needed. I was worried about automation replacing my job, but Skillsha showed me how to leverage AI. Got promoted faster than expected.", result: "50% salary increase, management opportunity" }
+      ],
+      enrollment: [
+        { step: "Step 1", title: "Schedule a Free Consultation", bullets: ["Contact Skillsha's course counselor to discuss career goals", "Understand format options & payment plan", "Phone: +91 73030 82191, Email: info@skillsha.com"] },
+        { step: "Step 2", title: "Take the Free Intro Assessment", bullets: ["Quick 20-minute evaluation to align goals", "Understand learning style preference", "Identify priority topics"] },
+        { step: "Step 3", title: "Choose Your Learning Format", bullets: ["Option A: Instructor-Led Live Classes (Real-time classes, Batch size 15-20, personalized attention)", "Option B: Self-Paced with Recorded Sessions (Watch on schedule, weekly doubt-clearing, complete in 3-6 months)"] },
+        { step: "Step 4", title: "Complete Enrollment Formalities", bullets: ["Pay enrollment fee (full or EMI option)", "Sign the course agreement", "Receive login credentials and start date"] },
+        { step: "Step 5", title: "Begin Your Journey", bullets: ["Receive course materials & join WhatsApp/Discord community", "Meet your trainer and classmates", "Start with Module 1 (Foundations & AI basics)"] }
+      ],
+      quickFacts: [
+        "Duration: 24 weeks (adjustable based on learning pace)",
+        "Format: Live or self-paced, both equally effective",
+        "Cost: 50% discount (₹13,000 final cost)",
+        "Payment: 0% interest EMI option",
+        "Placement: 100% support, 94% success rate",
+        "Certificate: Industry-recognized worldwide",
+        "Access: Lifetime course updates",
+        "Mentorship: Personal guidance from trainers",
+        "Community: Alumni network of NCR professionals"
       ],
       disclaimer: "Disclaimer: Results vary based on individual effort, prior experience, and market conditions. While we maintain 94% placement rate, employment is not guaranteed. Course outcomes depend on active participation and commitment."
     }

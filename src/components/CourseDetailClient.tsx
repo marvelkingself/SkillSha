@@ -718,6 +718,7 @@ function DigitalMarketingDisclaimerSection({ data }: { data: CourseData }) {
 }
 
 export default function CourseDetailClient({ id, data, city }: CourseDetailClientProps) {
+  const isDigitalMarketingFlagship = id === "digital-marketing-with-gen-ai" || id === "digital-marketing-noida";
   const [typewriterIndex, setTypewriterIndex] = useState(0);
   const [typewriterText, setTypewriterText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -1103,7 +1104,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 {city && <span className="text-zinc-900 dark:text-white block sm:inline">in {city}</span>}
               </h1>
 
-              {id === "digital-marketing-with-gen-ai" && data.flagshipContent?.heroSubtext ? (
+              {isDigitalMarketingFlagship && data.flagshipContent?.heroSubtext ? (
                 <div className="text-zinc-600 dark:text-zinc-400 text-[14px] md:text-[15px] leading-relaxed mb-6 max-w-xl font-sans whitespace-pre-line">
                   {data.flagshipContent.heroSubtext}
                 </div>
@@ -1647,7 +1648,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </div>
         </section>
 
-        {id === "digital-marketing-with-gen-ai" && (
+        {isDigitalMarketingFlagship && (
           <>
             <DigitalMarketingWhySection data={data} />
             <DigitalMarketingDifferencesSection data={data} />
@@ -1843,7 +1844,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </div>
         </section>
 
-        {id === "digital-marketing-with-gen-ai" && <DigitalMarketingToolsSection data={data} />}
+        {isDigitalMarketingFlagship && <DigitalMarketingToolsSection data={data} />}
 
         {/* Portfolio Projects Section */}
         {data.portfolioProjects && data.portfolioProjects.length > 0 && (
@@ -2019,7 +2020,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </section>
         )}
 
-        {id === "digital-marketing-with-gen-ai" && <DigitalMarketingPlacementSection data={data} />}
+        {isDigitalMarketingFlagship && <DigitalMarketingPlacementSection data={data} />}
 
         {/* Certificate Spotlight Section */}
         <section className="py-12 px-0 z-20 relative">
@@ -2221,7 +2222,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </div>
         </section>
 
-        {id === "digital-marketing-with-gen-ai" && (
+        {isDigitalMarketingFlagship && (
           <>
             <DigitalMarketingCareerSection data={data} />
             <DigitalMarketingStoriesSection data={data} />
@@ -2273,7 +2274,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
 
         <AlumniCompanies />
 
-        {id === "digital-marketing-with-gen-ai" && <DigitalMarketingDisclaimerSection data={data} />}
+        {isDigitalMarketingFlagship && <DigitalMarketingDisclaimerSection data={data} />}
       </main>
 
       <Footer />
