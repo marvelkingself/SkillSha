@@ -27,7 +27,7 @@ export const FOUNDERS_DATA: TeamMember[] = [
       linkedin: "#",
       twitter: "#",
     },
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+    image: ""
   },
   {
     name: "Shad Ansari",
@@ -39,7 +39,7 @@ export const FOUNDERS_DATA: TeamMember[] = [
       github: "#",
       twitter: "#"
     },
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop"
+    image: ""
   }
 ];
 

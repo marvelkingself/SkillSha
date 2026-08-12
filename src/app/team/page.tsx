@@ -16,15 +16,8 @@ export const metadata: Metadata = {
     }
   },
   robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1
-    }
+    index: false,
+    follow: false,
   },
   openGraph: {
     type: "website",
@@ -136,12 +129,18 @@ export default function TeamPage() {
                 key={i} 
                 className="bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 hover:border-brand-orange/30 transition-all duration-300 shadow-sm"
               >
-                <div className="w-full md:w-44 h-48 md:h-52 relative rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 flex-shrink-0">
-                  <img 
-                    src={founder.image} 
-                    alt={founder.name}
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" 
-                  />
+                <div className="w-full md:w-44 h-48 md:h-52 relative rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900/60 border border-zinc-200 dark:border-white/5 flex-shrink-0 flex items-center justify-center">
+                  {founder.image ? (
+                    <img 
+                      src={founder.image} 
+                      alt={founder.name}
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" 
+                    />
+                  ) : (
+                    <svg className="w-16 h-16 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                  )}
                 </div>
                 <div className="flex flex-col justify-between">
                   <div>
