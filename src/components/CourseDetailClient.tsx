@@ -272,8 +272,8 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                   : "5+ Yrs Exp";
                 
                 return (
-                  <div key={idx} className="flex-1 bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-5 hover:border-brand-orange/30 transition-all duration-300 flex gap-5 shadow-sm group">
-                    <div className="w-24 h-24 relative rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 shrink-0 self-center flex items-center justify-center border border-zinc-200 dark:border-white/5">
+                  <div key={idx} className="flex flex-row bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl overflow-hidden hover:border-brand-orange/30 transition-all duration-300 h-[198px] shadow-sm group">
+                    <div className="w-2/5 h-full relative overflow-hidden bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center border-r border-zinc-200 dark:border-white/5 shrink-0">
                       {img ? (
                         <img 
                           src={img} 
@@ -286,28 +286,23 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                         </svg>
                       )}
                     </div>
-                    <div className="flex-1 flex flex-col justify-between">
+                    <div className="w-3/5 p-5 flex flex-col justify-between min-w-0">
                       <div>
-                        <div className="flex justify-between items-start mb-2">
-                          <div>
-                            <h4 className="text-md font-bold text-zinc-900 dark:text-white leading-tight">{trainer.name}</h4>
-                            <span className="text-[11px] text-brand-orange font-semibold block mt-0.5">{trainer.title}</span>
+                        <div className="flex justify-between items-start gap-1">
+                          <div className="min-w-0">
+                            <h4 className="text-base font-bold text-zinc-900 dark:text-white leading-tight truncate">{trainer.name}</h4>
+                            <span className="text-[10px] text-brand-orange font-semibold block mt-0.5 truncate">{trainer.title}</span>
                           </div>
                           <span className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[8px] font-bold text-zinc-500 dark:text-zinc-400 shrink-0">{expBadge}</span>
                         </div>
                         
-                        <ul className="space-y-1 mb-3">
-                          {trainer.bullets.slice(0, 2).map((bullet: string, bIdx: number) => (
-                            <li key={bIdx} className="text-[10px] text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-1.5">
-                              <span className="text-brand-orange select-none shrink-0">•</span>
-                              <span className="line-clamp-1">{bullet}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <p className="text-[10px] text-zinc-600 dark:text-zinc-300 font-sans mt-2.5 line-clamp-2 leading-relaxed">
+                          • {trainer.bullets[1] || trainer.bullets[0]}
+                        </p>
                       </div>
 
                       <div className="pt-2 border-t border-zinc-100 dark:border-white/5">
-                        <p className="text-[10px] italic text-zinc-400 dark:text-zinc-500 font-sans leading-relaxed">
+                        <p className="text-[10px] italic text-zinc-400 dark:text-zinc-500 font-sans leading-relaxed truncate">
                           &ldquo;{trainer.quote}&rdquo;
                         </p>
                       </div>
@@ -340,9 +335,9 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
             return (
               <div 
                 key={idx} 
-                className="w-[85vw] shrink-0 snap-start snap-always bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-5 shadow-md flex gap-4"
+                className="w-[85vw] shrink-0 snap-start snap-always bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl overflow-hidden shadow-md flex flex-row h-[220px]"
               >
-                <div className="w-24 h-28 relative rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 shrink-0 self-center flex items-center justify-center border border-zinc-200 dark:border-white/5">
+                <div className="w-2/5 h-full relative bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center shrink-0">
                   {img ? (
                     <img 
                       src={img} 
@@ -356,19 +351,22 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                   )}
                 </div>
                 
-                <div className="flex-1 flex flex-col justify-between min-w-0">
+                <div className="w-3/5 p-4 flex flex-col justify-between min-w-0">
                   <div>
-                    <div className="flex justify-between items-start">
+                    <div className="flex justify-between items-start gap-1">
                       <div className="min-w-0">
                         <h4 className="text-sm font-bold text-zinc-900 dark:text-white leading-tight truncate">{trainer.name}</h4>
                         <span className="text-[10px] text-brand-orange font-bold block mt-0.5 truncate">{trainer.title}</span>
                       </div>
                     </div>
-                    <span className="inline-block px-1.5 py-0.5 mt-1 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[8px] font-bold text-zinc-500 dark:text-zinc-400">{expBadge}</span>
+                    <span className="inline-block px-1.5 py-0.5 mt-1.5 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[8px] font-bold text-zinc-500 dark:text-zinc-400">{expBadge}</span>
+                    <p className="text-[9.5px] text-zinc-600 dark:text-zinc-300 font-sans mt-2 line-clamp-2 leading-relaxed">
+                      • {trainer.bullets[1] || trainer.bullets[0]}
+                    </p>
                   </div>
                   
                   <div className="mt-2 pt-2 border-t border-zinc-100 dark:border-white/5">
-                    <p className="text-[9px] italic text-zinc-400 dark:text-zinc-500 leading-snug line-clamp-2">
+                    <p className="text-[9.5px] italic text-zinc-400 dark:text-zinc-500 leading-snug line-clamp-2">
                       &ldquo;{trainer.quote}&rdquo;
                     </p>
                   </div>
