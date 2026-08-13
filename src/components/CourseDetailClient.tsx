@@ -252,18 +252,24 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
           <div className="col-span-5 flex flex-col gap-6">
             {content.trainers.filter((t: any) => !t.name.includes("Shad")).map((trainer: any, idx: number) => {
               const img = trainer.name.includes("Hema")
-                ? "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop"
-                : "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop";
+                ? ""
+                : "/files/umar.jpg";
               const expBadge = trainer.name.includes("Hema") ? "6+ Yrs Exp" : "10+ Yrs Exp";
               
               return (
                 <div key={idx} className="flex-1 bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-5 hover:border-brand-orange/30 transition-all duration-300 flex gap-5 shadow-sm group">
-                  <div className="w-24 h-24 relative rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 shrink-0 self-center">
-                    <img 
-                      src={img} 
-                      alt={trainer.name} 
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-24 h-24 relative rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 shrink-0 self-center flex items-center justify-center border border-zinc-200 dark:border-white/5">
+                    {img ? (
+                      <img 
+                        src={img} 
+                        alt={trainer.name} 
+                        className="w-full h-full object-cover object-top"
+                      />
+                    ) : (
+                      <svg className="w-10 h-10 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                      </svg>
+                    )}
                   </div>
                   <div className="flex-1 flex flex-col justify-between">
                     <div>
@@ -303,8 +309,8 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
             const img = trainer.name.includes("Shad")
               ? "/files/shad.png"
               : trainer.name.includes("Hema")
-              ? "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop"
-              : "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop";
+              ? ""
+              : "/files/umar.jpg";
             const expBadge = trainer.name.includes("Shad")
               ? "12+ Yrs Exp"
               : trainer.name.includes("Hema")
@@ -316,14 +322,20 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                 key={idx} 
                 className="w-[85vw] shrink-0 snap-start snap-always bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl overflow-hidden shadow-md flex flex-col justify-between"
               >
-                <div className="h-44 relative bg-zinc-100 dark:bg-zinc-900 overflow-hidden">
-                  <img 
-                    src={img} 
-                    alt={trainer.name} 
-                    className="w-full h-full object-cover object-top"
-                  />
+                <div className="h-44 relative bg-zinc-100 dark:bg-zinc-900 overflow-hidden flex items-center justify-center">
+                  {img ? (
+                    <img 
+                      src={img} 
+                      alt={trainer.name} 
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <svg className="w-16 h-16 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                  <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end z-10">
                     <div>
                       <h4 className="text-base font-bold text-white leading-tight">{trainer.name}</h4>
                       <span className="text-[11px] text-brand-orange font-bold block mt-0.5">{trainer.title}</span>
