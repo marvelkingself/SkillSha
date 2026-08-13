@@ -210,7 +210,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                   <img 
                     src={shadImg} 
                     alt={shad.name} 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                   <div className="absolute bottom-4 left-4">
@@ -262,7 +262,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                     <img 
                       src={img} 
                       alt={trainer.name} 
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="flex-1 flex flex-col justify-between">
