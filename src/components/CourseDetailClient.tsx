@@ -262,6 +262,8 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
               return supporting.map((trainer: any, idx: number) => {
                 const img = trainer.name.includes("Umar")
                   ? "/files/umar.jpg"
+                  : trainer.name.includes("Hema")
+                  ? "/files/hema.jpg"
                   : "";
                 const expBadge = trainer.name.includes("Hema") 
                   ? "6+ Yrs Exp" 
@@ -324,6 +326,8 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
               ? "/files/shad.png"
               : trainer.name.includes("Umar")
               ? "/files/umar.jpg"
+              : trainer.name.includes("Hema")
+              ? "/files/hema.jpg"
               : "";
             const expBadge = trainer.name.includes("Shad")
               ? "12+ Yrs Exp"
