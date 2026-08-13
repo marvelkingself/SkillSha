@@ -203,14 +203,14 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
           {/* Primary Dominant Trainer: Mr. Shad */}
           {(() => {
             const shad = content.trainers.find((t: any) => t.name.includes("Shad")) || content.trainers[0];
-            const shadImg = "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop";
+            const shadImg = "/files/shad.png";
             return (
               <div className="col-span-7 bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl overflow-hidden hover:border-brand-orange/30 transition-all duration-300 flex flex-row group h-[420px] shadow-sm">
                 <div className="w-1/2 h-full relative overflow-hidden bg-zinc-100 dark:bg-zinc-900">
                   <img 
                     src={shadImg} 
                     alt={shad.name} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                   <div className="absolute bottom-4 left-4">
@@ -301,7 +301,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
         <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-6 -mx-4 px-4 pb-6 mt-6">
           {content.trainers.map((trainer: any, idx: number) => {
             const img = trainer.name.includes("Shad")
-              ? "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop"
+              ? "/files/shad.png"
               : trainer.name.includes("Hema")
               ? "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop"
               : "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop";
@@ -320,7 +320,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                   <img 
                     src={img} 
                     alt={trainer.name} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
