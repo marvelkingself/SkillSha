@@ -456,23 +456,31 @@ function DigitalMarketingToolsSection({ data }: { data: CourseData }) {
   const content = data.flagshipContent?.skills;
   if (!content) return null;
 
-  const tools = [
-    { name: "ChatGPT & Claude", category: "AI Writing & Strategy", desc: "Crafting multi-step campaign copy & hooks", icon: "terminal" },
-    { name: "Midjourney", category: "AI Image Design", desc: "Generating premium ad graphics & banner designs", icon: "photo_library" },
-    { name: "Meta Ads Manager", category: "Paid Traffic Acquisition", desc: "Setting up lookalike targeting & scale campaigns", icon: "ads_click" },
-    { name: "Google Ads", category: "Search Ad Placement", desc: "Configuring match types and bidding algorithms", icon: "campaign" },
-    { name: "Google Analytics 4", category: "Analytics & Tracking", desc: "Analyzing customer attribution conversion loops", icon: "analytics" },
-    { name: "Google Tag Manager", category: "Server-Side Tagging", desc: "Deploying secure server containers for GA4 data", icon: "settings" },
-    { name: "Make.com & Zapier", category: "Marketing Automation", desc: "Syncing leads dynamically from Meta/Google to CRMs", icon: "loop" },
-    { name: "Clay", category: "B2B Database Scraping", desc: "Writing pipelines to crawl and enrich corporate leads", icon: "link" },
-    { name: "Klaviyo", category: "Lifecycle Email Flows", desc: "Building welcome loops and cart winback automations", icon: "email" },
-    { name: "Figma & Canva", category: "Visual UI Design", desc: "Drafting high-converting responsive web layouts", icon: "palette" },
-    { name: "CapCut & CapCut AI", category: "Video Production", desc: "Editing hooks, adding captions and voice effects", icon: "movie" },
-    { name: "SEMrush / Ahrefs", category: "SEO & GEO Discovery", desc: "Spying competitor keywords and local schemes", icon: "search" }
+  const [activeTab, setActiveTab] = useState(0);
+
+  const trafficTools = [
+    { name: "Meta Ads Manager", category: "Paid Acquisition", desc: "Lookalike targeting & custom audience routing", icon: "ads_click" },
+    { name: "Google Ads", category: "Search & Intent", desc: "Bidding algorithms, negative match lists & campaigns", icon: "campaign" },
+    { name: "Google Analytics 4", category: "Conversion Tracking", desc: "User acquisition paths, custom events & cohort reports", icon: "analytics" },
+    { name: "Google Tag Manager", category: "Server-Side Tags", desc: "GTM server containers & pixel events integration", icon: "settings" }
+  ];
+
+  const creativeTools = [
+    { name: "ChatGPT & Claude", category: "AI Content Copy", desc: "Campaign hooks, structured copywriting & strategy", icon: "terminal" },
+    { name: "Midjourney", category: "AI Graphics", desc: "High-end product visuals, banner elements & illustrations", icon: "photo_library" },
+    { name: "Figma & Canva", category: "UI/UX & Creative Layouts", desc: "Wireframing, interactive prototypes & landing page structures", icon: "palette" },
+    { name: "CapCut & CapCut AI", category: "Video Automation", desc: "Automated subtitles, voice overs & viral short clips", icon: "movie" }
+  ];
+
+  const automationTools = [
+    { name: "Make.com & Zapier", category: "Ecosystem Links", desc: "Connecting webhooks, leads, CRMs and spreadsheets automatically", icon: "loop" },
+    { name: "Clay", category: "B2B Outbound Scraping", desc: "Waterfall data enrichment, lead finding & email loops", icon: "link" },
+    { name: "Klaviyo", category: "Retention Marketing", desc: "Abandoned carts, newsletters, customer lifecycle drips", icon: "email" },
+    { name: "SEMrush / Ahrefs", category: "SEO & Competitors", desc: "Keyword gaps, backlink profiles & local directory schemes", icon: "search" }
   ];
 
   return (
-    <section className="mt-16 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
+    <section className="mt-20 mb-24 w-full max-w-5xl mx-auto px-4 md:px-0">
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
           Toolkit & Skills
@@ -481,43 +489,193 @@ function DigitalMarketingToolsSection({ data }: { data: CourseData }) {
           Skills & Platforms You will Master
         </h2>
         <p className="text-zinc-500 dark:text-zinc-400 mt-3 font-medium text-[15px] max-w-xl mx-auto leading-relaxed">
-          Master the complete technology stack that top digital marketing agencies and companies use to run campaigns.
+          Master the complete AI-native growth marketing ecosystem. We group platforms into active campaign pipelines rather than static tools list.
         </p>
       </div>
 
-      {/* Grid of master tools */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
-        {tools.map((t, idx) => (
-          <div key={idx} className="p-5 rounded-2xl border border-zinc-200/80 dark:border-white/5 bg-white/40 dark:bg-zinc-900/10 hover:border-brand-orange/30 dark:hover:border-brand-orange/20 transition-all duration-300 hover:-translate-y-0.5 group">
-            <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-brand-orange group-hover:scale-105 transition-transform">{t.icon}</span>
+      {/* 3-Pillar Ecosystem Layout (Swipeable slider on mobile) */}
+      <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-none pb-4 md:pb-0 px-2 -mx-2 md:mx-0">
+        
+        {/* Pillar 1: Traffic & Attribution */}
+        <div className="w-[85vw] sm:w-[60vw] md:w-auto shrink-0 snap-start snap-always bg-white/60 dark:bg-zinc-900/10 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-6 flex flex-col justify-between hover:border-brand-orange/20 transition-all duration-300">
+          <div>
+            <div className="flex items-center gap-2 mb-6">
+              <span className="p-2 rounded-xl bg-blue-500/10 text-blue-500 material-symbols-outlined text-md">ads_click</span>
               <div>
-                <h4 className="text-[14px] font-bold text-zinc-900 dark:text-white">{t.name}</h4>
-                <span className="text-[10px] text-brand-orange font-semibold uppercase tracking-wider mt-0.5 block">{t.category}</span>
+                <h3 className="text-md font-bold text-zinc-950 dark:text-white">Traffic & Attribution</h3>
+                <span className="text-[10px] text-zinc-400 block font-sans">Acquisition Control Center</span>
               </div>
             </div>
-            <p className="text-zinc-500 dark:text-zinc-400 text-xs mt-3 leading-relaxed font-sans">{t.desc}</p>
+            
+            <div className="space-y-4">
+              {trafficTools.map((t, idx) => (
+                <div key={idx} className="flex gap-3 group">
+                  <span className="material-symbols-outlined text-brand-orange text-sm shrink-0 mt-0.5 group-hover:scale-110 transition-transform">{t.icon}</span>
+                  <div>
+                    <h4 className="text-xs font-bold text-zinc-900 dark:text-white">{t.name}</h4>
+                    <span className="text-[9px] text-zinc-400 dark:text-zinc-500 font-sans block">{t.desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
+
+          {/* Pillar 1 Pipeline Diagram */}
+          <div className="mt-8 pt-6 border-t border-zinc-100 dark:border-white/5 relative">
+            <div className="flex justify-between items-center text-[8px] font-mono text-zinc-400 px-2 mb-2">
+              <span>Traffic Source</span>
+              <span>GA4 Event</span>
+            </div>
+            <div className="flex items-center justify-between bg-zinc-100 dark:bg-zinc-950/60 rounded-xl p-3 border border-zinc-200 dark:border-white/5 text-[9px] font-mono">
+              <span className="text-brand-orange">Meta/Google</span>
+              <svg className="w-10 h-2 text-zinc-400" fill="none" viewBox="0 0 40 8">
+                <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+                <polygon points="36,1 40,4 36,7" fill="currentColor" />
+              </svg>
+              <span className="text-zinc-500">GTM tag</span>
+              <svg className="w-10 h-2 text-zinc-400" fill="none" viewBox="0 0 40 8">
+                <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+                <polygon points="36,1 40,4 36,7" fill="currentColor" />
+              </svg>
+              <span className="text-emerald-500 font-bold">Conversion</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Pillar 2: AI & Creative Studio */}
+        <div className="w-[85vw] sm:w-[60vw] md:w-auto shrink-0 snap-start snap-always bg-white/60 dark:bg-zinc-900/10 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-6 flex flex-col justify-between hover:border-brand-orange/20 transition-all duration-300">
+          <div>
+            <div className="flex items-center gap-2 mb-6">
+              <span className="p-2 rounded-xl bg-purple-500/10 text-purple-500 material-symbols-outlined text-md">psychology</span>
+              <div>
+                <h3 className="text-md font-bold text-zinc-955 dark:text-white">AI & Creative Studio</h3>
+                <span className="text-[10px] text-zinc-400 block font-sans">Campaign Asset Generator</span>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              {creativeTools.map((t, idx) => (
+                <div key={idx} className="flex gap-3 group">
+                  <span className="material-symbols-outlined text-brand-orange text-sm shrink-0 mt-0.5 group-hover:scale-110 transition-transform">{t.icon}</span>
+                  <div>
+                    <h4 className="text-xs font-bold text-zinc-900 dark:text-white">{t.name}</h4>
+                    <span className="text-[9px] text-zinc-400 dark:text-zinc-500 font-sans block">{t.desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pillar 2 Pipeline Diagram */}
+          <div className="mt-8 pt-6 border-t border-zinc-100 dark:border-white/5 relative">
+            <div className="flex justify-between items-center text-[8px] font-mono text-zinc-400 px-2 mb-2">
+              <span>Text Prompt</span>
+              <span>Graphic Render</span>
+            </div>
+            <div className="flex items-center justify-between bg-zinc-100 dark:bg-zinc-950/60 rounded-xl p-3 border border-zinc-200 dark:border-white/5 text-[9px] font-mono">
+              <span className="text-purple-400">Claude/GPT</span>
+              <svg className="w-10 h-2 text-zinc-400" fill="none" viewBox="0 0 40 8">
+                <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+                <polygon points="36,1 40,4 36,7" fill="currentColor" />
+              </svg>
+              <span className="text-zinc-500">Midjourney</span>
+              <svg className="w-10 h-2 text-zinc-400" fill="none" viewBox="0 0 40 8">
+                <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+                <polygon points="36,1 40,4 36,7" fill="currentColor" />
+              </svg>
+              <span className="text-brand-orange font-bold">Figma Card</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Pillar 3: Automation & Outbound */}
+        <div className="w-[85vw] sm:w-[60vw] md:w-auto shrink-0 snap-start snap-always bg-white/60 dark:bg-zinc-900/10 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-6 flex flex-col justify-between hover:border-brand-orange/20 transition-all duration-300">
+          <div>
+            <div className="flex items-center gap-2 mb-6">
+              <span className="p-2 rounded-xl bg-emerald-500/10 text-emerald-500 material-symbols-outlined text-md">loop</span>
+              <div>
+                <h3 className="text-md font-bold text-zinc-955 dark:text-white">Automation & Outbound</h3>
+                <span className="text-[10px] text-zinc-400 block font-sans">Growth Engine Pipeline</span>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              {automationTools.map((t, idx) => (
+                <div key={idx} className="flex gap-3 group">
+                  <span className="material-symbols-outlined text-brand-orange text-sm shrink-0 mt-0.5 group-hover:scale-110 transition-transform">{t.icon}</span>
+                  <div>
+                    <h4 className="text-xs font-bold text-zinc-900 dark:text-white">{t.name}</h4>
+                    <span className="text-[9px] text-zinc-400 dark:text-zinc-500 font-sans block">{t.desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pillar 3 Pipeline Diagram */}
+          <div className="mt-8 pt-6 border-t border-zinc-100 dark:border-white/5 relative">
+            <div className="flex justify-between items-center text-[8px] font-mono text-zinc-400 px-2 mb-2">
+              <span>B2B List</span>
+              <span>CRM Delivery</span>
+            </div>
+            <div className="flex items-center justify-between bg-zinc-100 dark:bg-zinc-950/60 rounded-xl p-3 border border-zinc-200 dark:border-white/5 text-[9px] font-mono">
+              <span className="text-indigo-400">Clay Scrape</span>
+              <svg className="w-10 h-2 text-zinc-400" fill="none" viewBox="0 0 40 8">
+                <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+                <polygon points="36,1 40,4 36,7" fill="currentColor" />
+              </svg>
+              <span className="text-zinc-500">Zapier/Make</span>
+              <svg className="w-10 h-2 text-zinc-400" fill="none" viewBox="0 0 40 8">
+                <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+                <polygon points="36,1 40,4 36,7" fill="currentColor" />
+              </svg>
+              <span className="text-emerald-500 font-bold">Klaviyo Flow</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      {/* Grid of detailed skills category */}
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {content.map((sk: any, idx: number) => (
-          <div key={idx} className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
-            <h4 className="text-sm font-bold text-zinc-955 dark:text-white mb-4 border-b border-zinc-100 dark:border-white/5 pb-2">
+      {/* Interactive Curriculum Matrix Tabs */}
+      <div className="mt-16 bg-white/40 dark:bg-zinc-900/10 border border-zinc-200 dark:border-white/5 rounded-3xl p-6 md:p-8">
+        <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-6 text-center md:text-left">
+          Core Digital Marketing & Gen AI Syllabus Matrix
+        </h3>
+        
+        {/* Scrollable category pills tab row */}
+        <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-3 border-b border-zinc-100 dark:border-white/5">
+          {content.map((sk: any, idx: number) => (
+            <button
+              key={idx}
+              onClick={() => setActiveTab(idx)}
+              className={`px-4 py-2 rounded-xl text-xs font-bold font-sans transition-all shrink-0 whitespace-nowrap ${
+                activeTab === idx
+                  ? "bg-brand-orange text-white shadow-md shadow-brand-orange/20"
+                  : "bg-zinc-100 dark:bg-zinc-900 text-zinc-500 hover:text-zinc-900 dark:hover:text-white border border-transparent hover:border-zinc-200 dark:hover:border-white/5"
+              }`}
+            >
               {sk.category}
-            </h4>
-            <ul className="space-y-2">
-              {sk.list.map((item: string, iIdx: number) => (
-                <li key={iIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
-                  <span className="text-brand-orange select-none">✓</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            </button>
+          ))}
+        </div>
+
+        {/* Selected Category Skill list */}
+        <div className="mt-6">
+          <h4 className="text-xs uppercase font-extrabold tracking-widest text-brand-orange mb-4">
+            Topics & Targets you will achieve:
+          </h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {content[activeTab].list.map((item: string, idx: number) => (
+              <div 
+                key={idx}
+                className="flex items-start gap-3 p-3 bg-zinc-50 dark:bg-zinc-950/20 border border-zinc-200/50 dark:border-white/5 rounded-2xl hover:border-brand-orange/20 transition-colors"
+              >
+                <span className="material-symbols-outlined text-brand-orange text-[14px] shrink-0 mt-0.5">check_circle</span>
+                <span className="text-[12px] text-zinc-700 dark:text-zinc-300 leading-relaxed font-sans font-medium">{item}</span>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );
