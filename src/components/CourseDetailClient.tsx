@@ -200,18 +200,24 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
         {/* Desktop Editorial Bento Layout */}
         <div className="hidden md:grid grid-cols-12 gap-6">
           
-          {/* Primary Dominant Trainer: Mr. Shad */}
+          {/* Primary Dominant Trainer */}
           {(() => {
             const shad = content.trainers.find((t: any) => t.name.includes("Shad")) || content.trainers[0];
-            const shadImg = "/files/shad.png";
+            const shadImg = shad && shad.name.includes("Shad") ? "/files/shad.png" : "";
             return (
               <div className="col-span-7 bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl overflow-hidden hover:border-brand-orange/30 transition-all duration-300 flex flex-row group h-[420px] shadow-sm">
-                <div className="w-1/2 h-full relative overflow-hidden bg-zinc-100 dark:bg-zinc-900">
-                  <img 
-                    src={shadImg} 
-                    alt={shad.name} 
-                    className="w-full h-full object-cover object-top"
-                  />
+                <div className="w-1/2 h-full relative overflow-hidden bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center border-r border-zinc-200 dark:border-white/5">
+                  {shadImg ? (
+                    <img 
+                      src={shadImg} 
+                      alt={shad.name} 
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <svg className="w-16 h-16 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                   <div className="absolute bottom-4 left-4">
                     <span className="px-2 py-0.5 rounded bg-brand-orange text-[9px] font-bold text-white uppercase tracking-widest">Lead Instructor</span>
@@ -248,58 +254,66 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
             );
           })()}
 
-          {/* Secondary supporting column of trainers: Mr. Umar & Ms. Hema */}
+          {/* Secondary supporting column of trainers */}
           <div className="col-span-5 flex flex-col gap-6">
-            {content.trainers.filter((t: any) => !t.name.includes("Shad")).map((trainer: any, idx: number) => {
-              const img = trainer.name.includes("Hema")
-                ? ""
-                : "/files/umar.jpg";
-              const expBadge = trainer.name.includes("Hema") ? "6+ Yrs Exp" : "10+ Yrs Exp";
-              
-              return (
-                <div key={idx} className="flex-1 bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-5 hover:border-brand-orange/30 transition-all duration-300 flex gap-5 shadow-sm group">
-                  <div className="w-24 h-24 relative rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 shrink-0 self-center flex items-center justify-center border border-zinc-200 dark:border-white/5">
-                    {img ? (
-                      <img 
-                        src={img} 
-                        alt={trainer.name} 
-                        className="w-full h-full object-cover object-top"
-                      />
-                    ) : (
-                      <svg className="w-10 h-10 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                      </svg>
-                    )}
-                  </div>
-                  <div className="flex-1 flex flex-col justify-between">
-                    <div>
-                      <div className="flex justify-between items-start mb-2">
-                        <div>
-                          <h4 className="text-md font-bold text-zinc-900 dark:text-white leading-tight">{trainer.name}</h4>
-                          <span className="text-[11px] text-brand-orange font-semibold block mt-0.5">{trainer.title}</span>
+            {(() => {
+              const dominantTrainer = content.trainers.find((t: any) => t.name.includes("Shad")) || content.trainers[0];
+              const supporting = content.trainers.filter((t: any) => t.name !== dominantTrainer.name);
+              return supporting.map((trainer: any, idx: number) => {
+                const img = trainer.name.includes("Umar")
+                  ? "/files/umar.jpg"
+                  : "";
+                const expBadge = trainer.name.includes("Hema") 
+                  ? "6+ Yrs Exp" 
+                  : trainer.name.includes("Umar") 
+                  ? "10+ Yrs Exp" 
+                  : "5+ Yrs Exp";
+                
+                return (
+                  <div key={idx} className="flex-1 bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-5 hover:border-brand-orange/30 transition-all duration-300 flex gap-5 shadow-sm group">
+                    <div className="w-24 h-24 relative rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 shrink-0 self-center flex items-center justify-center border border-zinc-200 dark:border-white/5">
+                      {img ? (
+                        <img 
+                          src={img} 
+                          alt={trainer.name} 
+                          className="w-full h-full object-cover object-top"
+                        />
+                      ) : (
+                        <svg className="w-10 h-10 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>
+                      )}
+                    </div>
+                    <div className="flex-1 flex flex-col justify-between">
+                      <div>
+                        <div className="flex justify-between items-start mb-2">
+                          <div>
+                            <h4 className="text-md font-bold text-zinc-900 dark:text-white leading-tight">{trainer.name}</h4>
+                            <span className="text-[11px] text-brand-orange font-semibold block mt-0.5">{trainer.title}</span>
+                          </div>
+                          <span className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[8px] font-bold text-zinc-500 dark:text-zinc-400 shrink-0">{expBadge}</span>
                         </div>
-                        <span className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[8px] font-bold text-zinc-500 dark:text-zinc-400 shrink-0">{expBadge}</span>
+                        
+                        <ul className="space-y-1 mb-3">
+                          {trainer.bullets.slice(0, 2).map((bullet: string, bIdx: number) => (
+                            <li key={bIdx} className="text-[10px] text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-1.5">
+                              <span className="text-brand-orange select-none shrink-0">•</span>
+                              <span className="line-clamp-1">{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      
-                      <ul className="space-y-1 mb-3">
-                        {trainer.bullets.slice(0, 2).map((bullet: string, bIdx: number) => (
-                          <li key={bIdx} className="text-[10px] text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-1.5">
-                            <span className="text-brand-orange select-none shrink-0">•</span>
-                            <span className="line-clamp-1">{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
 
-                    <div className="pt-2 border-t border-zinc-100 dark:border-white/5">
-                      <p className="text-[10px] italic text-zinc-400 dark:text-zinc-500 font-sans leading-relaxed">
-                        &ldquo;{trainer.quote}&rdquo;
-                      </p>
+                      <div className="pt-2 border-t border-zinc-100 dark:border-white/5">
+                        <p className="text-[10px] italic text-zinc-400 dark:text-zinc-500 font-sans leading-relaxed">
+                          &ldquo;{trainer.quote}&rdquo;
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              });
+            })()}
           </div>
         </div>
 
@@ -308,21 +322,23 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
           {content.trainers.map((trainer: any, idx: number) => {
             const img = trainer.name.includes("Shad")
               ? "/files/shad.png"
-              : trainer.name.includes("Hema")
-              ? ""
-              : "/files/umar.jpg";
+              : trainer.name.includes("Umar")
+              ? "/files/umar.jpg"
+              : "";
             const expBadge = trainer.name.includes("Shad")
               ? "12+ Yrs Exp"
               : trainer.name.includes("Hema")
               ? "6+ Yrs Exp"
-              : "10+ Yrs Exp";
+              : trainer.name.includes("Umar")
+              ? "10+ Yrs Exp"
+              : "5+ Yrs Exp";
             
             return (
               <div 
                 key={idx} 
-                className="w-[85vw] shrink-0 snap-start snap-always bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl overflow-hidden shadow-md flex flex-col justify-between"
+                className="w-[85vw] shrink-0 snap-start snap-always bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-5 shadow-md flex gap-4"
               >
-                <div className="h-44 relative bg-zinc-100 dark:bg-zinc-900 overflow-hidden flex items-center justify-center">
+                <div className="w-24 h-28 relative rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 shrink-0 self-center flex items-center justify-center border border-zinc-200 dark:border-white/5">
                   {img ? (
                     <img 
                       src={img} 
@@ -330,32 +346,25 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                       className="w-full h-full object-cover object-top"
                     />
                   ) : (
-                    <svg className="w-16 h-16 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                    <svg className="w-10 h-10 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                     </svg>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end z-10">
-                    <div>
-                      <h4 className="text-base font-bold text-white leading-tight">{trainer.name}</h4>
-                      <span className="text-[11px] text-brand-orange font-bold block mt-0.5">{trainer.title}</span>
-                    </div>
-                    <span className="px-2 py-0.5 rounded bg-brand-orange/90 text-[8px] font-bold text-white uppercase tracking-wider">{expBadge}</span>
-                  </div>
                 </div>
-
-                <div className="p-5 flex-1 flex flex-col justify-between">
-                  <ul className="space-y-2 mb-4">
-                    {trainer.bullets.map((bullet: string, bIdx: number) => (
-                      <li key={bIdx} className="text-[11px] text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed flex items-start gap-2">
-                        <span className="text-brand-orange select-none shrink-0">•</span>
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="pt-3 border-t border-zinc-100 dark:border-white/5">
-                    <p className="text-[10px] italic text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed">
+                
+                <div className="flex-1 flex flex-col justify-between min-w-0">
+                  <div>
+                    <div className="flex justify-between items-start">
+                      <div className="min-w-0">
+                        <h4 className="text-sm font-bold text-zinc-900 dark:text-white leading-tight truncate">{trainer.name}</h4>
+                        <span className="text-[10px] text-brand-orange font-bold block mt-0.5 truncate">{trainer.title}</span>
+                      </div>
+                    </div>
+                    <span className="inline-block px-1.5 py-0.5 mt-1 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[8px] font-bold text-zinc-500 dark:text-zinc-400">{expBadge}</span>
+                  </div>
+                  
+                  <div className="mt-2 pt-2 border-t border-zinc-100 dark:border-white/5">
+                    <p className="text-[9px] italic text-zinc-400 dark:text-zinc-500 leading-snug line-clamp-2">
                       &ldquo;{trainer.quote}&rdquo;
                     </p>
                   </div>
