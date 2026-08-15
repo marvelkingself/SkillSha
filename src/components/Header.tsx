@@ -101,54 +101,95 @@ export default function Header() {
               </button>
               
               {/* Dropdown Menu */}
-              <div className="absolute left-0 top-full pt-3 w-[640px] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-                <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)] p-5">
-                  <div className="grid grid-cols-12 gap-5">
-                    {/* Courses List */}
-                    <div className="col-span-8 grid grid-cols-2 gap-x-4 gap-y-3">
-                      <Link href="/course/digital-marketing-course-with-gen-ai" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-amber-500/[0.04] dark:hover:bg-amber-500/[0.02] border border-amber-500/25 transition-all text-left">
-                        <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-amber-500 transition-colors flex items-center gap-1.5">
-                          Digital Marketing with Gen AI
-                          <span className="px-1 text-[8px] bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded font-extrabold tracking-wider leading-normal">FLAGSHIP</span>
-                        </span>
-                        <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Acquisition, Google/Meta Ads, AI engines</span>
-                      </Link>
-                      <Link href="/course/ai-engineering-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
-                        <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">AI Engineering</span>
-                        <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">LLMs, fine-tuning, RAG architectures</span>
-                      </Link>
-                      <Link href="/course/ui-ux-design-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
-                        <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">UI/UX Design</span>
-                        <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Figma, spatial UI, design systems</span>
-                      </Link>
-                      <Link href="/course/data-science-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
-                        <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Data Science & AI</span>
-                        <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Neural networks, python, analytics</span>
-                      </Link>
-                      <Link href="/course/product-management-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
-                        <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Product Management</span>
-                        <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Metrics, growth, product strategy</span>
-                      </Link>
-                      <Link href="/course/algorithmic-trading-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
-                        <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Algorithmic Trading</span>
-                        <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Quant strategies, backtesting, systems</span>
-                      </Link>
-                      <Link href="/course/graphic-design-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
-                        <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Graphic Designing</span>
-                        <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Visual design, branding, vector art</span>
-                      </Link>
-                      <Link href="/course/mental-health-wellness-course" className="group/item flex flex-col p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-all col-span-2 text-left">
-                        <span className="text-[12px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Mental Health & Wellness</span>
-                        <span className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-0.5 font-normal leading-snug">Somatic scan, circadian entrainment, and biohacking systems</span>
-                      </Link>
+              <div className="absolute left-0 top-full pt-3 w-[780px] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)] p-6">
+                  <div className="grid grid-cols-12 gap-6">
+                    {/* Categories Grid */}
+                    <div className="col-span-9 grid grid-cols-3 gap-x-4 gap-y-4">
+                      
+                      {/* Category: Development & AI */}
+                      <div className="space-y-2 text-left">
+                        <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">AI & Development</span>
+                        <div className="space-y-1">
+                          <Link href="/course/ai-engineering-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">AI Engineering</span>
+                          </Link>
+                          <Link href="/course/ai-ml-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">AI/ML with Gen AI</span>
+                          </Link>
+                          <Link href="/course/software-testing-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Software Testing</span>
+                          </Link>
+                          <Link href="/course/playwright-automation-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Playwright Automation</span>
+                          </Link>
+                        </div>
+                      </div>
+
+                      {/* Category: Data & Business */}
+                      <div className="space-y-2 text-left">
+                        <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">Data & Analytics</span>
+                        <div className="space-y-1">
+                          <Link href="/course/data-science-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Data Science & AI</span>
+                          </Link>
+                          <Link href="/course/data-analyst-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Data Analyst</span>
+                          </Link>
+                          <Link href="/course/business-analyst-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Business Analyst</span>
+                          </Link>
+                        </div>
+                      </div>
+
+                      {/* Category: Design & Strategy */}
+                      <div className="space-y-2 text-left">
+                        <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">Design & Marketing</span>
+                        <div className="space-y-1">
+                          <Link href="/course/digital-marketing-course-with-gen-ai" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-amber-500/[0.04] dark:hover:bg-amber-500/[0.02] border border-amber-500/20 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-amber-500 transition-colors flex items-center gap-1.5">
+                              Digital Marketing
+                              <span className="px-1 text-[7px] bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded font-extrabold tracking-wider leading-normal">FLAGSHIP</span>
+                            </span>
+                          </Link>
+                          <Link href="/course/ui-ux-design-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">UI/UX Design</span>
+                          </Link>
+                          <Link href="/course/graphic-design-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Graphic Designing</span>
+                          </Link>
+                          <Link href="/course/product-management-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Product Management</span>
+                          </Link>
+                        </div>
+                      </div>
+
+                      {/* Category: Trading & Somatic */}
+                      <div className="col-span-3 pt-3 border-t border-zinc-100 dark:border-white/5 grid grid-cols-2 gap-4">
+                        <Link href="/course/algorithmic-trading-course" className="group/item flex items-center gap-2 p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
+                          <span className="material-symbols-outlined text-brand-orange text-md shrink-0">trending_up</span>
+                          <div>
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors block">Algorithmic Trading</span>
+                            <span className="text-[9px] text-zinc-400 block normal-case">Quant models & backtesting</span>
+                          </div>
+                        </Link>
+                        <Link href="/course/mental-health-wellness-course" className="group/item flex items-center gap-2 p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
+                          <span className="material-symbols-outlined text-brand-orange text-md shrink-0">favorite</span>
+                          <div>
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors block">Mental Health & Biohacking</span>
+                            <span className="text-[9px] text-zinc-400 block normal-case">Circadian & somatic systems</span>
+                          </div>
+                        </Link>
+                      </div>
+
                     </div>
-                    
+
                     {/* Callout Side Banner */}
-                    <div className="col-span-4 bg-zinc-50 dark:bg-white/[0.02] border border-zinc-100 dark:border-white/5 rounded-xl p-4 flex flex-col justify-between text-left">
+                    <div className="col-span-3 bg-zinc-50 dark:bg-white/[0.02] border border-zinc-100 dark:border-white/5 rounded-2xl p-4 flex flex-col justify-between text-left">
                       <div>
                         <span className="text-[9px] font-bold uppercase tracking-wider text-brand-orange bg-brand-orange/10 dark:bg-brand-orange/20 px-2 py-0.5 rounded-md">Admissions Open</span>
-                        <h5 className="text-[12px] font-bold text-zinc-900 dark:text-white mt-2 normal-case">Ready to build?</h5>
-                        <p className="text-[10px] text-zinc-500 dark:text-zinc-400 normal-case mt-1 font-normal leading-relaxed">Book a 1:1 career counseling session to find the best track for your goals.</p>
+                        <h5 className="text-[11px] font-bold text-zinc-900 dark:text-white mt-2 normal-case">Ready to build?</h5>
+                        <p className="text-[9px] text-zinc-500 dark:text-zinc-400 normal-case mt-1 font-normal leading-relaxed">Book a 1:1 career counseling session to find the best track for your goals.</p>
                       </div>
                       <button 
                         onClick={(e) => {
@@ -157,11 +198,12 @@ export default function Header() {
                             window.dispatchEvent(new Event('openCounselingModal'));
                           }
                         }}
-                        className="mt-3 w-full py-2.5 rounded-lg bg-gradient-to-r from-brand-orange to-brand-red text-white text-[10px] font-bold tracking-wider uppercase hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+                        className="mt-3 w-full py-2 rounded-lg bg-gradient-to-r from-brand-orange to-brand-red text-white text-[9px] font-bold tracking-wider uppercase hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
                       >
                         Talk to Mentor
                       </button>
                     </div>
+
                   </div>
                 </div>
               </div>

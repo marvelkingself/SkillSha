@@ -61,7 +61,7 @@ export const TEAMS_DATA: TeamGroup[] = [
         socials: { linkedin: "#" }
       },
       {
-        name: "Mr. Umar",
+        name: "Mr. Akshay Mishra",
         role: "Lead Social Media Strategy Instructor",
         bio: "10+ years managing viral campaigns and visual brand positioning across NCR and globally.",
         expertise: ["Brand Strategy", "Community Management", "Paid Social Ads"],

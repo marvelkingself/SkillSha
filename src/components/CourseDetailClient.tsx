@@ -159,7 +159,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
             </ul>
           </div>
           <div className="mt-8 pt-4 border-t border-zinc-100 dark:border-white/5 text-zinc-500 dark:text-zinc-400 text-xs italic font-medium leading-relaxed">
-            Last year, 94% of Digital Marketing Course graduates secured jobs within 60 days. That's not a promise—that's our track record.
+            Last year, 94% of our graduates secured jobs within 60 days. That's not a promise—that's our track record.
           </div>
         </div>
 
@@ -180,7 +180,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
             </ul>
           </div>
           <div className="mt-8 pt-4 border-t border-zinc-100 dark:border-white/5 text-zinc-500 dark:text-zinc-400 text-xs italic font-medium leading-relaxed">
-            Every recruiter is looking for digital marketers who understand AI. Our Digital Marketing Course makes you exactly that professional.
+            Every recruiter is looking for professionals who understand AI. Our {data.title} makes you exactly that professional.
           </div>
         </div>
       </div>
@@ -231,7 +231,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                         <h4 className="text-xl font-bold text-zinc-950 dark:text-white leading-tight">{shad.name}</h4>
                         <span className="text-xs text-brand-orange font-semibold block mt-0.5">{shad.title}</span>
                       </div>
-                      <span className="px-2 py-1 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[9px] font-bold text-zinc-500 dark:text-zinc-400 shrink-0">12+ Yrs Exp</span>
+                      <span className="px-2 py-1 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[9px] font-bold text-zinc-500 dark:text-zinc-400 shrink-0">{shad.exp || "12+ Yrs Exp"}</span>
                     </div>
 
                     <ul className="space-y-2.5 mb-6">
@@ -263,7 +263,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                 const img = trainer.name.includes("Umar")
                   ? "/files/umar.jpg"
                   : trainer.name.includes("Hema")
-                  ? "/files/hema.jpg"
+                  ? ""
                   : "";
                 const expBadge = trainer.name.includes("Hema") 
                   ? "6+ Yrs Exp" 
@@ -322,7 +322,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
               : trainer.name.includes("Umar")
               ? "/files/umar.jpg"
               : trainer.name.includes("Hema")
-              ? "/files/hema.jpg"
+              ? ""
               : "";
             const expBadge = trainer.name.includes("Shad")
               ? "12+ Yrs Exp"
@@ -622,26 +622,49 @@ function DigitalMarketingToolsSection({ data }: { data: CourseData }) {
 
   const [activeTab, setActiveTab] = useState(0);
 
-  const trafficTools = [
-    { name: "Meta Ads Manager", category: "Paid Acquisition", desc: "Lookalike targeting & custom audience routing", icon: "ads_click" },
-    { name: "Google Ads", category: "Search & Intent", desc: "Bidding algorithms, negative match lists & campaigns", icon: "campaign" },
-    { name: "Google Analytics 4", category: "Conversion Tracking", desc: "User acquisition paths, custom events & cohort reports", icon: "analytics" },
-    { name: "Google Tag Manager", category: "Server-Side Tags", desc: "GTM server containers & pixel events integration", icon: "settings" }
+  const defaultPillars = [
+    {
+      title: "Traffic & Attribution",
+      subtitle: "Acquisition Control Center",
+      icon: "ads_click",
+      colorClass: "text-blue-500 bg-blue-500/10",
+      tools: [
+        { name: "Meta Ads Manager", category: "Paid Acquisition", desc: "Lookalike targeting & custom audience routing", icon: "ads_click" },
+        { name: "Google Ads", category: "Search & Intent", desc: "Bidding algorithms, negative match lists & campaigns", icon: "campaign" },
+        { name: "Google Analytics 4", category: "Conversion Tracking", desc: "User acquisition paths, custom events & cohort reports", icon: "analytics" },
+        { name: "Google Tag Manager", category: "Server-Side Tags", desc: "GTM server containers & pixel events integration", icon: "settings" }
+      ],
+      pipeline: { left: "Meta/Google", middle: "GTM tag", right: "Conversion", leftLabel: "Traffic Source", rightLabel: "GA4 Event" }
+    },
+    {
+      title: "AI & Creative Studio",
+      subtitle: "Campaign Asset Generator",
+      icon: "psychology",
+      colorClass: "text-purple-500 bg-purple-500/10",
+      tools: [
+        { name: "ChatGPT & Claude", category: "AI Content Copy", desc: "Campaign hooks, structured copywriting & strategy", icon: "terminal" },
+        { name: "Midjourney", category: "AI Graphics", desc: "High-end product visuals, banner elements & illustrations", icon: "photo_library" },
+        { name: "Figma & Canva", category: "UI/UX & Creative Layouts", desc: "Wireframing, interactive prototypes & landing page structures", icon: "palette" },
+        { name: "CapCut & CapCut AI", category: "Video Automation", desc: "Automated subtitles, voice overs & viral short clips", icon: "movie" }
+      ],
+      pipeline: { left: "Claude/GPT", middle: "Midjourney", right: "Figma Card", leftLabel: "Text Prompt", rightLabel: "Graphic Render" }
+    },
+    {
+      title: "Automation & Outbound",
+      subtitle: "Growth Engine Pipeline",
+      icon: "loop",
+      colorClass: "text-emerald-500 bg-emerald-500/10",
+      tools: [
+        { name: "Make.com & Zapier", category: "Ecosystem Links", desc: "Connecting webhooks, leads, CRMs and spreadsheets automatically", icon: "loop" },
+        { name: "Clay", category: "B2B Outbound Scraping", desc: "Waterfall data enrichment, lead finding & email loops", icon: "link" },
+        { name: "Klaviyo", category: "Retention Marketing", desc: "Abandoned carts, newsletters, customer lifecycle drips", icon: "email" },
+        { name: "SEMrush / Ahrefs", category: "SEO & Competitors", desc: "Keyword gaps, backlink profiles & local directory schemes", icon: "search" }
+      ],
+      pipeline: { left: "Clay Scrape", middle: "Zapier/Make", right: "Klaviyo Flow", leftLabel: "B2B List", rightLabel: "CRM Delivery" }
+    }
   ];
 
-  const creativeTools = [
-    { name: "ChatGPT & Claude", category: "AI Content Copy", desc: "Campaign hooks, structured copywriting & strategy", icon: "terminal" },
-    { name: "Midjourney", category: "AI Graphics", desc: "High-end product visuals, banner elements & illustrations", icon: "photo_library" },
-    { name: "Figma & Canva", category: "UI/UX & Creative Layouts", desc: "Wireframing, interactive prototypes & landing page structures", icon: "palette" },
-    { name: "CapCut & CapCut AI", category: "Video Automation", desc: "Automated subtitles, voice overs & viral short clips", icon: "movie" }
-  ];
-
-  const automationTools = [
-    { name: "Make.com & Zapier", category: "Ecosystem Links", desc: "Connecting webhooks, leads, CRMs and spreadsheets automatically", icon: "loop" },
-    { name: "Clay", category: "B2B Outbound Scraping", desc: "Waterfall data enrichment, lead finding & email loops", icon: "link" },
-    { name: "Klaviyo", category: "Retention Marketing", desc: "Abandoned carts, newsletters, customer lifecycle drips", icon: "email" },
-    { name: "SEMrush / Ahrefs", category: "SEO & Competitors", desc: "Keyword gaps, backlink profiles & local directory schemes", icon: "search" }
-  ];
+  const pillars = data.flagshipContent?.toolPillars || defaultPillars;
 
   return (
     <section className="mt-20 mb-24 w-full max-w-5xl mx-auto px-4 md:px-0">
@@ -653,157 +676,67 @@ function DigitalMarketingToolsSection({ data }: { data: CourseData }) {
           Skills & Platforms You will Master
         </h2>
         <p className="text-zinc-500 dark:text-zinc-400 mt-3 font-medium text-[15px] max-w-xl mx-auto leading-relaxed">
-          Master the complete AI-native growth marketing ecosystem. We group platforms into active campaign pipelines rather than static tools list.
+          {data.flagshipContent?.toolsSubtext || "Master the complete AI-native growth marketing ecosystem. We group platforms into active campaign pipelines rather than static tools list."}
         </p>
       </div>
 
       {/* 3-Pillar Ecosystem Layout (Swipeable slider on mobile) */}
       <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory scrollbar-none pb-4 md:pb-0 px-2 -mx-2 md:mx-0">
-        
-        {/* Pillar 1: Traffic & Attribution */}
-        <div className="w-[85vw] sm:w-[60vw] md:w-auto shrink-0 snap-start snap-always bg-white/60 dark:bg-zinc-900/10 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-6 flex flex-col justify-between hover:border-brand-orange/20 transition-all duration-300">
-          <div>
-            <div className="flex items-center gap-2 mb-6">
-              <span className="p-2 rounded-xl bg-blue-500/10 text-blue-500 material-symbols-outlined text-md">ads_click</span>
+        {pillars.map((pillar: any, pIdx: number) => {
+          const iconColor = pillar.colorClass || "text-blue-500 bg-blue-500/10";
+          return (
+            <div key={pIdx} className="w-[85vw] sm:w-[60vw] md:w-auto shrink-0 snap-start snap-always bg-white/60 dark:bg-zinc-900/10 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-6 flex flex-col justify-between hover:border-brand-orange/20 transition-all duration-300">
               <div>
-                <h3 className="text-md font-bold text-zinc-950 dark:text-white">Traffic & Attribution</h3>
-                <span className="text-[10px] text-zinc-400 block font-sans">Acquisition Control Center</span>
-              </div>
-            </div>
-            
-            <div className="space-y-4">
-              {trafficTools.map((t, idx) => (
-                <div key={idx} className="flex gap-3 group">
-                  <span className="material-symbols-outlined text-brand-orange text-sm shrink-0 mt-0.5 group-hover:scale-110 transition-transform">{t.icon}</span>
+                <div className="flex items-center gap-2 mb-6">
+                  <span className={'p-2 rounded-xl ' + iconColor + ' material-symbols-outlined text-md'}>{pillar.icon}</span>
                   <div>
-                    <h4 className="text-xs font-bold text-zinc-900 dark:text-white">{t.name}</h4>
-                    <span className="text-[9px] text-zinc-400 dark:text-zinc-500 font-sans block">{t.desc}</span>
+                    <h3 className="text-md font-bold text-zinc-955 dark:text-white">{pillar.title}</h3>
+                    <span className="text-[10px] text-zinc-400 block font-sans">{pillar.subtitle}</span>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
+                
+                <div className="space-y-4">
+                  {pillar.tools.map((t: any, idx: number) => (
+                    <div key={idx} className="flex gap-3 group">
+                      <span className="material-symbols-outlined text-brand-orange text-sm shrink-0 mt-0.5 group-hover:scale-110 transition-transform">{t.icon}</span>
+                      <div>
+                        <h4 className="text-xs font-bold text-zinc-900 dark:text-white">{t.name}</h4>
+                        <span className="text-[9px] text-zinc-400 dark:text-zinc-500 font-sans block">{t.desc}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-          {/* Pillar 1 Pipeline Diagram */}
-          <div className="mt-8 pt-6 border-t border-zinc-100 dark:border-white/5 relative">
-            <div className="flex justify-between items-center text-[8px] font-mono text-zinc-400 px-2 mb-2">
-              <span>Traffic Source</span>
-              <span>GA4 Event</span>
-            </div>
-            <div className="flex items-center justify-between bg-zinc-100 dark:bg-zinc-950/60 rounded-xl p-3 border border-zinc-200 dark:border-white/5 text-[9px] font-mono">
-              <span className="text-brand-orange">Meta/Google</span>
-              <svg className="w-10 h-2 text-zinc-400" fill="none" viewBox="0 0 40 8">
-                <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
-                <polygon points="36,1 40,4 36,7" fill="currentColor" />
-              </svg>
-              <span className="text-zinc-500">GTM tag</span>
-              <svg className="w-10 h-2 text-zinc-400" fill="none" viewBox="0 0 40 8">
-                <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
-                <polygon points="36,1 40,4 36,7" fill="currentColor" />
-              </svg>
-              <span className="text-emerald-500 font-bold">Conversion</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Pillar 2: AI & Creative Studio */}
-        <div className="w-[85vw] sm:w-[60vw] md:w-auto shrink-0 snap-start snap-always bg-white/60 dark:bg-zinc-900/10 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-6 flex flex-col justify-between hover:border-brand-orange/20 transition-all duration-300">
-          <div>
-            <div className="flex items-center gap-2 mb-6">
-              <span className="p-2 rounded-xl bg-purple-500/10 text-purple-500 material-symbols-outlined text-md">psychology</span>
-              <div>
-                <h3 className="text-md font-bold text-zinc-955 dark:text-white">AI & Creative Studio</h3>
-                <span className="text-[10px] text-zinc-400 block font-sans">Campaign Asset Generator</span>
+              {/* Pillar Pipeline Diagram */}
+              <div className="mt-8 pt-6 border-t border-zinc-100 dark:border-white/5 relative">
+                <div className="flex justify-between items-center text-[8px] font-mono text-zinc-400 px-2 mb-2">
+                  <span>{pillar.pipeline.leftLabel}</span>
+                  <span>{pillar.pipeline.rightLabel}</span>
+                </div>
+                <div className="flex items-center justify-between bg-zinc-100 dark:bg-zinc-950/60 rounded-xl p-3 border border-zinc-200 dark:border-white/5 text-[9px] font-mono">
+                  <span className="text-brand-orange truncate max-w-[80px]">{pillar.pipeline.left}</span>
+                  <svg className="w-10 h-2 text-zinc-400 shrink-0" fill="none" viewBox="0 0 40 8">
+                    <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+                    <polygon points="36,1 40,4 36,7" fill="currentColor" />
+                  </svg>
+                  <span className="text-zinc-550 dark:text-zinc-455 truncate max-w-[80px]">{pillar.pipeline.middle}</span>
+                  <svg className="w-10 h-2 text-zinc-400 shrink-0" fill="none" viewBox="0 0 40 8">
+                    <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+                    <polygon points="36,1 40,4 36,7" fill="currentColor" />
+                  </svg>
+                  <span className="text-emerald-500 font-bold truncate max-w-[80px]">{pillar.pipeline.right}</span>
+                </div>
               </div>
             </div>
-
-            <div className="space-y-4">
-              {creativeTools.map((t, idx) => (
-                <div key={idx} className="flex gap-3 group">
-                  <span className="material-symbols-outlined text-brand-orange text-sm shrink-0 mt-0.5 group-hover:scale-110 transition-transform">{t.icon}</span>
-                  <div>
-                    <h4 className="text-xs font-bold text-zinc-900 dark:text-white">{t.name}</h4>
-                    <span className="text-[9px] text-zinc-400 dark:text-zinc-500 font-sans block">{t.desc}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Pillar 2 Pipeline Diagram */}
-          <div className="mt-8 pt-6 border-t border-zinc-100 dark:border-white/5 relative">
-            <div className="flex justify-between items-center text-[8px] font-mono text-zinc-400 px-2 mb-2">
-              <span>Text Prompt</span>
-              <span>Graphic Render</span>
-            </div>
-            <div className="flex items-center justify-between bg-zinc-100 dark:bg-zinc-950/60 rounded-xl p-3 border border-zinc-200 dark:border-white/5 text-[9px] font-mono">
-              <span className="text-purple-400">Claude/GPT</span>
-              <svg className="w-10 h-2 text-zinc-400" fill="none" viewBox="0 0 40 8">
-                <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
-                <polygon points="36,1 40,4 36,7" fill="currentColor" />
-              </svg>
-              <span className="text-zinc-500">Midjourney</span>
-              <svg className="w-10 h-2 text-zinc-400" fill="none" viewBox="0 0 40 8">
-                <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
-                <polygon points="36,1 40,4 36,7" fill="currentColor" />
-              </svg>
-              <span className="text-brand-orange font-bold">Figma Card</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Pillar 3: Automation & Outbound */}
-        <div className="w-[85vw] sm:w-[60vw] md:w-auto shrink-0 snap-start snap-always bg-white/60 dark:bg-zinc-900/10 border border-zinc-200/80 dark:border-white/5 rounded-3xl p-6 flex flex-col justify-between hover:border-brand-orange/20 transition-all duration-300">
-          <div>
-            <div className="flex items-center gap-2 mb-6">
-              <span className="p-2 rounded-xl bg-emerald-500/10 text-emerald-500 material-symbols-outlined text-md">loop</span>
-              <div>
-                <h3 className="text-md font-bold text-zinc-955 dark:text-white">Automation & Outbound</h3>
-                <span className="text-[10px] text-zinc-400 block font-sans">Growth Engine Pipeline</span>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              {automationTools.map((t, idx) => (
-                <div key={idx} className="flex gap-3 group">
-                  <span className="material-symbols-outlined text-brand-orange text-sm shrink-0 mt-0.5 group-hover:scale-110 transition-transform">{t.icon}</span>
-                  <div>
-                    <h4 className="text-xs font-bold text-zinc-900 dark:text-white">{t.name}</h4>
-                    <span className="text-[9px] text-zinc-400 dark:text-zinc-500 font-sans block">{t.desc}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Pillar 3 Pipeline Diagram */}
-          <div className="mt-8 pt-6 border-t border-zinc-100 dark:border-white/5 relative">
-            <div className="flex justify-between items-center text-[8px] font-mono text-zinc-400 px-2 mb-2">
-              <span>B2B List</span>
-              <span>CRM Delivery</span>
-            </div>
-            <div className="flex items-center justify-between bg-zinc-100 dark:bg-zinc-950/60 rounded-xl p-3 border border-zinc-200 dark:border-white/5 text-[9px] font-mono">
-              <span className="text-indigo-400">Clay Scrape</span>
-              <svg className="w-10 h-2 text-zinc-400" fill="none" viewBox="0 0 40 8">
-                <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
-                <polygon points="36,1 40,4 36,7" fill="currentColor" />
-              </svg>
-              <span className="text-zinc-500">Zapier/Make</span>
-              <svg className="w-10 h-2 text-zinc-400" fill="none" viewBox="0 0 40 8">
-                <path d="M0,4 L40,4" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
-                <polygon points="36,1 40,4 36,7" fill="currentColor" />
-              </svg>
-              <span className="text-emerald-500 font-bold">Klaviyo Flow</span>
-            </div>
-          </div>
-        </div>
-
+          );
+        })}
       </div>
 
       {/* Interactive Curriculum Matrix Tabs */}
       <div className="mt-16 bg-white/40 dark:bg-zinc-900/10 border border-zinc-200 dark:border-white/5 rounded-3xl p-6 md:p-8">
         <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-6 text-center md:text-left">
-          Core Digital Marketing & Gen AI Syllabus Matrix
+          Core {data.title} Syllabus Matrix
         </h3>
         
         {/* Scrollable category pills tab row */}
@@ -812,11 +745,11 @@ function DigitalMarketingToolsSection({ data }: { data: CourseData }) {
             <button
               key={idx}
               onClick={() => setActiveTab(idx)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold font-sans transition-all shrink-0 whitespace-nowrap ${
+              className={'px-4 py-2 rounded-xl text-xs font-bold font-sans transition-all shrink-0 whitespace-nowrap ' + (
                 activeTab === idx
                   ? "bg-brand-orange text-white shadow-md shadow-brand-orange/20"
-                  : "bg-zinc-100 dark:bg-zinc-900 text-zinc-500 hover:text-zinc-900 dark:hover:text-white border border-transparent hover:border-zinc-200 dark:hover:border-white/5"
-              }`}
+                  : "bg-zinc-100 dark:bg-zinc-900 text-zinc-500 hover:text-zinc-950 dark:hover:text-white border border-transparent hover:border-zinc-200 dark:hover:border-white/5"
+              )}
             >
               {sk.category}
             </button>
@@ -829,7 +762,7 @@ function DigitalMarketingToolsSection({ data }: { data: CourseData }) {
             Topics & Targets you will achieve:
           </h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {content[activeTab].list.map((item: string, idx: number) => (
+            {content[activeTab].list.map((item: any, idx: number) => (
               <div 
                 key={idx}
                 className="flex items-start gap-3 p-3 bg-zinc-50 dark:bg-zinc-950/20 border border-zinc-200/50 dark:border-white/5 rounded-2xl hover:border-brand-orange/20 transition-colors"
@@ -1607,7 +1540,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 {city && <span className="text-zinc-900 dark:text-white block sm:inline">in {city}</span>}
               </h1>
 
-              {isDigitalMarketingFlagship && data.flagshipContent?.heroSubtext ? (
+              {data.flagshipContent?.heroSubtext ? (
                 <div className="text-zinc-600 dark:text-zinc-400 text-[14px] md:text-[15px] leading-relaxed mb-6 max-w-xl font-sans whitespace-pre-line">
                   {data.flagshipContent.heroSubtext}
                 </div>
@@ -2151,7 +2084,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </div>
         </section>
 
-        {isDigitalMarketingFlagship && (
+        {data.flagshipContent && (
           <>
             <DigitalMarketingWhySection data={data} />
             <DigitalMarketingDifferencesSection data={data} />
@@ -2347,7 +2280,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </div>
         </section>
 
-        {isDigitalMarketingFlagship && <DigitalMarketingToolsSection data={data} />}
+        {data.flagshipContent && <DigitalMarketingToolsSection data={data} />}
 
         {/* Portfolio Projects Section */}
         {data.portfolioProjects && data.portfolioProjects.length > 0 && (
@@ -2523,7 +2456,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </section>
         )}
 
-        {isDigitalMarketingFlagship && <DigitalMarketingPlacementSection data={data} />}
+        {data.flagshipContent && <DigitalMarketingPlacementSection data={data} />}
 
         {/* Certificate Spotlight Section */}
         <section className="py-12 px-0 z-20 relative">
@@ -2725,7 +2658,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
           </div>
         </section>
 
-        {isDigitalMarketingFlagship && (
+        {data.flagshipContent && (
           <>
             <DigitalMarketingCareerSection data={data} />
             <DigitalMarketingStoriesSection data={data} />
@@ -2777,7 +2710,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
 
         <AlumniCompanies />
 
-        {isDigitalMarketingFlagship && <DigitalMarketingDisclaimerSection data={data} />}
+        {data.flagshipContent && <DigitalMarketingDisclaimerSection data={data} />}
       </main>
 
       <Footer />

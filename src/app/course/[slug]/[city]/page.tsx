@@ -198,7 +198,7 @@ export default async function CityCoursePage({ params }: PageProps) {
                       },
                       {
                         "@type": "Person",
-                        "name": "Mr. Umar",
+                        "name": "Mr. Akshay Mishra",
                         "jobTitle": "Social Media & Brand Strategy Expert"
                       },
                       {

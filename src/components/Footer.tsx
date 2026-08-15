@@ -58,10 +58,15 @@ export default function Footer() {
                 <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-4">Programs</h4>
                     <ul className="space-y-2.5">
-                        <li><Link href="/course/digital-marketing-course-with-gen-ai" className="text-[13px] text-amber-500 font-bold hover:text-amber-600 transition-colors flex items-center gap-1.5">Digital Marketing with Gen AI <span className="text-[9px] bg-gradient-to-r from-amber-500 to-orange-500 text-white px-1.5 py-0.5 rounded font-extrabold tracking-wider scale-90">FLAGSHIP</span></Link></li>
+                        <li><Link href="/course/digital-marketing-course-with-gen-ai" className="text-[13px] text-amber-500 font-bold hover:text-amber-600 transition-colors flex items-center gap-1.5">Digital Marketing <span className="text-[8px] bg-gradient-to-r from-amber-500 to-orange-500 text-white px-1 py-0.5 rounded font-extrabold tracking-wider leading-normal">FLAGSHIP</span></Link></li>
                         <li><Link href="/course/ai-engineering-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering</Link></li>
+                        <li><Link href="/course/ai-ml-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI/ML with Gen AI</Link></li>
                         <li><Link href="/course/ui-ux-design-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design</Link></li>
                         <li><Link href="/course/data-science-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science & AI</Link></li>
+                        <li><Link href="/course/data-analyst-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analyst</Link></li>
+                        <li><Link href="/course/business-analyst-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Business Analyst</Link></li>
+                        <li><Link href="/course/software-testing-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Software Testing</Link></li>
+                        <li><Link href="/course/playwright-automation-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Playwright Automation</Link></li>
                         <li><Link href="/course/product-management-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Product Management</Link></li>
                         <li><Link href="/course/algorithmic-trading-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Algorithmic Trading</Link></li>
                         <li><Link href="/course/graphic-design-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Graphic Designing</Link></li>
