@@ -46,36 +46,72 @@ export interface CourseData {
   flagshipContent?: any;
 }
 
+import { CITIES_LIST } from "@/data/cities";
+
 export const COURSE_SLUG_MAP: Record<string, string> = {
-  "ai-engineering": "ai-engineering-course",
-  "full-stack-development": "full-stack-development-course",
+  "ai-engineering": "ai-engineering-course-with-gen-ai",
+  "full-stack-development": "full-stack-development-course-with-gen-ai",
   "digital-marketing-with-gen-ai": "digital-marketing-course-with-gen-ai",
   "digital-marketing-noida": "digital-marketing-course-in-noida-with-gen-ai",
-  "digital-marketing": "digital-marketing-course",
-  "ui-ux-design": "ui-ux-design-course",
-  "data-science-ai": "data-science-course",
-  "product-management": "product-management-course",
-  "algorithmic-trading": "algorithmic-trading-course",
-  "graphic-designing": "graphic-design-course",
-  "mental-health-wellness": "mental-health-wellness-course",
-  "ai-healthcare-doctor": "ai-healthcare-doctor-course",
-  "ai-clinical-nurse": "ai-clinical-nurse-course",
-  "ai-finance-ca": "ai-finance-ca-course",
-  "data-analyst": "data-analyst-course",
-  "business-analyst": "business-analyst-course",
-  "ai-ml-with-gen-ai": "ai-ml-course",
-  "software-testing": "software-testing-course",
-  "playwright-automation": "playwright-automation-course"
+  "digital-marketing": "digital-marketing-course-standard-with-gen-ai",
+  "ui-ux-design": "ui-ux-design-course-with-gen-ai",
+  "data-science-ai": "data-science-course-with-gen-ai",
+  "product-management": "product-management-course-with-gen-ai",
+  "algorithmic-trading": "algorithmic-trading-course-with-gen-ai",
+  "graphic-designing": "graphic-design-course-with-gen-ai",
+  "mental-health-wellness": "mental-health-wellness-course-with-gen-ai",
+  "ai-healthcare-doctor": "ai-healthcare-doctor-course-with-gen-ai",
+  "ai-clinical-nurse": "ai-clinical-nurse-course-with-gen-ai",
+  "ai-finance-ca": "ai-finance-ca-course-with-gen-ai",
+  "data-analyst": "data-analyst-course-with-gen-ai",
+  "business-analyst": "business-analyst-course-with-gen-ai",
+  "ai-ml-with-gen-ai": "ai-ml-course-with-gen-ai",
+  "software-testing": "software-testing-course-with-gen-ai",
+  "playwright-automation": "playwright-automation-course-with-gen-ai"
 };
 
-export function getCourseSlugById(id: string): string {
-  return COURSE_SLUG_MAP[id] || `${id}-course`;
+export function getCourseSlugById(id: string, city?: string): string {
+  const base = COURSE_SLUG_MAP[id] || `${id}-course-with-gen-ai`;
+  if (city) {
+    if (id === "digital-marketing-noida") {
+      return "digital-marketing-course-in-noida-with-gen-ai";
+    }
+    if (base.endsWith("-standard-with-gen-ai")) {
+      return base.replace("-standard-with-gen-ai", `-standard-in-${city}-with-gen-ai`);
+    }
+    if (base.endsWith("-course-with-gen-ai")) {
+      return base.replace("-course-with-gen-ai", `-course-in-${city}-with-gen-ai`);
+    }
+    if (base.endsWith("-course")) {
+      return base.replace("-course", `-course-in-${city}-with-gen-ai`);
+    }
+    return `${base}-in-${city}-with-gen-ai`;
+  }
+  return base;
+}
+
+export function getCourseAndCityFromSlug(slug: string): { id: string | undefined; city: string | undefined } {
+  // 1. Try to match without city first (main course pages)
+  for (const id of Object.keys(COURSE_SLUG_MAP)) {
+    if (getCourseSlugById(id) === slug) {
+      return { id, city: undefined };
+    }
+  }
+
+  // 2. Try to match with city (city-specific pages)
+  for (const id of Object.keys(COURSE_SLUG_MAP)) {
+    for (const city of CITIES_LIST) {
+      if (getCourseSlugById(id, city.slug) === slug) {
+        return { id, city: city.slug };
+      }
+    }
+  }
+
+  return { id: undefined, city: undefined };
 }
 
 export function getCourseIdBySlug(slug: string): string | undefined {
-  return Object.keys(COURSE_SLUG_MAP).find(
-    (key) => COURSE_SLUG_MAP[key] === slug
-  );
+  return getCourseAndCityFromSlug(slug).id;
 }
 
 export const COURSES_DATA: Record<string, CourseData> = {

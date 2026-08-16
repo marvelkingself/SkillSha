@@ -1,10 +1,25 @@
-import { COURSES_DATA, COURSE_SLUG_MAP, getCourseIdBySlug } from "@/data/courses";
+import { COURSES_DATA, COURSE_SLUG_MAP, getCourseIdBySlug, getCourseSlugById, getCourseAndCityFromSlug } from "@/data/courses";
+import { CITIES_LIST } from "@/data/cities";
 import { notFound } from "next/navigation";
 import CourseDetailClient from "@/components/CourseDetailClient";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
-  return Object.values(COURSE_SLUG_MAP).map((slug) => ({ slug }));
+  const paths: Array<{ slug: string }> = [];
+
+  // 1. Core course pages
+  Object.keys(COURSES_DATA).forEach((id) => {
+    paths.push({ slug: getCourseSlugById(id) });
+  });
+
+  // 2. Localized city course pages
+  Object.keys(COURSES_DATA).forEach((id) => {
+    CITIES_LIST.forEach((city) => {
+      paths.push({ slug: getCourseSlugById(id, city.slug) });
+    });
+  });
+
+  return paths;
 }
 
 interface PageProps {
@@ -235,8 +250,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CourseDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const id = getCourseIdBySlug(slug);
+  const { id, city } = getCourseAndCityFromSlug(slug);
   const data = id ? COURSES_DATA[id] : null;
+  const cityInfo = city ? CITIES_LIST.find((c) => c.slug === city) : undefined;
 
   if (!id || !data) {
     notFound();
@@ -630,7 +646,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
         </>
       )}
 
-      <CourseDetailClient id={id} data={data} />
+      <CourseDetailClient id={id} data={data} city={cityInfo?.name} />
     </>
   );
 }
