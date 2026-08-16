@@ -980,23 +980,12 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
   const content = data.flagshipContent?.careers;
   if (!content) return null;
 
-  const [activeRoleIdx, setActiveRoleIdx] = useState(0);
   const [selectedCity, setSelectedCity] = useState("delhi");
-
-  const activeRole = CAREER_ROLES[activeRoleIdx];
   const cityInfo = CITIES_MULTIPLIERS[selectedCity];
 
-  // Calculate dynamic salary based on multiplier
-  const minSalary = (activeRole.baseMin * cityInfo.mult).toFixed(1);
-  const maxSalary = (activeRole.baseMax * cityInfo.mult).toFixed(1);
-  
-  // Calculate width for range indicator bar (out of 25L max)
-  const leftPercent = Math.max(0, Math.min(100, (parseFloat(minSalary) / 25) * 100));
-  const widthPercent = Math.max(10, Math.min(100, ((parseFloat(maxSalary) - parseFloat(minSalary)) / 25) * 100));
-
   // Role SVGs lookup
-  const renderRoleIcon = (index: number, active: boolean) => {
-    const cls = `w-5 h-5 transition-transform duration-300 ${active ? "scale-110 text-brand-orange" : "text-zinc-400 group-hover:scale-110"}`;
+  const renderRoleIcon = (index: number) => {
+    const cls = "w-5 h-5 text-brand-orange group-hover:scale-110 transition-transform duration-300";
     switch (index) {
       case 0: // Manager
         return (
@@ -1045,12 +1034,12 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
 
   return (
     <section className="mt-24 mb-24 w-full max-w-5xl mx-auto px-6 md:px-0">
-      {/* Title Header block */}
-      <div className="text-center mb-16 relative">
+      {/* Title Header Block */}
+      <div className="text-center mb-12 relative">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-orange/5 dark:bg-brand-orange/10 blur-[60px] pointer-events-none rounded-full" />
-        <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-brand-orange/10 dark:bg-brand-orange/20 border border-brand-orange/20 text-brand-orange text-[10px] font-bold uppercase tracking-widest relative z-10 animate-pulse">
+        <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-brand-orange/10 dark:bg-brand-orange/20 border border-brand-orange/20 text-brand-orange text-[10px] font-bold uppercase tracking-widest relative z-10 animate-pulse">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
-          Career Roadmap
+          Career Opportunities
         </div>
         <h2 className="text-3xl md:text-5xl font-black text-zinc-900 dark:text-white tracking-tight relative z-10 font-sans max-w-2xl mx-auto leading-[1.15]">
           Career Opportunities After Your{" "}
@@ -1059,207 +1048,141 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
           </span>{" "}
           Course
         </h2>
-        <p className="text-[13px] text-zinc-500 dark:text-zinc-400 mt-4 max-w-lg mx-auto font-sans leading-relaxed">
-          The digital marketing landscape is evolving rapidly. Explore detailed career roles, responsibilities, and localized Indian salary benchmarks.
+        <p className="text-[13px] text-zinc-500 dark:text-zinc-400 mt-3 max-w-xl mx-auto font-sans leading-relaxed">
+          Unlock premium job roles and highly competitive packages. Compare salary standards across major economic hubs in India at a glance.
         </p>
-      </div>
 
-      {/* Main Interactive Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Role Selector (lg:col-span-5) */}
-        <div className="lg:col-span-5 space-y-3.5 order-2 lg:order-1">
-          <h3 className="text-xs uppercase font-extrabold tracking-widest text-zinc-400 dark:text-zinc-500 pl-2">
-            Select Career Role
-          </h3>
-          <div className="space-y-3">
-            {CAREER_ROLES.map((role, idx) => {
-              const active = activeRoleIdx === idx;
-              return (
-                <button
-                  key={idx}
-                  type="button"
-                  onClick={() => setActiveRoleIdx(idx)}
-                  className={`group w-full flex items-center justify-between p-4 rounded-2xl border text-left transition-all duration-300 ${
-                    active
-                      ? "bg-white dark:bg-zinc-900/90 border-brand-orange shadow-[0_10px_35px_rgba(249,115,22,0.06)] scale-[1.01]"
-                      : "bg-white/50 dark:bg-zinc-950/10 border-zinc-200/60 dark:border-white/5 hover:border-zinc-300 dark:hover:border-white/10 hover:bg-white dark:hover:bg-zinc-900/40"
-                  }`}
-                >
-                  <div className="flex items-center gap-3.5">
-                    <div
-                      className={`p-2.5 rounded-xl border transition-all duration-300 ${
-                        active
-                          ? "bg-brand-orange/10 border-brand-orange/20 text-brand-orange"
-                          : "bg-zinc-50 dark:bg-white/[0.02] border-zinc-100 dark:border-white/5 text-zinc-400"
-                      }`}
-                    >
-                      {renderRoleIcon(idx, active)}
-                    </div>
-                    <div>
-                      <h4 className="text-[13px] font-bold text-zinc-900 dark:text-white group-hover:text-brand-orange transition-colors">
-                        {role.title}
-                      </h4>
-                      <p className="text-[10px] text-zinc-400 dark:text-zinc-500 mt-0.5 max-w-[240px] truncate font-sans">
-                        {role.duties}
-                      </p>
-                    </div>
-                  </div>
-                  <span className={`material-icons text-[16px] transition-transform duration-300 ${
-                    active ? "text-brand-orange translate-x-0.5" : "text-zinc-300 dark:text-zinc-700 group-hover:translate-x-0.5"
-                  }`}>
-                    chevron_right
-                  </span>
-                </button>
-              );
-            })}
+        {/* Global City Selector */}
+        <div className="mt-8 inline-flex flex-col items-center p-4 bg-zinc-50/50 dark:bg-zinc-950/20 border border-zinc-200/50 dark:border-white/5 rounded-2xl w-full max-w-3xl mx-auto">
+          <span className="text-[9.5px] uppercase font-bold text-zinc-400 tracking-wider mb-2.5">
+            Select Target Location to Calculate Salaries
+          </span>
+          <div className="flex flex-wrap items-center justify-center gap-1.5">
+            {["delhi", "noida", "gurugram", "mumbai", "bangalore"].map((cityKey) => (
+              <button
+                key={cityKey}
+                type="button"
+                onClick={() => setSelectedCity(cityKey)}
+                className={`px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all border ${
+                  selectedCity === cityKey
+                    ? "bg-brand-orange/10 border-brand-orange text-brand-orange"
+                    : "bg-white dark:bg-zinc-900/50 border-zinc-200/60 dark:border-white/5 text-zinc-600 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-white/10"
+                }`}
+              >
+                {CITIES_MULTIPLIERS[cityKey].name}
+              </button>
+            ))}
+            
+            {/* Other cities dropdown */}
+            <div className="relative">
+              <select
+                value={["delhi", "noida", "gurugram", "mumbai", "bangalore"].includes(selectedCity) ? "" : selectedCity}
+                onChange={(e) => {
+                  if (e.target.value) setSelectedCity(e.target.value);
+                }}
+                className="px-3 py-1.5 pr-8 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-white dark:bg-zinc-900/50 border border-zinc-200/60 dark:border-white/5 text-zinc-600 dark:text-zinc-400 focus:outline-none focus:border-brand-orange appearance-none cursor-pointer"
+              >
+                <option value="" disabled>Other Cities...</option>
+                {Object.keys(CITIES_MULTIPLIERS)
+                  .filter((k) => !["delhi", "noida", "gurugram", "mumbai", "bangalore"].includes(k))
+                  .map((k) => (
+                    <option key={k} value={k}>
+                      {CITIES_MULTIPLIERS[k].name}
+                    </option>
+                  ))}
+              </select>
+              <span className="material-icons absolute right-2 top-2 text-[12px] pointer-events-none text-zinc-400">
+                expand_more
+              </span>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Right Column: Display Card (lg:col-span-7) */}
-        <div className="lg:col-span-7 order-1 lg:order-2">
-          <div className="relative group">
-            {/* Backdrop glow */}
-            <div className="absolute -inset-px bg-gradient-to-r from-brand-orange to-brand-red rounded-[28px] opacity-10 group-hover:opacity-15 blur-lg transition duration-500" />
-            <div className="relative bg-white dark:bg-zinc-900/50 backdrop-blur-xl border border-zinc-200/80 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl flex flex-col justify-between overflow-hidden">
-              <div>
-                {/* Panel Header */}
-                <div className="flex items-center justify-between flex-wrap gap-2.5 mb-5 border-b border-zinc-100 dark:border-white/5 pb-4">
-                  <span className="px-2.5 py-1 text-[9px] font-bold bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/10 text-emerald-500 rounded-md uppercase tracking-wider">
-                    {activeRole.availability}
-                  </span>
-                  <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest font-sans">
-                    Sector Overview
-                  </span>
-                </div>
+      {/* Grid Layout of Roles */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        {CAREER_ROLES.map((role, idx) => {
+          const minSalary = (role.baseMin * cityInfo.mult).toFixed(1);
+          const maxSalary = (role.baseMax * cityInfo.mult).toFixed(1);
+          
+          // Calculate width for range indicator bar (out of 25L max)
+          const leftPercent = Math.max(0, Math.min(100, (parseFloat(minSalary) / 25) * 100));
+          const widthPercent = Math.max(10, Math.min(100, ((parseFloat(maxSalary) - parseFloat(minSalary)) / 25) * 100));
 
-                <h3 className="text-xl md:text-2xl font-black text-zinc-900 dark:text-white tracking-tight">
-                  {activeRole.title}
-                </h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2.5 leading-relaxed font-sans font-normal">
-                  {activeRole.duties}
-                </p>
-
-                {/* Key Responsibilities */}
-                <div className="mt-6 space-y-3">
-                  <h4 className="text-[11px] font-extrabold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
-                    Primary Responsibilities
-                  </h4>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {activeRole.keyPoints.map((pt, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2.5 text-[11.5px] text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed">
-                        <span className="w-4 h-4 rounded bg-brand-orange/10 border border-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0 mt-0.5">
-                          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span>{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Salary Explorer Widget */}
-              <div className="mt-8 bg-zinc-50/50 dark:bg-zinc-950/20 border border-zinc-200/50 dark:border-white/5 rounded-2xl p-5 md:p-6 relative">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-zinc-200/30 dark:border-white/5 pb-4.5 mb-4.5">
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
-                      Location Benchmark
-                    </span>
-                    {/* City quick buttons */}
-                    <div className="flex flex-wrap items-center gap-1.5 mt-2">
-                      {["delhi", "noida", "gurugram", "mumbai", "bangalore"].map((cityKey) => (
-                        <button
-                          key={cityKey}
-                          type="button"
-                          onClick={() => setSelectedCity(cityKey)}
-                          className={`px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider transition-all border ${
-                            selectedCity === cityKey
-                              ? "bg-brand-orange/10 border-brand-orange text-brand-orange"
-                              : "bg-white dark:bg-zinc-900/50 border-zinc-200/60 dark:border-white/5 text-zinc-600 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-white/10"
-                          }`}
-                        >
-                          {CITIES_MULTIPLIERS[cityKey].name}
-                        </button>
-                      ))}
-                      
-                      {/* Other cities dropdown */}
-                      <div className="relative">
-                        <select
-                          value={["delhi", "noida", "gurugram", "mumbai", "bangalore"].includes(selectedCity) ? "" : selectedCity}
-                          onChange={(e) => {
-                            if (e.target.value) setSelectedCity(e.target.value);
-                          }}
-                          className="px-2.5 py-1 pr-6 rounded-md text-[10px] font-bold uppercase tracking-wider bg-white dark:bg-zinc-900/50 border border-zinc-200/60 dark:border-white/5 text-zinc-600 dark:text-zinc-400 focus:outline-none focus:border-brand-orange appearance-none cursor-pointer"
-                        >
-                          <option value="" disabled>Other Cities...</option>
-                          {Object.keys(CITIES_MULTIPLIERS)
-                            .filter((k) => !["delhi", "noida", "gurugram", "mumbai", "bangalore"].includes(k))
-                            .map((k) => (
-                              <option key={k} value={k}>
-                                {CITIES_MULTIPLIERS[k].name}
-                              </option>
-                            ))}
-                        </select>
-                        <span className="material-icons absolute right-1.5 top-1.5 text-[11px] pointer-events-none text-zinc-400">
-                          expand_more
-                        </span>
-                      </div>
+          return (
+            <div key={idx} className="relative group flex flex-col h-full">
+              <div className="absolute -inset-px bg-gradient-to-r from-brand-orange/5 to-brand-red/5 rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition duration-300" />
+              <div className="relative bg-white dark:bg-zinc-900/40 backdrop-blur-md border border-zinc-200/60 dark:border-white/5 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full min-h-[300px] flex-1">
+                <div>
+                  {/* Card Top */}
+                  <div className="flex items-start justify-between gap-3 mb-3.5">
+                    <div className="p-2 rounded-xl bg-brand-orange/10 border border-brand-orange/20 text-brand-orange shrink-0">
+                      {renderRoleIcon(idx)}
                     </div>
-                  </div>
-                </div>
-
-                {/* Salary Output */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 mt-4">
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
-                      Estimated Salary Range
-                    </span>
-                    <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-red to-rose-500 tracking-tight mt-1.5 block">
-                      ₹{minSalary}L - ₹{maxSalary}L
-                    </span>
-                    <span className="text-[9.5px] text-zinc-400 font-sans block mt-1 font-medium font-sans">
-                      Per Annum (INR) • {CITIES_MULTIPLIERS[selectedCity].name} Index
+                    <span className={`px-2 py-0.5 rounded text-[9px] font-bold ${
+                      role.availability === "Premium Role"
+                        ? "bg-rose-500/10 dark:bg-rose-500/20 text-rose-500 border border-rose-500/10"
+                        : role.availability === "High Demand"
+                        ? "bg-amber-500/10 dark:bg-amber-500/20 text-amber-500 border border-amber-500/10"
+                        : "bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-500 border border-emerald-500/10"
+                    } uppercase tracking-wider`}>
+                      {role.availability}
                     </span>
                   </div>
                   
-                  {/* Performance metric tag */}
-                  <div className="px-3.5 py-2.5 rounded-xl bg-white dark:bg-zinc-900/80 border border-zinc-200/50 dark:border-white/5 text-left shrink-0">
-                    <span className="text-[9px] uppercase font-bold text-zinc-400 block tracking-wider">Growth Potential</span>
-                    <span className="text-sm font-black text-emerald-500 flex items-center gap-1.5 mt-0.5">
-                      <svg className="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                      </svg>
-                      +45% YoY
-                    </span>
+                  <h4 className="text-[14px] font-black text-zinc-900 dark:text-white tracking-tight group-hover:text-brand-orange transition-colors">
+                    {role.title}
+                  </h4>
+                  
+                  <p className="text-[11.5px] text-zinc-500 dark:text-zinc-400 mt-2 leading-relaxed line-clamp-3 font-sans h-[52px]">
+                    {role.duties}
+                  </p>
+
+                  {/* Compact Key Points */}
+                  <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-white/5">
+                    <ul className="space-y-1.5">
+                      {role.keyPoints.slice(0, 2).map((pt, pIdx) => (
+                        <li key={pIdx} className="flex items-start gap-2 text-[10.5px] text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand-orange/40 mt-1.5 shrink-0" />
+                          <span className="line-clamp-1">{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
 
-                {/* Custom Glowing Slider Progress */}
-                <div className="mt-6">
-                  <div className="w-full h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full relative overflow-hidden">
+                {/* Card Bottom - Salary metrics */}
+                <div className="mt-5 pt-3.5 border-t border-zinc-100 dark:border-white/5">
+                  <div className="flex justify-between items-end mb-2">
+                    <div>
+                      <span className="text-[8.5px] uppercase font-bold text-zinc-400 block tracking-wider">Estimated Package</span>
+                      <span className="text-[18px] font-black text-zinc-900 dark:text-white mt-0.5 block tracking-tight">
+                        ₹{minSalary}L - ₹{maxSalary}L
+                      </span>
+                    </div>
+                    <span className="text-[9px] text-zinc-400 font-medium">Per Annum</span>
+                  </div>
+
+                  {/* Range indicator slider */}
+                  <div className="w-full h-1 bg-zinc-100 dark:bg-zinc-800/80 rounded-full relative overflow-hidden">
                     <div
-                      className="absolute h-full bg-gradient-to-r from-brand-orange via-brand-red to-rose-500 rounded-full shadow-[0_0_10px_rgba(249,115,22,0.3)] transition-all duration-500"
+                      className="absolute h-full bg-gradient-to-r from-brand-orange to-brand-red rounded-full"
                       style={{
                         left: `${leftPercent}%`,
                         width: `${widthPercent}%`
                       }}
                     />
                   </div>
-                  <div className="flex justify-between items-center text-[10px] font-bold text-zinc-400 mt-2.5">
-                    <span>Entry: ₹{minSalary}L</span>
-                    <span>Experienced: ₹{maxSalary}L</span>
-                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
 
       {/* Timeline Progression & Salary Drivers Subgrid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-        {/* Progression timelines */}
+        {/* Progression Timelines */}
         <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-900/10 backdrop-blur-md">
           <div className="flex items-center gap-2 mb-5">
             <span className="p-1.5 rounded-lg bg-brand-orange/10 border border-brand-orange/20 text-brand-orange">
@@ -1289,7 +1212,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
                           {stage}
                         </span>
                         {sIdx < parts.length - 1 && (
-                          <span className="material-icons text-[10px] text-zinc-400">chevron_right</span>
+                          <span className="text-zinc-300 dark:text-zinc-700 text-[10px] px-1 font-bold">•</span>
                         )}
                       </div>
                     ))}
@@ -1300,7 +1223,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
           </div>
         </div>
 
-        {/* Global stats and drivers */}
+        {/* Global Stats and Drivers */}
         <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-900/10 backdrop-blur-md flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 mb-5">
@@ -1338,6 +1261,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
     </section>
   );
 }
+
 
 
 function DigitalMarketingStoriesSection({ data }: { data: CourseData }) {
