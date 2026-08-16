@@ -81,6 +81,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const cityCoursePages: any[] = [];
   Object.keys(COURSE_SLUG_MAP)
     .filter((id) => {
+      if (id === "digital-marketing") {
+        return false;
+      }
       const baseSlug = COURSE_SLUG_MAP[id]
         .replace("-with-gen-ai", "")
         .replace("-standard", "");

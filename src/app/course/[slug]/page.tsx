@@ -238,7 +238,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     "playwright-automation-course"
   ]);
 
-  if (excludedMainCourseSlugs.has(slug)) {
+  const { id: courseId, city: courseCity } = getCourseAndCityFromSlug(slug);
+  if (excludedMainCourseSlugs.has(slug) || (courseId === "digital-marketing" && courseCity)) {
     rawMetadata.robots = {
       index: false,
       follow: false,
