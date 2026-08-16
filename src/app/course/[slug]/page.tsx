@@ -21,185 +21,216 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  // 1. Noida Special Case
-  if (slug === "digital-marketing-course-in-noida-with-gen-ai") {
-    return {
-      title: "Digital Marketing Course in Noida with Gen AI | 100% Job Placement Support | SkillSha",
-      description: "Master digital marketing with Generative AI in Noida. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney. 24-week live/self-paced course with 12+ real projects, GitHub portfolio, and 100% placement support in NCR.",
-      keywords: "digital marketing course in noida, digital marketing course with Gen AI noida, digital marketing certification noida, SEO training noida, Google Ads course noida, Meta Ads course noida, AI marketing tools noida, digital marketing institute Sector 62, SkillSha Noida",
-      alternates: {
-        canonical: "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
-        languages: {
-          "en": "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
-          "x-default": "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
-        }
-      },
-      robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-          index: true,
-          follow: true,
-          "max-image-preview": "large",
-          "max-snippet": -1,
-          "max-video-preview": -1
-        }
-      },
-      other: {
-        "content-language": "en",
-        "author": "SkillSha",
-        "publisher": "SkillSha",
-        "theme-color": "#0F172A",
-        "msapplication-TileColor": "#0F172A",
-      },
-      openGraph: {
-        type: "website",
-        siteName: "SkillSha",
-        title: "Digital Marketing Course in Noida with Gen AI | Certification Training | SkillSha",
-        description: "Master digital marketing with Generative AI in Noida. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney. 24-week course with 12+ real projects and placement support in NCR.",
-        url: "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
-        images: [
-          {
-            url: "https://www.skillsha.com/files/logo-icon.png",
-            width: 512,
-            height: 512,
-            alt: "SkillSha - Digital Marketing with Gen AI Course in Noida",
+  const rawMetadata = await (async (): Promise<Metadata> => {
+    // 1. Noida Special Case
+    if (slug === "digital-marketing-course-in-noida-with-gen-ai") {
+      return {
+        title: "Digital Marketing Course in Noida with Gen AI | 100% Job Placement Support | SkillSha",
+        description: "Master digital marketing with Generative AI in Noida. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney. 24-week live/self-paced course with 12+ real projects, GitHub portfolio, and 100% placement support in NCR.",
+        keywords: "digital marketing course in noida, digital marketing course with Gen AI noida, digital marketing certification noida, SEO training noida, Google Ads course noida, Meta Ads course noida, AI marketing tools noida, digital marketing institute Sector 62, SkillSha Noida",
+        alternates: {
+          canonical: "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
+          languages: {
+            "en": "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
+            "x-default": "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
           }
-        ],
-        locale: "en_IN",
-        alternateLocale: ["en_US"]
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: "Digital Marketing Course in Noida with Gen AI | SkillSha",
-        description: "Learn SEO, Google & Meta Ads, content marketing, email automation and analytics powered by Generative AI in Noida. 24-week live or self-paced course with real projects and placement support.",
-        images: ["https://www.skillsha.com/files/logo-icon.png"],
-      }
-    };
-  }
-
-  // 2. Digital Marketing Flagship Special Case
-  if (slug === "digital-marketing-course-with-gen-ai" || slug === "digital-marketing-course") {
-    return {
-      title: "Digital Marketing Course with Gen AI | Certification Training | SkillSha",
-      description: "Master digital marketing with Generative AI. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney. 24-week live/self-paced course with 12+ real projects, GitHub portfolio, and placement support.",
-      keywords: "digital marketing course, digital marketing course with Gen AI, generative AI marketing course, digital marketing certification, SEO training, Google Ads course, Meta Ads course, AI marketing tools, ChatGPT for marketing, marketing automation course, SkillSha digital marketing",
-      alternates: {
-        canonical: "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
-        languages: {
-          "en": "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
-          "x-default": "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
-        }
-      },
-      robots: {
-        index: true,
-        follow: true,
-        googleBot: {
+        },
+        robots: {
           index: true,
           follow: true,
-          "max-image-preview": "large",
-          "max-snippet": -1,
-          "max-video-preview": -1
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1
+          }
+        },
+        other: {
+          "content-language": "en",
+          "author": "SkillSha",
+          "publisher": "SkillSha",
+          "theme-color": "#0F172A",
+          "msapplication-TileColor": "#0F172A",
+        },
+        openGraph: {
+          type: "website",
+          siteName: "SkillSha",
+          title: "Digital Marketing Course in Noida with Gen AI | Certification Training | SkillSha",
+          description: "Master digital marketing with Generative AI in Noida. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney. 24-week course with 12+ real projects and placement support in NCR.",
+          url: "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
+          images: [
+            {
+              url: "https://www.skillsha.com/files/logo-icon.png",
+              width: 512,
+              height: 512,
+              alt: "SkillSha - Digital Marketing with Gen AI Course in Noida",
+            }
+          ],
+          locale: "en_IN",
+          alternateLocale: ["en_US"]
+        },
+        twitter: {
+          card: "summary_large_image",
+          title: "Digital Marketing Course in Noida with Gen AI | SkillSha",
+          description: "Learn SEO, Google & Meta Ads, content marketing, email automation and analytics powered by Generative AI in Noida. 24-week live or self-paced course with real projects and placement support.",
+          images: ["https://www.skillsha.com/files/logo-icon.png"],
         }
-      },
-      other: {
-        "content-language": "en",
-        "author": "SkillSha",
-        "publisher": "SkillSha",
-        "theme-color": "#0F172A",
-        "msapplication-TileColor": "#0F172A",
-      },
-      openGraph: {
-        type: "website",
-        siteName: "SkillSha",
+      };
+    }
+
+    // 2. Digital Marketing Flagship Special Case
+    if (slug === "digital-marketing-course-with-gen-ai" || slug === "digital-marketing-course") {
+      return {
         title: "Digital Marketing Course with Gen AI | Certification Training | SkillSha",
-        description: "Master digital marketing with Generative AI. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney. 24-week course with 12+ real projects and placement support.",
-        url: "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
-        images: [
-          {
-            url: "https://www.skillsha.com/files/logo-icon.png",
-            width: 512,
-            height: 512,
-            alt: "SkillSha - Digital Marketing with Gen AI Course",
+        description: "Master digital marketing with Generative AI. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney. 24-week live/self-paced course with 12+ real projects, GitHub portfolio, and placement support.",
+        keywords: "digital marketing course, digital marketing course with Gen AI, generative AI marketing course, digital marketing certification, SEO training, Google Ads course, Meta Ads course, AI marketing tools, ChatGPT for marketing, marketing automation course, SkillSha digital marketing",
+        alternates: {
+          canonical: "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
+          languages: {
+            "en": "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
+            "x-default": "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
           }
-        ],
-        locale: "en_IN",
-        alternateLocale: ["en_US"]
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: "Digital Marketing Course with Gen AI | SkillSha",
-        description: "Learn SEO, Google & Meta Ads, content marketing, email automation and analytics powered by Generative AI. 24-week live or self-paced course with real projects and placement support.",
-        images: ["https://www.skillsha.com/files/logo-icon.png"],
-      }
-    };
-  }
-
-  // 3. Dynamic Metadata for any other flagship courses
-  if (data.flagshipContent) {
-    const title = `${data.title} Course with Gen AI | Certification Training | SkillSha`;
-    const description = `Master ${data.title.toLowerCase()} with Generative AI. Learn ${data.typewriter.slice(0, 3).join(", ")}, and analytics using ChatGPT, Claude & Midjourney. Live/self-paced course with real projects, GitHub portfolio, and placement support.`;
-    const keywords = `${data.title.toLowerCase()} course, ${data.title.toLowerCase()} course with Gen AI, generative AI ${data.title.toLowerCase()} course, ${data.title.toLowerCase()} certification, AI ${data.title.toLowerCase()} tools, SkillSha ${data.title.toLowerCase()}`;
-    return {
-      title,
-      description,
-      keywords,
-      alternates: {
-        canonical: `https://www.skillsha.com/course/${slug}`,
-        languages: {
-          "en": `https://www.skillsha.com/course/${slug}`,
-          "x-default": `https://www.skillsha.com/course/${slug}`,
-        }
-      },
-      robots: {
-        index: true,
-        follow: true,
-        googleBot: {
+        },
+        robots: {
           index: true,
           follow: true,
-          "max-image-preview": "large",
-          "max-snippet": -1,
-          "max-video-preview": -1
-        }
-      },
-      other: {
-        "content-language": "en",
-        "author": "SkillSha",
-        "publisher": "SkillSha",
-        "theme-color": "#0F172A",
-        "msapplication-TileColor": "#0F172A",
-      },
-      openGraph: {
-        type: "website",
-        siteName: "SkillSha",
-        title,
-        description,
-        url: `https://www.skillsha.com/course/${slug}`,
-        images: [
-          {
-            url: "https://www.skillsha.com/files/logo-icon.png",
-            width: 512,
-            height: 512,
-            alt: `SkillSha - ${data.title} with Gen AI Course`,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1
           }
-        ],
-        locale: "en_IN",
-        alternateLocale: ["en_US"]
-      },
-      twitter: {
-        card: "summary_large_image",
+        },
+        other: {
+          "content-language": "en",
+          "author": "SkillSha",
+          "publisher": "SkillSha",
+          "theme-color": "#0F172A",
+          "msapplication-TileColor": "#0F172A",
+        },
+        openGraph: {
+          type: "website",
+          siteName: "SkillSha",
+          title: "Digital Marketing Course with Gen AI | Certification Training | SkillSha",
+          description: "Master digital marketing with Generative AI. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney. 24-week course with 12+ real projects and placement support.",
+          url: "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
+          images: [
+            {
+              url: "https://www.skillsha.com/files/logo-icon.png",
+              width: 512,
+              height: 512,
+              alt: "SkillSha - Digital Marketing with Gen AI Course",
+            }
+          ],
+          locale: "en_IN",
+          alternateLocale: ["en_US"]
+        },
+        twitter: {
+          card: "summary_large_image",
+          title: "Digital Marketing Course with Gen AI | SkillSha",
+          description: "Learn SEO, Google & Meta Ads, content marketing, email automation and analytics powered by Generative AI. 24-week live or self-paced course with real projects and placement support.",
+          images: ["https://www.skillsha.com/files/logo-icon.png"],
+        }
+      };
+    }
+
+    // 3. Dynamic Metadata for any other flagship courses
+    if (data.flagshipContent) {
+      const title = `${data.title} Course with Gen AI | Certification Training | SkillSha`;
+      const description = `Master ${data.title.toLowerCase()} with Generative AI. Learn ${data.typewriter.slice(0, 3).join(", ")}, and analytics using ChatGPT, Claude & Midjourney. Live/self-paced course with real projects, GitHub portfolio, and placement support.`;
+      const keywords = `${data.title.toLowerCase()} course, ${data.title.toLowerCase()} course with Gen AI, generative AI ${data.title.toLowerCase()} course, ${data.title.toLowerCase()} certification, AI ${data.title.toLowerCase()} tools, SkillSha ${data.title.toLowerCase()}`;
+      return {
         title,
         description,
-        images: ["https://www.skillsha.com/files/logo-icon.png"],
-      }
+        keywords,
+        alternates: {
+          canonical: `https://www.skillsha.com/course/${slug}`,
+          languages: {
+            "en": `https://www.skillsha.com/course/${slug}`,
+            "x-default": `https://www.skillsha.com/course/${slug}`,
+          }
+        },
+        robots: {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1
+          }
+        },
+        other: {
+          "content-language": "en",
+          "author": "SkillSha",
+          "publisher": "SkillSha",
+          "theme-color": "#0F172A",
+          "msapplication-TileColor": "#0F172A",
+        },
+        openGraph: {
+          type: "website",
+          siteName: "SkillSha",
+          title,
+          description,
+          url: `https://www.skillsha.com/course/${slug}`,
+          images: [
+            {
+              url: "https://www.skillsha.com/files/logo-icon.png",
+              width: 512,
+              height: 512,
+              alt: `SkillSha - ${data.title} with Gen AI Course`,
+            }
+          ],
+          locale: "en_IN",
+          alternateLocale: ["en_US"]
+        },
+        twitter: {
+          card: "summary_large_image",
+          title,
+          description,
+          images: ["https://www.skillsha.com/files/logo-icon.png"],
+        }
+      };
+    }
+
+    // 4. Default Fallback
+    return {
+      title: `${data.title} Certification | SkillSha`,
+      description: data.description,
+    };
+  })();
+
+  const excludedMainCourseSlugs = new Set([
+    "ai-engineering-course",
+    "full-stack-development-course",
+    "digital-marketing-course-with-gen-ai",
+    "ui-ux-design-course",
+    "data-science-course",
+    "product-management-course",
+    "algorithmic-trading-course",
+    "graphic-design-course",
+    "mental-health-wellness-course",
+    "ai-healthcare-doctor-course",
+    "ai-clinical-nurse-course",
+    "ai-finance-ca-course",
+    "data-analyst-course",
+    "business-analyst-course",
+    "ai-ml-course",
+    "software-testing-course",
+    "playwright-automation-course"
+  ]);
+
+  if (excludedMainCourseSlugs.has(slug)) {
+    rawMetadata.robots = {
+      index: false,
+      follow: false,
     };
   }
 
-  // 4. Default Fallback
-  return {
-    title: `${data.title} Certification | SkillSha`,
-    description: data.description,
-  };
+  return rawMetadata;
 }
 
 export default async function CourseDetailPage({ params }: PageProps) {

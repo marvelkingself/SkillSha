@@ -5,6 +5,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Press & Media | SkillSha",
   description: "Find the latest news, press releases, media assets, and official announcements from SkillSha.",
+  robots: {
+    index: false,
+    follow: false,
+  }
 };
 
 export default function PressMediaPage() {

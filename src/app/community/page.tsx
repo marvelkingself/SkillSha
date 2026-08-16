@@ -5,6 +5,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Community Forum | SkillSha",
   description: "Join the SkillSha builder community. Connect with 5,000+ developer, design, and growth operators, share feedback, and find referrals.",
+  robots: {
+    index: false,
+    follow: false,
+  }
 };
 
 export default function CommunityPage() {

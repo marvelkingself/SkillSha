@@ -5,6 +5,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Free AI Tools Guide | SkillSha",
   description: "Get curated playgrounds, free-tier APIs, frameworks, and tools to build, test, and host AI agents and web products for free.",
+  robots: {
+    index: false,
+    follow: false,
+  }
 };
 
 export default function AIToolsGuidePage() {

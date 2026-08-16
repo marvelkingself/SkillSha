@@ -32,66 +32,96 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  if (slug === "digital-marketing-course-with-gen-ai") {
-    return {
-      title: `Best Digital Marketing Course with Gen AI in ${cityInfo.name} | Certification | SkillSha`,
-      description: `Enroll in the top professional Digital Marketing Course with Gen AI in ${cityInfo.name}. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney with placement support.`,
-      keywords: `digital marketing course in ${cityInfo.name}, digital marketing course with Gen AI in ${cityInfo.name}, SEO training in ${cityInfo.name}, Google Ads course in ${cityInfo.name}, SkillSha ${cityInfo.name}`,
-      alternates: {
-        canonical: `https://www.skillsha.com/course/digital-marketing-course-with-gen-ai/${city}`,
-        languages: {
-          "en": `https://www.skillsha.com/course/digital-marketing-course-with-gen-ai/${city}`,
-          "x-default": `https://www.skillsha.com/course/digital-marketing-course-with-gen-ai/${city}`,
-        }
-      },
-      robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-          index: true,
-          follow: true,
-          "max-image-preview": "large",
-          "max-snippet": -1,
-          "max-video-preview": -1
-        }
-      },
-      other: {
-        "content-language": "en",
-        "author": "SkillSha",
-        "publisher": "SkillSha",
-        "theme-color": "#0F172A",
-        "msapplication-TileColor": "#0F172A",
-      },
-      openGraph: {
-        type: "website",
-        siteName: "SkillSha",
+  const rawMetadata = await (async (): Promise<Metadata> => {
+    if (slug === "digital-marketing-course-with-gen-ai") {
+      return {
         title: `Best Digital Marketing Course with Gen AI in ${cityInfo.name} | Certification | SkillSha`,
         description: `Enroll in the top professional Digital Marketing Course with Gen AI in ${cityInfo.name}. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney with placement support.`,
-        url: `https://www.skillsha.com/course/digital-marketing-course-with-gen-ai/${city}`,
-        images: [
-          {
-            url: "https://www.skillsha.com/files/logo-icon.png",
-            width: 512,
-            height: 512,
-            alt: `SkillSha - Digital Marketing with Gen AI Course in ${cityInfo.name}`,
+        keywords: `digital marketing course in ${cityInfo.name}, digital marketing course with Gen AI in ${cityInfo.name}, SEO training in ${cityInfo.name}, Google Ads course in ${cityInfo.name}, SkillSha ${cityInfo.name}`,
+        alternates: {
+          canonical: `https://www.skillsha.com/course/digital-marketing-course-with-gen-ai/${city}`,
+          languages: {
+            "en": `https://www.skillsha.com/course/digital-marketing-course-with-gen-ai/${city}`,
+            "x-default": `https://www.skillsha.com/course/digital-marketing-course-with-gen-ai/${city}`,
           }
-        ],
-        locale: "en_IN",
-        alternateLocale: ["en_US"]
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: `Digital Marketing Course with Gen AI in ${cityInfo.name} | SkillSha`,
-        description: `Learn SEO, Google & Meta Ads, content marketing, email automation and analytics powered by Generative AI in ${cityInfo.name}.`,
-        images: ["https://www.skillsha.com/files/logo-icon.png"],
-      }
+        },
+        robots: {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1
+          }
+        },
+        other: {
+          "content-language": "en",
+          "author": "SkillSha",
+          "publisher": "SkillSha",
+          "theme-color": "#0F172A",
+          "msapplication-TileColor": "#0F172A",
+        },
+        openGraph: {
+          type: "website",
+          siteName: "SkillSha",
+          title: `Best Digital Marketing Course with Gen AI in ${cityInfo.name} | Certification | SkillSha`,
+          description: `Enroll in the top professional Digital Marketing Course with Gen AI in ${cityInfo.name}. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney with placement support.`,
+          url: `https://www.skillsha.com/course/digital-marketing-course-with-gen-ai/${city}`,
+          images: [
+            {
+              url: "https://www.skillsha.com/files/logo-icon.png",
+              width: 512,
+              height: 512,
+              alt: `SkillSha - Digital Marketing with Gen AI Course in ${cityInfo.name}`,
+            }
+          ],
+          locale: "en_IN",
+          alternateLocale: ["en_US"]
+        },
+        twitter: {
+          card: "summary_large_image",
+          title: `Digital Marketing Course with Gen AI in ${cityInfo.name} | SkillSha`,
+          description: `Learn SEO, Google & Meta Ads, content marketing, email automation and analytics powered by Generative AI in ${cityInfo.name}.`,
+          images: ["https://www.skillsha.com/files/logo-icon.png"],
+        }
+      };
+    }
+
+    return {
+      title: `Best ${data.title} Certification Course in ${cityInfo.name} | SkillSha`,
+      description: `Enroll in the top professional ${data.title} certification program in ${cityInfo.name}. ${data.description}`,
+    };
+  })();
+
+  const excludedCityCourseSlugs = new Set([
+    "ai-engineering-course",
+    "full-stack-development-course",
+    "ui-ux-design-course",
+    "data-science-course",
+    "product-management-course",
+    "algorithmic-trading-course",
+    "graphic-design-course",
+    "mental-health-wellness-course",
+    "ai-healthcare-doctor-course",
+    "ai-clinical-nurse-course",
+    "ai-finance-ca-course",
+    "data-analyst-course",
+    "business-analyst-course",
+    "ai-ml-course",
+    "software-testing-course",
+    "playwright-automation-course"
+  ]);
+
+  if (excludedCityCourseSlugs.has(slug)) {
+    rawMetadata.robots = {
+      index: false,
+      follow: false,
     };
   }
 
-  return {
-    title: `Best ${data.title} Certification Course in ${cityInfo.name} | SkillSha`,
-    description: `Enroll in the top professional ${data.title} certification program in ${cityInfo.name}. ${data.description}`,
-  };
+  return rawMetadata;
 }
 
 export default async function CityCoursePage({ params }: PageProps) {

@@ -61,6 +61,7 @@ export default function FeePaymentPage() {
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] dark:bg-[#050505] text-zinc-900 dark:text-white transition-colors duration-300">
+      <meta name="robots" content="noindex, nofollow" />
       <Header />
       
       <main className="max-w-[1200px] mx-auto px-6 pt-32 pb-24">

@@ -5,6 +5,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Student Success Stories | SkillSha",
   description: "Read inspiring stories of how SkillSha students switched careers, built startups, and secured premium developer jobs.",
+  robots: {
+    index: false,
+    follow: false,
+  }
 };
 
 export default function SuccessStoriesPage() {

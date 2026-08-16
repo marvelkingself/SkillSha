@@ -6,6 +6,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Our Mentors | SkillSha",
   description: "Learn from top operators who have built products at OpenAI, Meta, Stripe, Framer, and Github. Live mentor reviews, Q&As, and support.",
+  robots: {
+    index: false,
+    follow: false,
+  }
 };
 
 export default function MentorsPage() {

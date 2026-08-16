@@ -6,6 +6,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Alumni Network | SkillSha",
   description: "Connect with SkillSha graduates working at Google, Amazon, Microsoft, Meta, and leading high-growth startups globally.",
+  robots: {
+    index: false,
+    follow: false,
+  }
 };
 
 export default function AlumniPage() {

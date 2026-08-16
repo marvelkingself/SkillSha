@@ -5,6 +5,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Career Roadmaps | SkillSha",
   description: "Explore step-by-step curriculum maps to become a competent AI Engineer, Full-Stack Developer, or UI/UX designer.",
+  robots: {
+    index: false,
+    follow: false,
+  }
 };
 
 export default function RoadmapsPage() {

@@ -5,6 +5,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Webinars & Events | SkillSha",
   description: "Join live technical webinars, system build walkthroughs, and Q&A events hosted by OpenAI, Meta, and Stripe operators.",
+  robots: {
+    index: false,
+    follow: false,
+  }
 };
 
 export default function EventsPage() {

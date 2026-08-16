@@ -5,6 +5,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hiring Partners | SkillSha",
   description: "Hire world-class technical talent, developers, UI/UX designers, and product leaders trained in modern AI-native engineering workflows.",
+  robots: {
+    index: false,
+    follow: false,
+  }
 };
 
 export default function HiringPartnersPage() {
