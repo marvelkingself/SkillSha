@@ -851,72 +851,494 @@ function DigitalMarketingPlacementSection({ data }: { data: CourseData }) {
   );
 }
 
+// ── Premium Career Opportunities Section Data ───────────────────
+interface CareerRoleData {
+  title: string;
+  availability: string;
+  duties: string;
+  keyPoints: string[];
+  baseMin: number;
+  baseMax: number;
+}
+
+const CAREER_ROLES: CareerRoleData[] = [
+  {
+    title: "Digital Marketing Manager",
+    availability: "Immediate Placement",
+    duties: "Leads digital strategy, coordinates cross-functional teams, manages campaign budgets, and steers attribution channels to maximize business ROI.",
+    keyPoints: [
+      "Define campaign roadmaps & annual budgets",
+      "Lead multi-disciplinary marketing initiatives",
+      "Establish cross-channel ROI guidelines",
+      "Analyze attribution models across platforms"
+    ],
+    baseMin: 8,
+    baseMax: 18
+  },
+  {
+    title: "SEO Specialist",
+    availability: "High Demand",
+    duties: "Optimizes site architecture, spearheads organic keyword rankings, conducts technical crawl audits, and drives inbound search acquisition.",
+    keyPoints: [
+      "Perform deep search intent keyword mapping",
+      "Resolve complex technical & indexing issues",
+      "Build authority through high-quality links",
+      "Align content structures with search criteria"
+    ],
+    baseMin: 4,
+    baseMax: 9
+  },
+  {
+    title: "Performance Marketing Specialist",
+    availability: "Premium Role",
+    duties: "Manages high-budget paid acquisition programs across Google, Meta, and programmatic networks to optimize conversions and drive scale.",
+    keyPoints: [
+      "Create high-converting landing page hooks",
+      "Perform A/B test splits on creatives & copy",
+      "Optimize cost-per-acquisition & overall ROAS",
+      "Configure retargeting loops & custom audiences"
+    ],
+    baseMin: 5,
+    baseMax: 12
+  },
+  {
+    title: "Social Media Manager",
+    availability: "Immediate Placement",
+    duties: "Owns organic brand narrative, handles creator collaborations, drives community growth, and oversees viral marketing analytics.",
+    keyPoints: [
+      "Draft interactive, viral social calendars",
+      "Collaborate with creators & industry hubs",
+      "Monitor engagement, comments & DMs",
+      "Analyze viral trends and adapt brand voice"
+    ],
+    baseMin: 3.5,
+    baseMax: 8
+  },
+  {
+    title: "Content Marketing Specialist",
+    availability: "High Demand",
+    duties: "Designs strategic content maps, authors high-intent articles, drafts newsletter automation flows, and structures copy frameworks.",
+    keyPoints: [
+      "Author thought-leadership reports & blog hubs",
+      "Design copy frameworks for product launches",
+      "Maintain editorial quality & tone alignment",
+      "Repurpose content across diverse channels"
+    ],
+    baseMin: 4,
+    baseMax: 9
+  },
+  {
+    title: "Email Marketing Specialist",
+    availability: "Immediate Placement",
+    duties: "Manages list segmentation, configures transactional trigger flows, optimizes email deliverability, and monitors retention funnels.",
+    keyPoints: [
+      "Develop trigger-based automated pathways",
+      "Analyze email open, click, and delivery rates",
+      "Conduct A/B testing on headlines & copy",
+      "Optimize data deliverability & avoid spam filters"
+    ],
+    baseMin: 4.5,
+    baseMax: 10
+  },
+  {
+    title: "Digital Marketing Executive",
+    availability: "Immediate Placement",
+    duties: "Supports daily campaign deployment, monitors landing page leads, schedules content posts, and generates cross-channel reports.",
+    keyPoints: [
+      "Publish blogs and schedule social posts",
+      "Collect daily platform analytics and inputs",
+      "Perform basic search optimization checkups",
+      "Coordinate with senior managers on outputs"
+    ],
+    baseMin: 3,
+    baseMax: 6
+  }
+];
+
+const CITIES_MULTIPLIERS: Record<string, { name: string; mult: number }> = {
+  "bangalore": { name: "Bangalore", mult: 1.2 },
+  "mumbai": { name: "Mumbai", mult: 1.15 },
+  "gurugram": { name: "Gurugram", mult: 1.1 },
+  "delhi": { name: "Delhi", mult: 1.05 },
+  "noida": { name: "Noida", mult: 1.0 },
+  "hyderabad": { name: "Hyderabad", mult: 1.02 },
+  "pune": { name: "Pune", mult: 1.0 },
+  "greater-noida": { name: "Greater Noida", mult: 0.98 },
+  "chennai": { name: "Chennai", mult: 0.95 },
+  "ghaziabad": { name: "Ghaziabad", mult: 0.92 },
+  "ahmedabad": { name: "Ahmedabad", mult: 0.9 },
+  "kolkata": { name: "Kolkata", mult: 0.88 },
+  "chandigarh": { name: "Chandigarh", mult: 0.88 },
+  "jaipur": { name: "Jaipur", mult: 0.85 },
+  "lucknow": { name: "Lucknow", mult: 0.85 },
+  "surat": { name: "Surat", mult: 0.85 },
+  "indore": { name: "Indore", mult: 0.83 },
+  "kanpur": { name: "Kanpur", mult: 0.8 }
+};
+
 function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
   const content = data.flagshipContent?.careers;
   if (!content) return null;
 
+  const [activeRoleIdx, setActiveRoleIdx] = useState(0);
+  const [selectedCity, setSelectedCity] = useState("delhi");
+
+  const activeRole = CAREER_ROLES[activeRoleIdx];
+  const cityInfo = CITIES_MULTIPLIERS[selectedCity];
+
+  // Calculate dynamic salary based on multiplier
+  const minSalary = (activeRole.baseMin * cityInfo.mult).toFixed(1);
+  const maxSalary = (activeRole.baseMax * cityInfo.mult).toFixed(1);
+  
+  // Calculate width for range indicator bar (out of 25L max)
+  const leftPercent = Math.max(0, Math.min(100, (parseFloat(minSalary) / 25) * 100));
+  const widthPercent = Math.max(10, Math.min(100, ((parseFloat(maxSalary) - parseFloat(minSalary)) / 25) * 100));
+
+  // Role SVGs lookup
+  const renderRoleIcon = (index: number, active: boolean) => {
+    const cls = `w-5 h-5 transition-transform duration-300 ${active ? "scale-110 text-brand-orange" : "text-zinc-400 group-hover:scale-110"}`;
+    switch (index) {
+      case 0: // Manager
+        return (
+          <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+        );
+      case 1: // SEO
+        return (
+          <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        );
+      case 2: // Performance
+        return (
+          <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        );
+      case 3: // Social
+        return (
+          <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+          </svg>
+        );
+      case 4: // Content
+        return (
+          <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          </svg>
+        );
+      case 5: // Email
+        return (
+          <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        );
+      default: // Executive
+        return (
+          <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        );
+    }
+  };
+
   return (
-    <section className="mt-16 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
-      <div className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/8 dark:bg-brand-orange/12 border border-brand-orange/15 text-brand-orange text-[11px] font-bold uppercase tracking-widest">
-          Career Outcomes
+    <section className="mt-24 mb-24 w-full max-w-5xl mx-auto px-6 md:px-0">
+      {/* Title Header block */}
+      <div className="text-center mb-16 relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-orange/5 dark:bg-brand-orange/10 blur-[60px] pointer-events-none rounded-full" />
+        <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-brand-orange/10 dark:bg-brand-orange/20 border border-brand-orange/20 text-brand-orange text-[10px] font-bold uppercase tracking-widest relative z-10 animate-pulse">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+          Career Roadmap
         </div>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-          Career Opportunities After Your Digital Marketing Course
+        <h2 className="text-3xl md:text-5xl font-black text-zinc-900 dark:text-white tracking-tight relative z-10 font-sans max-w-2xl mx-auto leading-[1.15]">
+          Career Opportunities After Your{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-red to-rose-500">
+            Digital Marketing
+          </span>{" "}
+          Course
         </h2>
+        <p className="text-[13px] text-zinc-500 dark:text-zinc-400 mt-4 max-w-lg mx-auto font-sans leading-relaxed">
+          The digital marketing landscape is evolving rapidly. Explore detailed career roles, responsibilities, and localized Indian salary benchmarks.
+        </p>
       </div>
 
-      {/* Row list of roles */}
-      <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-4">In-Demand Job Roles Worldwide</h3>
-      <div className="space-y-4">
-        {content.roles.map((r: any, idx: number) => (
-          <div key={idx} className="p-6 rounded-2xl border border-zinc-200/80 dark:border-white/5 bg-white/40 dark:bg-zinc-900/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div className="space-y-1 md:max-w-xl">
-              <div className="flex items-center gap-2.5 flex-wrap">
-                <h4 className="text-[15px] font-extrabold text-zinc-900 dark:text-white">{r.title}</h4>
-                <span className="px-2 py-0.5 text-[9px] font-bold bg-zinc-100 dark:bg-white/5 text-zinc-500 dark:text-zinc-400 rounded-md uppercase tracking-wider">{r.availability}</span>
+      {/* Main Interactive Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left Column: Role Selector (lg:col-span-5) */}
+        <div className="lg:col-span-5 space-y-3.5 order-2 lg:order-1">
+          <h3 className="text-xs uppercase font-extrabold tracking-widest text-zinc-400 dark:text-zinc-500 pl-2">
+            Select Career Role
+          </h3>
+          <div className="space-y-3">
+            {CAREER_ROLES.map((role, idx) => {
+              const active = activeRoleIdx === idx;
+              return (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setActiveRoleIdx(idx)}
+                  className={`group w-full flex items-center justify-between p-4 rounded-2xl border text-left transition-all duration-300 ${
+                    active
+                      ? "bg-white dark:bg-zinc-900/90 border-brand-orange shadow-[0_10px_35px_rgba(249,115,22,0.06)] scale-[1.01]"
+                      : "bg-white/50 dark:bg-zinc-950/10 border-zinc-200/60 dark:border-white/5 hover:border-zinc-300 dark:hover:border-white/10 hover:bg-white dark:hover:bg-zinc-900/40"
+                  }`}
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div
+                      className={`p-2.5 rounded-xl border transition-all duration-300 ${
+                        active
+                          ? "bg-brand-orange/10 border-brand-orange/20 text-brand-orange"
+                          : "bg-zinc-50 dark:bg-white/[0.02] border-zinc-100 dark:border-white/5 text-zinc-400"
+                      }`}
+                    >
+                      {renderRoleIcon(idx, active)}
+                    </div>
+                    <div>
+                      <h4 className="text-[13px] font-bold text-zinc-900 dark:text-white group-hover:text-brand-orange transition-colors">
+                        {role.title}
+                      </h4>
+                      <p className="text-[10px] text-zinc-400 dark:text-zinc-500 mt-0.5 max-w-[240px] truncate font-sans">
+                        {role.duties}
+                      </p>
+                    </div>
+                  </div>
+                  <span className={`material-icons text-[16px] transition-transform duration-300 ${
+                    active ? "text-brand-orange translate-x-0.5" : "text-zinc-300 dark:text-zinc-700 group-hover:translate-x-0.5"
+                  }`}>
+                    chevron_right
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Right Column: Display Card (lg:col-span-7) */}
+        <div className="lg:col-span-7 order-1 lg:order-2">
+          <div className="relative group">
+            {/* Backdrop glow */}
+            <div className="absolute -inset-px bg-gradient-to-r from-brand-orange to-brand-red rounded-[28px] opacity-10 group-hover:opacity-15 blur-lg transition duration-500" />
+            <div className="relative bg-white dark:bg-zinc-900/50 backdrop-blur-xl border border-zinc-200/80 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl flex flex-col justify-between overflow-hidden">
+              <div>
+                {/* Panel Header */}
+                <div className="flex items-center justify-between flex-wrap gap-2.5 mb-5 border-b border-zinc-100 dark:border-white/5 pb-4">
+                  <span className="px-2.5 py-1 text-[9px] font-bold bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/10 text-emerald-500 rounded-md uppercase tracking-wider">
+                    {activeRole.availability}
+                  </span>
+                  <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest font-sans">
+                    Sector Overview
+                  </span>
+                </div>
+
+                <h3 className="text-xl md:text-2xl font-black text-zinc-900 dark:text-white tracking-tight">
+                  {activeRole.title}
+                </h3>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2.5 leading-relaxed font-sans font-normal">
+                  {activeRole.duties}
+                </p>
+
+                {/* Key Responsibilities */}
+                <div className="mt-6 space-y-3">
+                  <h4 className="text-[11px] font-extrabold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+                    Primary Responsibilities
+                  </h4>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {activeRole.keyPoints.map((pt, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2.5 text-[11.5px] text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed">
+                        <span className="w-4 h-4 rounded bg-brand-orange/10 border border-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0 mt-0.5">
+                          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans">{r.duties}</p>
-            </div>
-            <div className="text-left md:text-right shrink-0">
-              <span className="text-[10px] uppercase font-bold text-zinc-400 dark:text-zinc-500 block">Starting Salary Range</span>
-              <span className="text-lg font-black text-brand-orange">{r.salary}</span>
+
+              {/* Salary Explorer Widget */}
+              <div className="mt-8 bg-zinc-50/50 dark:bg-zinc-950/20 border border-zinc-200/50 dark:border-white/5 rounded-2xl p-5 md:p-6 relative">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-zinc-200/30 dark:border-white/5 pb-4.5 mb-4.5">
+                  <div>
+                    <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
+                      Location Benchmark
+                    </span>
+                    {/* City quick buttons */}
+                    <div className="flex flex-wrap items-center gap-1.5 mt-2">
+                      {["delhi", "noida", "gurugram", "mumbai", "bangalore"].map((cityKey) => (
+                        <button
+                          key={cityKey}
+                          type="button"
+                          onClick={() => setSelectedCity(cityKey)}
+                          className={`px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider transition-all border ${
+                            selectedCity === cityKey
+                              ? "bg-brand-orange/10 border-brand-orange text-brand-orange"
+                              : "bg-white dark:bg-zinc-900/50 border-zinc-200/60 dark:border-white/5 text-zinc-600 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-white/10"
+                          }`}
+                        >
+                          {CITIES_MULTIPLIERS[cityKey].name}
+                        </button>
+                      ))}
+                      
+                      {/* Other cities dropdown */}
+                      <div className="relative">
+                        <select
+                          value={["delhi", "noida", "gurugram", "mumbai", "bangalore"].includes(selectedCity) ? "" : selectedCity}
+                          onChange={(e) => {
+                            if (e.target.value) setSelectedCity(e.target.value);
+                          }}
+                          className="px-2.5 py-1 pr-6 rounded-md text-[10px] font-bold uppercase tracking-wider bg-white dark:bg-zinc-900/50 border border-zinc-200/60 dark:border-white/5 text-zinc-600 dark:text-zinc-400 focus:outline-none focus:border-brand-orange appearance-none cursor-pointer"
+                        >
+                          <option value="" disabled>Other Cities...</option>
+                          {Object.keys(CITIES_MULTIPLIERS)
+                            .filter((k) => !["delhi", "noida", "gurugram", "mumbai", "bangalore"].includes(k))
+                            .map((k) => (
+                              <option key={k} value={k}>
+                                {CITIES_MULTIPLIERS[k].name}
+                              </option>
+                            ))}
+                        </select>
+                        <span className="material-icons absolute right-1.5 top-1.5 text-[11px] pointer-events-none text-zinc-400">
+                          expand_more
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Salary Output */}
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 mt-4">
+                  <div>
+                    <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
+                      Estimated Salary Range
+                    </span>
+                    <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-red to-rose-500 tracking-tight mt-1.5 block">
+                      ₹{minSalary}L - ₹{maxSalary}L
+                    </span>
+                    <span className="text-[9.5px] text-zinc-400 font-sans block mt-1 font-medium font-sans">
+                      Per Annum (INR) • {CITIES_MULTIPLIERS[selectedCity].name} Index
+                    </span>
+                  </div>
+                  
+                  {/* Performance metric tag */}
+                  <div className="px-3.5 py-2.5 rounded-xl bg-white dark:bg-zinc-900/80 border border-zinc-200/50 dark:border-white/5 text-left shrink-0">
+                    <span className="text-[9px] uppercase font-bold text-zinc-400 block tracking-wider">Growth Potential</span>
+                    <span className="text-sm font-black text-emerald-500 flex items-center gap-1.5 mt-0.5">
+                      <svg className="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                      +45% YoY
+                    </span>
+                  </div>
+                </div>
+
+                {/* Custom Glowing Slider Progress */}
+                <div className="mt-6">
+                  <div className="w-full h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full relative overflow-hidden">
+                    <div
+                      className="absolute h-full bg-gradient-to-r from-brand-orange via-brand-red to-rose-500 rounded-full shadow-[0_0_10px_rgba(249,115,22,0.3)] transition-all duration-500"
+                      style={{
+                        left: `${leftPercent}%`,
+                        width: `${widthPercent}%`
+                      }}
+                    />
+                  </div>
+                  <div className="flex justify-between items-center text-[10px] font-bold text-zinc-400 mt-2.5">
+                    <span>Entry: ₹{minSalary}L</span>
+                    <span>Experienced: ₹{maxSalary}L</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        ))}
+        </div>
       </div>
 
-      {/* Growth Paths grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
-          <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-4">Career Growth Path</h3>
-          <ul className="space-y-2">
-            {content.growth.map((grow: string, gIdx: number) => (
-              <li key={gIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
-                <span className="text-brand-orange">•</span>
-                <span>{grow}</span>
-              </li>
-            ))}
-          </ul>
+      {/* Timeline Progression & Salary Drivers Subgrid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+        {/* Progression timelines */}
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-900/10 backdrop-blur-md">
+          <div className="flex items-center gap-2 mb-5">
+            <span className="p-1.5 rounded-lg bg-brand-orange/10 border border-brand-orange/20 text-brand-orange">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </span>
+            <h3 className="text-sm font-extrabold text-zinc-900 dark:text-white uppercase tracking-wider">
+              Career Growth Timeline
+            </h3>
+          </div>
+          <div className="relative border-l border-zinc-200 dark:border-white/10 pl-6 ml-3.5 space-y-6">
+            {content.growth.map((grow: string, gIdx: number) => {
+              // Parse stages
+              const parts = grow.split("->").map((p: string) => p.trim());
+              return (
+                <div key={gIdx} className="relative group">
+                  {/* Timeline bullet dot */}
+                  <span className="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full border border-brand-orange bg-white dark:bg-zinc-950 group-hover:bg-brand-orange transition-colors" />
+                  <h4 className="text-[12.5px] font-extrabold text-zinc-900 dark:text-white">
+                    Progression Loop #{gIdx + 1}
+                  </h4>
+                  <div className="flex items-center gap-1.5 flex-wrap mt-1.5">
+                    {parts.map((stage: string, sIdx: number) => (
+                      <div key={sIdx} className="flex items-center gap-1">
+                        <span className="px-2 py-0.5 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200/50 dark:border-white/5 text-[9.5px] text-zinc-600 dark:text-zinc-300 font-bold font-sans">
+                          {stage}
+                        </span>
+                        {sIdx < parts.length - 1 && (
+                          <span className="material-icons text-[10px] text-zinc-400">chevron_right</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
-          <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-4">Salary Growth Globally</h3>
-          <ul className="space-y-2">
-            {content.salaryGrowth.map((sal: string, sIdx: number) => (
-              <li key={sIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
-                <span className="text-brand-orange">•</span>
-                <span>{sal}</span>
-              </li>
-            ))}
-          </ul>
+
+        {/* Global stats and drivers */}
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-900/10 backdrop-blur-md flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-2 mb-5">
+              <span className="p-1.5 rounded-lg bg-brand-orange/10 border border-brand-orange/20 text-brand-orange">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </span>
+              <h3 className="text-sm font-extrabold text-zinc-900 dark:text-white uppercase tracking-wider">
+                Salary Drivers & Benchmarks
+              </h3>
+            </div>
+            <ul className="space-y-3.5">
+              {content.salaryGrowth.map((sal: string, sIdx: number) => (
+                <li key={sIdx} className="flex items-start gap-3 text-[11.5px] text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed">
+                  <span className="w-5 h-5 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0 mt-0.5 font-bold text-[9.5px]">
+                    {sIdx + 1}
+                  </span>
+                  <span>{sal}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950/20 border border-zinc-200/50 dark:border-white/5 mt-6">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-brand-orange block mb-1">
+              Market Sentiment Index
+            </span>
+            <p className="text-[10.5px] text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed">
+              Companies face an acute shortage of talent capable of running automated AI marketing models. Individuals combining core SEO/Performance tactics with Gen-AI expertise rank in the top 5% of earners.
+            </p>
+          </div>
         </div>
       </div>
-      <p className="text-xs text-zinc-500 dark:text-zinc-400 italic mt-6 leading-relaxed text-center font-sans">
-        The digital marketing job market is growing worldwide. Companies need skilled professionals, and there's a shortage of people who understand AI-integrated marketing.
-      </p>
     </section>
   );
 }
+
 
 function DigitalMarketingStoriesSection({ data }: { data: CourseData }) {
   const content = data.flagshipContent?.stories;
