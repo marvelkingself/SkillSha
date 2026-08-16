@@ -980,12 +980,23 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
   const content = data.flagshipContent?.careers;
   if (!content) return null;
 
+  const [activeRoleIdx, setActiveRoleIdx] = useState(0);
   const [selectedCity, setSelectedCity] = useState("delhi");
+
+  const activeRole = CAREER_ROLES[activeRoleIdx];
   const cityInfo = CITIES_MULTIPLIERS[selectedCity];
 
+  // Calculate dynamic salary based on multiplier
+  const minSalary = (activeRole.baseMin * cityInfo.mult).toFixed(1);
+  const maxSalary = (activeRole.baseMax * cityInfo.mult).toFixed(1);
+  
+  // Calculate percentage width for slider
+  const leftPercent = Math.max(0, Math.min(100, (parseFloat(minSalary) / 25) * 100));
+  const widthPercent = Math.max(10, Math.min(100, ((parseFloat(maxSalary) - parseFloat(minSalary)) / 25) * 100));
+
   // Role SVGs lookup
-  const renderRoleIcon = (index: number) => {
-    const cls = "w-5 h-5 text-brand-orange group-hover:scale-110 transition-transform duration-300";
+  const renderRoleIcon = (index: number, active: boolean) => {
+    const cls = `w-5 h-5 transition-transform duration-300 ${active ? "scale-110 text-brand-orange" : "text-zinc-400 group-hover:scale-110"}`;
     switch (index) {
       case 0: // Manager
         return (
@@ -1034,28 +1045,216 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
 
   return (
     <section className="mt-24 mb-24 w-full max-w-5xl mx-auto px-6 md:px-0">
-      {/* Title Header Block */}
-      <div className="text-center mb-12 relative">
+      {/* Title Header */}
+      <div className="text-center mb-16 relative">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-orange/5 dark:bg-brand-orange/10 blur-[60px] pointer-events-none rounded-full" />
-        <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-brand-orange/10 dark:bg-brand-orange/20 border border-brand-orange/20 text-brand-orange text-[10px] font-bold uppercase tracking-widest relative z-10 animate-pulse">
+        <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-brand-orange/10 dark:bg-brand-orange/20 border border-brand-orange/20 text-brand-orange text-[10px] font-bold uppercase tracking-widest relative z-10 animate-pulse">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
-          Career Opportunities
+          Interactive Career Hub
         </div>
-        <h2 className="text-3xl md:text-5xl font-black text-zinc-900 dark:text-white tracking-tight relative z-10 font-sans max-w-2xl mx-auto leading-[1.15]">
-          Career Opportunities After Your{" "}
+        <h2 className="text-3xl md:text-5xl font-black text-zinc-900 dark:text-white tracking-tight relative z-10 font-sans max-w-3xl mx-auto leading-[1.15]">
+          Earning Potential &{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-red to-rose-500">
-            Digital Marketing
-          </span>{" "}
-          Course
+            Career Projections
+          </span>
         </h2>
-        <p className="text-[13px] text-zinc-500 dark:text-zinc-400 mt-3 max-w-xl mx-auto font-sans leading-relaxed">
-          Unlock premium job roles and highly competitive packages. Compare salary standards across major economic hubs in India at a glance.
+        <p className="text-[13px] text-zinc-500 dark:text-zinc-400 mt-4 max-w-lg mx-auto font-sans leading-relaxed">
+          Explore specialized digital roles and calculate dynamic packages scaling across India's tier-1 and tier-2 tech hubs.
         </p>
+      </div>
 
-        {/* Global City Selector */}
-        <div className="mt-8 inline-flex flex-col items-center p-4 bg-zinc-50/50 dark:bg-zinc-950/20 border border-zinc-200/50 dark:border-white/5 rounded-2xl w-full max-w-3xl mx-auto">
-          <span className="text-[9.5px] uppercase font-bold text-zinc-400 tracking-wider mb-2.5">
-            Select Target Location to Calculate Salaries
+      {/* ──────────────────────────────────────────────────────── */}
+      {/* DESKTOP VIEWPORT: Holographic Dashboard Cockpit Layout (lg:grid) */}
+      {/* ──────────────────────────────────────────────────────── */}
+      <div className="hidden lg:grid grid-cols-12 gap-8 items-stretch relative">
+        
+        {/* Left Control Panel: Selector Nodes (col-span-5) */}
+        <div className="col-span-5 flex flex-col justify-between space-y-4">
+          <div className="space-y-3">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-zinc-400 pl-2">
+              Select Sector Track
+            </span>
+            <div className="space-y-2.5">
+              {CAREER_ROLES.map((role, idx) => {
+                const active = activeRoleIdx === idx;
+                const minS = (role.baseMin * cityInfo.mult).toFixed(1);
+                const maxS = (role.baseMax * cityInfo.mult).toFixed(1);
+
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setActiveRoleIdx(idx)}
+                    className={`group w-full flex items-center justify-between p-3.5 rounded-2xl border text-left transition-all duration-300 relative ${
+                      active
+                        ? "bg-zinc-900 dark:bg-zinc-900 border-brand-orange shadow-[0_0_25px_rgba(249,115,22,0.1)] text-white"
+                        : "bg-white/40 dark:bg-zinc-950/10 border-zinc-200/50 dark:border-white/5 hover:border-zinc-300 dark:hover:border-white/10 text-zinc-800 dark:text-zinc-300"
+                    }`}
+                  >
+                    {active && (
+                      <span className="absolute left-0 top-1/3 bottom-1/3 w-1 bg-brand-orange rounded-r-md" />
+                    )}
+                    <div className="flex items-center gap-3">
+                      <div className={`p-2 rounded-xl border ${
+                        active
+                          ? "bg-brand-orange/20 border-brand-orange/30 text-brand-orange"
+                          : "bg-zinc-100 dark:bg-white/5 border-transparent text-zinc-400"
+                      }`}>
+                        {renderRoleIcon(idx, active)}
+                      </div>
+                      <div>
+                        <h4 className={`text-[12.5px] font-bold ${active ? "text-white" : "text-zinc-900 dark:text-zinc-200 group-hover:text-brand-orange"} transition-colors`}>
+                          {role.title}
+                        </h4>
+                        <span className="text-[9.5px] text-zinc-400 block mt-0.5 font-sans">
+                          ₹{minS}L - ₹{maxS}L • {role.availability}
+                        </span>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Dashboard Screen: Hologram Visualization Card (col-span-7) */}
+        <div className="col-span-7">
+          <div className="relative h-full flex flex-col justify-between p-7 bg-zinc-950 dark:bg-zinc-900/70 border border-zinc-800 dark:border-white/15 rounded-3xl shadow-2xl overflow-hidden text-white min-h-[500px]">
+            {/* Hologram scanline grid overlay effect */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-orange/5 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,_rgba(0,0,0,0.25)_50%),_linear-gradient(90deg,_rgba(255,0,0,0.06),_rgba(0,255,0,0.02),_rgba(0,0,255,0.06))] bg-[size:100%_4px,_6px_100%]" />
+
+            {/* Screen Header */}
+            <div className="relative z-10">
+              <div className="flex items-center justify-between border-b border-zinc-800 dark:border-white/10 pb-4 mb-5">
+                <span className="px-2 py-0.5 text-[8.5px] font-bold tracking-widest bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 rounded uppercase">
+                  {activeRole.availability}
+                </span>
+                <span className="text-[9px] font-bold tracking-widest text-zinc-500 uppercase font-sans">
+                  PROJECTION CORE v1.8
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3.5">
+                <div className="p-3 bg-brand-orange/10 border border-brand-orange/20 rounded-2xl text-brand-orange shrink-0">
+                  {renderRoleIcon(activeRoleIdx, true)}
+                </div>
+                <div>
+                  <h3 className="text-xl font-black text-white tracking-tight">
+                    {activeRole.title}
+                  </h3>
+                  <p className="text-[11.5px] text-zinc-400 leading-relaxed font-sans mt-0.5">
+                    {activeRole.duties}
+                  </p>
+                </div>
+              </div>
+
+              {/* Responsibilities */}
+              <div className="mt-6 space-y-2.5">
+                <span className="text-[9px] font-extrabold uppercase tracking-widest text-zinc-500">
+                  Key Scope Areas
+                </span>
+                <div className="grid grid-cols-2 gap-3.5">
+                  {activeRole.keyPoints.map((pt, pIdx) => (
+                    <div key={pIdx} className="flex items-start gap-2.5 text-[11px] text-zinc-300 font-sans leading-relaxed">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-orange mt-2 shrink-0" />
+                      <span>{pt}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Screen Bottom: Interactive Location benchmarking */}
+            <div className="relative z-10 mt-8 pt-5 border-t border-zinc-850 dark:border-white/10">
+              {/* City selector inside screen */}
+              <div className="flex items-center justify-between gap-4 mb-4 flex-wrap">
+                <div>
+                  <span className="text-[8px] font-extrabold uppercase tracking-widest text-zinc-500 block">
+                    LOCATION CALIBRATION
+                  </span>
+                  <div className="flex flex-wrap items-center gap-1 mt-1.5">
+                    {["delhi", "noida", "gurugram", "mumbai", "bangalore"].map((cityKey) => (
+                      <button
+                        key={cityKey}
+                        type="button"
+                        onClick={() => setSelectedCity(cityKey)}
+                        className={`px-2 py-0.5 rounded text-[9.5px] font-bold uppercase tracking-wider transition-all border ${
+                          selectedCity === cityKey
+                            ? "bg-brand-orange border-brand-orange text-zinc-950 shadow-[0_0_15px_rgba(249,115,22,0.3)]"
+                            : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-white"
+                        }`}
+                      >
+                        {CITIES_MULTIPLIERS[cityKey].name}
+                      </button>
+                    ))}
+                    <div className="relative">
+                      <select
+                        value={["delhi", "noida", "gurugram", "mumbai", "bangalore"].includes(selectedCity) ? "" : selectedCity}
+                        onChange={(e) => {
+                          if (e.target.value) setSelectedCity(e.target.value);
+                        }}
+                        className="px-2 py-0.5 pr-6 rounded text-[9.5px] font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white focus:outline-none appearance-none cursor-pointer"
+                      >
+                        <option value="" disabled>Other Cities...</option>
+                        {Object.keys(CITIES_MULTIPLIERS)
+                          .filter((k) => !["delhi", "noida", "gurugram", "mumbai", "bangalore"].includes(k))
+                          .map((k) => (
+                            <option key={k} value={k}>
+                              {CITIES_MULTIPLIERS[k].name}
+                            </option>
+                          ))}
+                      </select>
+                      <span className="material-icons absolute right-1 top-0.5 text-[10px] pointer-events-none text-zinc-500">
+                        expand_more
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-right shrink-0">
+                  <span className="text-[8.5px] uppercase font-bold text-zinc-500 tracking-wider block">Estimated Package</span>
+                  <span className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-red to-rose-500 tracking-tight mt-0.5 block">
+                    ₹{minSalary}L - ₹{maxSalary}L
+                  </span>
+                  <span className="text-[9px] text-zinc-500 font-sans block mt-0.5">
+                    Per Annum • {cityInfo.name} Index
+                  </span>
+                </div>
+              </div>
+
+              {/* Slider Meter */}
+              <div>
+                <div className="w-full h-1.5 bg-zinc-850 rounded-full relative overflow-hidden">
+                  <div
+                    className="absolute h-full bg-gradient-to-r from-brand-orange to-brand-red rounded-full"
+                    style={{
+                      left: `${leftPercent}%`,
+                      width: `${widthPercent}%`
+                    }}
+                  />
+                </div>
+                <div className="flex justify-between items-center text-[9px] font-bold text-zinc-500 mt-2">
+                  <span>ENTRY PACKAGES</span>
+                  <span>SENIOR & LEAD OUTCOMES</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      {/* ──────────────────────────────────────────────────────── */}
+      {/* MOBILE VIEWPORT: Beautiful Staggered Stacked Cards (lg:hidden) */}
+      {/* ──────────────────────────────────────────────────────── */}
+      <div className="lg:hidden space-y-6">
+        {/* Mobile City Selector Header Card */}
+        <div className="p-5 bg-zinc-950 dark:bg-zinc-900 border border-zinc-800 dark:border-white/10 rounded-2xl text-center text-white">
+          <span className="text-[9px] font-bold uppercase tracking-wider text-zinc-500 block mb-2">
+            SELECT CALIBRATION CITY
           </span>
           <div className="flex flex-wrap items-center justify-center gap-1.5">
             {["delhi", "noida", "gurugram", "mumbai", "bangalore"].map((cityKey) => (
@@ -1065,22 +1264,20 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
                 onClick={() => setSelectedCity(cityKey)}
                 className={`px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all border ${
                   selectedCity === cityKey
-                    ? "bg-brand-orange/10 border-brand-orange text-brand-orange"
-                    : "bg-white dark:bg-zinc-900/50 border-zinc-200/60 dark:border-white/5 text-zinc-600 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-white/10"
+                    ? "bg-brand-orange border-brand-orange text-zinc-950 shadow-[0_0_10px_rgba(249,115,22,0.2)]"
+                    : "bg-zinc-900 border-zinc-800 text-zinc-400"
                 }`}
               >
                 {CITIES_MULTIPLIERS[cityKey].name}
               </button>
             ))}
-            
-            {/* Other cities dropdown */}
             <div className="relative">
               <select
                 value={["delhi", "noida", "gurugram", "mumbai", "bangalore"].includes(selectedCity) ? "" : selectedCity}
                 onChange={(e) => {
                   if (e.target.value) setSelectedCity(e.target.value);
                 }}
-                className="px-3 py-1.5 pr-8 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-white dark:bg-zinc-900/50 border border-zinc-200/60 dark:border-white/5 text-zinc-600 dark:text-zinc-400 focus:outline-none focus:border-brand-orange appearance-none cursor-pointer"
+                className="px-3 py-1.5 pr-8 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-400 focus:outline-none appearance-none cursor-pointer"
               >
                 <option value="" disabled>Other Cities...</option>
                 {Object.keys(CITIES_MULTIPLIERS)
@@ -1097,29 +1294,27 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Grid Layout of Roles */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        {/* Roles list as stacked premium cards */}
         {CAREER_ROLES.map((role, idx) => {
-          const minSalary = (role.baseMin * cityInfo.mult).toFixed(1);
-          const maxSalary = (role.baseMax * cityInfo.mult).toFixed(1);
-          
-          // Calculate width for range indicator bar (out of 25L max)
-          const leftPercent = Math.max(0, Math.min(100, (parseFloat(minSalary) / 25) * 100));
-          const widthPercent = Math.max(10, Math.min(100, ((parseFloat(maxSalary) - parseFloat(minSalary)) / 25) * 100));
+          const mSalaryMin = (role.baseMin * cityInfo.mult).toFixed(1);
+          const mSalaryMax = (role.baseMax * cityInfo.mult).toFixed(1);
+          const mLeft = Math.max(0, Math.min(100, (parseFloat(mSalaryMin) / 25) * 100));
+          const mWidth = Math.max(10, Math.min(100, ((parseFloat(mSalaryMax) - parseFloat(mSalaryMin)) / 25) * 100));
 
           return (
-            <div key={idx} className="relative group flex flex-col h-full">
-              <div className="absolute -inset-px bg-gradient-to-r from-brand-orange/5 to-brand-red/5 rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition duration-300" />
-              <div className="relative bg-white dark:bg-zinc-900/40 backdrop-blur-md border border-zinc-200/60 dark:border-white/5 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full min-h-[300px] flex-1">
+            <div key={idx} className="relative group">
+              {/* Card border glow */}
+              <div className="absolute -inset-px bg-gradient-to-r from-brand-orange to-brand-red rounded-2xl opacity-10 blur-sm" />
+              <div className="relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 rounded-2xl p-5 shadow-lg flex flex-col justify-between">
+                
+                {/* Header */}
                 <div>
-                  {/* Card Top */}
-                  <div className="flex items-start justify-between gap-3 mb-3.5">
+                  <div className="flex items-center justify-between gap-3 mb-3.5">
                     <div className="p-2 rounded-xl bg-brand-orange/10 border border-brand-orange/20 text-brand-orange shrink-0">
-                      {renderRoleIcon(idx)}
+                      {renderRoleIcon(idx, true)}
                     </div>
-                    <span className={`px-2 py-0.5 rounded text-[9px] font-bold ${
+                    <span className={`px-2 py-0.5 rounded text-[8.5px] font-bold ${
                       role.availability === "Premium Role"
                         ? "bg-rose-500/10 dark:bg-rose-500/20 text-rose-500 border border-rose-500/10"
                         : role.availability === "High Demand"
@@ -1129,58 +1324,60 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
                       {role.availability}
                     </span>
                   </div>
-                  
-                  <h4 className="text-[14px] font-black text-zinc-900 dark:text-white tracking-tight group-hover:text-brand-orange transition-colors">
+
+                  <h3 className="text-base font-black text-zinc-900 dark:text-white tracking-tight">
                     {role.title}
-                  </h4>
-                  
-                  <p className="text-[11.5px] text-zinc-500 dark:text-zinc-400 mt-2 leading-relaxed line-clamp-3 font-sans h-[52px]">
+                  </h3>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2 leading-relaxed font-sans">
                     {role.duties}
                   </p>
 
-                  {/* Compact Key Points */}
-                  <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-white/5">
-                    <ul className="space-y-1.5">
-                      {role.keyPoints.slice(0, 2).map((pt, pIdx) => (
-                        <li key={pIdx} className="flex items-start gap-2 text-[10.5px] text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
-                          <span className="w-1.5 h-1.5 rounded-full bg-brand-orange/40 mt-1.5 shrink-0" />
-                          <span className="line-clamp-1">{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  {/* Duties list */}
+                  <div className="mt-4 pt-3.5 border-t border-zinc-100 dark:border-white/5 space-y-2">
+                    {role.keyPoints.slice(0, 2).map((pt, pIdx) => (
+                      <div key={pIdx} className="flex items-start gap-2.5 text-[10.5px] text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed">
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-orange mt-1.5 shrink-0" />
+                        <span>{pt}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                {/* Card Bottom - Salary metrics */}
+                {/* Salary outcomes */}
                 <div className="mt-5 pt-3.5 border-t border-zinc-100 dark:border-white/5">
                   <div className="flex justify-between items-end mb-2">
                     <div>
-                      <span className="text-[8.5px] uppercase font-bold text-zinc-400 block tracking-wider">Estimated Package</span>
-                      <span className="text-[18px] font-black text-zinc-900 dark:text-white mt-0.5 block tracking-tight">
-                        ₹{minSalary}L - ₹{maxSalary}L
+                      <span className="text-[8.5px] uppercase font-bold text-zinc-400 dark:text-zinc-500 block tracking-wider">Salary Range</span>
+                      <span className="text-lg font-black text-brand-orange tracking-tight block">
+                        ₹{mSalaryMin}L - ₹{mSalaryMax}L
                       </span>
                     </div>
-                    <span className="text-[9px] text-zinc-400 font-medium">Per Annum</span>
+                    <span className="text-[9.5px] text-zinc-450 dark:text-zinc-500 font-sans">
+                      Per Annum
+                    </span>
                   </div>
 
-                  {/* Range indicator slider */}
-                  <div className="w-full h-1 bg-zinc-100 dark:bg-zinc-800/80 rounded-full relative overflow-hidden">
+                  {/* Slider bar */}
+                  <div className="w-full h-1 bg-zinc-100 dark:bg-zinc-800 rounded-full relative overflow-hidden">
                     <div
                       className="absolute h-full bg-gradient-to-r from-brand-orange to-brand-red rounded-full"
                       style={{
-                        left: `${leftPercent}%`,
-                        width: `${widthPercent}%`
+                        left: `${mLeft}%`,
+                        width: `${mWidth}%`
                       }}
                     />
                   </div>
                 </div>
+
               </div>
             </div>
           );
         })}
       </div>
 
-      {/* Timeline Progression & Salary Drivers Subgrid */}
+      {/* ──────────────────────────────────────────────────────── */}
+      {/* Timeline Progression & Salary Drivers Subgrid (Visible on all viewports) */}
+      {/* ──────────────────────────────────────────────────────── */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
         {/* Progression Timelines */}
         <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/10 bg-white/60 dark:bg-zinc-900/10 backdrop-blur-md">
@@ -1261,6 +1458,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
     </section>
   );
 }
+
 
 
 
