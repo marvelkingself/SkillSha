@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import GlobalInteraction from "@/components/GlobalInteraction";
 
@@ -118,7 +119,7 @@ export default function RootLayout({
         <Script id="ms-clarity" strategy="afterInteractive" dangerouslySetInnerHTML={{
           __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","x90nk88d2u");`
         }} />
-
+        <SpeedInsights />
       </body>
     </html>
   );
