@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { getCourseSlugById } from '@/data/courses';
 
 const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop";
@@ -121,17 +122,51 @@ export default function BlogClient() {
     setLoading(true);
     setError(null);
     try {
-      // Use proxy or direct URL that handles redirection securely in browser
-      const res = await fetch('https://www.skillsha.com/blogs/my-posts-api.php?per_page=20');
-      if (!res.ok) {
-        throw new Error(`HTTP Error status: ${res.status}`);
+      // 1. Fetch WordPress posts
+      let wpPosts = [];
+      try {
+        const res = await fetch('https://www.skillsha.com/blogs/my-posts-api.php?per_page=20');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success && Array.isArray(data.posts)) {
+            wpPosts = data.posts;
+          }
+        }
+      } catch (err) {
+        console.error("WordPress posts fetch failed:", err);
       }
-      const data = await res.json();
-      if (data.success && Array.isArray(data.posts)) {
-        setPosts(data.posts);
-      } else {
-        throw new Error('API returned unsuccessful response');
+
+      // 2. Fetch local AI blog posts
+      let localPosts = [];
+      try {
+        const localRes = await fetch('/api/blog-posts');
+        if (localRes.ok) {
+          const localData = await localRes.json();
+          if (localData.success && Array.isArray(localData.posts)) {
+            localPosts = localData.posts.map((post: any) => ({
+              id: `local-${post.slug}`,
+              title: post.title,
+              excerpt: post.excerpt,
+              content: post.introduction + " " + (post.sections ? post.sections.map((s: any) => s.content).join(" ") : ""),
+              image: post.featuredImage,
+              link: `/blog/${post.slug}`,
+              date: post.publishedAt || post.createdAt,
+              isLocal: true,
+            }));
+          }
+        }
+      } catch (err) {
+        console.error("Local blogs fetch failed:", err);
       }
+
+      // Combine and sort by date descending
+      const combined = [...localPosts, ...wpPosts].sort((a: any, b: any) => {
+        const dateA = new Date(a.date).getTime();
+        const dateB = new Date(b.date).getTime();
+        return dateB - dateA;
+      });
+
+      setPosts(combined);
     } catch (err: any) {
       setError(err.message || 'Unknown network error');
     } finally {
@@ -176,46 +211,55 @@ export default function BlogClient() {
           <FeaturedSkeleton />
         ) : error ? (
           null // Errors are displayed in the main grid section below
-        ) : featuredPost ? (
-          <a 
-            href={featuredPost.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[24px] overflow-hidden shadow-sm hover:border-brand-orange/45 transition-colors group cursor-pointer grid grid-cols-1 lg:grid-cols-12 min-h-[350px]"
-          >
-            <div className="lg:col-span-6 relative aspect-video lg:aspect-auto min-h-[250px] overflow-hidden">
-              <img 
-                src={featuredPost.image || FALLBACK_IMAGE} 
-                alt={featuredPost.title} 
-                onError={handleImageError}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" 
-              />
-            </div>
-            <div className="lg:col-span-6 p-6 md:p-10 flex flex-col justify-center">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-0.5 rounded-full">
-                  {getCategoryFromPost(featuredPost)}
-                </span>
-                <span className="text-xs text-zinc-400">
-                  {estimateReadTime(featuredPost.content)}
-                </span>
+        ) : featuredPost ? (() => {
+          const CardContent = () => (
+            <>
+              <div className="lg:col-span-6 relative aspect-video lg:aspect-auto min-h-[250px] overflow-hidden">
+                <img 
+                  src={featuredPost.image || FALLBACK_IMAGE} 
+                  alt={featuredPost.title} 
+                  onError={handleImageError}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" 
+                />
               </div>
-              <h2 className="text-[22px] md:text-[28px] font-bold text-zinc-900 dark:text-white mb-4 group-hover:text-brand-orange transition-colors leading-tight text-left">
-                {featuredPost.title}
-              </h2>
-              <p className="text-[14px] text-zinc-500 dark:text-[#9CA3AF] mb-6 leading-relaxed line-clamp-3 text-left">
-                {featuredPost.excerpt}
-              </p>
-              <div className="flex items-center gap-3 mt-auto pt-4 border-t border-zinc-200/60 dark:border-white/5 text-left">
-                <div className="w-8 h-8 rounded-full bg-brand-orange/10 flex items-center justify-center font-bold text-brand-orange text-xs">SW</div>
-                <div>
-                  <p className="text-xs font-bold text-zinc-900 dark:text-white">SkillSha Writer</p>
-                  <p className="text-[10px] text-zinc-400">{formatDate(featuredPost.date)}</p>
+              <div className="lg:col-span-6 p-6 md:p-10 flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-0.5 rounded-full">
+                    {getCategoryFromPost(featuredPost)}
+                  </span>
+                  <span className="text-xs text-zinc-400">
+                    {estimateReadTime(featuredPost.content)}
+                  </span>
+                </div>
+                <h2 className="text-[22px] md:text-[28px] font-bold text-zinc-900 dark:text-white mb-4 group-hover:text-brand-orange transition-colors leading-tight text-left">
+                  {featuredPost.title}
+                </h2>
+                <p className="text-[14px] text-zinc-500 dark:text-[#9CA3AF] mb-6 leading-relaxed line-clamp-3 text-left">
+                  {featuredPost.excerpt}
+                </p>
+                <div className="flex items-center gap-3 mt-auto pt-4 border-t border-zinc-200/60 dark:border-white/5 text-left">
+                  <div className="w-8 h-8 rounded-full bg-brand-orange/10 flex items-center justify-center font-bold text-brand-orange text-xs">SW</div>
+                  <div>
+                    <p className="text-xs font-bold text-zinc-900 dark:text-white">SkillSha Writer</p>
+                    <p className="text-[10px] text-zinc-400">{formatDate(featuredPost.date)}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </a>
-        ) : null}
+            </>
+          );
+
+          const className = "block bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[24px] overflow-hidden shadow-sm hover:border-brand-orange/45 transition-colors group cursor-pointer grid grid-cols-1 lg:grid-cols-12 min-h-[350px]";
+
+          return featuredPost.isLocal ? (
+            <Link href={featuredPost.link} className={className}>
+              <CardContent />
+            </Link>
+          ) : (
+            <a href={featuredPost.link} target="_blank" rel="noopener noreferrer" className={className}>
+              <CardContent />
+            </a>
+          );
+        })() : null}
       </section>
 
       {/* Regular Posts Grid */}
@@ -260,49 +304,63 @@ export default function BlogClient() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {filteredPosts.map((post: any) => (
-              <a 
-                key={post.id} 
-                href={post.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[20px] p-6 hover:border-brand-orange/45 hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col h-full"
-              >
-                {/* Article Image */}
-                <div className="relative aspect-video rounded-xl overflow-hidden mb-4 bg-zinc-100 dark:bg-zinc-900 select-none">
-                  <img 
-                    src={post.image || FALLBACK_IMAGE} 
-                    alt={post.title}
-                    onError={handleImageError}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
-                  />
-                </div>
+            {filteredPosts.map((post: any) => {
+              const CardContent = () => (
+                <>
+                  {/* Article Image */}
+                  <div className="relative aspect-video rounded-xl overflow-hidden mb-4 bg-zinc-100 dark:bg-zinc-900 select-none">
+                    <img 
+                      src={post.image || FALLBACK_IMAGE} 
+                      alt={post.title}
+                      onError={handleImageError}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                    />
+                  </div>
 
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-0.5 rounded-full">
-                    {getCategoryFromPost(post)}
-                  </span>
-                  <span className="text-[11px] text-zinc-400">
-                    {estimateReadTime(post.content)}
-                  </span>
-                </div>
-                <h3 className="text-[17px] font-bold text-zinc-900 dark:text-white mb-3 group-hover:text-brand-orange transition-colors line-clamp-2 leading-tight text-left">
-                  {post.title}
-                </h3>
-                <p className="text-[13px] text-zinc-500 dark:text-[#9CA3AF] mb-6 leading-relaxed line-clamp-3 text-left">
-                  {post.excerpt}
-                </p>
-                <div className="flex items-center gap-2.5 mt-auto pt-4 border-t border-zinc-200/60 dark:border-white/5 text-left">
-                  <div className="w-7 h-7 rounded-full bg-zinc-100 dark:bg-white/5 flex items-center justify-center font-bold text-zinc-600 dark:text-zinc-300 text-[10px]">
-                    SW
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-0.5 rounded-full">
+                      {getCategoryFromPost(post)}
+                    </span>
+                    <span className="text-[11px] text-zinc-400">
+                      {estimateReadTime(post.content)}
+                    </span>
                   </div>
-                  <div>
-                    <p className="text-xs font-bold text-zinc-800 dark:text-white leading-none">SkillSha Writer</p>
-                    <p className="text-[9px] text-zinc-400 mt-1">{formatDate(post.date)}</p>
+                  <h3 className="text-[17px] font-bold text-zinc-900 dark:text-white mb-3 group-hover:text-brand-orange transition-colors line-clamp-2 leading-tight text-left">
+                    {post.title}
+                  </h3>
+                  <p className="text-[13px] text-zinc-500 dark:text-[#9CA3AF] mb-6 leading-relaxed line-clamp-3 text-left">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center gap-2.5 mt-auto pt-4 border-t border-zinc-200/60 dark:border-white/5 text-left">
+                    <div className="w-7 h-7 rounded-full bg-zinc-100 dark:bg-white/5 flex items-center justify-center font-bold text-zinc-650 dark:text-zinc-300 text-[10px]">
+                      SW
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-zinc-800 dark:text-white leading-none">SkillSha Writer</p>
+                      <p className="text-[9px] text-zinc-400 mt-1">{formatDate(post.date)}</p>
+                    </div>
                   </div>
-                </div>
-              </a>
-            ))}
+                </>
+              );
+
+              const className = "bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[20px] p-6 hover:border-brand-orange/45 hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col h-full";
+
+              return post.isLocal ? (
+                <Link key={post.id} href={post.link} className={className}>
+                  <CardContent />
+                </Link>
+              ) : (
+                <a 
+                  key={post.id} 
+                  href={post.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={className}
+                >
+                  <CardContent />
+                </a>
+              );
+            })}
           </div>
         )}
       </section>
