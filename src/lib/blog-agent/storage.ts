@@ -1,5 +1,3 @@
-import fs from "fs";
-import path from "path";
 import { supabase } from "@/lib/supabase";
 
 export interface AgentSettingsData {
@@ -40,121 +38,136 @@ const DEFAULT_SETTINGS: AgentSettingsData = {
   websiteNiche: "IT Training",
 };
 
-const CONTENT_DIR = path.join(process.cwd(), "content");
-const SETTINGS_FILE = path.join(CONTENT_DIR, "agent-settings.json");
-const RUNS_FILE = path.join(CONTENT_DIR, "agent-runs.json");
-
-function ensureContentDir() {
-  if (!fs.existsSync(CONTENT_DIR)) {
-    fs.mkdirSync(CONTENT_DIR, { recursive: true });
-  }
-}
-
 /**
- * Fetch current Agent Settings (from local JSON file with Supabase fallback)
+ * Fetch current Agent Settings strictly from Supabase DB (table 'agent_settings')
  */
 export async function getAgentSettings(): Promise<AgentSettingsData> {
-  ensureContentDir();
-
-  // Try Supabase if table exists
   try {
-    const { data, error } = await supabase.from("agent_settings").select("*").single();
+    const { data, error } = await supabase.from("agent_settings").select("*").eq("id", 1).maybeSingle();
     if (data && !error) {
-      return { ...DEFAULT_SETTINGS, ...data };
+      return {
+        blogsPerDay: data.blogs_per_day ?? DEFAULT_SETTINGS.blogsPerDay,
+        minWords: data.min_words ?? DEFAULT_SETTINGS.minWords,
+        maxWords: data.max_words ?? DEFAULT_SETTINGS.maxWords,
+        publishingTime: data.publishing_time ?? DEFAULT_SETTINGS.publishingTime,
+        autoPublish: data.auto_publish ?? DEFAULT_SETTINGS.autoPublish,
+        targetCountry: data.target_country ?? DEFAULT_SETTINGS.targetCountry,
+        targetLanguage: data.target_language ?? DEFAULT_SETTINGS.targetLanguage,
+        targetAudience: data.target_audience ?? DEFAULT_SETTINGS.targetAudience,
+        websiteNiche: data.website_niche ?? DEFAULT_SETTINGS.websiteNiche,
+      };
     }
   } catch (e) {
-    // Ignore and fallback to file
-  }
-
-  if (fs.existsSync(SETTINGS_FILE)) {
-    try {
-      const raw = fs.readFileSync(SETTINGS_FILE, "utf-8").trim();
-      if (raw) {
-        return { ...DEFAULT_SETTINGS, ...JSON.parse(raw) };
-      }
-    } catch (e) {
-      console.error("Error reading agent-settings.json:", e);
-    }
+    console.error("Error fetching agent_settings from Supabase:", e);
   }
 
   return DEFAULT_SETTINGS;
 }
 
 /**
- * Save updated Agent Settings
+ * Save updated Agent Settings strictly into Supabase DB (table 'agent_settings')
  */
 export async function saveAgentSettings(
   settings: Partial<AgentSettingsData>
 ): Promise<AgentSettingsData> {
-  ensureContentDir();
   const current = await getAgentSettings();
   const updated = { ...current, ...settings };
 
-  fs.writeFileSync(SETTINGS_FILE, JSON.stringify(updated, null, 2), "utf-8");
-
   try {
-    await supabase.from("agent_settings").upsert(updated);
-  } catch (e) {
-    // Ignore if table does not exist
+    const dbRow = {
+      id: 1,
+      blogs_per_day: updated.blogsPerDay,
+      min_words: updated.minWords,
+      max_words: updated.maxWords,
+      publishing_time: updated.publishingTime,
+      auto_publish: updated.autoPublish,
+      target_country: updated.targetCountry,
+      target_language: updated.targetLanguage,
+      target_audience: updated.targetAudience,
+      website_niche: updated.websiteNiche,
+      updated_at: new Date().toISOString(),
+    };
+
+    const { error } = await supabase.from("agent_settings").upsert(dbRow, { onConflict: "id" });
+    if (error) {
+      console.error("Error saving agent_settings to Supabase:", error.message);
+    } else {
+      console.log("Successfully saved agent_settings to Supabase DB.");
+    }
+  } catch (e: any) {
+    console.error("Supabase agent_settings error:", e.message || e);
   }
 
   return updated;
 }
 
 /**
- * Get recent Agent Runs
+ * Helper to map Supabase agent_runs row to AgentRunData
+ */
+function mapRunRow(row: any): AgentRunData {
+  return {
+    _id: row.id,
+    date: row.date,
+    startedAt: row.started_at,
+    completedAt: row.completed_at || undefined,
+    topicsSelected: Array.isArray(row.topics_selected) ? row.topics_selected : [],
+    blogsGenerated: row.blogs_generated || 0,
+    blogsPublished: row.blogs_published || 0,
+    blogsFailed: row.blogs_failed || 0,
+    status: row.status || "failed",
+    logs: Array.isArray(row.logs) ? row.logs : [],
+    errors: Array.isArray(row.errors) ? row.errors : [],
+  };
+}
+
+/**
+ * Get recent Agent Runs strictly from Supabase DB (table 'agent_runs')
  */
 export async function getAgentRuns(): Promise<AgentRunData[]> {
-  ensureContentDir();
-
   try {
     const { data, error } = await supabase
       .from("agent_runs")
       .select("*")
-      .order("startedAt", { ascending: false })
-      .limit(20);
-    if (data && !error && data.length > 0) {
-      return data;
+      .order("started_at", { ascending: false })
+      .limit(30);
+
+    if (data && !error) {
+      return data.map(mapRunRow);
     }
   } catch (e) {
-    // Ignore
-  }
-
-  if (fs.existsSync(RUNS_FILE)) {
-    try {
-      const raw = fs.readFileSync(RUNS_FILE, "utf-8").trim();
-      if (raw) {
-        const runs = JSON.parse(raw);
-        return Array.isArray(runs) ? runs : [];
-      }
-    } catch (e) {
-      console.error("Error reading agent-runs.json:", e);
-    }
+    console.error("Error fetching agent_runs from Supabase DB:", e);
   }
 
   return [];
 }
 
 /**
- * Get single Agent Run by ID
+ * Get single Agent Run by ID strictly from Supabase DB
  */
 export async function getAgentRunById(runId: string): Promise<AgentRunData | null> {
-  const runs = await getAgentRuns();
-  return runs.find((r) => r._id === runId) || null;
+  try {
+    const { data, error } = await supabase.from("agent_runs").select("*").eq("id", runId).single();
+    if (data && !error) {
+      return mapRunRow(data);
+    }
+  } catch (e) {
+    // Ignore if not found
+  }
+  return null;
 }
 
 /**
- * Create a new Agent Run record
+ * Create a new Agent Run record strictly in Supabase DB
  */
 export async function createAgentRun(initial?: Partial<AgentRunData>): Promise<AgentRunData> {
-  ensureContentDir();
-  const runs = await getAgentRuns();
   const timeStr = new Date().toLocaleTimeString();
+  const runId = `run_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`;
+  const nowIso = new Date().toISOString();
 
   const newRun: AgentRunData = {
-    _id: `run_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
-    date: new Date().toISOString().split("T")[0],
-    startedAt: new Date().toISOString(),
+    _id: runId,
+    date: nowIso.split("T")[0],
+    startedAt: nowIso,
     topicsSelected: [],
     blogsGenerated: 0,
     blogsPublished: 0,
@@ -165,47 +178,71 @@ export async function createAgentRun(initial?: Partial<AgentRunData>): Promise<A
     ...initial,
   };
 
-  runs.unshift(newRun);
-  const trimmed = runs.slice(0, 50);
-  fs.writeFileSync(RUNS_FILE, JSON.stringify(trimmed, null, 2), "utf-8");
-
   try {
-    await supabase.from("agent_runs").insert(newRun);
-  } catch (e) {
-    // Ignore
+    const dbRow = {
+      id: newRun._id,
+      date: newRun.date,
+      started_at: newRun.startedAt,
+      completed_at: newRun.completedAt || null,
+      topics_selected: newRun.topicsSelected,
+      blogs_generated: newRun.blogsGenerated,
+      blogs_published: newRun.blogsPublished,
+      blogs_failed: newRun.blogsFailed,
+      status: newRun.status,
+      logs: newRun.logs,
+      errors: newRun.errors,
+    };
+
+    const { error } = await supabase.from("agent_runs").insert(dbRow);
+    if (error) {
+      console.error("Error inserting agent_run to Supabase DB:", error.message);
+    } else {
+      console.log(`Successfully created agent_run "${runId}" in Supabase DB.`);
+    }
+  } catch (e: any) {
+    console.error("Supabase agent_run creation error:", e.message || e);
   }
 
   return newRun;
 }
 
 /**
- * Update an existing Agent Run
+ * Update an existing Agent Run strictly in Supabase DB
  */
 export async function updateAgentRun(
   runId: string,
   updates: Partial<AgentRunData>
 ): Promise<AgentRunData | null> {
-  ensureContentDir();
-  const runs = await getAgentRuns();
-  const index = runs.findIndex((r) => r._id === runId);
-
-  if (index === -1) return null;
-
-  const updatedRun = { ...runs[index], ...updates };
-  runs[index] = updatedRun;
-  fs.writeFileSync(RUNS_FILE, JSON.stringify(runs, null, 2), "utf-8");
-
   try {
-    await supabase.from("agent_runs").update(updates).eq("_id", runId);
-  } catch (e) {
-    // Ignore
-  }
+    const current = await getAgentRunById(runId);
+    const updatedRun = current ? { ...current, ...updates } : null;
 
-  return updatedRun;
+    const dbRow: any = {};
+    if (updates.date !== undefined) dbRow.date = updates.date;
+    if (updates.startedAt !== undefined) dbRow.started_at = updates.startedAt;
+    if (updates.completedAt !== undefined) dbRow.completed_at = updates.completedAt;
+    if (updates.topicsSelected !== undefined) dbRow.topics_selected = updates.topicsSelected;
+    if (updates.blogsGenerated !== undefined) dbRow.blogs_generated = updates.blogsGenerated;
+    if (updates.blogsPublished !== undefined) dbRow.blogs_published = updates.blogsPublished;
+    if (updates.blogsFailed !== undefined) dbRow.blogs_failed = updates.blogsFailed;
+    if (updates.status !== undefined) dbRow.status = updates.status;
+    if (updates.logs !== undefined) dbRow.logs = updates.logs;
+    if (updates.errors !== undefined) dbRow.errors = updates.errors;
+
+    const { error } = await supabase.from("agent_runs").update(dbRow).eq("id", runId);
+    if (error) {
+      console.error(`Error updating agent_run "${runId}" in Supabase:`, error.message);
+    }
+
+    return updatedRun;
+  } catch (e: any) {
+    console.error("Supabase agent_run update error:", e.message || e);
+    return null;
+  }
 }
 
 /**
- * Append a log line to a specific run
+ * Append a log line to a specific run strictly in Supabase DB
  */
 export async function appendRunLog(
   runId: string,
@@ -216,12 +253,14 @@ export async function appendRunLog(
   const formatted = `[${timeStr}] ${logMsg}`;
   console.log(formatted);
 
-  const runs = await getAgentRuns();
-  const run = runs.find((r) => r._id === runId);
-  if (!run) return;
-
-  const logs = [...(run.logs || []), formatted];
-  const errors = isError ? [...(run.errors || []), logMsg] : run.errors;
-
-  await updateAgentRun(runId, { logs, errors });
+  try {
+    const run = await getAgentRunById(runId);
+    if (run) {
+      const logs = [...run.logs, formatted];
+      const errors = isError ? [...run.errors, logMsg] : run.errors;
+      await updateAgentRun(runId, { logs, errors });
+    }
+  } catch (e) {
+    console.error("Error appending run log to Supabase:", e);
+  }
 }

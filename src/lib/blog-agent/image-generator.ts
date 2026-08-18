@@ -69,7 +69,8 @@ export class DefaultImageGenerator implements ImageProvider {
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
-      .replace(/'/g, "&apos;");
+      .replace(/'/g, "&apos;")
+      .replace(/:/g, "&#58;");
 
     const cleanCategory = category.toUpperCase();
 

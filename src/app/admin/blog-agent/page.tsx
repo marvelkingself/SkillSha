@@ -18,7 +18,8 @@ interface Blog {
   metaDescription?: string;
   sections?: { heading: string; level: number; content: string }[];
   faqs?: { question: string; answer: string }[];
-  featuredImage: string;
+  featuredImage?: string;
+  featuredImageBase64?: string;
 }
 
 interface RunLog {
@@ -844,10 +845,10 @@ export default function BlogAgentDashboard() {
                 {previewingBlog.excerpt}
               </p>
               
-              {previewingBlog.featuredImage && (
+              {(previewingBlog.featuredImageBase64 || previewingBlog.featuredImage) && (
                 <div className="my-6 aspect-video overflow-hidden rounded-xl bg-zinc-100 relative">
                   <img
-                    src={previewingBlog.featuredImage}
+                    src={previewingBlog.featuredImageBase64 || previewingBlog.featuredImage}
                     alt={previewingBlog.title}
                     className="w-full h-full object-cover"
                   />

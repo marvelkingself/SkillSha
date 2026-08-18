@@ -1,25 +1,42 @@
 import { AIProvider } from "./provider";
 import { safeParseJSON } from "./json-repair";
 
-async function fetchWithRetry(url: string, options: any, retries = 3): Promise<Response> {
+async function fetchWithRetry(url: string, options: any, retries = 5): Promise<Response> {
+  const timeoutMs = parseInt(process.env.AGENTROUTER_TIMEOUT_MS || "300000", 10); // 5 minutes default timeout
+
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      const res = await fetch(url, options);
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+      const requestOptions = {
+        ...options,
+        signal: controller.signal,
+      };
+
+      const res = await fetch(url, requestOptions);
+      clearTimeout(timer);
+
       if (res.status === 504 || res.status === 502 || res.status === 503) {
         if (attempt < retries) {
-          console.warn(`[AgentRouter] Received HTTP ${res.status}. Retrying attempt ${attempt}/${retries}...`);
-          await new Promise((r) => setTimeout(r, 2500 * attempt));
+          const delay = Math.min(12000, 3000 * attempt);
+          console.warn(`[AgentRouter] Received HTTP ${res.status} (Gateway Timeout). Retrying attempt ${attempt}/${retries} in ${delay}ms...`);
+          await new Promise((r) => setTimeout(r, delay));
           continue;
         }
       }
       return res;
     } catch (err: any) {
+      const isAbort = err.name === "AbortError" || err.message?.includes("aborted");
+      const errMsg = isAbort ? `Request timed out after ${timeoutMs / 1000}s` : err.message;
+
       if (attempt < retries) {
-        console.warn(`[AgentRouter] Network/Timeout error: ${err.message}. Retrying attempt ${attempt}/${retries}...`);
-        await new Promise((r) => setTimeout(r, 2500 * attempt));
+        const delay = Math.min(12000, 3000 * attempt);
+        console.warn(`[AgentRouter] ${errMsg}. Retrying attempt ${attempt}/${retries} in ${delay}ms...`);
+        await new Promise((r) => setTimeout(r, delay));
         continue;
       }
-      throw err;
+      throw new Error(`AgentRouter request failed after ${retries} attempts (${errMsg})`);
     }
   }
   throw new Error("AgentRouter request timed out after max retries.");
