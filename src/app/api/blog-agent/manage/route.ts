@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { dbConnect } from "@/lib/db";
-import BlogMetadata from "@/lib/models/BlogMetadata";
 import { blogFileManager } from "@/lib/blog-agent/file-manager";
 
 export const dynamic = "force-dynamic";
@@ -12,11 +10,9 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ success: false, error: "Unauthorized access key" }, { status: 401 });
     }
 
-    await dbConnect();
-    
-    // Read all local blogs including drafts
-    const fileBlogs = blogFileManager.getLocalBlogs(true);
-    
+    // Read all blogs from Supabase DB (with local file fallback)
+    const fileBlogs = await blogFileManager.getBlogsAsync(true);
+
     return NextResponse.json({
       success: true,
       blogs: fileBlogs,
@@ -36,9 +32,25 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: "Unauthorized access key" }, { status: 401 });
     }
 
-    await dbConnect();
     const body = await req.json();
-    const { action, slug, blogData } = body;
+    const { action, slug, blogData, runId } = body;
+
+    if (action === "stop") {
+      const { getAgentRuns, updateAgentRun, appendRunLog } = await import("@/lib/blog-agent/storage");
+      const runs = await getAgentRuns();
+      const targetRun = runId ? runs.find(r => r._id === runId) : runs.find(r => r.status === "running");
+
+      if (targetRun) {
+        await updateAgentRun(targetRun._id, {
+          status: "failed",
+          completedAt: new Date().toISOString(),
+        });
+        await appendRunLog(targetRun._id, "Run manually stopped by admin user.", true);
+        return NextResponse.json({ success: true, message: "Agent run stopped successfully." });
+      } else {
+        return NextResponse.json({ success: true, message: "No active running agent found." });
+      }
+    }
 
     if (!slug) {
       return NextResponse.json({ success: false, error: "Slug is required" }, { status: 400 });
@@ -49,21 +61,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: "Blog not found in files" }, { status: 404 });
     }
 
-    if (action === "publish") {
+    if (action === "publish" || action === "approve") {
       localBlog.status = "published";
       localBlog.publishedAt = new Date().toISOString();
       localBlog.updatedAt = new Date().toISOString();
 
-      await blogFileManager.writeBlogFiles(slug, localBlog, localBlog.category || "AI Engineering", localBlog.seoScore || 0, "published");
-      return NextResponse.json({ success: true, blog: localBlog });
-    }
-
-    if (action === "approve") {
-      localBlog.status = "published";
-      localBlog.publishedAt = new Date().toISOString();
-      localBlog.updatedAt = new Date().toISOString();
-
-      await blogFileManager.writeBlogFiles(slug, localBlog, localBlog.category || "AI Engineering", localBlog.seoScore || 0, "published");
+      await blogFileManager.writeBlogFiles(
+        slug,
+        localBlog,
+        localBlog.category || "AI Engineering",
+        localBlog.seoScore || 0,
+        "published"
+      );
       return NextResponse.json({ success: true, blog: localBlog });
     }
 
@@ -79,7 +88,13 @@ export async function POST(req: NextRequest) {
         updatedAt: new Date().toISOString(),
       };
 
-      await blogFileManager.writeBlogFiles(slug, updated, updated.category || "AI Engineering", updated.seoScore || 0, updated.status);
+      await blogFileManager.writeBlogFiles(
+        slug,
+        updated,
+        updated.category || "AI Engineering",
+        updated.seoScore || 0,
+        updated.status
+      );
       return NextResponse.json({ success: true, blog: updated });
     }
 

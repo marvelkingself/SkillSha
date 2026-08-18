@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const posts = blogFileManager.getLocalBlogs(false); // Only return published posts
+    const posts = await blogFileManager.getBlogsAsync(false); // Fetch published posts from Supabase DB
     return NextResponse.json({
       success: true,
       posts,

@@ -1,0 +1,11 @@
+{
+  "blogsPerDay": 1,
+  "minWords": 1000,
+  "maxWords": 2000,
+  "publishingTime": "09:00",
+  "autoPublish": true,
+  "targetCountry": "India",
+  "targetLanguage": "English",
+  "targetAudience": "Students, Career Switchers",
+  "websiteNiche": "IT Training"
+}

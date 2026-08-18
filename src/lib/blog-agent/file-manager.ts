@@ -1,8 +1,7 @@
 import fs from "fs";
 import path from "path";
-import BlogMetadata from "../models/BlogMetadata";
 import { GeneratedArticle } from "./generator";
-import { dbConnect } from "../db";
+import { supabase } from "@/lib/supabase";
 
 export function slugify(text: string): string {
   return text
@@ -17,8 +16,9 @@ export function slugify(text: string): string {
 }
 
 /**
- * File System & Content Manager for Blogs.
- * Handles slugification, unique path verification, writing files, and reading local posts.
+ * File System & Supabase Content Manager for Blogs.
+ * Handles slugification, unique path verification, writing files, Base64 image encoding,
+ * and saving records to Supabase PostgreSQL database.
  */
 export class BlogFileManager {
   private contentDir: string;
@@ -30,12 +30,11 @@ export class BlogFileManager {
   }
 
   /**
-   * Generates a guaranteed unique slug by checking both MongoDB and the local filesystem.
+   * Generates a guaranteed unique slug by checking Supabase and local filesystem.
    */
   async getUniqueSlug(title: string): Promise<string> {
-    await dbConnect();
     let baseSlug = slugify(title);
-    
+
     // Truncate slug if it's too long
     if (baseSlug.length > 50) {
       baseSlug = baseSlug.substring(0, 50).replace(/-+$/, "");
@@ -45,13 +44,19 @@ export class BlogFileManager {
     let count = 1;
 
     while (true) {
-      // 1. Check database
-      const dbExists = await BlogMetadata.findOne({ slug });
-      
-      // 2. Check filesystem
+      // 1. Check local filesystem
       const fileExists = fs.existsSync(path.join(this.contentDir, slug));
 
-      if (!dbExists && !fileExists) {
+      // 2. Check Supabase DB
+      let dbExists = false;
+      try {
+        const { data } = await supabase.from("blogs").select("slug").eq("slug", slug).single();
+        if (data) dbExists = true;
+      } catch (e) {
+        // Ignore
+      }
+
+      if (!fileExists && !dbExists) {
         break; // Unique!
       }
 
@@ -63,30 +68,18 @@ export class BlogFileManager {
   }
 
   /**
-   * Writes the generated blog JSON and saves the metadata state.
+   * Saves/upserts full post record (including Base64 image) exclusively into Supabase DB.
    */
   async writeBlogFiles(
     slug: string,
     article: GeneratedArticle,
     category: string,
     seoScore: number,
-    status: "draft" | "review" | "published" = "draft"
+    status: "draft" | "review" | "published" = "draft",
+    base64Image?: string
   ): Promise<{ contentPath: string; imagePath: string }> {
-    const blogFolder = path.join(this.contentDir, slug);
-    const imageFolder = path.join(this.publicImageDir, slug);
+    const imageBase64 = base64Image || (article as any).featuredImageBase64 || "";
 
-    // Create folders
-    if (!fs.existsSync(blogFolder)) {
-      fs.mkdirSync(blogFolder, { recursive: true });
-    }
-    if (!fs.existsSync(imageFolder)) {
-      fs.mkdirSync(imageFolder, { recursive: true });
-    }
-
-    const contentPath = path.join(blogFolder, "content.json");
-    const imagePath = path.join(imageFolder, "featured-image.png");
-
-    // Add post relative URL parameters inside the JSON body
     const finalContent = {
       ...article,
       slug,
@@ -94,66 +87,107 @@ export class BlogFileManager {
       seoScore,
       status,
       featuredImage: `/content/blogs/${slug}/featured-image.png`,
-      createdAt: new Date().toISOString(),
+      featuredImageBase64: imageBase64,
+      createdAt: (article as any).createdAt || new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-      publishedAt: status === "published" ? new Date().toISOString() : undefined,
+      publishedAt: status === "published" ? (article as any).publishedAt || new Date().toISOString() : undefined,
     };
 
-    // 1. Save local JSON file content
-    fs.writeFileSync(contentPath, JSON.stringify(finalContent, null, 2), "utf8");
-
-    // 2. Upsert into MongoDB BlogMetadata
-    await dbConnect();
-    await BlogMetadata.findOneAndUpdate(
-      { slug },
-      {
-        title: article.title,
+    // Save/Upsert exclusively into Supabase DB
+    try {
+      const dbRow = {
         slug,
-        keyword: article.primaryKeyword,
-        seoScore,
+        title: article.title,
+        category,
+        keyword: article.primaryKeyword || "",
+        seo_score: seoScore,
         status,
-        excerpt: article.excerpt,
-        publishedAt: status === "published" ? new Date() : undefined,
-      },
-      { upsert: true, new: true }
-    );
+        excerpt: article.excerpt || "",
+        content: finalContent,
+        featured_image: `/content/blogs/${slug}/featured-image.png`,
+        featured_image_base64: imageBase64,
+        updated_at: new Date().toISOString(),
+        published_at: status === "published" ? new Date().toISOString() : null,
+      };
 
-    return { contentPath, imagePath };
-  }
-
-  /**
-   * Scans filesystem directory to fetch all local JSON blogs.
-   */
-  getLocalBlogs(includeDrafts = false): any[] {
-    if (!fs.existsSync(this.contentDir)) return [];
-    
-    const folders = fs.readdirSync(this.contentDir);
-    const posts: any[] = [];
-
-    for (const folder of folders) {
-      const file = path.join(this.contentDir, folder, "content.json");
-      if (fs.existsSync(file)) {
-        try {
-          const json = JSON.parse(fs.readFileSync(file, "utf8"));
-          if (includeDrafts || json.status === "published") {
-            posts.push(json);
-          }
-        } catch (err) {
-          console.error(`Failed to read/parse local blog JSON in folder: ${folder}`, err);
-        }
+      const { error } = await supabase.from("blogs").upsert(dbRow, { onConflict: "slug" });
+      if (error) {
+        console.error("Supabase blog upsert error:", error.message);
+      } else {
+        console.log(`Successfully saved blog post "${slug}" to Supabase DB.`);
       }
+    } catch (dbErr: any) {
+      console.error("Supabase blog sync exception:", dbErr.message || dbErr);
     }
 
-    // Sort descending by date
-    return posts.sort((a, b) => {
-      const dateA = new Date(a.publishedAt || a.createdAt || 0).getTime();
-      const dateB = new Date(b.publishedAt || b.createdAt || 0).getTime();
-      return dateB - dateA;
-    });
+    return { contentPath: `/blog/${slug}`, imagePath: imageBase64 };
   }
 
   /**
-   * Retrieves content JSON for a specific blog by its slug.
+   * Fetches all blogs strictly from Supabase backend DB.
+   */
+  async getBlogsAsync(includeDrafts = false): Promise<any[]> {
+    try {
+      let query = supabase.from("blogs").select("*");
+      if (!includeDrafts) {
+        query = query.eq("status", "published");
+      }
+      const { data, error } = await query.order("created_at", { ascending: false });
+
+      if (data && !error) {
+        return data.map((row) => ({
+          ...row.content,
+          slug: row.slug,
+          title: row.title,
+          category: row.category,
+          keyword: row.keyword,
+          seoScore: row.seo_score,
+          status: row.status,
+          excerpt: row.excerpt,
+          featuredImage: row.featured_image || row.content?.featuredImage,
+          featuredImageBase64: row.featured_image_base64 || row.content?.featuredImageBase64,
+          createdAt: row.created_at,
+          publishedAt: row.published_at,
+        }));
+      }
+    } catch (e) {
+      console.error("Error fetching blogs from Supabase backend DB:", e);
+    }
+
+    return [];
+  }
+
+  /**
+   * Retrieves content JSON for a specific blog by its slug strictly from Supabase backend DB.
+   */
+  async getBlogBySlugAsync(slug: string): Promise<any | null> {
+    try {
+      const { data, error } = await supabase.from("blogs").select("*").eq("slug", slug).single();
+      if (data && !error) {
+        return {
+          ...data.content,
+          slug: data.slug,
+          title: data.title,
+          category: data.category,
+          keyword: data.keyword,
+          seoScore: data.seo_score,
+          status: data.status,
+          excerpt: data.excerpt,
+          featuredImage: data.featured_image || data.content?.featuredImage,
+          featuredImageBase64: data.featured_image_base64 || data.content?.featuredImageBase64,
+          createdAt: data.created_at,
+          publishedAt: data.published_at,
+        };
+      }
+    } catch (e) {
+      console.error(`Error fetching blog "${slug}" from Supabase backend DB:`, e);
+    }
+
+    return null;
+  }
+
+  /**
+   * Retrieves content JSON locally by slug.
    */
   getBlogBySlug(slug: string): any | null {
     const file = path.join(this.contentDir, slug, "content.json");
@@ -168,7 +202,7 @@ export class BlogFileManager {
   }
 
   /**
-   * Deletes local files and MongoDB metadata entry.
+   * Deletes local files and row in Supabase DB.
    */
   async deleteBlog(slug: string): Promise<boolean> {
     const blogFolder = path.join(this.contentDir, slug);
@@ -176,21 +210,22 @@ export class BlogFileManager {
 
     let success = false;
 
-    // Delete local content
     if (fs.existsSync(blogFolder)) {
       fs.rmSync(blogFolder, { recursive: true, force: true });
       success = true;
     }
 
-    // Delete image asset
     if (fs.existsSync(imageFolder)) {
       fs.rmSync(imageFolder, { recursive: true, force: true });
       success = true;
     }
 
-    // Remove from MongoDB
-    await dbConnect();
-    await BlogMetadata.deleteOne({ slug });
+    try {
+      await supabase.from("blogs").delete().eq("slug", slug);
+      success = true;
+    } catch (e) {
+      // Ignore
+    }
 
     return success;
   }

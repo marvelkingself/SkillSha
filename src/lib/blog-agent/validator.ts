@@ -1,8 +1,7 @@
 import { getAIProvider } from "../ai";
 import { GeneratedArticle } from "./generator";
-import BlogMetadata from "../models/BlogMetadata";
 import { COURSE_SLUG_MAP } from "@/data/courses";
-import { dbConnect } from "../db";
+import { blogFileManager } from "./file-manager";
 
 export interface SEOValidationResult {
   seoScore: number;
@@ -20,7 +19,6 @@ export async function validateAndInjectLinks(
   logCallback: (msg: string) => void
 ): Promise<SEOValidationResult> {
   logCallback("Starting SEO validation and internal link injection...");
-  await dbConnect();
 
   // 1. Compile list of available internal links
   const siteLinks: { anchor: string; url: string }[] = [];
@@ -36,8 +34,8 @@ export async function validateAndInjectLinks(
 
   // Add existing published blog links
   try {
-    const existingBlogs = await BlogMetadata.find({ status: "published" }, "title slug").limit(20).lean();
-    existingBlogs.forEach((blog) => {
+    const existingBlogs = (await blogFileManager.getBlogsAsync(false)).slice(0, 20);
+    existingBlogs.forEach((blog: any) => {
       siteLinks.push({
         anchor: blog.title,
         url: `/blog/${blog.slug}`,
@@ -86,19 +84,18 @@ Provide your response strictly as a structured JSON object with the following fi
   "isPassed": true, // Boolean (true if seoScore >= 80, false otherwise)
   "feedback": ["Title length is good.", "Added 4 internal links.", "Primary keyword placed in intro."], // Array of audit comment strings
   "updatedArticle": {
-     // Output the complete GeneratedArticle object with the modified internal links woven into the introduction, sections, and conclusion
      "title": "...",
      "metaTitle": "...",
      "metaDescription": "...",
      "excerpt": "...",
      "primaryKeyword": "...",
      "secondaryKeywords": [...],
-     "introduction": "...", // May contain markdown links
+     "introduction": "...",
      "sections": [
-        { "heading": "...", "level": 2, "content": "..." } // Content may contain markdown links
+        { "heading": "...", "level": 2, "content": "..." }
      ],
      "faqs": [...],
-     "conclusion": "...", // May contain markdown links
+     "conclusion": "...",
      "ctaText": "..."
   }
 }

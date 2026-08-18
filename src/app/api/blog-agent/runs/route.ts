@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { dbConnect } from "@/lib/db";
-import AgentRun from "@/lib/models/AgentRun";
-import BlogMetadata from "@/lib/models/BlogMetadata";
+import { getAgentRuns } from "@/lib/blog-agent/storage";
+import { blogFileManager } from "@/lib/blog-agent/file-manager";
 
 export const dynamic = "force-dynamic";
 
@@ -13,24 +12,23 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ success: false, error: "Unauthorized access key" }, { status: 401 });
     }
 
-    await dbConnect();
-    
     // 1. Fetch recent runs (limit to 15)
-    const runs = await AgentRun.find().sort({ startedAt: -1 }).limit(15).lean();
+    const allRuns = await getAgentRuns();
+    const runs = allRuns.slice(0, 15);
 
-    // 2. Fetch blog stats
-    const totalBlogs = await BlogMetadata.countDocuments({ status: "published" });
-    const draftBlogs = await BlogMetadata.countDocuments({ status: "draft" });
-    const reviewBlogs = await BlogMetadata.countDocuments({ status: "review" });
-    
-    const allBlogs = await BlogMetadata.find({}, "seoScore");
+    // 2. Fetch blog stats from Supabase DB (with local fallback)
+    const allBlogs = await blogFileManager.getBlogsAsync(true);
+    const totalBlogs = allBlogs.filter((b) => b.status === "published").length;
+    const draftBlogs = allBlogs.filter((b) => b.status === "draft").length;
+    const reviewBlogs = allBlogs.filter((b) => b.status === "review").length;
+
     const avgSeoScore = allBlogs.length > 0
       ? Math.round(allBlogs.reduce((sum, b) => sum + (b.seoScore || 0), 0) / allBlogs.length)
       : 0;
 
     // Calculate agent success rate
-    const completedRuns = await AgentRun.countDocuments({ status: "completed" });
-    const failedRuns = await AgentRun.countDocuments({ status: "failed" });
+    const completedRuns = allRuns.filter((r) => r.status === "completed").length;
+    const failedRuns = allRuns.filter((r) => r.status === "failed").length;
     const totalRuns = completedRuns + failedRuns;
     const successRate = totalRuns > 0 ? Math.round((completedRuns / totalRuns) * 100) : 100;
 

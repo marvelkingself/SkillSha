@@ -227,6 +227,23 @@ export default function BlogAgentDashboard() {
     }
   };
 
+  const stopAgentNow = async () => {
+    const key = "skillsha-admin-secret-2026";
+    try {
+      await fetch("/api/blog-agent/manage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-admin-secret": key,
+        },
+        body: JSON.stringify({ action: "stop" }),
+      });
+      fetchDashboardData();
+    } catch (err) {
+      console.error("Failed to stop agent:", err);
+    }
+  };
+
   const handleBlogAction = async (slug: string, action: string, blogData?: any) => {
     const key = "skillsha-admin-secret-2026";
     try {
@@ -316,18 +333,28 @@ export default function BlogAgentDashboard() {
           </div>
           
           <div className="flex items-center gap-3">
-            <button
-              onClick={triggerAgentNow}
-              disabled={isTriggering || activeRun?.status === "running"}
-              className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all select-none cursor-pointer flex items-center gap-2 ${
-                isTriggering || activeRun?.status === "running"
-                  ? "bg-zinc-800 text-zinc-500 border border-zinc-700 cursor-not-allowed"
-                  : "bg-brand-orange text-white hover:scale-[1.02] shadow-md shadow-brand-orange/15"
-              }`}
-            >
-              <span className="material-symbols-outlined text-[14px]">play_arrow</span>
-              Run Agent Now
-            </button>
+            {activeRun?.status === "running" ? (
+              <button
+                onClick={stopAgentNow}
+                className="px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-all select-none cursor-pointer flex items-center gap-2 shadow-md shadow-rose-600/20"
+              >
+                <span className="material-symbols-outlined text-[14px]">stop</span>
+                Stop Agent
+              </button>
+            ) : (
+              <button
+                onClick={triggerAgentNow}
+                disabled={isTriggering}
+                className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all select-none cursor-pointer flex items-center gap-2 ${
+                  isTriggering
+                    ? "bg-zinc-800 text-zinc-500 border border-zinc-700 cursor-not-allowed"
+                    : "bg-brand-orange text-white hover:scale-[1.02] shadow-md shadow-brand-orange/15"
+                }`}
+              >
+                <span className="material-symbols-outlined text-[14px]">play_arrow</span>
+                Run Agent Now
+              </button>
+            )}
             
             <button
               onClick={handleLogout}

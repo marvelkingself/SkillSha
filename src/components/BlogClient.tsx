@@ -148,7 +148,7 @@ export default function BlogClient() {
               title: post.title,
               excerpt: post.excerpt,
               content: post.introduction + " " + (post.sections ? post.sections.map((s: any) => s.content).join(" ") : ""),
-              image: post.featuredImage,
+              image: post.featuredImageBase64 || post.featuredImage,
               link: `/blog/${post.slug}`,
               date: post.publishedAt || post.createdAt,
               isLocal: true,

@@ -1,0 +1,284 @@
+[
+  {
+    "_id": "run_1787048402023_ctpmsn",
+    "date": "2026-08-18",
+    "startedAt": "2026-08-18T10:20:02.023Z",
+    "topicsSelected": [
+      "Non-IT to IT Career Switch in India: 6-Month Roadmap 2024"
+    ],
+    "blogsGenerated": 0,
+    "blogsPublished": 0,
+    "blogsFailed": 0,
+    "status": "running",
+    "logs": [
+      "[3:50:02 pm] AI Blog Agent initialized.",
+      "[3:50:03 pm] Loaded settings: Generating 1 blogs targeting niche \"IT Training\"",
+      "[3:50:04 pm] Checking existing blog posts for deduplication...",
+      "[3:50:05 pm] Retrieved 0 existing blog titles to prevent duplicates.",
+      "[3:50:13 pm] Successfully researched and selected 1 total topics.",
+      "[3:50:14 pm] --- Processing Topic #1/1: \"Non-IT to IT Career Switch in India: 6-Month Roadmap 2024\" ---",
+      "[3:50:15 pm] Starting generation of article: \"Non-IT to IT Career Switch in India: 6-Month Roadmap 2024\"..."
+    ],
+    "errors": []
+  },
+  {
+    "_id": "run_1787047352672_29kioj",
+    "date": "2026-08-18",
+    "startedAt": "2026-08-18T10:02:32.673Z",
+    "topicsSelected": [
+      "Non-IT to IT Career Switch in India: 6-Month Roadmap 2025"
+    ],
+    "blogsGenerated": 1,
+    "blogsPublished": 1,
+    "blogsFailed": 0,
+    "status": "completed",
+    "logs": [
+      "[3:32:32 pm] AI Blog Agent initialized.",
+      "[3:32:33 pm] Loaded settings: Generating 1 blogs targeting niche \"IT Training\"",
+      "[3:32:34 pm] Checking existing blog posts for deduplication...",
+      "[3:32:34 pm] Generating topic research batch 1/1 (1 topics)...",
+      "[3:32:47 pm] Successfully researched and selected 1 total topics.",
+      "[3:32:49 pm] --- Processing Topic #1/1: \"Non-IT to IT Career Switch in India: 6-Month Roadmap 2025\" ---",
+      "[3:32:50 pm] Sending article generation request to AI provider...",
+      "[3:34:45 pm] Successfully generated article: \"Non-IT to IT Career Switch in India: 6-Month Roadmap 2025\"",
+      "[3:34:45 pm] Compiled 19 potential site targets for internal links.",
+      "[3:34:45 pm] Sending link injection and SEO audit query to AI...",
+      "[3:38:38 pm] SEO Validation passed with score: 92/100.",
+      "[3:38:40 pm] Assigned unique slug: \"/blog/non-it-to-it-career-switch-in-india-6-month-roadma\"",
+      "[3:38:42 pm] Triggering Blue-Themed Featured Image Generator...",
+      "[3:38:43 pm] Featured image generated & encoded to Base64 (Length: 171898 chars).",
+      "[3:38:44 pm] Syncing post record & Base64 image to Supabase DB with status \"published\"...",
+      "[3:38:48 pm] Successfully saved & synced post to Supabase DB: \"Non-IT to IT Career Switch in India: 6-Month Roadmap 2025\"",
+      "[3:38:49 pm] Agent Automation Job Complete. Generated: 1, Published: 1, Failed: 0"
+    ],
+    "errors": [],
+    "completedAt": "2026-08-18T10:08:50.311Z"
+  },
+  {
+    "_id": "run_1787047307001_rbzwc9",
+    "date": "2026-08-18",
+    "startedAt": "2026-08-18T10:01:47.001Z",
+    "topicsSelected": [
+      "Non-IT to IT Career Switch in India: 6-Month Roadmap (2026)",
+      "Best IT Courses After 12th Without Maths or Coding in India",
+      "Offline IT Institute vs Online Course in India: Which Pays Off?",
+      "Data Analyst Fresher Salary in India: Real 2026 Package Data",
+      "How to Get an IT Job in India After a 2-Year Career Gap",
+      "Is IT Certification Worth It in India? Placement Truth 2026",
+      "Cloud vs Cybersecurity vs DevOps: Which to Learn in India?",
+      "Tier 2 & Tier 3 City IT Jobs India: Remote Hiring Guide",
+      "How to Build an IT Portfolio With Zero Work Experience",
+      "Will AI Replace Entry-Level IT Jobs in India? 2026 Reality"
+    ],
+    "blogsGenerated": 0,
+    "blogsPublished": 0,
+    "blogsFailed": 0,
+    "status": "failed",
+    "logs": [
+      "[3:31:46 pm] AI Blog Agent initialized.",
+      "[3:31:48 pm] Loaded settings: Generating 10 blogs targeting niche \"IT Training\"",
+      "[3:31:49 pm] Checking existing blog posts for deduplication...",
+      "[3:31:49 pm] Generating topic research batch 1/2 (5 topics)...",
+      "[3:32:04 pm] Run manually stopped by admin user.",
+      "[3:32:21 pm] Generating topic research batch 2/2 (5 topics)...",
+      "[3:32:42 pm] Successfully researched and selected 10 total topics.",
+      "[3:32:43 pm] Execution aborted: Stop requested by admin."
+    ],
+    "errors": [
+      "Run manually stopped by admin user."
+    ],
+    "completedAt": "2026-08-18T10:02:04.198Z"
+  },
+  {
+    "_id": "run_1787045306459_t1jqas",
+    "date": "2026-08-18",
+    "startedAt": "2026-08-18T09:28:26.459Z",
+    "topicsSelected": [
+      "Data Analyst Course Fees in India 2025: Real Cost Breakdown",
+      "Full Stack Developer Roadmap for Non-IT Graduates in India",
+      "Software Testing Jobs After 30: Career Switch Guide for India",
+      "Python vs Java for Beginners in India: Which to Learn First?",
+      "Cloud Computing Certification Path for Freshers in India 2025",
+      "Cyber Security Career Switch in India Without an IT Background",
+      "Best IT Courses After 12th for Commerce & Arts Students in India",
+      "Return to IT Jobs After Career Break: Guide for Women in India",
+      "Is an AI & ML Course Worth It for Non-CS Freshers in India?",
+      "IT Fresher Salary in India 2025: Role-Wise Package Breakdown"
+    ],
+    "blogsGenerated": 2,
+    "blogsPublished": 2,
+    "blogsFailed": 1,
+    "status": "failed",
+    "logs": [
+      "[2:58:26 pm] AI Blog Agent initialized.",
+      "[2:58:27 pm] Loaded settings: Generating 10 blogs targeting niche \"IT Training\"",
+      "[2:58:28 pm] Retrieved 0 existing blog titles to prevent duplicates.",
+      "[2:58:28 pm] Generating topic research batch 1/2 (5 topics)...",
+      "[2:58:50 pm] Generating topic research batch 2/2 (5 topics)...",
+      "[2:59:28 pm] Batch 2 completed. Accumulated 10/10 topics.",
+      "[2:59:28 pm] Successfully researched and selected 10 total topics.",
+      "[2:59:31 pm] --- Processing Topic #1/10: \"Data Analyst Course Fees in India 2025: Real Cost Breakdown\" ---",
+      "[2:59:32 pm] Starting generation of article: \"Data Analyst Course Fees in India 2025: Real Cost Breakdown\"...",
+      "[2:59:32 pm] Sending article generation request to AI provider...",
+      "[3:01:32 pm] Error generating/validating article: AgentRouter structured data generation failed: AgentRouter HTTP error 504: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "[3:01:35 pm] SEO score was low. Regenerating article (Attempt 2/3)...",
+      "[3:01:36 pm] Starting generation of article: \"Data Analyst Course Fees in India 2025: Real Cost Breakdown\"...",
+      "[3:03:30 pm] Successfully generated article: \"Data Analyst Course Fees in India 2025: Real Cost Breakdown\"",
+      "[3:03:30 pm] Sending link injection and SEO audit query to AI...",
+      "[3:03:57 pm] Error generating/validating article: AgentRouter structured data generation failed: AgentRouter HTTP error 502: <html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "[3:03:58 pm] SEO score was low. Regenerating article (Attempt 3/3)...",
+      "[3:04:00 pm] Starting generation of article: \"Data Analyst Course Fees in India 2025: Real Cost Breakdown\"...",
+      "[3:04:00 pm] Sending article generation request to AI provider...",
+      "[3:05:49 pm] Sending link injection and SEO audit query to AI...",
+      "[3:07:37 pm] SEO Validation passed with score: 94/100.",
+      "[3:07:40 pm] Assigned unique slug: \"/blog/data-analyst-course-fees-in-india-2025-real-cost-b\"",
+      "[3:07:40 pm] Triggering Featured Image Generator...",
+      "[3:07:46 pm] Featured image saved to static path: /content/blogs/data-analyst-course-fees-in-india-2025-real-cost-b/featured-image.png",
+      "[3:07:47 pm] Writing files to disk as status \"published\"...",
+      "[3:07:49 pm] Successfully created files for: \"Data Analyst Course Fees in India 2025: Real Cost Breakdown\"",
+      "[3:07:50 pm] --- Processing Topic #2/10: \"Full Stack Developer Roadmap for Non-IT Graduates in India\" ---",
+      "[3:07:51 pm] Starting generation of article: \"Full Stack Developer Roadmap for Non-IT Graduates in India\"...",
+      "[3:09:47 pm] Starting SEO validation and internal link injection...",
+      "[3:11:37 pm] SEO Validation passed with score: 94/100.",
+      "[3:11:40 pm] Assigned unique slug: \"/blog/full-stack-developer-roadmap-for-non-it-students-i\"",
+      "[3:11:42 pm] Triggering Featured Image Generator...",
+      "[3:11:44 pm] Featured image saved to static path: /content/blogs/full-stack-developer-roadmap-for-non-it-students-i/featured-image.png",
+      "[3:11:45 pm] Writing files to disk as status \"published\"...",
+      "[3:11:47 pm] Successfully created files for: \"Full Stack Developer Roadmap for Non-IT Graduates in India\"",
+      "[3:11:49 pm] --- Processing Topic #3/10: \"Software Testing Jobs After 30: Career Switch Guide for India\" ---",
+      "[3:11:50 pm] Sending article generation request to AI provider...",
+      "[3:13:10 pm] Run manually stopped by admin user.",
+      "[3:13:51 pm] Error generating/validating article: AgentRouter structured data generation failed: AgentRouter HTTP error 504: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "[3:13:52 pm] SEO score was low. Regenerating article (Attempt 2/3)...",
+      "[3:13:52 pm] Starting generation of article: \"Software Testing Jobs After 30: Career Switch Guide for India\"...",
+      "[3:13:52 pm] Sending article generation request to AI provider...",
+      "[3:15:53 pm] Error generating/validating article: AgentRouter structured data generation failed: AgentRouter HTTP error 504: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "[3:15:54 pm] SEO score was low. Regenerating article (Attempt 3/3)...",
+      "[3:15:55 pm] Starting generation of article: \"Software Testing Jobs After 30: Career Switch Guide for India\"...",
+      "[3:17:55 pm] Error generating/validating article: AgentRouter structured data generation failed: AgentRouter HTTP error 504: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "[3:17:55 pm] Topic failed SEO validation threshold of 80 after 3 attempts. Skipping topic.",
+      "[3:17:57 pm] Execution aborted: Stop requested by admin."
+    ],
+    "errors": [
+      "Error generating/validating article: AgentRouter structured data generation failed: AgentRouter HTTP error 504: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "Error generating/validating article: AgentRouter structured data generation failed: AgentRouter HTTP error 502: <html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "Run manually stopped by admin user.",
+      "Error generating/validating article: AgentRouter structured data generation failed: AgentRouter HTTP error 504: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "Error generating/validating article: AgentRouter structured data generation failed: AgentRouter HTTP error 504: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "Error generating/validating article: AgentRouter structured data generation failed: AgentRouter HTTP error 504: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "Topic failed SEO validation threshold of 80 after 3 attempts. Skipping topic."
+    ],
+    "completedAt": "2026-08-18T09:43:09.666Z"
+  },
+  {
+    "_id": "run_1787041335699_0tkwor",
+    "date": "2026-08-18",
+    "startedAt": "2026-08-18T08:22:15.699Z",
+    "topicsSelected": [],
+    "blogsGenerated": 0,
+    "blogsPublished": 0,
+    "blogsFailed": 0,
+    "status": "failed",
+    "logs": [
+      "[1:52:15 pm] AI Blog Agent initialized.",
+      "[1:52:16 pm] Loaded settings: Generating 102 blogs targeting niche \"IT Training\"",
+      "[1:52:17 pm] Checking existing blog posts for deduplication...",
+      "[1:52:17 pm] Generating topic research batch 1/21 (5 topics)...",
+      "[1:57:27 pm] Run manually stopped by admin user."
+    ],
+    "errors": [
+      "Run manually stopped by admin user."
+    ],
+    "completedAt": "2026-08-18T08:27:27.088Z"
+  },
+  {
+    "_id": "run_1787041235650_i3kxty",
+    "date": "2026-08-18",
+    "startedAt": "2026-08-18T08:20:35.650Z",
+    "topicsSelected": [
+      "Data Analyst Course Fees in India 2025: Full Cost Breakdown",
+      "Non-IT to IT Career Switch After 30: 6-Month Roadmap India",
+      "Python vs Java for Beginners in India: Which to Learn First?",
+      "Full Stack Developer Fresher Interview Questions with Answers",
+      "Are IT Certifications Worth It in India? AWS, Azure & More",
+      null
+    ],
+    "blogsGenerated": 0,
+    "blogsPublished": 0,
+    "blogsFailed": 0,
+    "status": "running",
+    "logs": [
+      "[1:50:35 pm] AI Blog Agent initialized.",
+      "[1:50:36 pm] Loaded settings: Generating 10 blogs targeting niche \"IT Training\"",
+      "[1:50:36 pm] Initializing AI provider for topic research...",
+      "[1:50:57 pm] Generating topic research batch 2/2 (5 topics)...",
+      "[1:51:17 pm] Successfully researched and selected 6 total topics.",
+      "[1:51:19 pm] --- Processing Topic #1/6: \"Data Analyst Course Fees in India 2025: Full Cost Breakdown\" ---",
+      "[1:51:21 pm] Sending article generation request to AI provider..."
+    ],
+    "errors": []
+  },
+  {
+    "_id": "run_1787040927628_kbzwnq",
+    "date": "2026-08-18",
+    "startedAt": "2026-08-18T08:15:27.628Z",
+    "topicsSelected": [],
+    "blogsGenerated": 0,
+    "blogsPublished": 0,
+    "blogsFailed": 0,
+    "status": "failed",
+    "logs": [
+      "[1:45:27 pm] AI Blog Agent initialized.",
+      "[1:45:28 pm] Loaded settings: Generating 10 blogs targeting niche \"IT Training\"",
+      "[1:45:29 pm] Checking existing blog posts for deduplication...",
+      "[1:45:29 pm] Initializing AI provider for topic research...",
+      "[1:47:16 pm] Topic research stage failed: AgentRouter structured data generation failed: Unterminated string in JSON at position 14231 (line 144 column 17)"
+    ],
+    "errors": [
+      "Topic research stage failed: AgentRouter structured data generation failed: Unterminated string in JSON at position 14231 (line 144 column 17)"
+    ],
+    "completedAt": "2026-08-18T08:17:16.921Z"
+  },
+  {
+    "_id": "run_1787040680857_9rmcwu",
+    "date": "2026-08-18",
+    "startedAt": "2026-08-18T08:11:20.857Z",
+    "topicsSelected": [],
+    "blogsGenerated": 0,
+    "blogsPublished": 0,
+    "blogsFailed": 0,
+    "status": "failed",
+    "logs": [
+      "[1:41:20 pm] AI Blog Agent initialized.",
+      "[1:41:21 pm] Loaded settings: Generating 10 blogs targeting niche \"IT Training\"",
+      "[1:41:22 pm] Checking existing blog posts for deduplication...",
+      "[1:41:22 pm] Executing topic research generation via AI...",
+      "[1:41:24 pm] Topic research stage failed: AgentRouter structured data generation failed: AgentRouter HTTP error 401: {\"error\":{\"message\":\"unauthorized client detected, contact support for assistance at https://discord.gg/aYq5B4RW3\"},\"message\":\"UNAUTHENTICATED\",\"success\":false,\"type\":\"unauthorized_client_error\"}"
+    ],
+    "errors": [
+      "Topic research stage failed: AgentRouter structured data generation failed: AgentRouter HTTP error 401: {\"error\":{\"message\":\"unauthorized client detected, contact support for assistance at https://discord.gg/aYq5B4RW3\"},\"message\":\"UNAUTHENTICATED\",\"success\":false,\"type\":\"unauthorized_client_error\"}"
+    ],
+    "completedAt": "2026-08-18T08:11:24.754Z"
+  },
+  {
+    "_id": "run_1787040390192_6phgo7",
+    "date": "2026-08-18",
+    "startedAt": "2026-08-18T08:06:30.192Z",
+    "topicsSelected": [],
+    "blogsGenerated": 0,
+    "blogsPublished": 0,
+    "blogsFailed": 0,
+    "status": "failed",
+    "logs": [
+      "[1:36:30 pm] AI Blog Agent initialized.",
+      "[1:36:31 pm] Loaded settings: Generating 10 blogs targeting niche \"IT Training\"",
+      "[1:36:32 pm] Checking existing blog posts for deduplication...",
+      "[1:36:32 pm] Executing topic research generation via AI...",
+      "[1:36:34 pm] Topic research stage failed: AgentRouter structured data generation failed: AgentRouter HTTP error 401: {\"error\":{\"message\":\"unauthorized client detected, contact support for assistance at https://discord.gg/aYq5B4RW3\"},\"message\":\"UNAUTHENTICATED\",\"success\":false,\"type\":\"unauthorized_client_error\"}"
+    ],
+    "errors": [
+      "Topic research stage failed: AgentRouter structured data generation failed: AgentRouter HTTP error 401: {\"error\":{\"message\":\"unauthorized client detected, contact support for assistance at https://discord.gg/aYq5B4RW3\"},\"message\":\"UNAUTHENTICATED\",\"success\":false,\"type\":\"unauthorized_client_error\"}"
+    ],
+    "completedAt": "2026-08-18T08:06:35.006Z"
+  }
+]

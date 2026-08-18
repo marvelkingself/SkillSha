@@ -39,7 +39,10 @@ export async function generateArticle(
   logCallback(`Starting generation of article: "${topic.title}"...`);
   const ai = getAIProvider();
 
-  const systemInstruction = `You are a Senior Technical Writer, SEO Expert, and Educator. Your style is clear, authoritative, human-like, and highly engaging. You write structured, comprehensive articles that provide real value, avoiding generic AI filler words.`;
+  const currentYear = new Date().getFullYear(); // 2026
+  const systemInstruction = `You are a Senior Technical Writer, SEO Expert, and Educator. Your style is clear, authoritative, human-like, and highly engaging. You write structured, comprehensive articles that provide real value, avoiding generic AI filler words.
+
+CRITICAL YEAR INSTRUCTION: The current year is strictly ${currentYear}. Always write content, salary bands, technology stacks, roadmaps, and industry data for ${currentYear}. NEVER refer to ${currentYear - 1} or older years as the present year.`;
 
   const prompt = `
 Write a comprehensive, professional blog post in ${settings.targetLanguage} for the following topic:

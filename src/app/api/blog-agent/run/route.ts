@@ -1,56 +1,45 @@
 import { NextRequest, NextResponse } from "next/server";
 import { execSync } from "child_process";
 import path from "path";
-import { dbConnect } from "@/lib/db";
-import AgentSettings from "@/lib/models/AgentSettings";
-import AgentRun from "@/lib/models/AgentRun";
 import { performTopicResearch } from "@/lib/blog-agent/research";
 import { generateArticle } from "@/lib/blog-agent/generator";
 import { validateAndInjectLinks } from "@/lib/blog-agent/validator";
 import { getImageGenerator } from "@/lib/blog-agent/image-generator";
 import { blogFileManager } from "@/lib/blog-agent/file-manager";
+import {
+  getAgentSettings,
+  createAgentRun,
+  updateAgentRun,
+  appendRunLog,
+  getAgentRunById,
+} from "@/lib/blog-agent/storage";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 300; // Vercel maximum execution limit (5 minutes)
 
+
 export async function POST(req: NextRequest) {
-  await dbConnect();
-  
   // 1. Verify Authentication / Cron Secret
   const authHeader = req.headers.get("Authorization") || req.headers.get("x-admin-secret");
   const cronSecret = process.env.CRON_SECRET || "skillsha-admin-secret-2026";
-  
+
   if (authHeader !== `Bearer ${cronSecret}` && authHeader !== cronSecret) {
     return NextResponse.json({ success: false, error: "Unauthorized endpoint trigger" }, { status: 401 });
   }
 
   // 2. Initialize Agent Run Record
-  const runDate = new Date().toISOString().split("T")[0];
-  const activeRun = await AgentRun.create({
-    date: runDate,
-    status: "running",
-    logs: [`[${new Date().toLocaleTimeString()}] AI Blog Agent initialized.`],
-  });
+  const activeRun = await createAgentRun();
 
   const appendLog = async (msg: string, isError = false) => {
-    const time = new Date().toLocaleTimeString();
-    const formatted = `[${time}] ${msg}`;
-    console.log(formatted);
-    
-    await AgentRun.findByIdAndUpdate(activeRun._id, {
-      $push: { 
-        logs: formatted,
-        ...(isError ? { errors: msg } : {})
-      }
-    });
+    await appendRunLog(activeRun._id, msg, isError);
   };
 
   // Run the generator loop in the background asynchronously
-  runAgentAutomation(activeRun._id.toString(), appendLog).catch(async (err) => {
+  runAgentAutomation(activeRun._id, appendLog).catch(async (err) => {
     await appendLog(`Critical unhandled agent failure: ${err.message || err}`, true);
-    await AgentRun.findByIdAndUpdate(activeRun._id, {
+    await updateAgentRun(activeRun._id, {
       status: "failed",
-      completedAt: new Date(),
+      completedAt: new Date().toISOString(),
     });
   });
 
@@ -67,12 +56,7 @@ export async function POST(req: NextRequest) {
  * SEO optimization, image mapping, and project publishing.
  */
 async function runAgentAutomation(runId: string, log: (msg: string, isErr?: boolean) => Promise<void>) {
-  await dbConnect();
-  
-  let settings = await AgentSettings.findOne();
-  if (!settings) {
-    settings = await AgentSettings.create({});
-  }
+  const settings = await getAgentSettings();
 
   const limit = settings.blogsPerDay || 10;
   await log(`Loaded settings: Generating ${limit} blogs targeting niche "${settings.websiteNiche}"`);
@@ -85,11 +69,11 @@ async function runAgentAutomation(runId: string, log: (msg: string, isErr?: bool
     });
   } catch (err: any) {
     await log(`Topic research stage failed: ${err.message}`, true);
-    await AgentRun.findByIdAndUpdate(runId, { status: "failed", completedAt: new Date() });
+    await updateAgentRun(runId, { status: "failed", completedAt: new Date().toISOString() });
     return;
   }
 
-  await AgentRun.findByIdAndUpdate(runId, {
+  await updateAgentRun(runId, {
     topicsSelected: topics.map((t) => t.title),
   });
 
@@ -99,6 +83,12 @@ async function runAgentAutomation(runId: string, log: (msg: string, isErr?: bool
 
   // Step 2: Loop through topics and construct articles
   for (let i = 0; i < topics.length; i++) {
+    const currentRunState = await getAgentRunById(runId);
+    if (currentRunState?.status === "failed" || (currentRunState?.errors && currentRunState.errors.some(e => e.includes("manually stopped")))) {
+      await log("Execution aborted: Stop requested by admin.");
+      return;
+    }
+
     const topic = topics[i];
     await log(`--- Processing Topic #${i + 1}/${topics.length}: "${topic.title}" ---`);
 
@@ -113,7 +103,7 @@ async function runAgentAutomation(runId: string, log: (msg: string, isErr?: bool
         if (retryCount > 0) {
           await log(`SEO score was low. Regenerating article (Attempt ${retryCount + 1}/${maxRetries})...`);
         }
-        
+
         article = await generateArticle(topic, settings, async (msg) => {
           await log(msg);
         });
@@ -138,56 +128,60 @@ async function runAgentAutomation(runId: string, log: (msg: string, isErr?: bool
     if (!seoResult || seoResult.seoScore < 80) {
       await log(`Topic failed SEO validation threshold of 80 after ${maxRetries} attempts. Skipping topic.`, true);
       blogsFailed++;
-      await AgentRun.findByIdAndUpdate(runId, { blogsFailed });
+      await updateAgentRun(runId, { blogsFailed });
       continue;
     }
 
     blogsGenerated++;
-    await AgentRun.findByIdAndUpdate(runId, { blogsGenerated });
+    await updateAgentRun(runId, { blogsGenerated });
 
     // Step 3: Slugify and verify uniqueness
     const slug = await blogFileManager.getUniqueSlug(seoResult.updatedArticle.title);
     await log(`Assigned unique slug: "/blog/${slug}"`);
 
-    // Step 4: Generate/Fetch Featured Image
+    // Step 4: Generate/Fetch Featured Image (Blue theme & Base64 encoding)
     const publicImagePath = path.join(process.cwd(), "public", "content", "blogs", slug, "featured-image.png");
     let relativeImagePath = "";
+    let base64Image = "";
     try {
-      await log("Triggering Featured Image Generator...");
-      relativeImagePath = await getImageGenerator().generateFeaturedImage(
+      await log("Triggering Blue-Themed Featured Image Generator...");
+      const imgData = await getImageGenerator().generateFeaturedImage(
         seoResult.updatedArticle.title,
         topic.contentType || "AI Engineering",
         publicImagePath
       );
-      await log(`Featured image saved to static path: ${relativeImagePath}`);
+      relativeImagePath = imgData.relativePath;
+      base64Image = imgData.base64;
+      await log(`Featured image generated & encoded to Base64 (Length: ${base64Image.length} chars).`);
     } catch (err: any) {
       await log(`Featured Image generation failed: ${err.message}. Falling back to default styling.`, true);
       relativeImagePath = `/content/blogs/${slug}/featured-image.png`;
     }
 
-    // Step 5: Save JSON File & Mongoose Record
+    // Step 5: Save JSON File & Sync to Supabase DB (including Base64 image)
     try {
       const publishState = settings.autoPublish ? "published" : "review";
-      await log(`Writing files to disk as status "${publishState}"...`);
-      
+      await log(`Syncing post record & Base64 image to Supabase DB with status "${publishState}"...`);
+
       await blogFileManager.writeBlogFiles(
         slug,
         seoResult.updatedArticle,
         topic.contentType || "AI Engineering",
         seoResult.seoScore,
-        publishState
+        publishState,
+        base64Image
       );
 
       if (publishState === "published") {
         blogsPublished++;
-        await AgentRun.findByIdAndUpdate(runId, { blogsPublished });
+        await updateAgentRun(runId, { blogsPublished });
       }
-      
-      await log(`Successfully created files for: "${topic.title}"`);
+
+      await log(`Successfully saved & synced post to Supabase DB: "${topic.title}"`);
     } catch (err: any) {
-      await log(`Saving files failed: ${err.message}`, true);
+      await log(`Saving files & DB sync failed: ${err.message}`, true);
       blogsFailed++;
-      await AgentRun.findByIdAndUpdate(runId, { blogsFailed });
+      await updateAgentRun(runId, { blogsFailed });
     }
   }
 
@@ -209,8 +203,8 @@ async function runAgentAutomation(runId: string, log: (msg: string, isErr?: bool
 
   // Finalize run
   await log(`Agent Automation Job Complete. Generated: ${blogsGenerated}, Published: ${blogsPublished}, Failed: ${blogsFailed}`);
-  await AgentRun.findByIdAndUpdate(runId, {
+  await updateAgentRun(runId, {
     status: "completed",
-    completedAt: new Date(),
+    completedAt: new Date().toISOString(),
   });
 }

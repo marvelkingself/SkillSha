@@ -111,8 +111,8 @@ export default function Footer() {
                 <h3 className="text-sm font-bold text-zinc-800 dark:text-zinc-100 mb-3 tracking-tight">Students Zone</h3>
                 <div className="flex flex-wrap items-center gap-x-1 gap-y-1">
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Blogs</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Summer Training 2025</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Winter Training 2025</a><span className="text-brand-orange text-[10px]">|</span>
+                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Summer Training 2026</a><span className="text-brand-orange text-[10px]">|</span>
+                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Winter Training 2026</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Industrial Training</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Corporate Training</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Placement Assistance</a><span className="text-brand-orange text-[10px]">|</span>
@@ -170,7 +170,7 @@ export default function Footer() {
                 <h3 className="text-sm font-bold text-zinc-800 dark:text-zinc-100 mb-3 tracking-tight">Trending Topics</h3>
                 <div className="flex flex-wrap items-center gap-x-1 gap-y-1">
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">What is Artificial Intelligence?</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">How to Become an AI Engineer in 2025</a><span className="text-brand-orange text-[10px]">|</span>
+                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">How to Become an AI Engineer in 2026</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Best Programming Languages to Learn</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI vs Machine Learning vs Deep Learning</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">How to Build AI Agents</a><span className="text-brand-orange text-[10px]">|</span>
@@ -180,7 +180,7 @@ export default function Footer() {
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Top AI Tools for Startups</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">How to Start a Career in Digital Marketing</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">React vs Angular vs Vue</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Best AI Certifications 2025</a><span className="text-brand-orange text-[10px]">|</span>
+                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Best AI Certifications 2026</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">What is Prompt Engineering?</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">How to Build a SaaS Product</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Top Freelancing Skills in India</a><span className="text-brand-orange text-[10px]">|</span>
