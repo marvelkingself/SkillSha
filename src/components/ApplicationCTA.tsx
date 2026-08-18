@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { track } from "@vercel/analytics";
 
 export default function ApplicationCTA() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0 });
@@ -99,6 +100,7 @@ export default function ApplicationCTA() {
             <button 
               onClick={(e) => {
                 e.preventDefault();
+                track("Button Clicked", { button_name: "ApplicationCTA Apply Now", location: "ApplicationCTA Section" }, { flags: ["show-new-hero-banner"] });
                 if (typeof window !== 'undefined') {
                   window.dispatchEvent(new Event('openCounselingModal'));
                 }

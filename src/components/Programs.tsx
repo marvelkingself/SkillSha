@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { getCourseSlugById } from '@/data/courses';
+import { track } from "@vercel/analytics";
 
 interface IncludeItem {
   name: string;
@@ -802,7 +803,10 @@ export default function Programs({ className = "mt-24" }: { className?: string }
           return (
             <button
               key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
+              onClick={() => {
+                track("Button Clicked", { button_name: `Filter Category: ${cat.name}`, location: "Programs Section" }, { flags: ["show-new-hero-banner"] });
+                setActiveCategory(cat.id);
+              }}
               className={`px-4.5 py-2.5 rounded-full text-xs font-bold tracking-wide whitespace-nowrap transition-all duration-300 cursor-pointer ${
                 isActive
                   ? 'bg-gradient-to-r from-brand-orange to-brand-red text-white shadow-md shadow-brand-orange/20 scale-[1.02]'

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { track } from "@vercel/analytics";
 
 export default function Footer() {
   const [subscribed, setSubscribed] = useState(false);
@@ -17,6 +18,7 @@ export default function Footer() {
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
+    track("Form Submitted", { form_name: "Footer Newsletter Subscription" }, { flags: ["show-new-hero-banner"] });
     setSubscribed(true);
   };
 

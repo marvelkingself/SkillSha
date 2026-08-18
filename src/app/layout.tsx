@@ -1,8 +1,11 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import Script from "next/script";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import { FlagValues } from "flags/react";
+import { showNewHeroBanner } from "@/flags";
 import "./globals.css";
 import GlobalInteraction from "@/components/GlobalInteraction";
 
@@ -25,7 +28,7 @@ export const metadata: Metadata = {
   description: "SkillSha is a live, mentor-led IT training institute in Noida offering AI Engineering, Full-Stack Development, UI/UX Design, and Product Management programs with placement assistance.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -135,6 +138,9 @@ export default function RootLayout({
         }} />
         <SpeedInsights />
         <Analytics />
+        <Suspense fallback={null}>
+          <FlagValues values={{ [showNewHeroBanner.key]: await showNewHeroBanner() }} />
+        </Suspense>
       </body>
     </html>
   );

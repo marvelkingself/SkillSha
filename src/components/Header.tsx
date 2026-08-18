@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { CITIES_LIST } from "@/data/cities";
+import { track } from "@vercel/analytics";
 
 export default function Header() {
   const [isDark, setIsDark] = useState(false);
@@ -194,6 +195,7 @@ export default function Header() {
                       <button 
                         onClick={(e) => {
                           e.preventDefault();
+                          track("Button Clicked", { button_name: "Header Talk to Mentor", location: "Header Dropdown" }, { flags: ["show-new-hero-banner"] });
                           if (typeof window !== 'undefined') {
                             window.dispatchEvent(new Event('openCounselingModal'));
                           }
@@ -281,6 +283,7 @@ export default function Header() {
             <button 
               onClick={(e) => {
                 e.preventDefault();
+                track("Button Clicked", { button_name: "Header Apply Now", location: "Header Desktop" }, { flags: ["show-new-hero-banner"] });
                 if (typeof window !== 'undefined') {
                   window.dispatchEvent(new Event('openCounselingModal'));
                 }

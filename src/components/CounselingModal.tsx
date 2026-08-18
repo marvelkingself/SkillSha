@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { track } from "@vercel/analytics";
 
 export default function CounselingModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,7 @@ export default function CounselingModal() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    track("Form Submitted", { form_name: "Counseling Modal Booking" }, { flags: ["show-new-hero-banner"] });
     try {
       const res = await fetch("/api/booking", {
         method: "POST",

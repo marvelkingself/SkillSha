@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { track } from "@vercel/analytics";
 
 export default function Hero() {
   const [videoOpen, setVideoOpen] = useState(false);
@@ -133,6 +134,7 @@ export default function Hero() {
           <button
             onClick={(e) => {
               e.preventDefault();
+              track("Button Clicked", { button_name: "Hero Start Free Career Counselling", location: "Hero" }, { flags: ["show-new-hero-banner"] });
               if (typeof window !== 'undefined') {
                 window.dispatchEvent(new Event('openCounselingModal'));
               }
