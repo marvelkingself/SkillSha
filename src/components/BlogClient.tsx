@@ -125,7 +125,7 @@ export default function BlogClient() {
       // 1. Fetch WordPress posts
       let wpPosts = [];
       try {
-        const res = await fetch('https://www.skillsha.com/blogs/my-posts-api.php?per_page=20');
+        const res = await fetch('https://skillsha.com/blogs/my-posts-api.php?per_page=20');
         if (res.ok) {
           const data = await res.json();
           if (data.success && Array.isArray(data.posts)) {

@@ -44,10 +44,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         description: "Master digital marketing with Generative AI in Noida. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney. 24-week live/self-paced course with 12+ real projects, GitHub portfolio, and 100% placement support in NCR.",
         keywords: "digital marketing course in noida, digital marketing course with Gen AI noida, digital marketing certification noida, SEO training noida, Google Ads course noida, Meta Ads course noida, AI marketing tools noida, digital marketing institute Sector 62, SkillSha Noida",
         alternates: {
-          canonical: "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
+          canonical: "https://skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
           languages: {
-            "en": "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
-            "x-default": "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
+            "en": "https://skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
+            "x-default": "https://skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
           }
         },
         robots: {
@@ -73,10 +73,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           siteName: "SkillSha",
           title: "Digital Marketing Course in Noida with Gen AI | Certification Training | SkillSha",
           description: "Master digital marketing with Generative AI in Noida. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney. 24-week course with 12+ real projects and placement support in NCR.",
-          url: "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
+          url: "https://skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
           images: [
             {
-              url: "https://www.skillsha.com/files/logo-icon.png",
+              url: "https://skillsha.com/files/logo-icon.png",
               width: 512,
               height: 512,
               alt: "SkillSha - Digital Marketing with Gen AI Course in Noida",
@@ -89,7 +89,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           card: "summary_large_image",
           title: "Digital Marketing Course in Noida with Gen AI | SkillSha",
           description: "Learn SEO, Google & Meta Ads, content marketing, email automation and analytics powered by Generative AI in Noida. 24-week live or self-paced course with real projects and placement support.",
-          images: ["https://www.skillsha.com/files/logo-icon.png"],
+          images: ["https://skillsha.com/files/logo-icon.png"],
         }
       };
     }
@@ -101,10 +101,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         description: "Master digital marketing with Generative AI. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney. 24-week live/self-paced course with 12+ real projects, GitHub portfolio, and placement support.",
         keywords: "digital marketing course, digital marketing course with Gen AI, generative AI marketing course, digital marketing certification, SEO training, Google Ads course, Meta Ads course, AI marketing tools, ChatGPT for marketing, marketing automation course, SkillSha digital marketing",
         alternates: {
-          canonical: "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
+          canonical: "https://skillsha.com/course/digital-marketing-course-with-gen-ai",
           languages: {
-            "en": "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
-            "x-default": "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
+            "en": "https://skillsha.com/course/digital-marketing-course-with-gen-ai",
+            "x-default": "https://skillsha.com/course/digital-marketing-course-with-gen-ai",
           }
         },
         robots: {
@@ -130,10 +130,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           siteName: "SkillSha",
           title: "Digital Marketing Course with Gen AI | Certification Training | SkillSha",
           description: "Master digital marketing with Generative AI. Learn SEO, Google & Meta Ads, content marketing, email automation, and analytics using ChatGPT, Claude & Midjourney. 24-week course with 12+ real projects and placement support.",
-          url: "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
+          url: "https://skillsha.com/course/digital-marketing-course-with-gen-ai",
           images: [
             {
-              url: "https://www.skillsha.com/files/logo-icon.png",
+              url: "https://skillsha.com/files/logo-icon.png",
               width: 512,
               height: 512,
               alt: "SkillSha - Digital Marketing with Gen AI Course",
@@ -146,7 +146,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           card: "summary_large_image",
           title: "Digital Marketing Course with Gen AI | SkillSha",
           description: "Learn SEO, Google & Meta Ads, content marketing, email automation and analytics powered by Generative AI. 24-week live or self-paced course with real projects and placement support.",
-          images: ["https://www.skillsha.com/files/logo-icon.png"],
+          images: ["https://skillsha.com/files/logo-icon.png"],
         }
       };
     }
@@ -161,10 +161,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         description,
         keywords,
         alternates: {
-          canonical: `https://www.skillsha.com/course/${slug}`,
+          canonical: `https://skillsha.com/course/${slug}`,
           languages: {
-            "en": `https://www.skillsha.com/course/${slug}`,
-            "x-default": `https://www.skillsha.com/course/${slug}`,
+            "en": `https://skillsha.com/course/${slug}`,
+            "x-default": `https://skillsha.com/course/${slug}`,
           }
         },
         robots: {
@@ -190,10 +190,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           siteName: "SkillSha",
           title,
           description,
-          url: `https://www.skillsha.com/course/${slug}`,
+          url: `https://skillsha.com/course/${slug}`,
           images: [
             {
-              url: "https://www.skillsha.com/files/logo-icon.png",
+              url: "https://skillsha.com/files/logo-icon.png",
               width: 512,
               height: 512,
               alt: `SkillSha - ${data.title} with Gen AI Course`,
@@ -206,7 +206,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           card: "summary_large_image",
           title,
           description,
-          images: ["https://www.skillsha.com/files/logo-icon.png"],
+          images: ["https://skillsha.com/files/logo-icon.png"],
         }
       };
     }
@@ -271,9 +271,9 @@ export default async function CourseDetailPage({ params }: PageProps) {
     "provider": {
       "@type": "EducationalOrganization",
       "name": "SkillSha",
-      "sameAs": "https://www.skillsha.com"
+      "sameAs": "https://skillsha.com"
     },
-    "url": `https://www.skillsha.com/course/${slug}`,
+    "url": `https://skillsha.com/course/${slug}`,
     "inLanguage": "en",
     "educationalCredentialAwarded": `Certificate of Completion in ${data.title} with Gen AI`,
     "coursePrerequisites": "No prior coding or experience required; beginner-friendly curriculum.",
@@ -295,7 +295,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
       "category": "Paid",
       "price": "13000",
       "priceCurrency": "INR",
-      "url": `https://www.skillsha.com/course/${slug}`,
+      "url": `https://skillsha.com/course/${slug}`,
       "availability": "https://schema.org/InStock",
       "validFrom": "2024-01-01"
     }
@@ -326,12 +326,12 @@ export default async function CourseDetailPage({ params }: PageProps) {
                 "@context": "https://schema.org",
                 "@type": "EducationalOrganization",
                 "name": "SkillSha",
-                "url": "https://www.skillsha.com",
-                "logo": "https://www.skillsha.com/files/logo-icon.png",
+                "url": "https://skillsha.com",
+                "logo": "https://skillsha.com/files/logo-icon.png",
                 "description": "SkillSha is an AI-native academy offering project-based, mentor-led training programs in digital marketing, AI engineering, UI/UX design, data science, product management, algorithmic trading, and graphic design.",
                 "sameAs": [
-                  "https://www.skillsha.com/about",
-                  "https://www.skillsha.com/placement-report"
+                  "https://skillsha.com/about",
+                  "https://skillsha.com/placement-report"
                 ]
               })
             }}
@@ -343,7 +343,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": "SkillSha",
-                "url": "https://www.skillsha.com"
+                "url": "https://skillsha.com"
               })
             }}
           />
@@ -358,13 +358,13 @@ export default async function CourseDetailPage({ params }: PageProps) {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://www.skillsha.com/"
+                    "item": "https://skillsha.com/"
                   },
                   {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Digital Marketing with Gen AI Course",
-                    "item": "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai"
+                    "item": "https://skillsha.com/course/digital-marketing-course-with-gen-ai"
                   }
                 ]
               })
@@ -381,9 +381,9 @@ export default async function CourseDetailPage({ params }: PageProps) {
                 "provider": {
                   "@type": "EducationalOrganization",
                   "name": "SkillSha",
-                  "sameAs": "https://www.skillsha.com"
+                  "sameAs": "https://skillsha.com"
                 },
-                "url": "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
+                "url": "https://skillsha.com/course/digital-marketing-course-with-gen-ai",
                 "inLanguage": "en",
                 "educationalCredentialAwarded": "Certificate of Completion in Digital Marketing with Gen AI",
                 "coursePrerequisites": "No prior marketing experience required; beginner-friendly curriculum.",
@@ -417,7 +417,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
                   "category": "Paid",
                   "price": "13000",
                   "priceCurrency": "INR",
-                  "url": "https://www.skillsha.com/course/digital-marketing-course-with-gen-ai",
+                  "url": "https://skillsha.com/course/digital-marketing-course-with-gen-ai",
                   "availability": "https://schema.org/InStock",
                   "validFrom": "2024-01-01"
                 }
@@ -472,12 +472,12 @@ export default async function CourseDetailPage({ params }: PageProps) {
                 "@context": "https://schema.org",
                 "@type": "EducationalOrganization",
                 "name": "SkillSha Noida",
-                "url": "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
-                "logo": "https://www.skillsha.com/files/logo-icon.png",
+                "url": "https://skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
+                "logo": "https://skillsha.com/files/logo-icon.png",
                 "description": "SkillSha Noida provides high-end, AI-powered digital marketing courses designed to produce top-tier growth marketers in Sector 62 and NCR.",
                 "sameAs": [
-                  "https://www.skillsha.com/about",
-                  "https://www.skillsha.com/placement-report"
+                  "https://skillsha.com/about",
+                  "https://skillsha.com/placement-report"
                 ]
               })
             }}
@@ -493,13 +493,13 @@ export default async function CourseDetailPage({ params }: PageProps) {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://www.skillsha.com/"
+                    "item": "https://skillsha.com/"
                   },
                   {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Digital Marketing Noida",
-                    "item": "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai"
+                    "item": "https://skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai"
                   }
                 ]
               })
@@ -516,9 +516,9 @@ export default async function CourseDetailPage({ params }: PageProps) {
                 "provider": {
                   "@type": "EducationalOrganization",
                   "name": "SkillSha Noida",
-                  "sameAs": "https://www.skillsha.com"
+                  "sameAs": "https://skillsha.com"
                 },
-                "url": "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
+                "url": "https://skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
                 "inLanguage": "en",
                 "educationalCredentialAwarded": "Certificate of Completion in Digital Marketing Noida with Gen AI",
                 "coursePrerequisites": "No prior experience required; beginner-friendly curriculum.",
@@ -552,7 +552,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
                   "category": "Paid",
                   "price": "13000",
                   "priceCurrency": "INR",
-                  "url": "https://www.skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
+                  "url": "https://skillsha.com/course/digital-marketing-course-in-noida-with-gen-ai",
                   "availability": "https://schema.org/InStock",
                   "validFrom": "2024-01-01"
                 }
@@ -599,12 +599,12 @@ export default async function CourseDetailPage({ params }: PageProps) {
                 "@context": "https://schema.org",
                 "@type": "EducationalOrganization",
                 "name": "SkillSha",
-                "url": `https://www.skillsha.com/course/${slug}`,
-                "logo": "https://www.skillsha.com/files/logo-icon.png",
+                "url": `https://skillsha.com/course/${slug}`,
+                "logo": "https://skillsha.com/files/logo-icon.png",
                 "description": "SkillSha is an AI-native academy offering project-based, mentor-led training programs.",
                 "sameAs": [
-                  "https://www.skillsha.com/about",
-                  "https://www.skillsha.com/placement-report"
+                  "https://skillsha.com/about",
+                  "https://skillsha.com/placement-report"
                 ]
               })
             }}
@@ -620,13 +620,13 @@ export default async function CourseDetailPage({ params }: PageProps) {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://www.skillsha.com/"
+                    "item": "https://skillsha.com/"
                   },
                   {
                     "@type": "ListItem",
                     "position": 2,
                     "name": `${data.title} Course`,
-                    "item": `https://www.skillsha.com/course/${slug}`
+                    "item": `https://skillsha.com/course/${slug}`
                   }
                 ]
               })

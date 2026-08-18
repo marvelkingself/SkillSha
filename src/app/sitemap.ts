@@ -5,7 +5,7 @@ import fs from "fs";
 import path from "path";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://www.skillsha.com";
+  const baseUrl = "https://skillsha.com";
 
   // 1. All Static Pages (Excluding the ones requested to be removed)
   const staticRoutes = [

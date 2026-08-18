@@ -110,7 +110,7 @@ export default function DisclaimerPage() {
             </div>
 
             <p className="text-[13px] md:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-semibold max-w-4xl mb-4">
-              At Skillsha – IT Training & Placement Institute, we are committed to protecting your privacy and ensuring transparency in how your information is used. This Cookie Policy explains how we use cookies and similar technologies on our website www.skillsha.com, what types of cookies we use, and how you can control your preferences. This page is provided for informational and compliance purposes and is part of our effort to maintain full transparency with our users. The information shared here is not legally binding and should not be considered legal advice. Our intention is to inform users in a way that respects their rights while ensuring an uninterrupted experience with our website and services.
+              At Skillsha – IT Training & Placement Institute, we are committed to protecting your privacy and ensuring transparency in how your information is used. This Cookie Policy explains how we use cookies and similar technologies on our website skillsha.com, what types of cookies we use, and how you can control your preferences. This page is provided for informational and compliance purposes and is part of our effort to maintain full transparency with our users. The information shared here is not legally binding and should not be considered legal advice. Our intention is to inform users in a way that respects their rights while ensuring an uninterrupted experience with our website and services.
             </p>
           </header>
 

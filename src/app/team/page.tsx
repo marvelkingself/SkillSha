@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     url: "https://skillsha.com/team",
     images: [
       {
-        url: "https://www.skillsha.com/files/logo-icon.png",
+        url: "https://skillsha.com/files/logo-icon.png",
         width: 512,
         height: 512,
         alt: "SkillSha Team",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Meet the Team | SkillSha",
     description: "Get to know the experts, trainers, and career mentors behind SkillSha's AI-native education.",
-    images: ["https://www.skillsha.com/files/logo-icon.png"],
+    images: ["https://skillsha.com/files/logo-icon.png"],
   }
 };
 
@@ -56,7 +56,7 @@ export default function TeamPage() {
             "@type": "EducationalOrganization",
             "name": "SkillSha",
             "url": "https://skillsha.com",
-            "logo": "https://www.skillsha.com/files/logo-icon.png",
+            "logo": "https://skillsha.com/files/logo-icon.png",
             "description": "SkillSha is an AI-native academy offering project-based, mentor-led training programs in digital marketing, AI engineering, UI/UX design, and technology disciplines.",
             "sameAs": [
               "https://skillsha.com/about",
