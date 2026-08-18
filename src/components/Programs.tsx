@@ -905,7 +905,7 @@ export default function Programs({ className = "mt-24" }: { className?: string }
                           {program.includes.map((inc, i) => (
                             <span key={i} className="flex items-center gap-1.5 text-[11px] px-2.5 py-1 bg-zinc-50 dark:bg-white/[0.03] text-zinc-700 dark:text-zinc-300 rounded-lg border border-zinc-200/60 dark:border-white/5 font-medium group-hover:border-zinc-300 dark:group-hover:border-white/10 transition-colors">
                               {inc.domain ? (
-                                <img src={`https://www.google.com/s2/favicons?domain=${inc.domain}&sz=128`} alt="icon" className="w-3.5 h-3.5 object-contain flex-shrink-0" />
+                                <img loading="lazy" src={`https://www.google.com/s2/favicons?domain=${inc.domain}&sz=128`} alt="icon" className="w-3.5 h-3.5 object-contain flex-shrink-0" />
                               ) : (
                                 inc.icon || <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-brand-orange flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
                               )}
@@ -998,7 +998,7 @@ export default function Programs({ className = "mt-24" }: { className?: string }
                                 {program.includes.map((inc, i) => (
                                   <span key={i} className="flex items-center gap-1.5 text-[11px] whitespace-nowrap px-2.5 py-1.5 bg-zinc-100/80 dark:bg-zinc-800/40 text-zinc-700 dark:text-zinc-300 rounded-[8px] border border-zinc-200/80 dark:border-white/5 shadow-sm font-medium">
                                     {inc.domain ? (
-                                      <img src={`https://www.google.com/s2/favicons?domain=${inc.domain}&sz=128`} alt="icon" className="w-3.5 h-3.5 object-contain flex-shrink-0" />
+                                      <img loading="lazy" src={`https://www.google.com/s2/favicons?domain=${inc.domain}&sz=128`} alt="icon" className="w-3.5 h-3.5 object-contain flex-shrink-0" />
                                     ) : (
                                       inc.icon || <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-brand-orange shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
                                     )}

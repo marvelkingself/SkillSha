@@ -194,11 +194,12 @@ export default function Hero() {
                   {/* <div className="absolute inset-0 bg-[url('/files/hero-placeholder.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-1000"></div> */}
 
                   <Image
-                    src="https://img.youtube.com/vi/sgVJPhMHnys/maxresdefault.jpg"
+                    src="https://img.youtube.com/vi/sgVJPhMHnys/hqdefault.jpg"
                     alt="Skillsha Video Preview"
                     width={640}
                     height={360}
                     priority
+                    unoptimized
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
 
@@ -257,33 +258,33 @@ export default function Hero() {
             {[1, 2].map((group) => (
               <div key={group} className="flex gap-3 md:gap-4">
                 <div className="flex items-center justify-center gap-2 md:gap-2.5 px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-[14px] border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-[#161616] shadow-sm hover:scale-[1.02] transition-transform cursor-default flex-shrink-0">
-                  <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=128" alt="OpenAI" className="w-4 h-4 md:w-6 md:h-6 object-contain" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=openai.com&sz=128" alt="OpenAI" className="w-4 h-4 md:w-6 md:h-6 object-contain" />
                   <span className="text-[13px] md:text-[15px] font-semibold text-zinc-900 dark:text-zinc-100">OpenAI</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 md:gap-2.5 px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-[14px] border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-[#161616] shadow-sm hover:scale-[1.02] transition-transform cursor-default flex-shrink-0">
-                  <img src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" className="w-4 h-4 md:w-6 md:h-6 object-contain" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" className="w-4 h-4 md:w-6 md:h-6 object-contain" />
                   <span className="text-[13px] md:text-[15px] font-semibold text-zinc-900 dark:text-zinc-100">Google</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 md:gap-2.5 px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-[14px] border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-[#161616] shadow-sm hover:scale-[1.02] transition-transform cursor-default flex-shrink-0">
-                  <img src="https://www.google.com/s2/favicons?domain=canva.com&sz=128" alt="Canva" className="h-4 md:h-6 w-auto object-contain" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=canva.com&sz=128" alt="Canva" className="h-4 md:h-6 w-auto object-contain" />
                 </div>
                 <div className="flex items-center justify-center gap-2 md:gap-2.5 px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-[14px] border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-[#161616] shadow-sm hover:scale-[1.02] transition-transform cursor-default flex-shrink-0">
-                  <img src="https://www.google.com/s2/favicons?domain=meta.com&sz=128" alt="Meta" className="w-4 h-4 md:w-6 md:h-6 object-contain" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=meta.com&sz=128" alt="Meta" className="w-4 h-4 md:w-6 md:h-6 object-contain" />
                   <span className="text-[13px] md:text-[15px] font-semibold text-zinc-900 dark:text-zinc-100">Meta</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 md:gap-2.5 px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-[14px] border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-[#161616] shadow-sm hover:scale-[1.02] transition-transform cursor-default flex-shrink-0">
-                  <img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft" className="w-4 h-4 md:w-6 md:h-6 object-contain" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft" className="w-4 h-4 md:w-6 md:h-6 object-contain" />
                   <span className="text-[13px] md:text-[15px] font-semibold text-zinc-900 dark:text-zinc-100">Microsoft</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 md:gap-2.5 px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-[14px] border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-[#161616] shadow-sm hover:scale-[1.02] transition-transform cursor-default flex-shrink-0">
-                  <img src="https://www.google.com/s2/favicons?domain=stripe.com&sz=128" alt="Stripe" className="h-6 md:h-8 w-auto object-contain" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=stripe.com&sz=128" alt="Stripe" className="h-6 md:h-8 w-auto object-contain" />
                 </div>
                 <div className="flex items-center justify-center gap-2 md:gap-2.5 px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-[14px] border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-[#161616] shadow-sm hover:scale-[1.02] transition-transform cursor-default flex-shrink-0">
-                  <img src="https://www.google.com/s2/favicons?domain=framer.com&sz=128" alt="Framer" className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=framer.com&sz=128" alt="Framer" className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                   <span className="text-[13px] md:text-[15px] font-semibold text-zinc-900 dark:text-zinc-100">Framer</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 md:gap-2.5 px-3 py-2 md:px-5 md:py-3.5 rounded-xl md:rounded-[14px] border border-zinc-200 dark:border-white/5 bg-zinc-50 dark:bg-[#161616] shadow-sm hover:scale-[1.02] transition-transform cursor-default flex-shrink-0">
-                  <img src="https://www.google.com/s2/favicons?domain=figma.com&sz=128" alt="Figma" className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=figma.com&sz=128" alt="Figma" className="w-3.5 h-3.5 md:w-5 md:h-5 object-contain" />
                   <span className="text-[13px] md:text-[15px] font-semibold text-zinc-900 dark:text-zinc-100">Figma</span>
                 </div>
               </div>

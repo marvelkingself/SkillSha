@@ -25,7 +25,7 @@ export default function Mentors() {
                 <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
                 <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
                 <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
-                  <img src="https://www.google.com/s2/favicons?domain=zoho.com&sz=128" alt="Zoho" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=zoho.com&sz=128" alt="Zoho" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
                   <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Zoho</span>
                 </div>
               </div>
@@ -44,7 +44,7 @@ export default function Mentors() {
                 <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
                 <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
                 <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
-                  <img src="https://www.google.com/s2/favicons?domain=zomato.com&sz=128" alt="Zomato" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=zomato.com&sz=128" alt="Zomato" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
                   <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Zomato</span>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export default function Mentors() {
                 <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
                 <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
                 <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
-                  <img src="https://www.google.com/s2/favicons?domain=razorpay.com&sz=128" alt="Razorpay" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=razorpay.com&sz=128" alt="Razorpay" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
                   <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Razorpay</span>
                 </div>
               </div>
@@ -82,7 +82,7 @@ export default function Mentors() {
                 <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
                 <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
                 <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
-                  <img src="https://www.google.com/s2/favicons?domain=flipkart.com&sz=128" alt="Flipkart" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=flipkart.com&sz=128" alt="Flipkart" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
                   <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Flipkart</span>
                 </div>
               </div>
@@ -101,7 +101,7 @@ export default function Mentors() {
                 <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
                 <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
                 <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
-                  <img src="https://www.google.com/s2/favicons?domain=freshworks.com&sz=128" alt="Freshworks" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
+                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=freshworks.com&sz=128" alt="Freshworks" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
                   <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Freshworks</span>
                 </div>
               </div>

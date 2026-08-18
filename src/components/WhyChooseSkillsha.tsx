@@ -162,15 +162,15 @@ export default function WhyChooseSkillsha() {
             <p className="text-[9px] uppercase tracking-[0.2em] font-extrabold text-zinc-400 dark:text-zinc-500 mb-2">OPERATORS PREVIOUSLY AT</p>
             <div className="grid grid-cols-3 gap-2 text-center text-[11px] font-bold text-zinc-800 dark:text-zinc-300">
               <div className="p-2.5 rounded-xl border border-zinc-200/60 dark:border-white/5 bg-zinc-50/50 dark:bg-white/[0.01] hover:bg-white dark:hover:bg-white/[0.04] transition-colors flex flex-col items-center gap-1.5 justify-center">
-                <img src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" className="w-5 h-5 rounded-md" />
+                <img loading="lazy" src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" className="w-5 h-5 rounded-md" />
                 <span className="text-[10px] leading-none">Google</span>
               </div>
               <div className="p-2.5 rounded-xl border border-zinc-200/60 dark:border-white/5 bg-zinc-50/50 dark:bg-white/[0.01] hover:bg-white dark:hover:bg-white/[0.04] transition-colors flex flex-col items-center gap-1.5 justify-center">
-                <img src="https://www.google.com/s2/favicons?domain=zoho.com&sz=128" alt="Zoho" className="w-5 h-5 rounded-md" />
+                <img loading="lazy" src="https://www.google.com/s2/favicons?domain=zoho.com&sz=128" alt="Zoho" className="w-5 h-5 rounded-md" />
                 <span className="text-[10px] leading-none">Zoho</span>
               </div>
               <div className="p-2.5 rounded-xl border border-zinc-200/60 dark:border-white/5 bg-zinc-50/50 dark:bg-white/[0.01] hover:bg-white dark:hover:bg-white/[0.04] transition-colors flex flex-col items-center gap-1.5 justify-center">
-                <img src="https://www.google.com/s2/favicons?domain=zomato.com&sz=128" alt="Zomato" className="w-5 h-5 rounded-md" />
+                <img loading="lazy" src="https://www.google.com/s2/favicons?domain=zomato.com&sz=128" alt="Zomato" className="w-5 h-5 rounded-md" />
                 <span className="text-[10px] leading-none">Zomato</span>
               </div>
             </div>

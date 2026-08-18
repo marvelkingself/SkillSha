@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import GlobalInteraction from "@/components/GlobalInteraction";
 
@@ -32,20 +33,33 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
+        {/* Warm up third-party origins on the critical path */}
+        <link rel="preconnect" href="https://img.youtube.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Preload LCP Image for instant paint */}
-        <link rel="preload" href="https://img.youtube.com/vi/sgVJPhMHnys/maxresdefault.jpg" as="image" fetchPriority="high" />
+        <link rel="preload" href="https://img.youtube.com/vi/sgVJPhMHnys/hqdefault.jpg" as="image" fetchPriority="high" />
+        {/* Icon font: media="print" so it never blocks first paint, flipped to "all" once loaded */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 var l = document.createElement('link');
                 l.rel = 'stylesheet';
+                l.media = 'print';
+                l.onload = function() { this.media = 'all'; };
                 l.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap';
                 document.head.appendChild(l);
               })();
             `,
           }}
         />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+          />
+        </noscript>
         {/* Simple inline script to read theme from local storage or system preference to prevent flash of wrong theme */}
         <script
           dangerouslySetInnerHTML={{
@@ -120,6 +134,7 @@ export default function RootLayout({
           __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","x90nk88d2u");`
         }} />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

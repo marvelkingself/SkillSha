@@ -363,7 +363,7 @@ export default function Alumni() {
                   >
                     {/* Portrait Photo on the right */}
                     <div className="absolute right-0 bottom-0 top-0 w-[45%] h-full overflow-hidden pointer-events-none z-0">
-                      <img 
+                      <img loading="lazy" 
                         src={profile.photoUrl} 
                         className={`w-full h-full object-cover object-center translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ${
                           profile.flipPhoto ? 'scale-x-[-1.08] scale-y-[1.08]' : 'scale-[1.08]'
@@ -389,7 +389,7 @@ export default function Alumni() {
                         </p>
                         <div className="flex items-center gap-1 sm:gap-1.5 bg-white/10 dark:bg-white/[0.04] border border-zinc-700/30 dark:border-white/10 rounded-md px-1.5 py-0.5 w-fit max-w-full">
                           {profile.domain && (
-                            <img 
+                            <img loading="lazy" 
                               src={`https://www.google.com/s2/favicons?domain=${profile.domain}&sz=128`} 
                               alt={profile.company} 
                               className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 object-contain rounded shrink-0 bg-white p-[1px]" 
@@ -409,7 +409,7 @@ export default function Alumni() {
                 );
               }
               return (
-                <img 
+                <img loading="lazy" 
                   key={index}
                   src={profile.legacyUrl} 
                   className="w-[140px] sm:w-[160px] md:w-[220px] lg:w-[240px] h-auto object-contain rounded-xl md:rounded-2xl snap-center hover:scale-[1.02] transition-transform border border-zinc-200 dark:border-white/5" 
@@ -445,7 +445,7 @@ export function AlumniCompanies() {
             <div className="marquee-left">
               {[...companies, ...companies].map((c, i) => (
                 <div key={i} className="logo-pill">
-                  <img src={`https://www.google.com/s2/favicons?domain=${c.domain}&sz=128`} alt={c.name} />
+                  <img loading="lazy" src={`https://www.google.com/s2/favicons?domain=${c.domain}&sz=128`} alt={c.name} />
                   <span>{c.name}</span>
                 </div>
               ))}
@@ -456,7 +456,7 @@ export function AlumniCompanies() {
             <div className="marquee-right">
               {[...companiesRow2, ...companiesRow2].map((c, i) => (
                 <div key={i} className="logo-pill">
-                  <img src={`https://www.google.com/s2/favicons?domain=${c.domain}&sz=128`} alt={c.name} />
+                  <img loading="lazy" src={`https://www.google.com/s2/favicons?domain=${c.domain}&sz=128`} alt={c.name} />
                   <span>{c.name}</span>
                 </div>
               ))}

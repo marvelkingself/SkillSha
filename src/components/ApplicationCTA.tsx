@@ -37,7 +37,7 @@ export default function ApplicationCTA() {
       <div className="border border-zinc-200 dark:border-white/10 rounded-[24px] p-6 md:p-10 lg:p-12 bg-[#0a0f0d] shadow-sm relative overflow-hidden">
         
         <div className="absolute inset-0 z-0 opacity-40 md:opacity-60 pointer-events-none">
-          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2000&auto=format&fit=crop" alt="Presentation Scene" className="w-full h-full object-cover mix-blend-luminosity" />
+          <img loading="lazy" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2000&auto=format&fit=crop" alt="Presentation Scene" className="w-full h-full object-cover mix-blend-luminosity" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f0d] via-[#0a0f0d]/90 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f0d] via-[#0a0f0d]/70 to-transparent"></div>
         </div>
