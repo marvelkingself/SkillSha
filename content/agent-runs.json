@@ -1,15 +1,51 @@
 [
   {
+    "_id": "run_1787048984618_nmzs8d",
+    "date": "2026-08-18",
+    "startedAt": "2026-08-18T10:29:44.618Z",
+    "topicsSelected": [
+      "Full Stack Developer Roadmap 2026 for Indian Beginners",
+      "6-Month IT Career Switch Plan 2026: Non-IT to Tech Job"
+    ],
+    "blogsGenerated": 1,
+    "blogsPublished": 1,
+    "blogsFailed": 0,
+    "status": "failed",
+    "logs": [
+      "[3:59:44 pm] AI Blog Agent initialized.",
+      "[3:59:45 pm] Loaded settings: Generating 2 blogs targeting niche \"IT Training\"",
+      "[3:59:46 pm] Checking existing blog posts for deduplication...",
+      "[3:59:47 pm] Generating topic research batch 1/1 (2 topics)...",
+      "[3:59:58 pm] Successfully researched and selected 2 total topics.",
+      "[3:59:59 pm] --- Processing Topic #1/2: \"Full Stack Developer Roadmap 2026 for Indian Beginners\" ---",
+      "[4:00:01 pm] Starting generation of article: \"Full Stack Developer Roadmap 2026 for Indian Beginners\"...",
+      "[4:01:54 pm] Starting SEO validation and internal link injection...",
+      "[4:01:57 pm] Compiled 20 potential site targets for internal links.",
+      "[4:02:39 pm] Run manually stopped by admin user.",
+      "[4:03:46 pm] SEO Validation passed with score: 93/100.",
+      "[4:03:50 pm] Assigned unique slug: \"/blog/full-stack-developer-roadmap-2026-for-indian-begin\"",
+      "[4:03:51 pm] Triggering Blue-Themed Featured Image Generator...",
+      "[4:03:53 pm] Featured image generated & encoded to Base64 (Length: 178838 chars).",
+      "[4:03:54 pm] Syncing post record & Base64 image to Supabase DB with status \"published\"...",
+      "[4:03:59 pm] Successfully saved & synced post to Supabase DB: \"Full Stack Developer Roadmap 2026 for Indian Beginners\"",
+      "[4:04:00 pm] Execution aborted: Stop requested by admin."
+    ],
+    "errors": [
+      "Run manually stopped by admin user."
+    ],
+    "completedAt": "2026-08-18T10:32:39.438Z"
+  },
+  {
     "_id": "run_1787048402023_ctpmsn",
     "date": "2026-08-18",
     "startedAt": "2026-08-18T10:20:02.023Z",
     "topicsSelected": [
       "Non-IT to IT Career Switch in India: 6-Month Roadmap 2024"
     ],
-    "blogsGenerated": 0,
-    "blogsPublished": 0,
+    "blogsGenerated": 1,
+    "blogsPublished": 1,
     "blogsFailed": 0,
-    "status": "running",
+    "status": "completed",
     "logs": [
       "[3:50:02 pm] AI Blog Agent initialized.",
       "[3:50:03 pm] Loaded settings: Generating 1 blogs targeting niche \"IT Training\"",
@@ -17,9 +53,27 @@
       "[3:50:05 pm] Retrieved 0 existing blog titles to prevent duplicates.",
       "[3:50:13 pm] Successfully researched and selected 1 total topics.",
       "[3:50:14 pm] --- Processing Topic #1/1: \"Non-IT to IT Career Switch in India: 6-Month Roadmap 2024\" ---",
-      "[3:50:15 pm] Starting generation of article: \"Non-IT to IT Career Switch in India: 6-Month Roadmap 2024\"..."
+      "[3:50:15 pm] Starting generation of article: \"Non-IT to IT Career Switch in India: 6-Month Roadmap 2024\"...",
+      "[3:56:24 pm] Error generating/validating article: AgentRouter structured data generation failed: AgentRouter HTTP error 504: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "[3:56:25 pm] SEO score was low. Regenerating article (Attempt 2/3)...",
+      "[3:56:26 pm] Sending article generation request to AI provider...",
+      "[3:58:12 pm] Starting SEO validation and internal link injection...",
+      "[3:58:12 pm] Sending link injection and SEO audit query to AI...",
+      "[3:59:38 pm] Run manually stopped by admin user.",
+      "[4:00:02 pm] SEO Validation Complete. Score: 93. Passed: true",
+      "[4:00:02 pm] SEO Validation passed with score: 93/100.",
+      "[4:00:04 pm] Assigned unique slug: \"/blog/how-to-switch-from-non-it-to-it-career-in-india-6\"",
+      "[4:00:05 pm] Triggering Blue-Themed Featured Image Generator...",
+      "[4:00:06 pm] Featured image generated & encoded to Base64 (Length: 172834 chars).",
+      "[4:00:08 pm] Syncing post record & Base64 image to Supabase DB with status \"published\"...",
+      "[4:00:10 pm] Successfully saved & synced post to Supabase DB: \"Non-IT to IT Career Switch in India: 6-Month Roadmap 2024\"",
+      "[4:00:11 pm] Agent Automation Job Complete. Generated: 1, Published: 1, Failed: 0"
     ],
-    "errors": []
+    "errors": [
+      "Error generating/validating article: AgentRouter structured data generation failed: AgentRouter HTTP error 504: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "Run manually stopped by admin user."
+    ],
+    "completedAt": "2026-08-18T10:30:12.565Z"
   },
   {
     "_id": "run_1787047352672_29kioj",
