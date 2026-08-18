@@ -64,32 +64,35 @@ export class DefaultImageGenerator implements ImageProvider {
   }
 
   private createBlueAbstractSVG(title: string, category: string): string {
-    const escapedTitle = title
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&apos;")
-      .replace(/:/g, "&#58;");
+    const cleanCategory = (category || "AI Engineering").toUpperCase().replace(/&/g, "&amp;");
 
-    const cleanCategory = category.toUpperCase();
-
-    // Word wrap title into two lines for SVG presentation
-    const words = escapedTitle.split(" ");
-    let line1 = "";
-    let line2 = "";
+    // Word wrap title on raw string FIRST to avoid cutting XML entities like &amp;
+    const words = title.split(" ");
+    let rawLine1 = "";
+    let rawLine2 = "";
 
     for (const word of words) {
-      if ((line1 + word).length < 25) {
-        line1 += (line1 ? " " : "") + word;
-      } else if ((line2 + word).length < 28) {
-        line2 += (line2 ? " " : "") + word;
+      if ((rawLine1 + word).length < 25) {
+        rawLine1 += (rawLine1 ? " " : "") + word;
+      } else if ((rawLine2 + word).length < 28) {
+        rawLine2 += (rawLine2 ? " " : "") + word;
       } else {
-        if (line2 && !line2.endsWith("...")) {
-          line2 += "...";
+        if (rawLine2 && !rawLine2.endsWith("...")) {
+          rawLine2 += "...";
         }
       }
     }
+
+    const escapeXml = (str: string) =>
+      str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&apos;");
+
+    const line1 = escapeXml(rawLine1);
+    const line2 = escapeXml(rawLine2);
 
     return `
       <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
