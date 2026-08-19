@@ -5,7 +5,7 @@ import { AgentSettingsData } from "./storage";
 export interface ArticleSection {
   heading: string;
   level: 2 | 3;
-  content: string; // Strictly clean, valid HTML formatting (paragraphs, strong, lists, tables)
+  content: string; // Clean HTML content (<p>, <strong>, <ul>, <li>, <table>, <a>)
 }
 
 export interface ArticleFAQ {
@@ -25,11 +25,15 @@ export interface GeneratedArticle {
   faqs: ArticleFAQ[];
   conclusion: string;
   ctaText: string;
+  faqSchema?: string;
+  primaryCourseMatched?: string;
+  primaryCityMatched?: string;
+  internalLinksUsed?: string[];
 }
 
 /**
  * Content Generation Agent.
- * Generates an article based strictly on the Skillsha.com SEO/GEO/AEO prompt guidelines.
+ * Generates an article based strictly on the Skillsha.com Advanced Blog Generation Prompt (SEO + GEO + AEO).
  */
 export async function generateArticle(
   topic: ResearchTopic,
@@ -40,22 +44,21 @@ export async function generateArticle(
   const ai = getAIProvider();
 
   const currentYear = new Date().getFullYear(); // 2026
-  
-  const systemInstruction = `You are a Senior SEO Content Writer, GEO, and AEO specialist for Skillsha.com. You write highly engaging, professional, and factual technical articles in India's ed-tech context. You output strictly raw JSON matching the requested schema.`;
+
+  const systemInstruction = `You are an expert SEO content writer for Skillsha.com, an ed-tech platform offering job-oriented courses (Data Science, Data Analytics, Digital Marketing, Web Development, Business Analytics, Cloud Computing, etc.) with placement assistance in India.
+
+Your job: write a complete, publish-ready blog post for the given TITLE that is simultaneously optimized for:
+- SEO (Google ranking)
+- GEO (Generative Engine Optimization — so AI engines like ChatGPT, Gemini, Perplexity, Google AI Overviews cite/recommend this content)
+- AEO (Answer Engine Optimization — so it wins featured snippets, "People Also Ask", and voice search answers)
+
+CRITICAL YEAR CONTEXT: The current year is strictly ${currentYear}. Always use ${currentYear} for timelines, roadmaps, career guides, course fee comparisons, and tech trends. NEVER output outdated years like ${currentYear - 1}, ${currentYear - 2}, or older.`;
 
   const prompt = `
 # Skillsha.com — Advanced Blog Generation Prompt (SEO + GEO + AEO)
 
 ## ROLE
-You are an expert SEO content writer for **Skillsha.com**, an ed-tech platform offering
-job-oriented courses (Data Science, Data Analytics, Digital Marketing, Web Development,
-Business Analytics, Cloud Computing, etc.) with placement assistance in India.
-
-Your job: write a complete, publish-ready blog post for the given TITLE that is
-simultaneously optimized for:
-- **SEO** (Google ranking)
-- **GEO** (Generative Engine Optimization — so AI engines like ChatGPT, Gemini, Perplexity, Google AI Overviews cite/recommend this content)
-- **AEO** (Answer Engine Optimization — so it wins featured snippets, "People Also Ask", and voice search answers)
+You are an expert SEO content writer for **Skillsha.com**, an ed-tech platform offering job-oriented courses (Data Science, Data Analytics, Digital Marketing, Web Development, Business Analytics, Cloud Computing, etc.) with placement assistance in India.
 
 Given Input:
 - **TITLE**: "${topic.title}"
@@ -63,8 +66,8 @@ Given Input:
 - **Secondary Keywords**: ${JSON.stringify(topic.secondaryKeywords)}
 - **Niche/Context**: "${settings.websiteNiche}"
 - **Target Audience**: "${topic.targetAudience}"
-- **Target Country**: "${settings.targetCountry || 'India'}"
-- **Language**: "${settings.targetLanguage || 'English'}"
+- **Target Country**: "${settings.targetCountry || "India"}"
+- **Language**: "${settings.targetLanguage || "English"}"
 - **Word Count Targets**: Minimum ${settings.minWords} words, Maximum ${settings.maxWords} words.
 - **Current Year**: ${currentYear}
 
@@ -72,124 +75,113 @@ Given Input:
 
 ## STEP 1 — ANALYZE THE TITLE
 Detect:
-- **Primary Course** → match against the Course List below (closest relevance)
-- **Primary City** (if any city is present in the title) → match against City List
-- **Search Intent** → informational / comparison / "how to start" / career / salary / fees / placement
+- **Primary Course** -> match against: Data Science, Data Analytics, Digital Marketing, Business Analytics, Web Development, Cloud Computing.
+- **Primary City** -> detect if any Indian city (Noida, Delhi, Gurgaon, Mumbai, Pune, Bangalore, Hyderabad, Chennai, Ahmedabad) is present in the title.
+- **Search Intent** -> informational / comparison / "how to start" / career / salary / fees / placement.
 
-If no city is mentioned in the title, still proceed — city-targeting happens in the
-Internal Linking section (Step 5), not in the main body.
+If no city is mentioned in the title, still proceed — city-targeting happens in the Internal Linking section (Step 5), not in the main body.
 
 ---
 
 ## STEP 2 — CONTENT STRUCTURE (SEO)
-Write 1200–1800 words (or at least ${settings.minWords} words) with this structure:
-1. **SEO Title** (max 60 chars, primary keyword near the start)
+Write ${settings.minWords}–${settings.maxWords} words with this structure:
+1. **SEO Title** (max 60 chars, primary keyword near start)
 2. **Meta Description** (max 155 chars, includes primary keyword + a CTA)
-3. **URL Slug** (short, hyphenated, keyword-only, no stop words)
-4. **H1** — same intent as title, natural language, not keyword-stuffed
-5. **Intro (100–150 words)** — answer the core question in the FIRST 2–3 sentences (critical for AEO/GEO)
-6. **H2/H3 sections** covering:
+3. **URL Slug** (short, hyphenated, keyword-only)
+4. **H1** — same intent as title, natural language
+5. **Intro (100–150 words)** — answer the core question in the FIRST 2–3 sentences (critical for AEO/GEO). Include a "Key Takeaways" / "TL;DR" box near the top (3–5 bullet points) formatted as a div.
+6. **H2/H3 Sections** covering:
    - What the course/topic is
-   - Why it matters / industry demand (use real current stats, cite source)
+   - Why it matters / industry demand (real current stats, cite source)
    - Skills covered / curriculum highlights
-   - Career scope, salary ranges, job roles
+   - Career scope, salary ranges (in LPA), job roles
    - Who should learn this (target audience)
    - How to get started (step-by-step)
-7. **FAQ section (4–6 Q&As)** — use actual "People Also Ask"-style questions, short 40–60 word direct answers (AEO gold)
-8. **Internal Linking / Course Promotion section** (see Step 5 — mandatory)
-9. **Conclusion + single clear CTA** linking to the matched course page
+7. **FAQ Section (4–6 Q&As)** — use "People Also Ask"-style questions, short 40–60 word direct answers (AEO gold targets for position zero).
+8. **Internal Linking / Course Promotion Section** (Step 5 — mandatory H2 "Related Courses Near You").
+9. **Conclusion + Single Clear CTA** linking to Skillsha courses.
 
 Formatting rules (STRICT):
-- **DO NOT output raw markdown symbols such as **, __, ##, ###, * (for lists), or backticks.**
-- Use **proper HTML tags** to format the output content. Use <p> for paragraphs, <strong> for bold text, <ul> and <li> for lists, and <table> for comparison tables.
-- Keyword in H1, first 100 words, one H2, and meta description.
-- Short paragraphs (2–4 lines), bullet points for lists, bold key terms.
-- Add at least 1 comparison table or numbered list.
-- Use LSI/related keywords naturally.
+- Write all content strictly using clean, valid HTML tags (<p>, <strong>, <ul>, <ol>, <li>, <table>, <thead>, <tbody>, <tr>, <th>, <td>, <a>). Do NOT use raw markdown formatting like **, ##, ###, or raw space-separated text columns.
+- Whenever presenting comparison data or salary benchmarks, write a structured HTML <table> with <thead>, <tr>, <th>, <tbody>, and <td>.
+- Use LSI/related keywords naturally ("course fees", "eligibility", "certification", "syllabus", "online vs offline", "placement support").
 
 ---
 
 ## STEP 3 — GEO RULES (Generative Engine Optimization)
-- Write answers as standalone statements that make sense even if quoted out of context (don't say "as mentioned above" — restate the fact).
-- Use clear definitional sentences: "X is..." / "X means..." / "The average salary for X is ₹Y".
+- Write answers as standalone statements that make sense even if quoted out of context (don't say "as mentioned above").
+- Use clear definitional sentences ("X is...", "The average salary for X is ₹Y LPA").
 - Include specific numbers, timeframes, and data points.
-- Structure content in Q&A pairs and numbered/bulleted lists (using HTML tags).
-- Add a short "Key Takeaways" or "TL;DR" box near the top (3–5 bullet points) — style it as a div with class "bg-zinc-50 dark:bg-zinc-900/50 p-4 border border-zinc-200/50 dark:border-white/5 rounded-2xl mb-6".
-- Avoid fluff, marketing hype, and filler intros.
-- Mention Skillsha by name at least once in a factual, non-promotional sentence (e.g., "Institutes like Skillsha offer live, mentor-led programs with placement support").
+- Include a "Key Takeaways" or "TL;DR" box near top (3-5 bullet points) formatted as: <div class="bg-zinc-50 dark:bg-zinc-900/50 p-4 border border-zinc-200/50 dark:border-white/5 rounded-2xl mb-6">
+- Mention Skillsha by name at least once in a factual, non-promotional sentence (e.g. "Institutes like Skillsha offer live, mentor-led programs with placement support").
 
 ---
 
 ## STEP 4 — AEO RULES (Answer Engine Optimization)
-- Every FAQ answer must be directly answerable in the first sentence, then optionally expanded in 1–2 more sentences.
-- Use question-form H2/H3s where natural (e.g., "How much does a Data Analytics course cost?").
-- Target "position zero" by answering in under 60 words for at least 3 of the FAQs (ideal snippet length).
-- Include comparison-style content ("X vs Y") wherever the title implies choice.
+- Every FAQ answer must be directly answerable in the first sentence (under 60 words for position zero).
+- Use question-form H2/H3 headings where natural (e.g. "How much does a Data Analytics course cost?").
+- Generate valid FAQPage JSON-LD schema markup for the FAQ section in the "faqSchema" field.
 
 ---
 
-## STEP 5 — INTERNAL LINKING / COURSE-CITY SECTION (MANDATORY — DO NOT SKIP)
-Insert this as its own H2 section titled "Related Courses Near You" just before the conclusion.
-1. Identify the Primary Course matched in Step 1.
-2. From the Course-City Keyword Map below, pull all cities mapped to that course.
-3. Write 3–5 natural sentences that embed these course+city combinations as anchor text linking to the course page.
-4. Also include 1–2 cross-sell links to a secondary, related course.
-5. Every link must point to the real course URL pattern using HTML anchor tags: <a href="/courses/<course-slug>?loc=<city-slug>"><strong><course name> course in <city></strong></a>
-6. Bold the course+city keyword phrase itself once per paragraph for on-page SEO signal, but keep the writing conversational.
+## STEP 5 — INTERNAL LINKING / COURSE-CITY SECTION (MANDATORY)
+Insert a dedicated H2 section titled "Related Courses Near You" just before the conclusion.
+Logic:
+1. Identify the Primary Course matched.
+2. From the Course-City Keyword Map below, pull ALL target cities mapped to that course.
+3. Write 3–5 natural sentences embedding course+city anchor text pointing to /courses/COURSE_SLUG?loc=CITY_SLUG.
+4. Include 1–2 cross-sell links to a secondary, related course.
+5. Format every link using HTML: <a href="/courses/COURSE_SLUG?loc=CITY_SLUG"><strong>COURSE_NAME course in CITY_NAME</strong></a>.
 
-### Course → City Keyword Map
-| Course | Slug | Target Cities (use ALL for that course) |
-|---|---|---|
-| Data Science | data-science | Noida, Delhi, Gurgaon, Mumbai, Pune, Bangalore, Hyderabad |
-| Data Analytics | data-analytics | Noida, Delhi, Pune, Mumbai, Chennai, Bangalore |
-| Digital Marketing | digital-marketing | Noida, Delhi, Bangalore, Mumbai, Pune, Ahmedabad |
-| Business Analytics | business-analytics | Delhi, Gurgaon, Mumbai, Bangalore, Hyderabad |
-| Web Development | web-development | Noida, Delhi, Bangalore, Pune, Chennai |
-| Cloud Computing | cloud-computing | Bangalore, Hyderabad, Pune, Noida, Delhi |
+### Course -> City Keyword Map:
+- Data Science (slug: data-science): Noida, Delhi, Gurgaon, Mumbai, Pune, Bangalore, Hyderabad
+- Data Analytics (slug: data-analytics): Noida, Delhi, Pune, Mumbai, Chennai, Bangalore
+- Digital Marketing (slug: digital-marketing): Noida, Delhi, Bangalore, Mumbai, Pune, Ahmedabad
+- Business Analytics (slug: business-analytics): Delhi, Gurgaon, Mumbai, Bangalore, Hyderabad
+- Web Development (slug: web-development): Noida, Delhi, Bangalore, Pune, Chennai
+- Cloud Computing (slug: cloud-computing): Bangalore, Hyderabad, Pune, Noida, Delhi
+
+Use both keyword patterns across paragraphs: "COURSE_NAME course in CITY_NAME" and "COURSE_NAME course in CITY_NAME with placement".
 
 ---
 
-## STEP 6 — OUTPUT FORMAT
+## STEP 6 — OUTPUT JSON FORMAT
+Return strictly a raw JSON object matching this TypeScript schema:
 
-You must output your complete response as a valid JSON object matching the following structure.
-IMPORTANT: To prevent raw markdown symbols (like **, ##, ###, *, or markdown tables) from showing directly to the reader, you MUST write the text inside the "introduction", "sections" content, and "conclusion" strictly using clean, valid HTML markup (such as <p>, <strong>, <ul>, <ol>, <li>, and <table>). Do not include markdown codeblocks (like \`\`\`) in the values of the JSON.
-
-JSON Structure:
 {
-  "title": "SEO Title (H1 equivalent)",
+  "title": "SEO Title (H1)",
   "metaTitle": "SEO Meta Title (max 60 chars)",
   "metaDescription": "SEO Meta Description (max 155 chars)",
   "excerpt": "Short 2-sentence summary excerpt",
   "primaryKeyword": "${topic.primaryKeyword}",
   "secondaryKeywords": ${JSON.stringify(topic.secondaryKeywords)},
-  
-  "introduction": "Introductory paragraphs in clean HTML (using &lt;p&gt; and &lt;strong&gt;). Must include the Key Takeaways / TL;DR box formatted as a div with class 'bg-zinc-50 dark:bg-zinc-900/50 p-4 border border-zinc-200/50 dark:border-white/5 rounded-2xl mb-6' containing 3-5 bullet points.",
-  
+  "introduction": "Introductory paragraphs in clean HTML including TL;DR div box.",
   "sections": [
     {
       "heading": "Heading Text",
       "level": 2,
-      "content": "Body text in clean HTML using &lt;p&gt;, &lt;strong&gt;, &lt;ul&gt;, &lt;li&gt;, and &lt;table&gt;. Do not use markdown tags."
+      "content": "Body text in clean HTML using <p>, <strong>, <ul>, <li>, and <table>."
     }
   ],
-  
   "faqs": [
     {
       "question": "Question text?",
-      "answer": "Answer text (direct first sentence, under 60 words)."
+      "answer": "Direct answer text (under 60 words)."
     }
   ],
-  
   "conclusion": "Concluding paragraphs in clean HTML.",
-  "ctaText": "CTA button text (e.g. Explore Data Science Masterclass)"
+  "ctaText": "CTA button text (e.g. Explore Data Science Masterclass)",
+  "faqSchema": "<script type=\"application/ld+json\">...</script>",
+  "primaryCourseMatched": "Matched course name",
+  "primaryCityMatched": "Matched city name if any",
+  "internalLinksUsed": ["/courses/data-science?loc=noida", "/courses/data-science?loc=delhi"]
 }
 
 ---
 
 ## GUARDRAILS
-- Never fabricate salary figures, rankings, or stats. Use realistic typical ranges.
-- Never claim partnerships or guarantees not verified by Skillsha.
-- Keep tone helpful first, promotional second.
+- Never fabricate salary figures or false guarantees. Use realistic typical ranges (e.g. "typically ₹X–Y LPA depending on experience").
+- Keep tone helpful and informative first, promotional second.
 - Output ONLY the raw JSON string. Do not wrap in markdown codeblocks.
 `;
 

@@ -13,9 +13,10 @@ export interface ResearchTopic {
 }
 
 /**
- * Topic Research Agent.
- * Researches and generates unique blog topics based on configured agent settings
- * and existing blog titles to avoid duplicates.
+ * Topic Research Agent for Skillsha.com.
+ * Researches and generates unique blog topics aligned with SEO + GEO + AEO goals
+ * targeting Skillsha courses (Data Science, Data Analytics, Digital Marketing, Business Analytics, Web Development, Cloud Computing)
+ * and city locations.
  */
 export async function performTopicResearch(
   settings: AgentSettingsData,
@@ -31,7 +32,8 @@ export async function performTopicResearch(
   const ai = getAIProvider();
 
   const currentYear = new Date().getFullYear(); // 2026
-  const systemInstruction = `You are an expert Content Research & SEO Specialist Agent. Your goal is to find highly engaging, search-intent optimized, and trending topics that will rank well on search engines. Avoid duplication at all costs.
+  const systemInstruction = `You are an expert SEO, GEO, and AEO Content Research Specialist for Skillsha.com, an ed-tech platform in India.
+Your goal is to find highly engaging, search-intent optimized, and trending topics that will rank well on search engines and win AI answers in ChatGPT, Gemini, Perplexity, and Google AI Overviews.
 
 CRITICAL YEAR INSTRUCTION: The current year is strictly ${currentYear}. All roadmaps, timelines, guides, course fees, and trend topics MUST use ${currentYear} (e.g. "Full Stack Developer Roadmap ${currentYear}", "6-Month Career Switch Guide ${currentYear}"). NEVER output outdated years like ${currentYear - 1}, ${currentYear - 2}, or older.`;
 
@@ -46,25 +48,35 @@ CRITICAL YEAR INSTRUCTION: The current year is strictly ${currentYear}. All road
     const knownTitles = [...existingTitles, ...allTopics.map((t) => t.title)];
 
     const prompt = `
-Generate a list of exactly ${currentBatchCount} unique, high-value, long-tail keyword-focused blog topics for the following niche/website:
-- **Niche**: ${settings.websiteNiche}
+Generate a list of exactly ${currentBatchCount} unique, high-value, long-tail keyword-focused blog topics for Skillsha.com:
+- **Core Courses**: Data Science, Data Analytics, Digital Marketing, Business Analytics, Web Development, Cloud Computing.
+- **Target Cities (Optional in title)**: Noida, Delhi, Gurgaon, Mumbai, Pune, Bangalore, Hyderabad, Chennai, Ahmedabad.
+- **Niche/Context**: ${settings.websiteNiche}
 - **Target Audience**: ${settings.targetAudience}
-- **Target Country**: ${settings.targetCountry}
-- **Language**: ${settings.targetLanguage}
+- **Target Country**: ${settings.targetCountry || "India"}
+- **Language**: ${settings.targetLanguage || "English"}
+- **Current Year**: ${currentYear}
 
 Here are the titles of blogs that ALREADY exist. DO NOT generate topics that are identical, highly similar, or semantically redundant with these:
 ${knownTitles.length > 0 ? knownTitles.slice(0, 30).map((t) => `- ${t}`).join("\n") : "(No existing blogs)"}
 
-For each topic, output a structured JSON object:
-1. "title": An engaging, SEO-optimized title (max 70 chars).
-2. "primaryKeyword": The main keyword target.
-3. "secondaryKeywords": An array of 3-5 related search terms.
-4. "searchIntent": Search intent (e.g. "informational", "commercial").
-5. "targetAudience": Who this article speaks to.
-6. "contentType": Post style (e.g. "Guide", "Tutorial", "Case Study").
-7. "reasonForSelection": Concise 1-sentence explanation of search demand.
+Search Intents to target across topics:
+- Informational ("What is...", "Guide to...")
+- Comparison ("X vs Y", "Online vs Offline")
+- "How to Start" / Career Switch Roadmaps
+- Fees & Salary Insights ("Course Fees in 2026", "Salary after 30")
+- Placement & Job Eligibility
 
-Your output must be a valid JSON array of objects. Do not wrap in markdown codeblocks except JSON itself. Return ONLY the raw JSON array.
+For each topic, output a structured JSON object:
+1. "title": An engaging, SEO-optimized title (max 70 chars). Include ${currentYear} where natural.
+2. "primaryKeyword": The main keyword target.
+3. "secondaryKeywords": An array of 3-5 related search terms (e.g. "course fees", "syllabus", "placement support", "eligibility").
+4. "searchIntent": Search intent (e.g. "informational", "comparison", "commercial").
+5. "targetAudience": Who this article speaks to.
+6. "contentType": Post style (e.g. "Guide", "Tutorial", "Comparison", "Career Switch").
+7. "reasonForSelection": Concise 1-sentence explanation of search demand and AEO snippet opportunity.
+
+Your output must be a valid JSON array of objects. Return ONLY the raw JSON array.
 `;
 
     const batchTopics = await ai.generateStructuredData<ResearchTopic[]>(prompt, null, systemInstruction);
@@ -73,7 +85,6 @@ Your output must be a valid JSON array of objects. Do not wrap in markdown codeb
       allTopics.push(...batchTopics);
       logCallback(`Batch ${b + 1} completed. Accumulated ${allTopics.length}/${count} topics.`);
     } else if (batchTopics && typeof batchTopics === "object") {
-      // Single object fallback
       allTopics.push(batchTopics as any);
     }
   }
