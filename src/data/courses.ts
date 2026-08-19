@@ -2610,8 +2610,8 @@ export const COURSES_DATA: Record<string, CourseData> = {
       {
         milestone: 1,
         codename: "AURA",
-        tagline: "Build Your AI Writing Assistant",
-        description: "Develop a custom-tailored prompt library for generating ad copy hooks, email drip sequences, and blog posts with high CTR ratings.",
+        tagline: "Automated Data Cleansing Pipeline",
+        description: "Build a Python-based automated dataset parser to clean messy CSV files, impute missing values, handle outliers, and generate automated EDA profiling reports.",
         bg: "#F9C5C0",
         shape: "star4"
       },
@@ -2634,8 +2634,8 @@ export const COURSES_DATA: Record<string, CourseData> = {
       {
         milestone: 4,
         codename: "SPARK",
-        tagline: "SQL Query Optimizer",
-        description: "Create an automated database query writer and indexing database pipeline using LLM routing.",
+        tagline: "Predictive Analytics Dashboard",
+        description: "Develop an interactive visual dashboard using Streamlit to visualize business performance metrics and time-series sales forecasts.",
         bg: "#F9E4C5",
         shape: "starburst"
       }
@@ -2885,7 +2885,7 @@ export const COURSES_DATA: Record<string, CourseData> = {
           {
             title: "Data Analytics Specialist",
             availability: "Immediate Placement",
-            duties: "Performs deep-dive analysis on user behavior and e-commerce transactions to identify leaks and opportunities in business funnels.",
+            duties: "Performs deep-dive analysis on organizational databases and transactional datasets to identify operational bottlenecks and growth opportunities.",
             keyPoints: [
               "Analyze customer cohorts and churn parameters",
               "Run hypothesis testing and statistical models",
@@ -2959,7 +2959,7 @@ export const COURSES_DATA: Record<string, CourseData> = {
         },
         {
           name: "Isha T. (Germany)",
-          before: "Marketing Coordinator",
+          before: "Sales Operations Assistant",
           after: "BI Analyst, €50k/year",
           body: "Isha switched careers into data science after several years in a different industry. She found the machine learning and Gen AI modules especially useful, since they matched what employers in her target roles were actually asking about.",
           result: "Transitioned to business intelligence"
