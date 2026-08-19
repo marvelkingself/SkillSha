@@ -2704,59 +2704,88 @@ export const COURSES_DATA: Record<string, CourseData> = {
           ]
         }
       ],
+      toolsSubtext: "Master the complete Data Science, Machine Learning & Gen AI ecosystem through practical tools, technologies, and real-world workflows. Instead of learning tools as a static list, you'll learn how to use them together across the complete data science lifecycle — from data collection and analysis to machine learning, visualization, and AI-powered solutions.",
       skills: [
         {
-          category: "Programming & Data Skills",
+          category: "Python & Data Analysis",
           list: [
-            "Python programming basics & syntax",
-            "NumPy for numerical calculations and arrays",
-            "Pandas for cleaning and organizing dataframes",
-            "Handling missing values and data inconsistencies"
+            "Python — Programming fundamentals, functions, OOP, data structures & automation",
+            "NumPy — Numerical computing, arrays, mathematical operations & data processing",
+            "Pandas — Data cleaning, transformation, manipulation & analysis",
+            "Jupyter Notebook — Interactive data analysis, experimentation & documentation",
+            "SQL — Database querying, joins, subqueries, CTEs, window functions & analytics"
           ]
         },
         {
-          category: "Statistics & Analytical Skills",
+          category: "Data Visualization & BI",
           list: [
-            "Descriptive statistics (mean, variance, SD)",
-            "Probability concepts explained simply",
-            "Hypothesis testing (p-values, T-tests)",
-            "A/B testing setup and analysis"
+            "Matplotlib — Statistical and analytical visualizations",
+            "Seaborn — Advanced statistical data visualization",
+            "Power BI — Interactive dashboards, reports, KPIs & business analytics",
+            "Excel — Data analysis, formulas, pivot tables & reporting"
           ]
         },
         {
-          category: "Machine Learning Skills",
+          category: "Machine Learning",
           list: [
-            "Supervised classification and regression",
-            "Unsupervised clustering algorithms",
-            "Feature engineering and selection APIs",
-            "Hyperparameter tuning and evaluation"
+            "Scikit-learn — Classification, regression, clustering & model evaluation",
+            "Supervised Learning — Regression and classification algorithms",
+            "Unsupervised Learning — Clustering, dimensionality reduction & pattern discovery",
+            "Feature Engineering — Feature selection, transformation & optimization",
+            "Model Evaluation — Accuracy, precision, recall, F1-score, ROC-AUC & cross-validation"
           ]
         },
         {
-          category: "SQL & Database Skills",
+          category: "Deep Learning & AI",
           list: [
-            "Writing efficient SQL query select statements",
-            "Joining tables and aggregating data",
-            "Using AI to write and optimize queries",
-            "Relational database schema modeling"
+            "TensorFlow / Keras — Neural networks and deep learning models",
+            "PyTorch — Deep learning and AI model development",
+            "Neural Networks — Core concepts, architectures & training",
+            "Computer Vision — Image classification and visual data processing",
+            "NLP — Natural language processing and text-based AI applications"
           ]
         },
         {
-          category: "Data Visualization Skills",
+          category: "Gen AI & AI-Powered",
           list: [
-            "Creating charts using Matplotlib & Seaborn",
-            "Designing business intelligence dashboards",
-            "Telling data stories visually to leadership",
-            "Google Looker Studio & Power BI fundamentals"
+            "ChatGPT — Python assistance, SQL generation, data analysis & problem solving",
+            "Claude — Advanced reasoning, coding assistance & data workflows",
+            "Prompt Engineering — Designing effective prompts for professional data tasks",
+            "Generative AI — Understanding LLMs, AI workflows & practical applications",
+            "AI-Assisted Coding — Generate, debug, optimize and document Python & SQL",
+            "AI Data Analysis — Use AI to accelerate exploration, insights and reporting"
           ]
         },
         {
-          category: "Gen AI & AI-Assisted Skills",
+          category: "Databases & Data Eng",
           list: [
-            "LLM prompting and system instructions",
-            "AI-assisted coding with Claude & ChatGPT",
-            "RAG (Retrieval-Augmented Generation) setups",
-            "Double-checking AI models output against facts"
+            "MySQL / PostgreSQL — Relational database management & advanced SQL",
+            "MongoDB — NoSQL data storage and document-based databases",
+            "ETL / Data Pipelines — Extract, transform and load data efficiently",
+            "Data Cleaning — Handle missing values, duplicates and inconsistent datasets",
+            "Data Processing — Prepare large and complex datasets for analysis and modeling"
+          ]
+        },
+        {
+          category: "Deployment & Production",
+          list: [
+            "Git & GitHub — Version control and collaborative development",
+            "Streamlit — Build interactive data science and ML applications",
+            "APIs — Integrate machine learning models with applications",
+            "Cloud Fundamentals — Understand deployment and scalable data workflows",
+            "Model Deployment — Deploy trained ML models for real-world use"
+          ]
+        },
+        {
+          category: "Complete Workflow",
+          list: [
+            "Data Collection — Gathering raw data from files, databases, or APIs",
+            "SQL & Python Wrangling — Preparing data for ingestion",
+            "Data Cleaning & Imputation — Handling outliers and missing values",
+            "Exploratory Data Analysis — Visualizing trends and correlations",
+            "Model Training & Tuning — Training machine learning & neural network models",
+            "Gen AI Integration — Accelerating analytics and report compiling",
+            "Model Deployment — Publishing interactive Streamlit applications and APIs"
           ]
         }
       ],
