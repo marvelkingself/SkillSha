@@ -9,7 +9,9 @@ import { track } from "@vercel/analytics";
 
 export default function Header() {
   const pathname = usePathname();
-  const cleanPathname = pathname.endsWith("/") && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
+  const cleanPathname = pathname
+    ? (pathname.endsWith("/") && pathname.length > 1 ? pathname.slice(0, -1) : pathname)
+    : "";
   const canonicalUrl = `https://skillsha.com${cleanPathname}`;
 
   const [isDark, setIsDark] = useState(false);

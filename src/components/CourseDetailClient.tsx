@@ -1076,11 +1076,15 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
 
   const rolesList = (data.flagshipContent?.careers?.roles || CAREER_ROLES) as CareerRoleData[];
   const activeRole = rolesList[activeRoleIdx] || rolesList[0];
-  const cityInfo = CITIES_MULTIPLIERS[selectedCity];
+  const cityInfo = CITIES_MULTIPLIERS[selectedCity] || CITIES_MULTIPLIERS["delhi"];
+
+  // Safeguard baseMin and baseMax fallbacks
+  const baseMinVal = activeRole.baseMin || CAREER_ROLES[activeRoleIdx]?.baseMin || 5;
+  const baseMaxVal = activeRole.baseMax || CAREER_ROLES[activeRoleIdx]?.baseMax || 12;
 
   // Calculate dynamic salary based on multiplier
-  const minSalary = (activeRole.baseMin * cityInfo.mult).toFixed(1);
-  const maxSalary = (activeRole.baseMax * cityInfo.mult).toFixed(1);
+  const minSalary = (baseMinVal * cityInfo.mult).toFixed(1);
+  const maxSalary = (baseMaxVal * cityInfo.mult).toFixed(1);
   
   // Calculate percentage width for slider
   const leftPercent = Math.max(0, Math.min(100, (parseFloat(minSalary) / 25) * 100));
@@ -1169,8 +1173,10 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
             <div className="space-y-2.5">
               {rolesList.map((role, idx) => {
                 const active = activeRoleIdx === idx;
-                const minS = (role.baseMin * cityInfo.mult).toFixed(1);
-                const maxS = (role.baseMax * cityInfo.mult).toFixed(1);
+                const rMinVal = role.baseMin || CAREER_ROLES[idx]?.baseMin || 5;
+                const rMaxVal = role.baseMax || CAREER_ROLES[idx]?.baseMax || 12;
+                const minS = (rMinVal * cityInfo.mult).toFixed(1);
+                const maxS = (rMaxVal * cityInfo.mult).toFixed(1);
 
                 return (
                   <button
@@ -1248,7 +1254,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
                   Key Scope Areas
                 </span>
                 <div className="grid grid-cols-2 gap-3.5">
-                  {activeRole.keyPoints.map((pt, pIdx) => (
+                  {(activeRole.keyPoints || CAREER_ROLES[activeRoleIdx]?.keyPoints || []).map((pt, pIdx) => (
                     <div key={pIdx} className="flex items-start gap-2.5 text-[11px] text-zinc-300 font-sans leading-relaxed">
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-orange mt-2 shrink-0" />
                       <span>{pt}</span>
@@ -1389,8 +1395,10 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
 
         {/* Roles list as stacked premium cards */}
         {rolesList.map((role, idx) => {
-          const mSalaryMin = (role.baseMin * cityInfo.mult).toFixed(1);
-          const mSalaryMax = (role.baseMax * cityInfo.mult).toFixed(1);
+          const rMinVal = role.baseMin || CAREER_ROLES[idx]?.baseMin || 5;
+          const rMaxVal = role.baseMax || CAREER_ROLES[idx]?.baseMax || 12;
+          const mSalaryMin = (rMinVal * cityInfo.mult).toFixed(1);
+          const mSalaryMax = (rMaxVal * cityInfo.mult).toFixed(1);
           const mLeft = Math.max(0, Math.min(100, (parseFloat(mSalaryMin) / 25) * 100));
           const mWidth = Math.max(10, Math.min(100, ((parseFloat(mSalaryMax) - parseFloat(mSalaryMin)) / 25) * 100));
 
@@ -1426,7 +1434,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
 
                   {/* Duties list */}
                   <div className="mt-4 pt-3.5 border-t border-zinc-100 dark:border-white/5 space-y-2">
-                    {role.keyPoints.slice(0, 2).map((pt, pIdx) => (
+                    {(role.keyPoints || CAREER_ROLES[idx]?.keyPoints || []).slice(0, 2).map((pt, pIdx) => (
                       <div key={pIdx} className="flex items-start gap-2.5 text-[10.5px] text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed">
                         <span className="w-1.5 h-1.5 rounded-full bg-brand-orange mt-1.5 shrink-0" />
                         <span>{pt}</span>
