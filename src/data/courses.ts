@@ -2644,17 +2644,18 @@ export const COURSES_DATA: Record<string, CourseData> = {
       heroSubtext: "Want a career in data science? Skillsha's Data Science Course with Gen AI teaches you the skills companies are hiring for right now — Python, statistics, SQL, and machine learning — plus how to use AI tools like ChatGPT and Claude to work faster.\n\nThis is a complete, hands-on certification program built for beginners, graduates, and working professionals, anywhere in the world. You'll learn by doing real projects, not just watching videos, and you'll get placement support to help you find your first data science job.\n\nLimited Time Offer: 50% Discount + Cashback + 0% Interest EMI Available Worldwide",
       whyChooseList: {
         placement: [
-          "100% Placement Support—Proven Results Globally",
-          "Career counseling and job market orientation during your course",
-          "Resume and LinkedIn profile optimization by experts",
-          "Mock interviews with active data professionals",
-          "GitHub portfolio review and feedback to impress recruiters"
+          "Get help finding a job with data science, not just learning it",
+          "Career counseling and job market orientation with industry experts",
+          "Professional resume building and LinkedIn profile optimization",
+          "Mock interviews with active, real-world data scientists",
+          "Connections to our global network of hiring partners"
         ],
         ai: [
-          "ChatGPT to write Python code faster",
-          "Claude to generate and fix complex SQL queries",
-          "AI-driven automated script writing",
-          "Prompt engineering for day-to-day analytics workflows"
+          "Learn ChatGPT and Claude co-piloting to write Python code faster",
+          "Generate and optimize complex SQL database queries with AI",
+          "Accelerate your data analysis and wrangling tasks using LLMs",
+          "Master prompt engineering to ask the right analytical questions",
+          "Gain a competitive edge that modern recruiters are actively hunting for"
         ],
         trainers: [
           { name: "Mr. Rahul", title: "Lead Instructor", bullets: ["Focuses on practical, hands-on data analysis", "Connects concepts to real job situations", "Expert in Python scripting and statistical structures", "Passionate about making statistics easy to understand"], quote: "Rahul makes Python syntax and data cleaning feel natural.", img: "", exp: "8+ Yrs Exp" },
