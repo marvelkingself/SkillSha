@@ -25,9 +25,6 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://skillsha.com"),
-  alternates: {
-    canonical: "/",
-  },
   title: "SkillSha | Best IT Training Institute in Noida",
   description: "SkillSha is a live, mentor-led IT training institute in Noida offering AI Engineering, Full-Stack Development, UI/UX Design, and Product Management programs with placement assistance.",
 };

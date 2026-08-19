@@ -3,10 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { CITIES_LIST } from "@/data/cities";
 import { track } from "@vercel/analytics";
 
 export default function Header() {
+  const pathname = usePathname();
+  const cleanPathname = pathname.endsWith("/") && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
+  const canonicalUrl = `https://skillsha.com${cleanPathname}`;
+
   const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [sparkSound, setSparkSound] = useState<HTMLAudioElement | null>(null);
@@ -74,6 +79,7 @@ export default function Header() {
 
   return (
     <>
+      <link rel="canonical" href={canonicalUrl} />
       {/* Desktop Header */}
       <header className="hidden md:block fixed top-0 inset-x-0 z-50 transition-all duration-500 pt-5 px-6 lg:px-12">
         <div className={`w-full max-w-[1300px] mx-auto backdrop-blur-xl rounded-full px-6 md:px-8 py-2.5 flex items-center justify-between transition-all duration-500 ${
