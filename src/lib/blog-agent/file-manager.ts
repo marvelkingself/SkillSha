@@ -193,7 +193,10 @@ export class BlogFileManager {
     const file = path.join(this.contentDir, slug, "content.json");
     if (fs.existsSync(file)) {
       try {
-        return JSON.parse(fs.readFileSync(file, "utf8"));
+        const raw = fs.readFileSync(file, "utf8").trim();
+        if (raw) {
+          return JSON.parse(raw);
+        }
       } catch (err) {
         console.error(`Failed to parse local blog JSON by slug: ${slug}`, err);
       }

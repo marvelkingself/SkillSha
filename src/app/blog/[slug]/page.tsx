@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { blogFileManager } from "@/lib/blog-agent/file-manager";
+import { formatBlogContent } from "@/lib/blog-agent/html-formatter";
 
 export const dynamic = "force-dynamic";
 
@@ -169,7 +170,10 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
           <div className="prose dark:prose-invert max-w-none text-[15px] md:text-[16px] text-zinc-850 dark:text-zinc-300 leading-relaxed font-sans space-y-6">
 
             {/* Introduction paragraph */}
-            <p className="whitespace-pre-wrap">{blog.introduction}</p>
+            <div
+              className="prose-li:list-disc prose-a:text-blue-500 hover:prose-a:underline"
+              dangerouslySetInnerHTML={{ __html: formatBlogContent(blog.introduction) }}
+            />
 
             {/* Sections mapped dynamic */}
             {blog.sections && blog.sections.map((sec: any, sIdx: number) => (
@@ -184,8 +188,8 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
                   </h2>
                 )}
                 <div
-                  className="whitespace-pre-wrap prose-li:list-disc prose-tables:border prose-a:text-blue-500 hover:prose-a:underline"
-                  dangerouslySetInnerHTML={{ __html: sec.content }}
+                  className="prose-li:list-disc prose-tables:border prose-a:text-blue-500 hover:prose-a:underline leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: formatBlogContent(sec.content) }}
                 />
               </div>
             ))}
@@ -196,7 +200,10 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
                 <h2 className="text-[22px] font-bold text-zinc-900 dark:text-white tracking-tight mb-3">
                   Summary &amp; Takeaways
                 </h2>
-                <p className="whitespace-pre-wrap">{blog.conclusion}</p>
+                <div
+                  className="prose-li:list-disc prose-a:text-blue-500 hover:prose-a:underline leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: formatBlogContent(blog.conclusion) }}
+                />
               </div>
             )}
 

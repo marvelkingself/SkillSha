@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { COURSE_SLUG_MAP, getCourseSlugById } from "@/data/courses";
 import { CITIES_LIST } from "@/data/cities";
+import { blogFileManager } from "@/lib/blog-agent/file-manager";
 import fs from "fs";
 import path from "path";
 
@@ -101,34 +102,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     });
 
-  // 4. Dynamic AI-Generated Local Blog Pages
+  // 4. Dynamic AI-Generated Local Blog Pages (Fetched from Supabase DB)
   const blogPages: any[] = [];
-  const blogsDir = path.join(process.cwd(), "content", "blogs");
-  
-  if (fs.existsSync(blogsDir)) {
-    try {
-      const folders = fs.readdirSync(blogsDir);
-      folders.forEach((folder) => {
-        const contentPath = path.join(blogsDir, folder, "content.json");
-        if (fs.existsSync(contentPath)) {
-          try {
-            const blog = JSON.parse(fs.readFileSync(contentPath, "utf8"));
-            if (blog.status === "published") {
-              blogPages.push({
-                url: `${baseUrl}/blog/${folder}`,
-                lastModified: new Date(blog.updatedAt || blog.publishedAt || Date.now()),
-                changeFrequency: "daily" as const,
-                priority: 0.8,
-              });
-            }
-          } catch (e) {
-            console.error(`Sitemap generation failed to read JSON for blog: ${folder}`, e);
-          }
-        }
+  try {
+    const publishedBlogs = await blogFileManager.getBlogsAsync(false);
+    publishedBlogs.forEach((blog: any) => {
+      blogPages.push({
+        url: `${baseUrl}/blog/${blog.slug}`,
+        lastModified: new Date(blog.publishedAt || blog.createdAt || Date.now()),
+        changeFrequency: "daily" as const,
+        priority: 0.8,
       });
-    } catch (e) {
-      console.error("Failed to read sitemap blog directories:", e);
-    }
+    });
+  } catch (e) {
+    console.error("Failed to read sitemap blogs from Supabase DB:", e);
   }
 
   return [...staticPages, ...coursePages, ...cityCoursePages, ...blogPages];

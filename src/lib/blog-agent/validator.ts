@@ -90,19 +90,23 @@ Provide your response strictly as a structured JSON object with the following fi
   "isPassed": true, // Boolean (true if seoScore >= 80, false otherwise)
   "feedback": ["Title length is good.", "Added 4 HTML internal links.", "Cleaned up remaining markdown markers."], // Array of audit comment strings
   "updatedArticle": {
-     "title": "${article.title.replace(/"/g, '\\"')}",
-     "metaTitle": "${article.metaTitle.replace(/"/g, '\\"')}",
-     "metaDescription": "${article.metaDescription.replace(/"/g, '\\"')}",
-     "excerpt": "${article.excerpt.replace(/"/g, '\\"')}",
-     "primaryKeyword": "${article.primaryKeyword}",
-     "secondaryKeywords": ${JSON.stringify(article.secondaryKeywords)},
+     "title": ${JSON.stringify(article.title || "")},
+     "metaTitle": ${JSON.stringify(article.metaTitle || "")},
+     "metaDescription": ${JSON.stringify(article.metaDescription || "")},
+     "excerpt": ${JSON.stringify(article.excerpt || "")},
+     "primaryKeyword": ${JSON.stringify(article.primaryKeyword || "")},
+     "secondaryKeywords": ${JSON.stringify(article.secondaryKeywords || [])},
      "introduction": "Updated introduction with HTML links...",
      "sections": [
         { "heading": "Heading Text", "level": 2, "content": "Updated content with HTML links and clean HTML formatting..." }
      ],
-     "faqs": ${JSON.stringify(article.faqs)},
+     "faqs": ${JSON.stringify(article.faqs || [])},
      "conclusion": "Updated conclusion with HTML links...",
-     "ctaText": "${article.ctaText.replace(/"/g, '\\"')}"
+     "ctaText": ${JSON.stringify(article.ctaText || "")},
+     "faqSchema": ${JSON.stringify(article.faqSchema || "")},
+     "primaryCourseMatched": ${JSON.stringify(article.primaryCourseMatched || "")},
+     "primaryCityMatched": ${JSON.stringify(article.primaryCityMatched || "")},
+     "internalLinksUsed": ${JSON.stringify(article.internalLinksUsed || [])}
   }
 }
 
