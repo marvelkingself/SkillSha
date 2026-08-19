@@ -121,7 +121,7 @@ function PortfolioShape({ shape }: { shape: string }) {
   }
 }
 
-// ── Custom subcomponents for Digital Marketing with Gen AI ──────────
+// ── Custom subcomponents for {data.title} with Gen AI ──────────
 
 function DigitalMarketingWhySection({ data }: { data: CourseData }) {
   const content = data.flagshipContent?.whyChooseList;
@@ -134,10 +134,10 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
           Why Choose Skillsha?
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-          Why Choose Skillsha's Digital Marketing Course with Gen AI?
+          Why Choose Skillsha's {data.title} Course with Gen AI?
         </h2>
         <p className="text-zinc-500 dark:text-zinc-400 mt-3 font-medium text-[15px] max-w-xl mx-auto leading-relaxed">
-          Here is what makes Skillsha different in the crowded Digital Marketing Course market.
+          Here is what makes Skillsha different in the crowded {data.title} course market.
         </p>
       </div>
 
@@ -412,10 +412,10 @@ function DigitalMarketingDifferencesSection({ data }: { data: CourseData }) {
           Course USPs
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-          What Makes This Digital Marketing Course Different?
+          What Makes This {data.title} Course Different?
         </h2>
         <p className="text-sm text-zinc-400 mt-2 max-w-lg mx-auto leading-relaxed">
-          Forget generic slide-decks. We build modern growth campaigners with active portfolios, live budgets, and verified credentials.
+          {data.flagshipContent?.differencesSubtext || "Forget generic slide-decks. We build modern growth campaigners with active portfolios, live budgets, and verified credentials."}
         </p>
       </div>
 
@@ -983,7 +983,8 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
   const [activeRoleIdx, setActiveRoleIdx] = useState(0);
   const [selectedCity, setSelectedCity] = useState("delhi");
 
-  const activeRole = CAREER_ROLES[activeRoleIdx];
+  const rolesList = (data.flagshipContent?.careers?.roles || CAREER_ROLES) as CareerRoleData[];
+  const activeRole = rolesList[activeRoleIdx] || rolesList[0];
   const cityInfo = CITIES_MULTIPLIERS[selectedCity];
 
   // Calculate dynamic salary based on multiplier
@@ -1075,7 +1076,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
               Select Sector Track
             </span>
             <div className="space-y-2.5">
-              {CAREER_ROLES.map((role, idx) => {
+              {rolesList.map((role, idx) => {
                 const active = activeRoleIdx === idx;
                 const minS = (role.baseMin * cityInfo.mult).toFixed(1);
                 const maxS = (role.baseMax * cityInfo.mult).toFixed(1);
@@ -1296,7 +1297,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
         </div>
 
         {/* Roles list as stacked premium cards */}
-        {CAREER_ROLES.map((role, idx) => {
+        {rolesList.map((role, idx) => {
           const mSalaryMin = (role.baseMin * cityInfo.mult).toFixed(1);
           const mSalaryMax = (role.baseMax * cityInfo.mult).toFixed(1);
           const mLeft = Math.max(0, Math.min(100, (parseFloat(mSalaryMin) / 25) * 100));
@@ -1450,7 +1451,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
               Market Sentiment Index
             </span>
             <p className="text-[10.5px] text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed">
-              Companies face an acute shortage of talent capable of running automated AI marketing models. Individuals combining core SEO/Performance tactics with Gen-AI expertise rank in the top 5% of earners.
+              {data.flagshipContent?.careers?.marketSentiment || "Companies face an acute shortage of talent capable of running automated AI marketing models. Individuals combining core SEO/Performance tactics with Gen-AI expertise rank in the top 5% of earners."}
             </p>
           </div>
         </div>
@@ -1480,7 +1481,7 @@ function DigitalMarketingStoriesSection({ data }: { data: CourseData }) {
           Alumni Success
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-          Success Stories—Digital Marketing Course Graduates Worldwide
+          Success Stories—{data.title} Course Graduates Worldwide
         </h2>
       </div>
 
@@ -1508,7 +1509,7 @@ function DigitalMarketingStoriesSection({ data }: { data: CourseData }) {
 
       {/* Placement statistics bento */}
       <div className="mt-8 p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
-        <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-6 text-center">Global Placement Statistics from Our Digital Marketing Course</h3>
+        <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-6 text-center">Global Placement Statistics from Our {data.title} Course</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((st, idx) => (
             <div key={idx} className="text-center p-3 rounded-2xl bg-zinc-50 dark:bg-white/5 border border-zinc-150 dark:border-white/[0.03]">
@@ -1534,7 +1535,7 @@ function DigitalMarketingPricingSection({ data }: { data: CourseData }) {
           Investment
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-          Digital Marketing Course Pricing—Flexible Payment Options
+          {data.title} Course Pricing—Flexible Payment Options
         </h2>
       </div>
 
@@ -1614,7 +1615,7 @@ function DigitalMarketingEnrollmentSection({ data }: { data: CourseData }) {
           Join Us
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-          How to Enroll in Our Digital Marketing Course
+          How to Enroll in Our {data.title} Course
         </h2>
       </div>
 
