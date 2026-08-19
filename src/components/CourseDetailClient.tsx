@@ -121,7 +121,7 @@ function PortfolioShape({ shape }: { shape: string }) {
   }
 }
 
-// ── Custom subcomponents for Digital Marketing with Gen AI ──────────
+// ── Custom subcomponents for {data.title} with Gen AI ──────────
 
 function DigitalMarketingWhySection({ data }: { data: CourseData }) {
   const content = data.flagshipContent?.whyChooseList;
@@ -134,10 +134,10 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
           Why Choose Skillsha?
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-          Why Choose Skillsha's Digital Marketing Course with Gen AI?
+          Why Choose Skillsha's {data.title} Course with Gen AI?
         </h2>
         <p className="text-zinc-500 dark:text-zinc-400 mt-3 font-medium text-[15px] max-w-xl mx-auto leading-relaxed">
-          Here is what makes Skillsha different in the crowded Digital Marketing Course market.
+          Here is what makes Skillsha different in the crowded {data.title} course market.
         </p>
       </div>
 
@@ -193,7 +193,9 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
             Expert Trainers with Global Industry Experience
           </h3>
           <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2 max-w-md mx-auto leading-relaxed">
-            Learn from active practitioners who manage budgets, scale brand campaigns, and write automated marketing engines.
+            {data.title.toLowerCase().includes("data science")
+              ? "Learn from active practitioners who build machine learning pipelines, design database structures, and develop predictive AI models."
+              : "Learn from active practitioners who manage budgets, scale brand campaigns, and write automated marketing engines."}
           </p>
         </div>
 
@@ -412,10 +414,10 @@ function DigitalMarketingDifferencesSection({ data }: { data: CourseData }) {
           Course USPs
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-          What Makes This Digital Marketing Course Different?
+          What Makes This {data.title} Course Different?
         </h2>
         <p className="text-sm text-zinc-400 mt-2 max-w-lg mx-auto leading-relaxed">
-          Forget generic slide-decks. We build modern growth campaigners with active portfolios, live budgets, and verified credentials.
+          {data.flagshipContent?.differencesSubtext || "Forget generic slide-decks. We build modern growth campaigners with active portfolios, live budgets, and verified credentials."}
         </p>
       </div>
 
@@ -440,7 +442,7 @@ function DigitalMarketingDifferencesSection({ data }: { data: CourseData }) {
             </div>
           </div>
           
-          {/* Mini Interactive Funnel Dashboard */}
+          {/* Mini Interactive Funnel/Model Dashboard */}
           <div className="w-full md:w-56 h-fit bg-zinc-100 dark:bg-zinc-950/80 border border-zinc-200 dark:border-white/5 rounded-2xl p-4 self-center relative z-10 shrink-0 font-mono shadow-md">
             <div className="flex items-center justify-between mb-3 border-b border-zinc-200 dark:border-white/10 pb-2">
               <div className="flex items-center gap-1.5">
@@ -448,41 +450,85 @@ function DigitalMarketingDifferencesSection({ data }: { data: CourseData }) {
                 <div className="w-2 h-2 rounded-full bg-yellow-400" />
                 <div className="w-2 h-2 rounded-full bg-green-400" />
               </div>
-              <span className="text-[9px] text-zinc-400">funnel_metrics.json</span>
+              <span className="text-[9px] text-zinc-400">
+                {data.title.toLowerCase().includes("data science") ? "model_performance.json" : "funnel_metrics.json"}
+              </span>
             </div>
-            <div className="space-y-3">
-              <div>
-                <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
-                  <span>Awareness</span>
-                  <span className="text-brand-orange">85%</span>
+            {data.title.toLowerCase().includes("data science") ? (
+              <div className="space-y-3">
+                <div>
+                  <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
+                    <span>Train Accuracy</span>
+                    <span className="text-brand-orange">97%</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden">
+                    <div className="h-full bg-brand-orange rounded-full" style={{ width: "97%" }} />
+                  </div>
                 </div>
-                <div className="h-1.5 w-full bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden">
-                  <div className="h-full bg-brand-orange rounded-full" style={{ width: "85%" }} />
+                <div>
+                  <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
+                    <span>Test Accuracy</span>
+                    <span className="text-amber-500">94%</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden">
+                    <div className="h-full bg-amber-500 rounded-full" style={{ width: "94%" }} />
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
+                    <span>F1-Score</span>
+                    <span className="text-emerald-500 font-bold">94%</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden">
+                    <div className="h-full bg-emerald-500 rounded-full" style={{ width: "94%" }} />
+                  </div>
                 </div>
               </div>
-              <div>
-                <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
-                  <span>Consideration</span>
-                  <span className="text-amber-500">55%</span>
+            ) : (
+              <div className="space-y-3">
+                <div>
+                  <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
+                    <span>Awareness</span>
+                    <span className="text-brand-orange">85%</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden">
+                    <div className="h-full bg-brand-orange rounded-full" style={{ width: "85%" }} />
+                  </div>
                 </div>
-                <div className="h-1.5 w-full bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden">
-                  <div className="h-full bg-amber-500 rounded-full" style={{ width: "55%" }} />
+                <div>
+                  <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
+                    <span>Consideration</span>
+                    <span className="text-amber-500">55%</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden">
+                    <div className="h-full bg-amber-500 rounded-full" style={{ width: "55%" }} />
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
+                    <span>Conversion</span>
+                    <span className="text-emerald-500 font-bold">24%</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden">
+                    <div className="h-full bg-emerald-500 rounded-full" style={{ width: "24%" }} />
+                  </div>
                 </div>
               </div>
-              <div>
-                <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
-                  <span>Conversion</span>
-                  <span className="text-emerald-500 font-bold">24%</span>
-                </div>
-                <div className="h-1.5 w-full bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden">
-                  <div className="h-full bg-emerald-500 rounded-full" style={{ width: "24%" }} />
-                </div>
-              </div>
-            </div>
+            )}
             <div className="mt-4 flex flex-wrap gap-1">
-              <span className="px-1.5 py-0.5 rounded bg-brand-orange/10 border border-brand-orange/20 text-[8px] text-brand-orange">Meta Ads</span>
-              <span className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-white/5 border border-zinc-300 dark:border-white/10 text-[8px] text-zinc-400">GTM tag</span>
-              <span className="px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[8px] text-emerald-500">ROAS positive</span>
+              {data.title.toLowerCase().includes("data science") ? (
+                <>
+                  <span className="px-1.5 py-0.5 rounded bg-brand-orange/10 border border-brand-orange/20 text-[8px] text-brand-orange">Scikit-Learn</span>
+                  <span className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-white/5 border border-zinc-300 dark:border-white/10 text-[8px] text-zinc-400">Val set</span>
+                  <span className="px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[8px] text-emerald-500">F1 validated</span>
+                </>
+              ) : (
+                <>
+                  <span className="px-1.5 py-0.5 rounded bg-brand-orange/10 border border-brand-orange/20 text-[8px] text-brand-orange">Meta Ads</span>
+                  <span className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-white/5 border border-zinc-300 dark:border-white/10 text-[8px] text-zinc-400">GTM tag</span>
+                  <span className="px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[8px] text-emerald-500">ROAS positive</span>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -508,17 +554,28 @@ function DigitalMarketingDifferencesSection({ data }: { data: CourseData }) {
           <div className="w-full bg-zinc-950 border border-white/5 rounded-xl p-3 font-mono text-[9px] text-emerald-400 shadow-inner">
             <div className="flex items-center gap-1.5 mb-2 pb-1 border-b border-white/5">
               <div className="w-1.5 h-1.5 rounded-full bg-zinc-700" />
-              <span className="text-zinc-500 text-[8px]">automation_script.py</span>
+              <span className="text-zinc-500 text-[8px]">
+                {data.title.toLowerCase().includes("data science") ? "train_model.py" : "automation_script.py"}
+              </span>
             </div>
-            <div className="space-y-0.5">
-              <div><span className="text-zinc-500">1</span> <span className="text-indigo-400">def</span> <span className="text-blue-400">track_conversions</span>(api):</div>
-              <div><span className="text-zinc-500">2</span>     leads = api.fetch()</div>
-              <div><span className="text-zinc-500">3</span>     <span className="text-amber-500">if</span> leads.roas &gt; <span className="text-amber-300">3.2</span>:</div>
-              <div><span className="text-zinc-500">4</span>         scale_campaign(api.id)</div>
-              <div className="text-[8px] text-zinc-500 mt-2 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                git commit verified
+            {data.title.toLowerCase().includes("data science") ? (
+              <div className="space-y-0.5">
+                <div><span className="text-zinc-500">1</span> <span className="text-indigo-400">def</span> <span className="text-blue-400">evaluate_model</span>(y_true, y_pred):</div>
+                <div><span className="text-zinc-500">2</span>     f1 = f1_score(y_true, y_pred)</div>
+                <div><span className="text-zinc-500">3</span>     <span className="text-amber-500">if</span> f1 &gt; <span className="text-amber-300">0.85</span>:</div>
+                <div><span className="text-zinc-500">4</span>         deploy_model(weights_path)</div>
               </div>
+            ) : (
+              <div className="space-y-0.5">
+                <div><span className="text-zinc-500">1</span> <span className="text-indigo-400">def</span> <span className="text-blue-400">track_conversions</span>(api):</div>
+                <div><span className="text-zinc-500">2</span>     leads = api.fetch()</div>
+                <div><span className="text-zinc-500">3</span>     <span className="text-amber-500">if</span> leads.roas &gt; <span className="text-amber-300">3.2</span>:</div>
+                <div><span className="text-zinc-500">4</span>         scale_campaign(api.id)</div>
+              </div>
+            )}
+            <div className="text-[8px] text-zinc-500 mt-2 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              git commit verified
             </div>
           </div>
         </div>
@@ -557,7 +614,9 @@ function DigitalMarketingDifferencesSection({ data }: { data: CourseData }) {
           <div className="flex-1 flex flex-col justify-between z-10">
             <div>
               <h3 className="text-lg font-bold text-zinc-950 dark:text-white mb-4 flex items-center gap-2">
-                <span className="material-symbols-outlined text-brand-orange shrink-0">campaign</span>
+                <span className="material-symbols-outlined text-brand-orange shrink-0">
+                  {data.title.toLowerCase().includes("data science") ? "analytics" : "campaign"}
+                </span>
                 {diff4.title}
               </h3>
               <ul className="space-y-2.5">
@@ -571,35 +630,67 @@ function DigitalMarketingDifferencesSection({ data }: { data: CourseData }) {
             </div>
           </div>
 
-          {/* Live Campaign Dashboard */}
-          <div className="w-full md:w-56 bg-zinc-100 dark:bg-zinc-950/80 border border-zinc-200 dark:border-white/5 rounded-2xl p-4 self-center relative z-10 shrink-0 font-mono shadow-md">
+          {/* Live Campaign/Model Training Tracker */}
+          <div className="w-full md:w-56 bg-zinc-100 dark:bg-zinc-955/80 border border-zinc-200 dark:border-white/5 rounded-2xl p-4 self-center relative z-10 shrink-0 font-mono shadow-md">
             <div className="flex justify-between items-center mb-2 pb-1 border-b border-zinc-200 dark:border-white/5">
-              <span className="text-[8px] text-zinc-400">Live Campaign Tracker</span>
+              <span className="text-[8px] text-zinc-400">
+                {data.title.toLowerCase().includes("data science") ? "Model Training Tracker" : "Live Campaign Tracker"}
+              </span>
               <span className="text-[8px] text-emerald-500 flex items-center gap-1">
                 <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
                 Active
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-2 mb-3">
-              <div className="bg-zinc-200/50 dark:bg-white/5 p-2 rounded-lg border border-zinc-300/40 dark:border-white/5">
-                <span className="text-[7px] text-zinc-400 block">Ad Spend</span>
-                <span className="text-xs font-bold text-zinc-900 dark:text-white">₹5,000</span>
-              </div>
-              <div className="bg-zinc-200/50 dark:bg-white/5 p-2 rounded-lg border border-zinc-300/40 dark:border-white/5">
-                <span className="text-[7px] text-zinc-400 block">Conversions</span>
-                <span className="text-xs font-bold text-zinc-900 dark:text-white">48 leads</span>
-              </div>
-            </div>
-            <div className="bg-emerald-500/10 border border-emerald-500/25 p-2 rounded-lg flex justify-between items-center">
-              <span className="text-[8px] text-emerald-500 font-bold">ROAS</span>
-              <span className="text-xs font-extrabold text-emerald-500">3.2x</span>
-            </div>
+            {data.title.toLowerCase().includes("data science") ? (
+              <>
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  <div className="bg-zinc-200/50 dark:bg-white/5 p-2 rounded-lg border border-zinc-300/40 dark:border-white/5">
+                    <span className="text-[7px] text-zinc-400 block">Epochs</span>
+                    <span className="text-xs font-bold text-zinc-900 dark:text-white">50/50</span>
+                  </div>
+                  <div className="bg-zinc-200/50 dark:bg-white/5 p-2 rounded-lg border border-zinc-300/40 dark:border-white/5">
+                    <span className="text-[7px] text-zinc-400 block">Val Loss</span>
+                    <span className="text-xs font-bold text-zinc-900 dark:text-white">0.024</span>
+                  </div>
+                </div>
+                <div className="bg-emerald-500/10 border border-emerald-500/25 p-2 rounded-lg flex justify-between items-center">
+                  <span className="text-[8px] text-emerald-500 font-bold">Accuracy</span>
+                  <span className="text-xs font-extrabold text-emerald-500">94.2%</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  <div className="bg-zinc-200/50 dark:bg-white/5 p-2 rounded-lg border border-zinc-300/40 dark:border-white/5">
+                    <span className="text-[7px] text-zinc-400 block">Ad Spend</span>
+                    <span className="text-xs font-bold text-zinc-900 dark:text-white">₹5,000</span>
+                  </div>
+                  <div className="bg-zinc-200/50 dark:bg-white/5 p-2 rounded-lg border border-zinc-300/40 dark:border-white/5">
+                    <span className="text-[7px] text-zinc-400 block">Conversions</span>
+                    <span className="text-xs font-bold text-zinc-900 dark:text-white">48 leads</span>
+                  </div>
+                </div>
+                <div className="bg-emerald-500/10 border border-emerald-500/25 p-2 rounded-lg flex justify-between items-center">
+                  <span className="text-[8px] text-emerald-500 font-bold">ROAS</span>
+                  <span className="text-xs font-extrabold text-emerald-500">3.2x</span>
+                </div>
+              </>
+            )}
             
             {/* Small SVG Sparkline */}
             <div className="w-full h-8 mt-3 relative overflow-hidden">
               <svg className="w-full h-full" viewBox="0 0 100 24" preserveAspectRatio="none">
-                <path d="M0,20 Q15,8 30,16 T60,6 T90,14 T100,2" fill="none" stroke="rgb(16 185 129)" strokeWidth="1.5" />
-                <path d="M0,20 Q15,8 30,16 T60,6 T90,14 T100,2 L100,24 L0,24 Z" fill="url(#sparklineGrad)" opacity="0.1" />
+                {data.title.toLowerCase().includes("data science") ? (
+                  <>
+                    <path d="M0,2 Q15,4 30,12 T60,18 T90,20 T100,22" fill="none" stroke="rgb(16 185 129)" strokeWidth="1.5" />
+                    <path d="M0,2 Q15,4 30,12 T60,18 T90,20 T100,22 L100,24 L0,24 Z" fill="url(#sparklineGrad)" opacity="0.1" />
+                  </>
+                ) : (
+                  <>
+                    <path d="M0,20 Q15,8 30,16 T60,6 T90,14 T100,2" fill="none" stroke="rgb(16 185 129)" strokeWidth="1.5" />
+                    <path d="M0,20 Q15,8 30,16 T60,6 T90,14 T100,2 L100,24 L0,24 Z" fill="url(#sparklineGrad)" opacity="0.1" />
+                  </>
+                )}
                 <defs>
                   <linearGradient id="sparklineGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="rgb(16 185 129)" />
@@ -983,7 +1074,8 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
   const [activeRoleIdx, setActiveRoleIdx] = useState(0);
   const [selectedCity, setSelectedCity] = useState("delhi");
 
-  const activeRole = CAREER_ROLES[activeRoleIdx];
+  const rolesList = (data.flagshipContent?.careers?.roles || CAREER_ROLES) as CareerRoleData[];
+  const activeRole = rolesList[activeRoleIdx] || rolesList[0];
   const cityInfo = CITIES_MULTIPLIERS[selectedCity];
 
   // Calculate dynamic salary based on multiplier
@@ -1075,7 +1167,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
               Select Sector Track
             </span>
             <div className="space-y-2.5">
-              {CAREER_ROLES.map((role, idx) => {
+              {rolesList.map((role, idx) => {
                 const active = activeRoleIdx === idx;
                 const minS = (role.baseMin * cityInfo.mult).toFixed(1);
                 const maxS = (role.baseMax * cityInfo.mult).toFixed(1);
@@ -1296,7 +1388,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
         </div>
 
         {/* Roles list as stacked premium cards */}
-        {CAREER_ROLES.map((role, idx) => {
+        {rolesList.map((role, idx) => {
           const mSalaryMin = (role.baseMin * cityInfo.mult).toFixed(1);
           const mSalaryMax = (role.baseMax * cityInfo.mult).toFixed(1);
           const mLeft = Math.max(0, Math.min(100, (parseFloat(mSalaryMin) / 25) * 100));
@@ -1450,7 +1542,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
               Market Sentiment Index
             </span>
             <p className="text-[10.5px] text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed">
-              Companies face an acute shortage of talent capable of running automated AI marketing models. Individuals combining core SEO/Performance tactics with Gen-AI expertise rank in the top 5% of earners.
+              {data.flagshipContent?.careers?.marketSentiment || "Companies face an acute shortage of talent capable of running automated AI marketing models. Individuals combining core SEO/Performance tactics with Gen-AI expertise rank in the top 5% of earners."}
             </p>
           </div>
         </div>
@@ -1480,7 +1572,7 @@ function DigitalMarketingStoriesSection({ data }: { data: CourseData }) {
           Alumni Success
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-          Success Stories—Digital Marketing Course Graduates Worldwide
+          Success Stories—{data.title} Course Graduates Worldwide
         </h2>
       </div>
 
@@ -1508,7 +1600,7 @@ function DigitalMarketingStoriesSection({ data }: { data: CourseData }) {
 
       {/* Placement statistics bento */}
       <div className="mt-8 p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
-        <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-6 text-center">Global Placement Statistics from Our Digital Marketing Course</h3>
+        <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-6 text-center">Global Placement Statistics from Our {data.title} Course</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((st, idx) => (
             <div key={idx} className="text-center p-3 rounded-2xl bg-zinc-50 dark:bg-white/5 border border-zinc-150 dark:border-white/[0.03]">
@@ -1534,7 +1626,7 @@ function DigitalMarketingPricingSection({ data }: { data: CourseData }) {
           Investment
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-          Digital Marketing Course Pricing—Flexible Payment Options
+          {data.title} Course Pricing—Flexible Payment Options
         </h2>
       </div>
 
@@ -1614,7 +1706,7 @@ function DigitalMarketingEnrollmentSection({ data }: { data: CourseData }) {
           Join Us
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
-          How to Enroll in Our Digital Marketing Course
+          How to Enroll in Our {data.title} Course
         </h2>
       </div>
 

@@ -2403,459 +2403,585 @@ export const COURSES_DATA: Record<string, CourseData> = {
   },
   "data-science-ai": {
     title: "Data Science & AI",
-    typewriter: ["Predictive Models", "Machine Learning", "Data Analytics", "Python Automation"],
-    description: "Derive business insights from big data. Build machine learning pipelines, predictive engines, visual business intelligence dashboards, and deploy AI models.",
-    duration: "20 Weeks",
-    salary: "₹ 8.9 LPA",
-    liveSessions: "35+",
+    typewriter: ["Python for Data Science", "Machine Learning & Stats", "Gen AI & Prompt Engineering", "Vector DBs & RAG", "Data-Driven Decision Making"],
+    description: "Want a career in data science? Skillsha's Data Science Course with Gen AI teaches you the skills companies are hiring for right now — Python, statistics, SQL, and machine learning — plus how to use AI tools like ChatGPT and Claude to work faster.",
+    duration: "28 Weeks (6–7 Months)",
+    salary: "₹ 12L+ LPA",
+    liveSessions: "45+ hrs",
     projects: "12+",
-    milestoneWord: "Nine",
+    milestoneWord: "Ten",
     milestones: [
       {
         number: 1,
-        title: "Python & Data Operations",
+        title: "Data Science Foundations + AI Fundamentals (Weeks 1-2)",
         modules: [
           {
-            title: "Python for Data Science",
+            title: "Data Science & AI Basics",
+            icon: "psychology",
+            color: "orange",
+            bullets: [
+              { title: "What is data science in 2026?", desc: "Core business analytics workflows", icon: "help" },
+              { title: "Data science project lifecycle", desc: "From raw data to final deployment", icon: "autorenew" },
+              { title: "Understanding Generative AI roles", desc: "ChatGPT and Claude as co-pilots", icon: "bolt" },
+              { title: "Prompting foundations for analytics", desc: "Setting up custom LLM system rules", icon: "terminal" },
+              { title: "Setting up development environments", desc: "Jupyter notebooks and VS Code", icon: "settings" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 2,
+        title: "Python for Data Science & AI (Weeks 3-5)",
+        modules: [
+          {
+            title: "Python Programming Foundation",
             icon: "terminal",
+            color: "blue",
+            bullets: [
+              { title: "Python syntax, lists, dictionaries", desc: "Control flows and standard scripts", icon: "code" },
+              { title: "Writing custom analytical functions", desc: "Structuring reusable logic blocks", icon: "settings" },
+              { title: "AI-assisted coding and debugging", desc: "Using AI to locate syntax and logic errors", icon: "bug_report" },
+              { title: "File handling and CSV parsing", desc: "Reading and loading local datasets", icon: "folder" },
+              { title: "Writing clean, PEP 8 standard code", desc: "Using linter setups with AI review", icon: "check_circle" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 3,
+        title: "Statistics, Probability & Mathematics (Weeks 6-8)",
+        modules: [
+          {
+            title: "Mathematical Foundations",
+            icon: "calculate",
+            color: "rose",
+            bullets: [
+              { title: "Descriptive statistics", desc: "Mean, median, mode, variance, SD", icon: "analytics" },
+              { title: "Probability distributions", desc: "Normal, binomial, Poisson models", icon: "show_chart" },
+              { title: "Hypothesis testing", desc: "Z-test, T-test, ANOVA, and p-values", icon: "rule" },
+              { title: "A/B testing workflows", desc: "Measuring feature conversion impacts", icon: "compare_arrows" },
+              { title: "Linear algebra & calculus basics", desc: "Vectors, matrices, derivatives", icon: "functions" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 4,
+        title: "Data Wrangling, EDA & Visualization (Weeks 9-11)",
+        modules: [
+          {
+            title: "Data Cleansing & EDA",
+            icon: "bar_chart",
             color: "violet",
             bullets: [
-              { title: "Pandas & NumPy data manipulation", desc: "(indexing, merging, aggregates)", icon: "table_rows" },
-              { title: "Data cleaning and preprocessing", desc: "(null values, duplicates)", icon: "cleaning_services" },
-              { title: "Jupyter notebooks workflows", desc: "for analysis", icon: "science" }
+              { title: "Pandas and NumPy libraries", desc: "Slicing, grouping, and matrix operations", icon: "table_rows" },
+              { title: "Handling messy data", desc: "Imputing null values, handling outliers", icon: "cleaning_services" },
+              { title: "Data visualization basics", desc: "Plotting with Matplotlib & Seaborn", icon: "pie_chart" },
+              { title: "Exploratory Data Analysis (EDA)", desc: "Spotting correlations and patterns", icon: "find_in_page" },
+              { title: "Storytelling with datasets", desc: "Formatting insights for business teams", icon: "article" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 5,
+        title: "Machine Learning & Predictive Analytics (Weeks 12-14)",
+        modules: [
+          {
+            title: "Predictive Model Workflows",
+            icon: "account_tree",
+            color: "indigo",
+            bullets: [
+              { title: "Supervised vs Unsupervised learning", desc: "Scikit-Learn algorithms toolkit", icon: "balance" },
+              { title: "Regression systems", desc: "Linear and polynomial regression models", icon: "trending_up" },
+              { title: "Classification algorithms", desc: "Logistic regression, decision trees, random forests", icon: "split_screen" },
+              { title: "Model evaluation metrics", desc: "Accuracy, precision, recall, F1-score", icon: "check_circle" },
+              { title: "Clustering algorithms", desc: "K-means and hierarchical groupings", icon: "groups" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 6,
+        title: "Deep Learning & Neural Networks (Weeks 15-16)",
+        modules: [
+          {
+            title: "Neural Network Architectures",
+            icon: "smart_toy",
+            color: "teal",
+            bullets: [
+              { title: "Intro to deep learning structures", desc: "Perceptrons and layers", icon: "layers" },
+              { title: "Activation & loss functions", desc: "ReLU, Sigmoid, Cross-Entropy", icon: "show_chart" },
+              { title: "Training neural networks", desc: "Backpropagation and optimization", icon: "sync" },
+              { title: "Convolutional Neural Networks (CNNs)", desc: "Intro to computer vision", icon: "image" },
+              { title: "Recurrent Neural Networks (RNNs)", desc: "Intro to sequential data sequences", icon: "timeline" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 7,
+        title: "Generative AI, LLMs & Prompt Engineering (Weeks 17-18)",
+        modules: [
+          {
+            title: "LLM Orchestration & Prompting",
+            icon: "chat",
+            color: "amber",
+            bullets: [
+              { title: "How LLMs actually work", desc: "Transformers, weights, tokens", icon: "psychology" },
+              { title: "System instructions & role prompts", desc: "Configuring custom AI outputs", icon: "settings" },
+              { title: "Few-shot and chain-of-thought", desc: "Tuning AI reasoning behaviors", icon: "link" },
+              { title: "Structured data returns (JSON/Markdown)", desc: "Getting reliable outputs", icon: "table_chart" },
+              { title: "Mitigating AI biases & hallucination", desc: "Factual boundary checks", icon: "warning" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 8,
+        title: "RAG, Vector Databases & AI Agents (Weeks 19-21)",
+        modules: [
+          {
+            title: "Semantic Search & Agents",
+            icon: "storage",
+            color: "emerald",
+            bullets: [
+              { title: "Retrieval-Augmented Generation (RAG)", desc: "Grounding LLMs with custom data", icon: "find_in_page" },
+              { title: "Vector embedding models", desc: "Converting text chunks to coordinates", icon: "pin" },
+              { title: "Pinecone and ChromaDB systems", desc: "High-performance vector indices", icon: "database" },
+              { title: "AI agent architectures", desc: "Autonomous planning, tools, and loops", icon: "smart_toy" },
+              { title: "Multi-agent systems basics", desc: "Collaborating models for complex goals", icon: "groups" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 9,
+        title: "Advanced GenAI, MLOps & AI Deployment (Weeks 22-23)",
+        modules: [
+          {
+            title: "Analytics Apps & MLOps",
+            icon: "cloud_upload",
+            color: "violet",
+            bullets: [
+              { title: "Building dashboards with Streamlit", desc: "Fast frontend interfaces for Python", icon: "dashboard" },
+              { title: "API wrapping with FastAPI", desc: "Exposing prediction models as endpoints", icon: "api" },
+              { title: "MLOps lifecycle basics", desc: "Versioning data models and pipelines", icon: "history" },
+              { title: "Deploying data apps to cloud", desc: "Hosting on Vercel and AWS", icon: "cloud" },
+              { title: "Monitoring runtime latency", desc: "Tracking token expenses and API errors", icon: "speed" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 10,
+        title: "End-to-End Capstone Project (Weeks 24-28)",
+        modules: [
+          {
+            title: "Real-World System Execution",
+            icon: "handshake",
+            color: "orange",
+            bullets: [
+              { title: "Comprehensive dataset analytics", desc: "Cleaning, EDA and visualization", icon: "table_rows" },
+              { title: "Machine learning model tuning", desc: "Building regression and classification pipelines", icon: "tune" },
+              { title: "AI-assisted agent workflows integration", desc: "Adding semantic vector search tools", icon: "bolt" },
+              { title: "Interactive Streamlit web release", desc: "Deploying a live analytical dashboard", icon: "dashboard" },
+              { title: "Capstone presentation & reporting", desc: "Documenting findings for stakeholders", icon: "article" }
             ]
           }
         ]
       }
     ],
     faqs: [
-      { q: "Is math background required?", a: "We cover the required linear algebra, calculus, and statistics concepts from absolute scratch." }
-    ]
-  ,
+      { q: "Do I need prior data science or programming experience?", a: "No. This course is built for complete beginners and starts from the absolute fundamentals. If you've never coded or worked with data before, you can still follow along — the curriculum builds up gradually, one skill at a time." },
+      { q: "How much time should I dedicate weekly to the Data Science Course?", a: "Most students spend around 5–6 hours a week on live classes and practice, though this can vary. Self-paced learners can spread this out however fits their schedule. Consistency matters more than doing everything in one long session." },
+      { q: "Will this Data Science Course help me get a job internationally?", a: "Yes. The skills you learn — Python, statistics, SQL, and machine learning — are used by data teams worldwide. That said, visa and work-permit rules depend entirely on each country's own policies, which we can't control." },
+      { q: "Is AI going to replace me if I learn this course?", a: "No — AI is a tool, not a replacement for your judgment. This course teaches you to use Gen AI to work faster and smarter, but you still need to understand statistics and data science fundamentals to know whether the AI's output actually makes sense." },
+      { q: "What if I want to specialize in one area after the course?", a: "That's completely normal. This course gives you a strong, broad foundation across data science. Many graduates later go deeper into one area — like machine learning or NLP — once they know where their interest lies." },
+      { q: "Is the certification from this course recognized by employers?", a: "Yes. Skillsha's certificate is recognized by companies hiring data professionals globally. More importantly, your portfolio of real projects speaks louder than any certificate — employers care about what you can do." },
+      { q: "What's the refund policy for this Data Science Course?", a: "We offer a 7-day money-back guarantee if you're unsatisfied after your first week. After 7 days, we offer course-pause options rather than a refund, since the content has value regardless of completion." },
+      { q: "Can I access course materials after completion?", a: "Yes. You get lifetime access to course materials and future updates. As data science and AI tools evolve, we update the content, and you benefit from those updates for free." },
+      { q: "Can this course help me with freelancing?", a: "Yes. Many graduates use their portfolio and skills to take on freelance data analysis or consulting work, either alongside a job or as a full path of their own." },
+      { q: "How does this course differ from free resources online?", a: "Free tutorials are scattered and often outdated, with no one to check your work or answer your questions. This course gives you a structured path, real projects, mentor feedback, and placement support — all in one place." },
+      { q: "Can I get a job while taking the Data Science Course?", a: "Yes. Many students work full-time or part-time while studying, especially with the self-paced option. Recorded sessions mean you won't fall behind if work gets busy some weeks." },
+      { q: "What's the time commitment to get placed after finishing?", a: "Average time from course completion to job offer is around 30–45 days. We start placement support activities — resume help, mock interviews — during the course itself, so you're interview-ready on day one after completing the Data Science Course." }
+    ],
+    portfolioProjects: [
+      {
+        milestone: 1,
+        codename: "AURA",
+        tagline: "Automated Data Cleansing Pipeline",
+        description: "Build a Python-based automated dataset parser to clean messy CSV files, impute missing values, handle outliers, and generate automated EDA profiling reports.",
+        bg: "#F9C5C0",
+        shape: "star4"
+      },
+      {
+        milestone: 2,
+        codename: "ECHO",
+        tagline: "Predictive Analytics Engine",
+        description: "Build a customer churn predictive model using machine learning models, deploying it via API.",
+        bg: "#C5E3F9",
+        shape: "diamond"
+      },
+      {
+        milestone: 3,
+        codename: "NEXUS",
+        tagline: "Visual Dashboard App",
+        description: "Build an interactive visual analytics dashboard using Streamlit to visualize live data trends.",
+        bg: "#D4F1C5",
+        shape: "hexburst"
+      },
+      {
+        milestone: 4,
+        codename: "SPARK",
+        tagline: "Predictive Analytics Dashboard",
+        description: "Develop an interactive visual dashboard using Streamlit to visualize business performance metrics and time-series sales forecasts.",
+        bg: "#F9E4C5",
+        shape: "starburst"
+      }
+    ],
     flagshipContent: {
-    "heroSubtext": "Master the data science workflow powered by Generative AI. Skillsha's Data Science & AI course teaches Python, machine learning, data cleaning, and statistical modeling, integrated with AI-driven analytics workflows.\\n\\nLearn to extract insights, train models, and scale database pipelines with the advanced toolkits that corporate teams and modern tech startups demand.\\n\\nLimited Time Offer: 50% Discount + Cashback + 0% Interest EMI Available",
-    "whyChooseList": {
-        "placement": [
-            "Direct introductions to global analytics teams and tech companies",
-            "Resume optimization for technical data science roles",
-            "Mock interviews with senior data scientists",
-            "LinkedIn optimization tailored to tech markets",
-            "Vetted job opportunities sent weekly"
+      heroSubtext: "Want a career in data science? Skillsha's Data Science Course with Gen AI teaches you the skills companies are hiring for right now — Python, statistics, SQL, and machine learning — plus how to use AI tools like ChatGPT and Claude to work faster.\n\nThis is a complete, hands-on certification program built for beginners, graduates, and working professionals, anywhere in the world. You'll learn by doing real projects, not just watching videos, and you'll get placement support to help you find your first data science job.\n\nLimited Time Offer: 50% Discount + Cashback + 0% Interest EMI Available Worldwide",
+      whyChooseList: {
+        placement: [
+          "Get help finding a job with data science, not just learning it",
+          "Career counseling and job market orientation with industry experts",
+          "Professional resume building and LinkedIn profile optimization",
+          "Mock interviews with active, real-world data scientists",
+          "Connections to our global network of hiring partners"
         ],
-        "ai": [
-            "ChatGPT for rapid Python code generation",
-            "Claude for data parsing and script debugging",
-            "AI-driven statistical analysis workflows",
-            "Predictive modeling using machine learning APIs",
-            "Automated feature engineering scripts",
-            "AI analytics dashboards and dashboards"
+        ai: [
+          "Learn ChatGPT and Claude co-piloting to write Python code faster",
+          "Generate and optimize complex SQL database queries with AI",
+          "Accelerate your data analysis and wrangling tasks using LLMs",
+          "Master prompt engineering to ask the right analytical questions",
+          "Gain a competitive edge that modern recruiters are actively hunting for"
         ],
-        "trainers": [
-            {
-                "name": "Mr. Shad",
-                "title": "Lead Data Scientist",
-                "bullets": [
-                    "12+ years in predictive analytics and data science",
-                    "Managed data engineering groups for global tech startups",
-                    "Expert in Python scripting and statistical structures",
-                    "Worked with 30+ brands to build data models"
-                ],
-                "quote": "Shad makes statistical math and data structures logical and coding-friendly.",
-                "img": "/files/shad.png",
-                "exp": "12+ Yrs Exp"
-            },
-            {
-                "name": "Mr. Akshay Mishra",
-                "title": "Machine Learning Specialist",
-                "bullets": [
-                    "10+ years in model building and pipeline scaling",
-                    "Specialization in classification, regression, and clustering",
-                    "Trained models for international fintech systems",
-                    "Expert in model evaluations and monitoring systems"
-                ],
-                "quote": "Mr. Akshay's machine learning sessions make model tuning intuitive.",
-                "img": "",
-                "exp": "10+ Yrs Exp"
-            },
-            {
-                "name": "Ms. Hema",
-                "title": "SQL & Analytics Engineer",
-                "bullets": [
-                    "6+ years in SQL database design and data analysis",
-                    "Expertise in SQL query tuning, data lakes, and dashboards",
-                    "Worked with major healthcare and e-commerce databases",
-                    "Helped scale analytical systems globally"
-                ],
-                "quote": "Hema makes database queries and complex SQL filters second nature.",
-                "img": "",
-                "exp": "6+ Yrs Exp"
-            }
+        trainers: [
+          { name: "Mr. Rahul", title: "Lead Instructor", bullets: ["Focuses on practical, hands-on data analysis", "Connects concepts to real job situations", "Expert in Python scripting and statistical structures", "Passionate about making statistics easy to understand"], quote: "Rahul makes Python syntax and data cleaning feel natural.", img: "", exp: "8+ Yrs Exp" },
+          { name: "Mr. Shubham", title: "Machine Learning & Applied AI", bullets: ["Specialist in ML and applied AI workflows", "Teaches model training and pipelines step-by-step", "Expert in Scikit-Learn models and classification", "Helped scale models for global tech startups"], quote: "Shubham helps you move from concepts to building real models.", img: "", exp: "10+ Yrs Exp" },
+          { name: "Mr. Gufran", title: "Gen AI & Prompt Engineering", bullets: ["Focuses on AI integrations and prompting rules", "Teaches responsible use of AI tools in analytical work", "Expert in LLM architectures and vector search setups", "Emphasizes double-checking AI output against facts"], quote: "Gufran shows you how to use AI to work 10x faster.", img: "", exp: "6+ Yrs Exp" }
         ],
-        "pricing": [
-            "Regular price: ₹30,000 / $360 USD equivalent",
-            "Special discount: ₹15,000 / $180 USD (50% off)",
-            "Additional cashback: ₹2,000 / $24 USD",
-            "0% Interest EMI available worldwide",
-            "No hidden charges, transparent pricing",
-            "Become a data professional without expensive postgraduate degree fees."
+        pricing: [
+          "Regular price: ₹40,000",
+          "Special discount: ₹20,000 (50% off)",
+          "Additional cashback: ₹2,000 on one-time payment",
+          "0% Interest EMI available worldwide",
+          "No hidden charges, transparent pricing",
+          "Get premium quality data science training at an affordable price."
         ]
-    },
-    "differencesSubtext": "We skip boring math slide-decks and focus on Python coding, databases, and machine learning models. You will graduate with a live portfolio of 4 data projects.",
-    "differences": [
+      },
+      differencesSubtext: "Forget generic slide decks. We build job-ready data professionals with real projects, real datasets, and a verifiable portfolio.",
+      differences: [
         {
-            "title": "1. Real-World Analytics Projects",
-            "bullets": [
-                "Build a customer churn predictive model",
-                "Create a SQL database analytic pipeline",
-                "Develop a regression model for sales forecasts",
-                "Deploy a data dashboard displaying live data logs"
-            ]
+          title: "1. Real-World, Globally-Relevant Projects",
+          bullets: [
+            "Clean messy datasets to handle missing values and outliers",
+            "Build customer churn machine learning predictive models",
+            "Write SQL queries to extract data from corporate databases",
+            "Deploy an interactive data dashboard showing analytics logs"
+          ]
         },
         {
-            "title": "2. Python & SQL GitHub Portfolios",
-            "bullets": [
-                "Python analytic libraries",
-                "SQL database design schemas",
-                "Machine learning model codebooks",
-                "Feature engineering scripts"
-            ]
+          title: "2. GitHub Portfolio for Data Professionals",
+          bullets: [
+            "Python data analysis notebooks",
+            "SQL query files and database schemas",
+            "Machine learning model codebooks",
+            "Streamlit visualization application files"
+          ]
         },
         {
-            "title": "3. Industry-Recognized Certification",
-            "bullets": [
-                "Skillsha's Data Science & AI Certificate is recognized by top global hiring partners hiring data scientists, analysts, and developers."
-            ]
+          title: "3. Industry-Recognized Certification",
+          bullets: [
+            "Our Data Science Course certification is designed to meet industry expectations and is recognized by companies actively hiring data professionals worldwide."
+          ]
         },
         {
-            "title": "4. Rapid AI Analytics Workflows",
-            "bullets": [
-                "Write Python scripts in seconds using AI assistance",
-                "Debug complex runtime errors with code models",
-                "Automate database query writing and reviews",
-                "Speed up data cleaning using pattern analyzers"
-            ]
+          title: "4. Real, Messy Data Experience",
+          bullets: [
+            "We skip textbook datasets. You will clean and analyze real, messy data files—exactly like the ones you will see on the job."
+          ]
         }
-    ],
-    "toolPillars": [
+      ],
+      toolsSubtext: "Master the complete Data Science, Machine Learning & Gen AI ecosystem through practical tools, technologies, and real-world workflows. Instead of learning tools as a static list, you'll learn how to use them together across the complete data science lifecycle — from data collection and analysis to machine learning, visualization, and AI-powered solutions.",
+      skills: [
         {
-            "title": "Data Core & SQL",
-            "subtitle": "Query & Python Foundation",
-            "icon": "storage",
-            "colorClass": "text-blue-500 bg-blue-500/10",
-            "tools": [
-                {
-                    "name": "Python (Pandas & NumPy)",
-                    "category": "Data Manipulation",
-                    "desc": "Load datasets, filter structures, and handle matrices",
-                    "icon": "terminal"
-                },
-                {
-                    "name": "SQL (PostgreSQL & MySQL)",
-                    "category": "Database Queries",
-                    "desc": "Write complex select filters, joins, and database loops",
-                    "icon": "database"
-                },
-                {
-                    "name": "SQL Query Tuning",
-                    "category": "Performance",
-                    "desc": "Optimize indexing and database pipelines",
-                    "icon": "settings"
-                },
-                {
-                    "name": "Excel Dashboards",
-                    "category": "Reporting",
-                    "desc": "Create dynamic corporate charts and visual summaries",
-                    "icon": "bar_chart"
-                }
+          category: "Python & Data Analysis",
+          list: [
+            "Python — Programming fundamentals, functions, OOP, data structures & automation",
+            "NumPy — Numerical computing, arrays, mathematical operations & data processing",
+            "Pandas — Data cleaning, transformation, manipulation & analysis",
+            "Jupyter Notebook — Interactive data analysis, experimentation & documentation",
+            "SQL — Database querying, joins, subqueries, CTEs, window functions & analytics"
+          ]
+        },
+        {
+          category: "Data Visualization & BI",
+          list: [
+            "Matplotlib — Statistical and analytical visualizations",
+            "Seaborn — Advanced statistical data visualization",
+            "Power BI — Interactive dashboards, reports, KPIs & business analytics",
+            "Excel — Data analysis, formulas, pivot tables & reporting"
+          ]
+        },
+        {
+          category: "Machine Learning",
+          list: [
+            "Scikit-learn — Classification, regression, clustering & model evaluation",
+            "Supervised Learning — Regression and classification algorithms",
+            "Unsupervised Learning — Clustering, dimensionality reduction & pattern discovery",
+            "Feature Engineering — Feature selection, transformation & optimization",
+            "Model Evaluation — Accuracy, precision, recall, F1-score, ROC-AUC & cross-validation"
+          ]
+        },
+        {
+          category: "Deep Learning & AI",
+          list: [
+            "TensorFlow / Keras — Neural networks and deep learning models",
+            "PyTorch — Deep learning and AI model development",
+            "Neural Networks — Core concepts, architectures & training",
+            "Computer Vision — Image classification and visual data processing",
+            "NLP — Natural language processing and text-based AI applications"
+          ]
+        },
+        {
+          category: "Gen AI & AI-Powered",
+          list: [
+            "ChatGPT — Python assistance, SQL generation, data analysis & problem solving",
+            "Claude — Advanced reasoning, coding assistance & data workflows",
+            "Prompt Engineering — Designing effective prompts for professional data tasks",
+            "Generative AI — Understanding LLMs, AI workflows & practical applications",
+            "AI-Assisted Coding — Generate, debug, optimize and document Python & SQL",
+            "AI Data Analysis — Use AI to accelerate exploration, insights and reporting"
+          ]
+        },
+        {
+          category: "Databases & Data Eng",
+          list: [
+            "MySQL / PostgreSQL — Relational database management & advanced SQL",
+            "MongoDB — NoSQL data storage and document-based databases",
+            "ETL / Data Pipelines — Extract, transform and load data efficiently",
+            "Data Cleaning — Handle missing values, duplicates and inconsistent datasets",
+            "Data Processing — Prepare large and complex datasets for analysis and modeling"
+          ]
+        },
+        {
+          category: "Deployment & Production",
+          list: [
+            "Git & GitHub — Version control and collaborative development",
+            "Streamlit — Build interactive data science and ML applications",
+            "APIs — Integrate machine learning models with applications",
+            "Cloud Fundamentals — Understand deployment and scalable data workflows",
+            "Model Deployment — Deploy trained ML models for real-world use"
+          ]
+        },
+        {
+          category: "Complete Workflow",
+          list: [
+            "Data Collection — Gathering raw data from files, databases, or APIs",
+            "SQL & Python Wrangling — Preparing data for ingestion",
+            "Data Cleaning & Imputation — Handling outliers and missing values",
+            "Exploratory Data Analysis — Visualizing trends and correlations",
+            "Model Training & Tuning — Training machine learning & neural network models",
+            "Gen AI Integration — Accelerating analytics and report compiling",
+            "Model Deployment — Publishing interactive Streamlit applications and APIs"
+          ]
+        }
+      ],
+      placement: {
+        during: [
+          "Week 4: Career path alignment and portfolio audit",
+          "Week 8: GitHub analytic portfolio verification",
+          "Week 12: Machine learning code audit with mentor",
+          "Week 16: Tech resume polish and mock rounds",
+          "Week 20: Technical coding case study simulations"
+        ],
+        after: [
+          "Your profile added to our global job portal",
+          "2-3 job matches sent weekly based on your preferences",
+          "Direct referral to 20-30 companies matched to your skills",
+          "Weekly job discussion sessions",
+          "Updated interview question bank",
+          "Ongoing career guidance and support"
+        ],
+        network: [
+          "Fast-growing startups seeking data talent",
+          "Global tech companies expanding data teams",
+          "Analytics and consulting firms with permanent roles",
+          "E-commerce companies scaling data operations",
+          "SaaS companies in growth mode",
+          "Companies with dedicated data and AI divisions"
+        ]
+      },
+      careers: {
+        marketSentiment: "These roles exist across almost every industry — tech, finance, healthcare, retail, and more — because most companies today collect more data than they know what to do with. That's exactly the gap this course prepares you to fill.",
+        roles: [
+          {
+            title: "Data Analyst",
+            availability: "Immediate Placement",
+            duties: "Cleans, analyzes, and reports on data using Python and SQL to help business teams make data-driven decisions.",
+            keyPoints: [
+              "Perform SQL data aggregation & joins",
+              "Wrangle and clean messy CSV/Excel datasets",
+              "Build interactive charts with Seaborn/Matplotlib",
+              "Translate analytical data into visual reports"
             ],
-            "pipeline": {
-                "left": "Raw SQL",
-                "middle": "Pandas Parse",
-                "right": "Clean DataFrame",
-                "leftLabel": "Database",
-                "rightLabel": "Data Output"
-            }
-        },
-        {
-            "title": "Machine Learning",
-            "subtitle": "Model Building & Tuning",
-            "icon": "psychology",
-            "colorClass": "text-purple-500 bg-purple-500/10",
-            "tools": [
-                {
-                    "name": "Scikit-Learn",
-                    "category": "ML Algorithms",
-                    "desc": "Implement regression, classification, and trees",
-                    "icon": "account_tree"
-                },
-                {
-                    "name": "Matplotlib & Seaborn",
-                    "category": "Data Visuals",
-                    "desc": "Render correlation heatmaps, box plots, and trends",
-                    "icon": "bar_chart"
-                },
-                {
-                    "name": "Feature Selection APIs",
-                    "category": "Tuning Models",
-                    "desc": "Filter attributes and metrics to optimize results",
-                    "icon": "tune"
-                },
-                {
-                    "name": "Model Save APIs (Joblib)",
-                    "category": "Packaging Models",
-                    "desc": "Export weights and model files for server use",
-                    "icon": "save"
-                }
+            baseMin: 6,
+            baseMax: 9
+          },
+          {
+            title: "Junior Data Scientist",
+            availability: "High Demand",
+            duties: "Builds, tests, and evaluates early-stage predictive and machine learning models under the guidance of senior leads.",
+            keyPoints: [
+              "Wrangle features and preprocess datasets",
+              "Implement classification and regression algorithms",
+              "Tune model hyperparameters using Scikit-Learn",
+              "Verify model accuracy, precision, and recall scores"
             ],
-            "pipeline": {
-                "left": "Clean Data",
-                "middle": "Model Training",
-                "right": "Weights File",
-                "leftLabel": "Input DF",
-                "rightLabel": "Predict Model"
-            }
-        },
-        {
-            "title": "AI & Deployment",
-            "subtitle": "API Wrappers & Dashboards",
-            "icon": "api",
-            "colorClass": "text-emerald-500 bg-emerald-500/10",
-            "tools": [
-                {
-                    "name": "Streamlit",
-                    "category": "Interactive Apps",
-                    "desc": "Build visual data apps with minimal python code",
-                    "icon": "analytics"
-                },
-                {
-                    "name": "FastAPI",
-                    "category": "Model Serving",
-                    "desc": "Deploy prediction models as REST API endpoints",
-                    "icon": "api"
-                },
-                {
-                    "name": "Claude & ChatGPT",
-                    "category": "Code Assistants",
-                    "desc": "Generate data structures and debug complex errors",
-                    "icon": "edit"
-                },
-                {
-                    "name": "Cloud Hosting (Vercel)",
-                    "category": "Deploying Apps",
-                    "desc": "Publish data dashboards to the web globally",
-                    "icon": "cloud"
-                }
+            baseMin: 8,
+            baseMax: 12
+          },
+          {
+            title: "Data Scientist",
+            availability: "Premium Role",
+            duties: "Owns the end-to-end data pipeline, from database extraction and statistical analysis to training and deploying production ML models.",
+            keyPoints: [
+              "Design complex database schemas and model inputs",
+              "Build predictive machine learning systems",
+              "Expose models as FastAPI wrapper endpoints",
+              "Integrate RAG and vector database architectures"
             ],
-            "pipeline": {
-                "left": "Python File",
-                "middle": "Streamlit Run",
-                "right": "Live web app",
-                "leftLabel": "Code",
-                "rightLabel": "Dashboard"
-            }
-        }
-    ],
-    "skills": [
-        {
-            "category": "Data Python & SQL",
-            "list": [
-                "Pandas data cleaning & matrix filters",
-                "NumPy arrays & basic math models",
-                "SQL query optimization, joins, group by",
-                "Relational database schema modeling",
-                "Connecting Python scripts with SQL DBs",
-                "Handling missing parameters & duplicates"
-            ]
-        },
-        {
-            "category": "Machine Learning Models",
-            "list": [
-                "Supervised ML classification & regression",
-                "Decision trees & random forest implementations",
-                "Model accuracy, precision, and recall audits",
-                "Feature scaling & data standardization",
-                "Data visualizations with Seaborn",
-                "Hyperparameter tuning techniques"
-            ]
-        },
-        {
-            "category": "Deploy & AI Analytics",
-            "list": [
-                "Writing scripts with Claude & ChatGPT",
-                "Debugging Python runtime & syntax errors",
-                "Building data dashboards with Streamlit",
-                "FastAPI model deployment wrappers",
-                "Cloud deployment for analytics apps",
-                "API integrations and response parsing"
-            ]
-        }
-    ],
-    "placement": {
-        "during": [
-            "Week 4: SQL skills assessment and query reviews",
-            "Week 8: GitHub analytic portfolio verification",
-            "Week 12: Machine learning code audit with mentor",
-            "Week 16: Tech resume polish and mock rounds",
-            "Week 20: Technical coding case study simulations"
+            baseMin: 12,
+            baseMax: 18
+          },
+          {
+            title: "Machine Learning Associate",
+            availability: "Immediate Placement",
+            duties: "Supports the development, fine-tuning, and deployment of machine learning and neural network models.",
+            keyPoints: [
+              "Format datasets for ML model ingestion",
+              "Conduct parameter efficiency tuning (PEFT/LoRA)",
+              "Save and package trained model weights via Joblib",
+              "Monitor running pipelines for latency and token use"
+            ],
+            baseMin: 9,
+            baseMax: 13
+          },
+          {
+            title: "Business Intelligence Analyst",
+            availability: "High Demand",
+            duties: "Turns complex data streams into interactive business dashboards, dashboards, and automated reports for company leadership.",
+            keyPoints: [
+              "Establish corporate KPI reporting structures",
+              "Design interactive visual apps with Streamlit",
+              "Optimize PostgreSQL querying databases speed",
+              "Build Google Looker Studio & Power BI charts"
+            ],
+            baseMin: 7,
+            baseMax: 10
+          },
+          {
+            title: "Data Analytics Specialist",
+            availability: "Immediate Placement",
+            duties: "Performs deep-dive analysis on organizational databases and transactional datasets to identify operational bottlenecks and growth opportunities.",
+            keyPoints: [
+              "Analyze customer cohorts and churn parameters",
+              "Run hypothesis testing and statistical models",
+              "Wrangle sales and market dataset variables",
+              "Generate automated business digests for product teams"
+            ],
+            baseMin: 8,
+            baseMax: 12
+          }
         ],
-        "after": [
-            "Database placement profile activations",
-            "Direct introductions to analytics hiring teams",
-            "2-3 vetted analyst jobs sent weekly",
-            "Direct referral loops with SaaS platforms",
-            "Vetted client data projects for portfolio",
-            "Continued mentor calls and career growth support"
+        growth: [
+          "Year 1: Deliver clean Python pandas code, SQL schemas, and dashboards",
+          "Year 2-3: Senior analyst designing predictive risk models",
+          "Year 5+: Lead Scientist directing enterprise analytics teams"
         ],
-        "network": [
-            "SaaS startups hiring analytics talent",
-            "Business intelligence consulting firms",
-            "Fintech organizations scaling risk models",
-            "Agencies managing database pipelines",
-            "E-commerce brands analyzing buyer behavior",
-            "Fortune 500 business intelligence groups"
+        salaryGrowth: [
+          "Starting package: ₹12L+ per annum average",
+          "After 1 year: 20-30% increase typical",
+          "After 3 years: 2-3x your starting salary"
         ]
-    },
-    "careers": {
-        "roles": [
-            {
-                "title": "Data Scientist",
-                "salary": "$5,000-$7,500/month",
-                "duties": "Model training, statistical analytics, prediction APIs",
-                "availability": "Tech teams, startups"
-            },
-            {
-                "title": "Machine Learning Analyst",
-                "salary": "$5,500-$8,000/month",
-                "duties": "Model tuning, data pipelines, predictive stats",
-                "availability": "Fintech, SaaS teams"
-            },
-            {
-                "title": "Analytics Engineer",
-                "salary": "$4,500-$7,000/month",
-                "duties": "SQL structures, dashboard setups, database logs",
-                "availability": "Agencies, tech groups"
-            },
-            {
-                "title": "Data Analyst (Advanced)",
-                "salary": "$4,000-$6,000/month",
-                "duties": "Visual dashboards, SQL select logic, reports",
-                "availability": "Startups, brands worldwide"
-            }
+      },
+      pricingDetail: {
+        rows: [
+          { cost: "Regular course fee", amount: "₹40,000" },
+          { cost: "50% special discount", amount: "₹20,000" },
+          { cost: "Bonus cashback", amount: "₹2,000" },
+          { cost: "Your final investment", amount: "₹18,000" }
         ],
-        "growth": [
-            "Year 1: Deliver clean pandas code, SQL schemas, and dashboards",
-            "Year 2-3: Senior analyst designing predictive risk models",
-            "Year 5+: Lead Scientist directing enterprise analytics teams"
+        installments: [
+          "3-month plan: ₹6,667/month (₹20,000 total)",
+          "6-month plan: ₹3,334/month (₹20,000 total)",
+          "No cost EMI available globally",
+          "No hidden fees, transparent pricing"
         ],
-        "salaryGrowth": [
-            "Data science professionals secure premium starting hikes",
-            "SQL + Python skills command high rates globally",
-            "Remote data scientists are highly sought by global teams"
+        discounts: [
+          "Referral discount: 10% off for group registrations",
+          "Corporate upskilling packages available",
+          "Team rates on request"
+        ],
+        includes: [
+          "6–7 months of structured, mentor-led training",
+          "Live classes with industry experts",
+          "Recorded sessions for flexibility",
+          "Complete course materials and real datasets",
+          "Real-world projects and a full capstone project",
+          "Mock interviews with professionals",
+          "Portfolio review and optimization",
+          "GitHub portfolio building",
+          "Industry-recognized certificate",
+          "100% placement support",
+          "Lifetime access to updates",
+          "Alumni community and network",
+          "Personal mentorship",
+          "Job interview preparation"
         ]
-    },
-    "pricingDetail": {
-        "rows": [
-            {
-                "cost": "Data Science regular tuition",
-                "amount": "₹30,000"
-            },
-            {
-                "cost": "50% flagship discount",
-                "amount": "₹15,000"
-            },
-            {
-                "cost": "Bonus cashback",
-                "amount": "₹2,000"
-            },
-            {
-                "cost": "Your final tuition fee",
-                "amount": "₹13,000"
-            }
-        ],
-        "installments": [
-            "3 monthly plans: ₹4,500/month (₹13,500 total)",
-            "6 monthly plans: ₹2,300/month (₹13,800 total)",
-            "100% money back guarantee for first 14 days",
-            "No cost EMI available globally"
-        ],
-        "discounts": [
-            "Referral bonus: 10% off for group registrations",
-            "Flexible schemes for corporate analytics teams",
-            "Data upskilling packages available"
-        ],
-        "includes": [
-            "24 weeks structured Python & SQL training",
-            "Live interactive data coding labs",
-            "Recorded video portal access",
-            "Vetted codebooks and dataset files",
-            "4 complete github data projects",
-            "Professional database portfolio audits",
-            "Custom interview prep guides",
-            "Industry-recognized Analytics Certificate",
-            "1-on-1 career mentor matchmaking"
-        ]
-    },
-    "stories": [
+      },
+      stories: [
         {
-            "name": "Liam H. (Ireland)",
-            "before": "Business Graduate",
-            "after": "Data Analyst at Analytics firm, €45k/year",
-            "body": "Skillsha's focus on SQL database logic and Python data cleaning was exactly what I needed. I didn't want abstract academic formulas. I wanted practical database query skills. Within 8 weeks of graduating, I got hired.",
-            "result": "First technical role secured"
+          name: "Wil M. (United States)",
+          before: "Non-technical Background",
+          after: "Data Analyst, $70k/year",
+          body: "Wil came to the course looking for a structured way into data analytics after working in an unrelated field. The step-by-step curriculum, especially the statistics and Python modules, gave him a foundation he could build on.",
+          result: "Successfully switched careers to data analytics"
         },
         {
-            "name": "Pooja S. (India)",
-            "before": "Excel Assistant, ₹3 LPA",
-            "after": "BI Analyst at Tech Brand, ₹7.5 LPA",
-            "body": "I wanted to transition from spreadsheets to SQL data models. Skillsha's hands-on dashboard tasks and AI script writing gave me the edge. The code portfolio got me through the tech rounds.",
-            "result": "150% salary jump, product team"
+          name: "Rohit K. (India)",
+          before: "Recent College Graduate",
+          after: "Junior Data Scientist, ₹12L/year",
+          body: "Rohit was a recent graduate unsure how to break into data science without prior work experience. Building a portfolio of real projects — not just certificates — made the biggest difference when he started applying for roles.",
+          result: "Landed junior data scientist job"
+        },
+        {
+          name: "Isha T. (Germany)",
+          before: "Sales Operations Assistant",
+          after: "BI Analyst, €50k/year",
+          body: "Isha switched careers into data science after several years in a different industry. She found the machine learning and Gen AI modules especially useful, since they matched what employers in her target roles were actually asking about.",
+          result: "Transitioned to business intelligence"
+        },
+        {
+          name: "Rahool P. (Southeast Asia)",
+          before: "Operations Lead",
+          after: "Data Scientist, $65k/year equivalent",
+          body: "Rahool already worked with data informally in his job but wanted formal training to move into a dedicated data role. The SQL and machine learning modules helped him formalize skills he'd been using loosely.",
+          result: "Promoted to full data scientist"
         }
-    ],
-    "enrollment": [
-        {
-            "step": "Step 1",
-            "title": "Submit Application",
-            "bullets": [
-                "Fill out our brief online application detailing your background and career goals.",
-                "Admissions team reviews compatibility within 24 hours"
-            ]
-        },
-        {
-            "step": "Step 2",
-            "title": "Admissions Chat",
-            "bullets": [
-                "Speak with our team to verify alignment and discuss your experience levels.",
-                "Configure target track details"
-            ]
-        },
-        {
-            "step": "Step 3",
-            "title": "Reserve Seat",
-            "bullets": [
-                "Confirm your enrollment with initial payment or set up interest-free monthly financing.",
-                "Secure early booking discounts"
-            ]
-        },
-        {
-            "step": "Step 4",
-            "title": "Onboarding Setup",
-            "bullets": [
-                "Gain instant portal access to pre-work resources, setup files, and live channel workspace.",
-                "Complete pre-work modules before live classes start"
-            ]
-        }
-    ],
-    "quickFacts": [
+      ],
+      quickFacts: [
         "Format: Live Classes + Portfolio Workshops",
         "Graduation Rate: 94% Secure Job in 60 Days",
-        "Refund Policy: 14-Day Money Back Guarantee",
-        "Average Hike: 54% Salary Jump Achieved",
-        "Access: Lifetime course materials & forum updates",
+        "Refund Policy: 7-Day Money Back Guarantee",
+        "Average starting package: ₹12L+ per annum",
+        "Access: Lifetime course materials & updates",
         "Certification: Globally verified credential"
-    ]
-}
-  },
-  "product-management": {
+      ]
+    }
+  },  "product-management": {
     title: "Product Management",
     typewriter: ["Product Strategy", "Product Analytics", "Roadmap Execution", "Agile Leadership"],
     description: "Lead product development from conception to launch. Write PRDs, manage agile teams, analyze telemetry data, and define growth strategies.",

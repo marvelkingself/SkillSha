@@ -34,7 +34,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "full-stack-development-course-with-gen-ai",
     "digital-marketing-course-with-gen-ai",
     "ui-ux-design-course-with-gen-ai",
-    "data-science-course-with-gen-ai",
     "product-management-course-with-gen-ai",
     "algorithmic-trading-course-with-gen-ai",
     "graphic-design-course-with-gen-ai",

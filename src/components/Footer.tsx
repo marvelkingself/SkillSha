@@ -64,7 +64,7 @@ export default function Footer() {
                         <li><Link href="/course/ai-engineering-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering</Link></li>
                         <li><Link href="/course/ai-ml-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI/ML with Gen AI</Link></li>
                         <li><Link href="/course/ui-ux-design-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design</Link></li>
-                        <li><Link href="/course/data-science-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science & AI</Link></li>
+                        <li><Link href="/course/data-science-course-with-gen-ai" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science & AI</Link></li>
                         <li><Link href="/course/data-analyst-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analyst</Link></li>
                         <li><Link href="/course/business-analyst-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Business Analyst</Link></li>
                         <li><Link href="/course/software-testing-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Software Testing</Link></li>
