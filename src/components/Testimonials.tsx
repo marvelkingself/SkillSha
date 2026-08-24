@@ -82,7 +82,7 @@ export default function Testimonials() {
             </h2>
             <span className="bg-brand-orange text-white text-[11px] md:text-xs font-bold uppercase tracking-wider py-1.5 px-3 rounded shadow-sm w-max mx-auto md:mx-0">Testimonials</span>
           </div>
-          <p className="text-zinc-500 dark:text-zinc-400 text-[13px] md:text-[15px]">Hear directly from SkillSha alumni across Noida and beyond.</p>
+          <p className="text-zinc-500 dark:text-zinc-400 text-[13px] md:text-[15px]">Hear directly from SkillSha alumni across India and beyond.</p>
         </div>
 
         <div className="flex overflow-x-auto md:overflow-visible snap-x snap-mandatory hide-scrollbar gap-3 md:gap-4 h-[400px] md:h-[450px] lg:h-[500px] w-full pb-4 md:pb-0">

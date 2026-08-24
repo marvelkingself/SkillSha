@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const FAQS = [
   {
-    q: "Which SkillSha course is best for beginners in Noida?",
+    q: "Which SkillSha course is best for beginners in India?",
     a: "SkillSha's Full-Stack Development and UI/UX Design courses are ideal for beginners — no prior coding or design experience is needed. Our counselling team recommends the right track during your free demo session.",
   },
   {
@@ -24,7 +24,7 @@ const FAQS = [
   },
   {
     q: "Does SkillSha offer online, offline, or hybrid classes?",
-    a: "SkillSha offers online, offline, and hybrid IT training formats across Noida, and online classes in Delhi and other pan-Indian cities.",
+    a: "SkillSha offers online, offline, and hybrid IT training formats across India, and online classes in Delhi and other pan-Indian cities.",
   },
   {
     q: "What is the course duration and fee structure at SkillSha?",

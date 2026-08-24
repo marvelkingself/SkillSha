@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 
 export default function Mentors() {
   return (
@@ -13,99 +14,109 @@ export default function Mentors() {
             <div className="hidden md:block flex-grow flex-shrink-0 min-w-0"></div>
             
             {/* Mentor 1 */}
-            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
-              <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
-              <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
-                <Image src="/files/Mentors/mentor-photo-1.webp" alt="Aarav Sharma" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              <h4 className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Aarav Sharma</h4>
-              <p className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">AI Systems Engineer</p>
-              
-              <div className="mt-auto w-full">
-                <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
-                <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
-                <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
-                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=zoho.com&sz=128" alt="Zoho" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
-                  <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Zoho</span>
-                </div>
-              </div>
-            </div>
+            <CardContainer className="snap-center flex-shrink-0">
+              <CardBody className="w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
+                <CardItem translateZ={30} className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
+                  <Image src="/files/Mentors/mentor-photo-1.webp" alt="Aarav Sharma" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
+                </CardItem>
+                <CardItem translateZ={20} as="h4" className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Aarav Sharma</CardItem>
+                <CardItem translateZ={15} as="p" className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">AI Systems Engineer</CardItem>
+                
+                <CardItem translateZ={10} className="mt-auto w-full">
+                  <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
+                  <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
+                  <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
+                    <img loading="lazy" src="https://www.google.com/s2/favicons?domain=zoho.com&sz=128" alt="Zoho" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
+                    <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Zoho</span>
+                  </div>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
 
             {/* Mentor 2 */}
-            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
-              <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
-              <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
-                <Image src="/files/Mentors/mentor-photo-2.webp" alt="Rohan Mehta" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              <h4 className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Rohan Mehta</h4>
-              <p className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">Growth Strategist</p>
-              
-              <div className="mt-auto w-full">
-                <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
-                <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
-                <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
-                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=zomato.com&sz=128" alt="Zomato" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
-                  <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Zomato</span>
-                </div>
-              </div>
-            </div>
+            <CardContainer className="snap-center flex-shrink-0">
+              <CardBody className="w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
+                <CardItem translateZ={30} className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
+                  <Image src="/files/Mentors/mentor-photo-2.webp" alt="Rohan Mehta" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
+                </CardItem>
+                <CardItem translateZ={20} as="h4" className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Rohan Mehta</CardItem>
+                <CardItem translateZ={15} as="p" className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">Growth Strategist</CardItem>
+                
+                <CardItem translateZ={10} className="mt-auto w-full">
+                  <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
+                  <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
+                  <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
+                    <img loading="lazy" src="https://www.google.com/s2/favicons?domain=zomato.com&sz=128" alt="Zomato" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
+                    <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Zomato</span>
+                  </div>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
 
             {/* Mentor 3 */}
-            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
-              <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
-              <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
-                <Image src="/files/Mentors/mentor-photo-3.webp" alt="Aditi Rao" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              <h4 className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Aditi Rao</h4>
-              <p className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">Full-Stack Architect</p>
-              
-              <div className="mt-auto w-full">
-                <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
-                <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
-                <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
-                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=razorpay.com&sz=128" alt="Razorpay" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
-                  <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Razorpay</span>
-                </div>
-              </div>
-            </div>
+            <CardContainer className="snap-center flex-shrink-0">
+              <CardBody className="w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
+                <CardItem translateZ={30} className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
+                  <Image src="/files/Mentors/mentor-photo-3.webp" alt="Aditi Rao" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
+                </CardItem>
+                <CardItem translateZ={20} as="h4" className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Aditi Rao</CardItem>
+                <CardItem translateZ={15} as="p" className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">Full-Stack Architect</CardItem>
+                
+                <CardItem translateZ={10} className="mt-auto w-full">
+                  <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
+                  <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
+                  <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
+                    <img loading="lazy" src="https://www.google.com/s2/favicons?domain=razorpay.com&sz=128" alt="Razorpay" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
+                    <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Razorpay</span>
+                  </div>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
 
             {/* Mentor 4 */}
-            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
-              <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
-              <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
-                <Image src="/files/Mentors/mentor-photo-4.webp" alt="Ishan Verma" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              <h4 className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Ishan Verma</h4>
-              <p className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">Product Designer</p>
-              
-              <div className="mt-auto w-full">
-                <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
-                <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
-                <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
-                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=flipkart.com&sz=128" alt="Flipkart" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
-                  <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Flipkart</span>
-                </div>
-              </div>
-            </div>
+            <CardContainer className="snap-center flex-shrink-0">
+              <CardBody className="w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
+                <CardItem translateZ={30} className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
+                  <Image src="/files/Mentors/mentor-photo-4.webp" alt="Ishan Verma" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
+                </CardItem>
+                <CardItem translateZ={20} as="h4" className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Ishan Verma</CardItem>
+                <CardItem translateZ={15} as="p" className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">Product Designer</CardItem>
+                
+                <CardItem translateZ={10} className="mt-auto w-full">
+                  <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
+                  <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
+                  <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
+                    <img loading="lazy" src="https://www.google.com/s2/favicons?domain=flipkart.com&sz=128" alt="Flipkart" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
+                    <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Flipkart</span>
+                  </div>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
 
             {/* Mentor 5 */}
-            <div className="snap-center flex-shrink-0 w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
-              <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
-              <div className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
-                <Image src="/files/Mentors/mentor-photo-5.webp" alt="Devendra Singh" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              <h4 className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Devendra Singh</h4>
-              <p className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">Cybersecurity Lead</p>
-              
-              <div className="mt-auto w-full">
-                <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
-                <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
-                <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
-                  <img loading="lazy" src="https://www.google.com/s2/favicons?domain=freshworks.com&sz=128" alt="Freshworks" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
-                  <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Freshworks</span>
-                </div>
-              </div>
-            </div>
+            <CardContainer className="snap-center flex-shrink-0">
+              <CardBody className="w-[150px] md:w-[160px] lg:w-[160px] bg-white dark:bg-[#0c0c0c] border border-zinc-200/80 dark:border-white/5 rounded-[16px] md:rounded-[24px] p-4 md:p-5 flex flex-col items-center text-center shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.08)] hover:border-brand-orange/40 transition-all duration-500 group relative overflow-hidden z-10">
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/0 to-brand-orange/0 group-hover:to-brand-orange/[0.04] transition-colors duration-500 -z-10 pointer-events-none"></div>
+                <CardItem translateZ={30} className="w-[54px] h-[54px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden mb-2 md:mb-4 p-[2px] bg-gradient-to-b from-[#7A4B3A] to-[#2E1A14]">
+                  <Image src="/files/Mentors/mentor-photo-5.webp" alt="Devendra Singh" width={60} height={60} className="w-full h-full object-cover rounded-full bg-zinc-800 group-hover:scale-110 transition-transform duration-500" />
+                </CardItem>
+                <CardItem translateZ={20} as="h4" className="text-[14px] md:text-[15px] font-semibold text-zinc-900 dark:text-white tracking-tight mb-0 md:mb-1 leading-tight group-hover:text-brand-orange transition-colors duration-300">Devendra Singh</CardItem>
+                <CardItem translateZ={15} as="p" className="text-[10px] md:text-[12px] text-zinc-500 dark:text-[#9CA3AF] mb-3 md:mb-5 leading-snug">Cybersecurity Lead</CardItem>
+                
+                <CardItem translateZ={10} className="mt-auto w-full">
+                  <div className="w-full h-[1px] bg-zinc-200 dark:bg-white/10 mb-1.5 md:mb-3"></div>
+                  <p className="text-[8px] md:text-[10px] text-zinc-400 dark:text-[#6b7280] uppercase tracking-[0.15em] mb-1.5 md:mb-2 font-semibold">Previously at</p>
+                  <div className="flex items-center justify-center gap-1.5 md:gap-2 text-zinc-900 dark:text-white h-[14px] md:h-[20px]">
+                    <img loading="lazy" src="https://www.google.com/s2/favicons?domain=freshworks.com&sz=128" alt="Freshworks" className="w-auto h-full object-contain max-w-[60px] md:max-w-[80px]" />
+                    <span className="text-[12px] md:text-[13px] font-bold tracking-tight">Freshworks</span>
+                  </div>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
 
             <div className="hidden md:block flex-grow flex-shrink-0 min-w-0"></div>
           </div>

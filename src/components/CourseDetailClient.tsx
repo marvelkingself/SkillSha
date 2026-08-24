@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import CounselingModal from "@/components/CounselingModal";
 import { AlumniCompanies } from "@/components/Alumni";
 import { CourseData, MENTORS_LIST } from "@/data/courses";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 
 interface CourseDetailClientProps {
   id: string;
@@ -3114,109 +3115,111 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-red/10 dark:bg-brand-red/5 rounded-full blur-3xl z-0" />
                 
                 {/* Outer Tablet Frame Container */}
-                <div className="relative z-10 w-full max-w-[340px] md:max-w-[370px] aspect-[1/1.4] bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 rounded-3xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col justify-between">
-                  
-                  {/* Certificate Background watermark decoration */}
-                  <div className="absolute inset-0 pointer-events-none opacity-[0.02] dark:opacity-[0.05] z-0 flex items-center justify-center">
-                    <svg className="w-56 h-56" fill="currentColor" viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="2" fill="none" strokeDasharray="3 3" />
-                    </svg>
-                  </div>
-                  
-                  {/* Outer frame border lines */}
-                  <div className="absolute inset-3 border-4 border-brand-orange/10 dark:border-brand-orange/5 rounded-2xl pointer-events-none" />
-                  
-                  {/* Certificate Paper Content Inner Container */}
-                  <div className="border border-brand-orange/20 dark:border-brand-orange/10 p-5 h-full flex flex-col justify-between relative z-10">
-                    {/* Faint corner designs */}
-                    <div className="absolute top-1.5 left-1.5 w-4 h-4 border-t border-l border-brand-orange/30" />
-                    <div className="absolute top-1.5 right-1.5 w-4 h-4 border-t border-r border-brand-orange/30" />
-                    <div className="absolute bottom-1.5 left-1.5 w-4 h-4 border-b border-l border-brand-orange/30" />
-                    <div className="absolute bottom-1.5 right-1.5 w-4 h-4 border-b border-r border-brand-orange/30" />
-
-                    {/* Header Logo & Stamp */}
-                    <div className="flex flex-col items-center mt-2">
-                      <div className="text-[14px] font-extrabold tracking-wider uppercase text-zinc-900 dark:text-white flex items-center gap-1">
-                        <span className="text-brand-orange">SKILLSHA</span>
-                        <span>LEARN</span>
-                      </div>
-                      <div className="text-[7px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mt-0.5">
-                        Credential Verification
-                      </div>
+                <CardContainer>
+                  <CardBody className="relative z-10 w-full max-w-[340px] md:max-w-[370px] aspect-[1/1.4] bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 rounded-3xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col justify-between">
+                    
+                    {/* Certificate Background watermark decoration */}
+                    <div className="absolute inset-0 pointer-events-none opacity-[0.02] dark:opacity-[0.05] z-0 flex items-center justify-center">
+                      <svg className="w-56 h-56" fill="currentColor" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="2" fill="none" strokeDasharray="3 3" />
+                      </svg>
                     </div>
+                    
+                    {/* Outer frame border lines */}
+                    <div className="absolute inset-3 border-4 border-brand-orange/10 dark:border-brand-orange/5 rounded-2xl pointer-events-none" />
+                    
+                    {/* Certificate Paper Content Inner Container */}
+                    <CardItem translateZ={60} className="border border-brand-orange/20 dark:border-brand-orange/10 p-5 h-full flex flex-col justify-between relative z-10 w-full">
+                      {/* Faint corner designs */}
+                      <div className="absolute top-1.5 left-1.5 w-4 h-4 border-t border-l border-brand-orange/30" />
+                      <div className="absolute top-1.5 right-1.5 w-4 h-4 border-t border-r border-brand-orange/30" />
+                      <div className="absolute bottom-1.5 left-1.5 w-4 h-4 border-b border-l border-brand-orange/30" />
+                      <div className="absolute bottom-1.5 right-1.5 w-4 h-4 border-b border-r border-brand-orange/30" />
 
-                    {/* Certificate Title */}
-                    <div className="my-3 text-center">
-                      <h3 className="text-md md:text-lg font-bold tracking-widest text-zinc-900 dark:text-white uppercase">
-                        Certificate
-                      </h3>
-                      <div className="text-[8px] uppercase tracking-widest text-zinc-500 dark:text-zinc-400 font-bold mt-0.5">
-                        of completion
-                      </div>
-                    </div>
-
-                    {/* Certificate Body Text */}
-                    <div className="text-center space-y-3">
-                      <div>
-                        <span className="text-[8px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider block">
-                          This is to certify
-                        </span>
-                        <span className="text-lg md:text-xl font-serif italic font-semibold text-brand-orange mt-1 block">
-                          Jane Doe
-                        </span>
-                      </div>
-                      
-                      <div>
-                        <span className="text-[8px] text-zinc-400 dark:text-zinc-500 uppercase tracking-wider block">
-                          has successfully completed
-                        </span>
-                        <span className="text-[9px] font-bold text-zinc-700 dark:text-zinc-300 mt-0.5 block">
-                          {data.duration} of
-                        </span>
-                      </div>
-
-                      <div>
-                        <span className="text-sm md:text-md font-extrabold tracking-tight text-brand-orange block leading-tight px-2">
-                          {data.title}
-                        </span>
-                      </div>
-                      
-                      <p className="text-[8px] text-zinc-400 dark:text-zinc-500 italic max-w-[220px] mx-auto leading-relaxed">
-                        Demonstrating practical proficiency across projects, labs, and campaign builds.
-                      </p>
-                    </div>
-
-                    {/* Signatures & Seal */}
-                    <div className="flex justify-between items-end mt-4 px-2">
-                      {/* Left: Round Seal Badge */}
-                      <div className="flex flex-col items-center">
-                        <div className="w-10 h-10 rounded-full border border-brand-orange/20 bg-brand-orange/5 flex items-center justify-center relative">
-                          <svg className="w-7 h-7 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                            <circle cx="12" cy="12" r="10" strokeDasharray="3 3" />
-                          </svg>
-                          <svg className="w-4 h-4 text-brand-orange absolute" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                          </svg>
+                      {/* Header Logo & Stamp */}
+                      <div className="flex flex-col items-center mt-2">
+                        <div className="text-[14px] font-extrabold tracking-wider uppercase text-zinc-900 dark:text-white flex items-center gap-1">
+                          <span className="text-brand-orange">SKILLSHA</span>
+                          <span>LEARN</span>
                         </div>
-                        <span className="text-[5px] text-zinc-400 uppercase tracking-widest mt-1">Verified</span>
+                        <div className="text-[7px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mt-0.5">
+                          Credential Verification
+                        </div>
                       </div>
 
-                      {/* Center Stamp Info */}
-                      <div className="flex flex-col items-center">
-                        <span className="text-[6px] text-zinc-500 uppercase tracking-widest">on 22 Mar 2026</span>
+                      {/* Certificate Title */}
+                      <div className="my-3 text-center">
+                        <h3 className="text-md md:text-lg font-bold tracking-widest text-zinc-900 dark:text-white uppercase">
+                          Certificate
+                        </h3>
+                        <div className="text-[8px] uppercase tracking-widest text-zinc-500 dark:text-zinc-400 font-bold mt-0.5">
+                          of completion
+                        </div>
                       </div>
 
-                      {/* Right: Signature */}
-                      <div className="flex flex-col items-center">
-                        <span className="text-xs font-serif italic text-zinc-800 dark:text-zinc-300 border-b border-zinc-200 dark:border-zinc-800 pb-0.5">
-                          Aris Thorne
-                        </span>
-                        <span className="text-[5px] text-zinc-400 uppercase tracking-widest mt-0.5">President, SkillSha</span>
-                      </div>
-                    </div>
+                      {/* Certificate Body Text */}
+                      <div className="text-center space-y-3">
+                        <div>
+                          <span className="text-[8px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider block">
+                            This is to certify
+                          </span>
+                          <span className="text-lg md:text-xl font-serif italic font-semibold text-brand-orange mt-1 block">
+                            Jane Doe
+                          </span>
+                        </div>
+                        
+                        <div>
+                          <span className="text-[8px] text-zinc-400 dark:text-zinc-500 uppercase tracking-wider block">
+                            has successfully completed
+                          </span>
+                          <span className="text-[9px] font-bold text-zinc-700 dark:text-zinc-300 mt-0.5 block">
+                            {data.duration} of
+                          </span>
+                        </div>
 
-                  </div>
-                </div>
+                        <div>
+                          <span className="text-sm md:text-md font-extrabold tracking-tight text-brand-orange block leading-tight px-2">
+                            {data.title}
+                          </span>
+                        </div>
+                        
+                        <p className="text-[8px] text-zinc-400 dark:text-zinc-500 italic max-w-[220px] mx-auto leading-relaxed">
+                          Demonstrating practical proficiency across projects, labs, and campaign builds.
+                        </p>
+                      </div>
+
+                      {/* Signatures & Seal */}
+                      <div className="flex justify-between items-end mt-4 px-2">
+                        {/* Left: Round Seal Badge */}
+                        <div className="flex flex-col items-center">
+                          <div className="w-10 h-10 rounded-full border border-brand-orange/20 bg-brand-orange/5 flex items-center justify-center relative">
+                            <svg className="w-7 h-7 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                              <circle cx="12" cy="12" r="10" strokeDasharray="3 3" />
+                            </svg>
+                            <svg className="w-4 h-4 text-brand-orange absolute" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                          <span className="text-[5px] text-zinc-400 uppercase tracking-widest mt-1">Verified</span>
+                        </div>
+
+                        {/* Center Stamp Info */}
+                        <div className="flex flex-col items-center">
+                          <span className="text-[6px] text-zinc-500 uppercase tracking-widest">on 22 Mar 2026</span>
+                        </div>
+
+                        {/* Right: Signature */}
+                        <div className="flex flex-col items-center">
+                          <span className="text-xs font-serif italic text-zinc-800 dark:text-zinc-300 border-b border-zinc-200 dark:border-zinc-800 pb-0.5">
+                            Aris Thorne
+                          </span>
+                          <span className="text-[5px] text-zinc-400 uppercase tracking-widest mt-0.5">President, SkillSha</span>
+                        </div>
+                      </div>
+
+                    </CardItem>
+                  </CardBody>
+                </CardContainer>
               </div>
 
               {/* Right Column: Copy & Features (3/5 width on desktop) */}

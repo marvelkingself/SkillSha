@@ -9,7 +9,7 @@ const USPS = [
     ),
   },
   {
-    q: "Does SkillSha provide placement assistance in Noida?",
+    q: "Does SkillSha provide placement assistance in India?",
     a: "SkillSha offers dedicated placement support including resume building, mock interviews, and direct referrals into a 500+ hiring partner network for every batch.",
     icon: (
       <svg className="w-5 h-5 text-brand-orange" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@ export default function WhyChooseUs() {
       <div className="mb-10 text-center md:text-left">
         <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4 mb-3 justify-center md:justify-start">
           <h2 className="text-[24px] md:text-4xl lg:text-[40px] font-semibold text-zinc-900 dark:text-white leading-[1.1] tracking-tight">
-            Why Choose SkillSha for IT Training in Noida?
+            Why Choose SkillSha for IT Training in India?
           </h2>
           <span className="bg-brand-orange text-white text-[11px] md:text-xs font-bold uppercase tracking-wider py-1.5 px-3 rounded shadow-sm w-max mx-auto md:mx-0">USP</span>
         </div>

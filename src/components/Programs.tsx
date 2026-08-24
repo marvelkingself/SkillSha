@@ -60,9 +60,9 @@ const programs: Program[] = [
   {
     id: 'digital-marketing-noida',
     icon: 'ads_click',
-    title: 'Digital Marketing Noida',
-    subtitle: 'Noida Flagship Training',
-    description: 'Master the future of marketing in Noida. Combine core growth marketing strategies with Generative AI tools to build high-converting ad engines.',
+    title: 'Digital Marketing India',
+    subtitle: 'India Flagship Training',
+    description: 'Master the future of marketing in India. Combine core growth marketing strategies with Generative AI tools to build high-converting ad engines.',
     duration: '24 Weeks',
     salary: '₹9.5L+',
     svgBg: (
@@ -79,7 +79,7 @@ const programs: Program[] = [
       { name: 'SEO Training', domain: 'google.com' },
       { name: 'AI Copywriting', domain: 'openai.com' },
       { name: 'GTM Analytics', domain: 'google.com' },
-      { name: 'Noida Projects', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="m9 12 2 2 4-4"/></svg> }
+      { name: 'India Projects', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="m9 12 2 2 4-4"/></svg> }
     ],
     professions: ['marketer']
   },

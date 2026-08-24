@@ -25,8 +25,42 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://skillsha.com"),
-  title: "SkillSha | Best IT Training Institute in Noida",
-  description: "SkillSha is a live, mentor-led IT training institute in Noida offering AI Engineering, Full-Stack Development, UI/UX Design, and Product Management programs with placement assistance.",
+  title: "SkillSha | IT Training & Placement Institute in India",
+  description: "SkillSha offers live mentor-led courses in Data Science, ML, Full-Stack Dev, Automation Testing & Digital Marketing with placement support in India.",
+  alternates: {
+    canonical: "https://skillsha.com/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
+  openGraph: {
+    type: "website",
+    siteName: "SkillSha",
+    title: "SkillSha | IT Training & Placement Institute in India",
+    description: "SkillSha offers live mentor-led courses in Data Science, ML, Full-Stack Dev, Automation Testing & Digital Marketing with placement support in India.",
+    url: "https://skillsha.com/",
+    images: [
+      {
+        url: "https://skillsha.com/files/logo-icon.png",
+      },
+    ],
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SkillSha | IT Training & Placement Institute in India",
+    description: "Live, mentor-led IT & digital marketing courses with placement assistance.",
+    images: ["https://skillsha.com/files/logo-icon.png"],
+  },
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default async function RootLayout({
@@ -41,6 +75,79 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://img.youtube.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Structured Data: EducationalOrganization + WebSite + WebPage (linked via @graph) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "EducationalOrganization",
+                  "@id": "https://skillsha.com/#organization",
+                  "name": "SkillSha",
+                  "alternateName": "Skillsha",
+                  "url": "https://skillsha.com/",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://skillsha.com/files/logo-icon.png"
+                  },
+                  "image": "https://skillsha.com/files/logo-icon.png",
+                  "description": "SkillSha is a live, mentor-led IT and digital marketing training institute offering placement-oriented programs in Data Science, Machine Learning, Automation Testing, and more.",
+                  "foundingDate": "2025",
+                  "email": "info@skillsha.com",
+                  "telephone": "+91-7303082191",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Prem Nagar, Loni",
+                    "addressLocality": "Ghaziabad",
+                    "addressRegion": "Uttar Pradesh",
+                    "postalCode": "201102",
+                    "addressCountry": "IN"
+                  },
+                  "areaServed": "Worldwide",
+                  "sameAs": [
+                    "https://www.instagram.com/skillsha_/",
+                    "https://www.facebook.com/share/16kqAs5YGE/?mibextid=wwXIfr"
+                  ],
+                  "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "SkillSha Courses",
+                    "itemListElement": [
+                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Data Science" } },
+                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Data Analytics" } },
+                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Business Analyst" } },
+                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Digital Marketing" } },
+                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Machine Learning" } },
+                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Automation Testing" } },
+                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Software Testing" } },
+                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Playwright Automation" } }
+                    ]
+                  }
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://skillsha.com/#website",
+                  "name": "SkillSha",
+                  "url": "https://skillsha.com/",
+                  "publisher": { "@id": "https://skillsha.com/#organization" },
+                  "inLanguage": "en-IN"
+                },
+                {
+                  "@type": "WebPage",
+                  "@id": "https://skillsha.com/#webpage",
+                  "url": "https://skillsha.com/",
+                  "name": "SkillSha | IT Training & Placement Institute in India",
+                  "description": "SkillSha offers live mentor-led courses in Data Science, ML, Full-Stack Dev, Automation Testing & Digital Marketing with placement support in India.",
+                  "isPartOf": { "@id": "https://skillsha.com/#website" },
+                  "about": { "@id": "https://skillsha.com/#organization" },
+                  "primaryImageOfPage": "https://skillsha.com/files/logo-icon.png",
+                  "inLanguage": "en-IN"
+                }
+              ]
+            })
+          }}
+        />
         {/* Preload LCP Image for instant paint */}
         <link rel="preload" href="https://img.youtube.com/vi/sgVJPhMHnys/hqdefault.jpg" as="image" fetchPriority="high" />
         {/* Icon font: media="print" so it never blocks first paint, flipped to "all" once loaded */}

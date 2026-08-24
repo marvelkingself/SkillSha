@@ -113,11 +113,11 @@ export default function Hero() {
           </div>
 
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-4">
-            Best IT Training Institute in <span className="text-gradient">Noida</span>
+            Best IT Training Institute in <span className="text-gradient">India</span>
           </h1>
 
           <p className="text-zinc-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed mb-6 max-w-lg">
-            SkillSha is Noida&apos;s leading AI-native training academy, offering industry-ready courses in AI Engineering, Full-Stack Development, UI/UX Design, Data Science, and Digital Marketing. Learners build live, deployed projects under mentors from OpenAI, Meta, and Stripe, with cohorts running across Noida, Delhi, and 10+ Indian cities.
+            SkillSha is India&apos;s leading AI-native training academy, offering industry-ready courses in AI Engineering, Full-Stack Development, UI/UX Design, Data Science, and Digital Marketing. Learners build live, deployed projects under mentors from OpenAI, Meta, and Stripe, with cohorts running across India, Delhi, and 10+ Indian cities.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mb-6 text-sm text-zinc-700 dark:text-zinc-300 font-medium">
