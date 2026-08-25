@@ -14,25 +14,25 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   const cases = [
     {
-      title: "How an AI Engineering Graduate Built & Launched 'AgentDoc' to 5,000 Users",
-      metrics: "5k Users in 14 Days",
-      category: "AI Product Design",
-      desc: "A breakdown of how Ayaan used automated AI agents, document parsing vectors, and Next.js server actions to build a profitable micro-SaaS in under three weeks.",
-      impact: "Raised $50k Seed funding within a month."
+      title: "How a Data Science Student Built an End-to-End ML Project From Scratch",
+      metrics: "Placement-Ready Portfolio",
+      category: "AI & Data Science",
+      desc: "A walkthrough of how one of our Data Science cohort students learned data cleaning, model building, and deployment — turning classroom concepts into a working, portfolio-ready machine learning application.",
+      impact: "Completed a full project pipeline and added it directly to their placement portfolio."
     },
     {
-      title: "Optimizing landing conversion from 1.2% to 4.8% for EdTech giant",
-      metrics: "4x Conversion Rate",
+      title: "Running a Real Ad Campaign — Lessons From Our Digital Marketing Cohort",
+      metrics: "Live Campaign Experience",
       category: "Digital Marketing",
-      desc: "How our marketing cohort students restructured user onboarding flows, redesigned CTA components, and ran targeted Meta & Google campaigns.",
-      impact: "Reduced customer acquisition cost (CAC) by 45%."
+      desc: "How our marketing students planned targeted audience segments, tested ad creatives, and analyzed performance metrics as part of hands-on, mentor-guided campaign training.",
+      impact: "Gained hands-on experience with real campaign planning and analytics tools."
     },
     {
-      title: "Migrating a legacy monolithic database to distributed PostgreSQL server",
-      metrics: "99.99% Database Uptime",
-      category: "Full-Stack Architecture",
-      desc: "Deep-dive case study on real-time database migration, horizontal read replicas, connection pool tuning, and failover automation.",
-      impact: "Reduced API response times by 320ms on average."
+      title: "From Manual Testing to Automation — A Student's Testing Journey",
+      metrics: "Industry-Standard Tooling",
+      category: "Software & Automation Testing",
+      desc: "A breakdown of how a Software Testing student progressed from manual test cases to writing automated test scripts using industry-standard tools taught in the SkillSha curriculum.",
+      impact: "Built working automation scripts using tools used by real QA teams."
     }
   ];
 
@@ -51,10 +51,10 @@ export default function CaseStudiesPage() {
             <span className="text-[11px] font-semibold text-zinc-600 dark:text-zinc-300 uppercase tracking-widest">Real Impact</span>
           </div>
           <h1 className="text-[36px] md:text-[56px] font-bold tracking-tight text-zinc-900 dark:text-white mb-6 leading-[1.1]">
-            Builder <span className="text-brand-orange">Case</span> Studies.
+            Proven <span className="text-brand-orange">Success</span> Stories.
           </h1>
           <p className="text-[16px] md:text-[19px] text-zinc-500 dark:text-[#9CA3AF] leading-relaxed font-medium max-w-[700px] mx-auto">
-            Detailed engineering, design, and growth breakdowns shipped by SkillSha cohorts and partner companies.
+            In-depth breakdowns of real projects, career switches, and campaigns built by SkillSha students during and after their training.
           </p>
         </section>
 
