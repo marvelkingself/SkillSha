@@ -5,24 +5,20 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hiring Partners | SkillSha",
   description: "Hire world-class technical talent, developers, UI/UX designers, and product leaders trained in modern AI-native engineering workflows.",
-  robots: {
-    index: false,
-    follow: false,
-  }
 };
 
 export default function HiringPartnersPage() {
   const statistics = [
-    { value: "500+", label: "Hiring Partners" },
-    { value: "14 Days", label: "Avg. Time to Hire" },
-    { value: "93%", label: "Placement Success" },
-    { value: "₹8.9 LPA", label: "Avg. Starting Package" }
+    { value: "100+", label: "Hiring Partners" },
+    { value: "30 Days", label: "Avg. Time to Hire" },
+    { value: "80%", label: "Placement Success" },
+    { value: "₹5-10 LPA", label: "Avg. Starting Package" }
   ];
 
   const valueProps = [
     {
       title: "Vetted Builders",
-      description: "Our students go through intensive project-based building, ensuring they have deep execution skills, not just theory.",
+      description: "Our students go through intensive, project-based training focused on practical execution skills, not just theory.",
       icon: (
         <svg className="w-6 h-6 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -31,7 +27,7 @@ export default function HiringPartnersPage() {
     },
     {
       title: "AI-First Mindset",
-      description: "Every SkillSha graduate is trained to leverage AI workflows (LLMs, prompt engineering, automation) to write code and deliver output 3x faster.",
+      description: "SkillSha graduates are trained to use modern AI tools and workflows to work faster and more efficiently.",
       icon: (
         <svg className="w-6 h-6 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -40,7 +36,7 @@ export default function HiringPartnersPage() {
     },
     {
       title: "No Placement Fees",
-      description: "We charge zero placement fees. Our goal is simply to bridge the gap and help companies connect with top-tier technical operators.",
+      description: "We don't charge companies any placement fees. Our goal is simply to connect skilled talent with the right opportunities.",
       icon: (
         <svg className="w-6 h-6 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -67,7 +63,7 @@ export default function HiringPartnersPage() {
             Hire Vetted <span className="text-brand-orange">Technical</span> Builders.
           </h1>
           <p className="text-[16px] md:text-[19px] text-zinc-500 dark:text-[#9CA3AF] leading-relaxed font-medium max-w-[700px] mx-auto">
-            Connect with ready-to-deploy developers, design operators, and product builders trained in modern AI-native development workflows.
+            Connect with ready-to-deploy developers, marketers, and design operators trained through hands-on, project-based programs.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a href="/contact" className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white text-sm font-semibold hover:scale-[1.02] transition-transform shadow-md shadow-brand-orange/20">
@@ -100,7 +96,7 @@ export default function HiringPartnersPage() {
           <div className="text-center max-w-[600px] mx-auto mb-12">
             <h2 className="text-[28px] md:text-[36px] font-bold text-zinc-900 dark:text-white mb-4">Why Companies Hire From SkillSha</h2>
             <p className="text-[14px] md:text-[16px] text-zinc-500 dark:text-[#9CA3AF]">
-              We train students to build production systems that match modern software standards.
+              We train students to build real, project-based skills that match industry expectations.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
