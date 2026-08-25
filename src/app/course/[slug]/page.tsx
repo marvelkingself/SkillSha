@@ -227,7 +227,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     "product-management-course",
     "algorithmic-trading-course",
     "graphic-design-course",
-    "mental-health-wellness-course",
     "ai-healthcare-doctor-course",
     "ai-clinical-nurse-course",
     "ai-finance-ca-course",

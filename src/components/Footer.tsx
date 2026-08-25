@@ -72,7 +72,6 @@ export default function Footer() {
                         <li><Link href="/course/product-management-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Product Management</Link></li>
                         <li><Link href="/course/algorithmic-trading-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Algorithmic Trading</Link></li>
                         <li><Link href="/course/graphic-design-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Graphic Designing</Link></li>
-                        <li><Link href="/course/mental-health-wellness-course" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">Mental Health & Wellness</Link></li>
                     </ul>
                 </div>
 

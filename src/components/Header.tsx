@@ -182,13 +182,6 @@ export default function Header() {
                             <span className="text-[9px] text-zinc-400 block normal-case">Quant models & backtesting</span>
                           </div>
                         </Link>
-                        <Link href="/course/mental-health-wellness-course" className="group/item flex items-center gap-2 p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
-                          <span className="material-symbols-outlined text-brand-orange text-md shrink-0">favorite</span>
-                          <div>
-                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors block">Mental Health & Biohacking</span>
-                            <span className="text-[9px] text-zinc-400 block normal-case">Circadian & somatic systems</span>
-                          </div>
-                        </Link>
                       </div>
 
                     </div>

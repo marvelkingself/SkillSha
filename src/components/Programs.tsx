@@ -335,32 +335,6 @@ const programs: Program[] = [
     professions: ['designer', 'marketer']
   },
   {
-    id: 'mental-health-wellness',
-    icon: 'self_care',
-    title: 'Mental Health & Wellness',
-    subtitle: 'Build a Wellness Business',
-    description: "SkillSha's wellness program covers coaching systems, branding, and community building for launching modern digital wellness businesses.",
-    duration: '20 Weeks',
-    salary: '₹12L+',
-    svgBg: (
-      <svg className="w-20 h-20 text-brand-orange/[0.08] dark:text-brand-orange/[0.05] mr-[-10px] mt-[-5px] animate-pulse-soft" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <circle cx="50" cy="50" r="40" strokeDasharray="4 4"/>
-        <circle cx="50" cy="50" r="25"/>
-      </svg>
-    ),
-    mobileIcon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-teal-500"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-    ),
-    includes: [
-      { name: 'Wellness Coaching', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> },
-      { name: 'Community Building', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> },
-      { name: 'Digital Wellness', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> },
-      { name: 'Personal Branding', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> },
-      { name: 'Program Design', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> },
-    ],
-    professions: ['doctor', 'nurse']
-  },
-  {
     id: 'data-analyst',
     icon: 'database',
     title: 'Data Analyst',
@@ -663,13 +637,6 @@ const getProgramColors = (id: string) => {
         text: 'text-fuchsia-500',
         shadow: 'shadow-[0_0_15px_rgba(217,70,239,0.15)]'
       };
-    case 'mental-health-wellness':
-      return {
-        bg: 'bg-teal-500/10 dark:bg-teal-500/15',
-        border: 'border-teal-500/25',
-        text: 'text-teal-500',
-        shadow: 'shadow-[0_0_15px_rgba(20,184,166,0.15)]'
-      };
     case 'ai-healthcare-doctor':
       return {
         bg: 'bg-rose-500/10 dark:bg-rose-500/15',
@@ -740,7 +707,6 @@ export default function Programs({ className = "mt-24" }: { className?: string }
     
     'product-management': 'professional-ai',
     'algorithmic-trading': 'professional-ai',
-    'mental-health-wellness': 'professional-ai',
     'ai-healthcare-doctor': 'professional-ai',
     'ai-clinical-nurse': 'professional-ai',
     'ai-finance-ca': 'professional-ai'

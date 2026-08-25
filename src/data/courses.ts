@@ -59,7 +59,6 @@ export const COURSE_SLUG_MAP: Record<string, string> = {
   "product-management": "product-management-course-with-gen-ai",
   "algorithmic-trading": "algorithmic-trading-course-with-gen-ai",
   "graphic-designing": "graphic-design-course-with-gen-ai",
-  "mental-health-wellness": "mental-health-wellness-course-with-gen-ai",
   "ai-healthcare-doctor": "ai-healthcare-doctor-course-with-gen-ai",
   "ai-clinical-nurse": "ai-clinical-nurse-course-with-gen-ai",
   "ai-finance-ca": "ai-finance-ca-course-with-gen-ai",
@@ -3072,37 +3071,6 @@ export const COURSES_DATA: Record<string, CourseData> = {
     ],
     faqs: [
       { q: "Do I need drawing skills?", a: "No prior drawing or art background is required. We teach you design principles and software tools from scratch." }
-    ]
-  },
-  "mental-health-wellness": {
-    title: "Mental Health & Wellness",
-    typewriter: ["Wellness Coaching", "Biohacking Systems", "Digital Well-being", "Mindfulness Training"],
-    description: "Build an impactful career in wellness. Coach mindfulness, circadian health, habit formation, digital detox boundaries, and workshop design.",
-    duration: "20 Weeks",
-    salary: "₹ 8.9 LPA",
-    liveSessions: "25+",
-    projects: "6+",
-    milestoneWord: "Nine",
-    milestones: [
-      {
-        number: 1,
-        title: "Mindfulness & Physiology",
-        modules: [
-          {
-            title: "Circadian Science & Habits",
-            icon: "wb_sunny",
-            color: "teal",
-            bullets: [
-              { title: "Circadian rhythms & light exposure", desc: "for deep sleep states", icon: "bed" },
-              { title: "Coaching active meditation", desc: "and somatic release", icon: "spa" },
-              { title: "Atomic Habits coaching", desc: "for client accountability", icon: "checklist" }
-            ]
-          }
-        ]
-      }
-    ],
-    faqs: [
-      { q: "Is this a medical certification?", a: "No, this is a wellness coaching certification. We focus on lifestyle medicine, nutrition, habits, and mindfulness." }
     ]
   },
   "ai-healthcare-doctor": {
