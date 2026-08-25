@@ -5,41 +5,49 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Careers | SkillSha",
   description: "Join the SkillSha team. Build the future of developer and creator education in an environment focused on high agency and product building.",
-  robots: {
-    index: false,
-    follow: false,
-  }
 };
 
 export default function CareersPage() {
   const openRoles = [
     {
-      title: "AI Curriculum Engineer",
-      team: "Education & Content",
-      location: "Remote (India)",
+      title: "We're Always Looking for Great Talent",
+      team: "Office & Content Roles",
+      location: "Ghaziabad Office",
       type: "Full-Time",
-      description: "Design and implement cutting-edge workflows, prompt engineering projects, and LLM orchestration courses."
+      description: "We regularly have openings across content creation, curriculum design, and operations at our office. If you're passionate about education and building, we'd love to hear from you.",
+      ctaLink: "mailto:info@skillsha.com"
     },
     {
-      title: "Senior Full-Stack Engineer",
-      team: "Platform Engineering",
+      title: "Remote Opportunities for Skilled Professionals",
+      team: "Work From Home",
+      location: "Remote (India)",
+      type: "Full-Time / Part-Time",
+      description: "We hire remote team members across teaching, content, and support functions. Send us your resume and portfolio, and we'll reach out when a matching role opens.",
+      ctaLink: "mailto:info@skillsha.com"
+    },
+    {
+      title: "Freelance & Project-Based Collaborations",
+      team: "Project-Based & Global",
       location: "Remote (Global)",
-      type: "Full-Time",
-      description: "Help build the SkillSha learning portal, project submission sandbox, and interactive code verification systems."
-    },
-    {
-      title: "Growth Marketer & Creator",
-      team: "Marketing & Growth",
-      location: "Remote (India)",
-      type: "Full-Time",
-      description: "Produce short-form educational videos, run conversion campaigns, and build the SkillSha developer community."
+      type: "Contract / Freelance",
+      description: "We collaborate with skilled professionals worldwide on specific projects, contract work, and specialized assignments. Reach out with your expertise and availability.",
+      ctaLink: "mailto:info@skillsha.com"
     }
   ];
 
   const benefits = [
-    { title: "Remote-First", desc: "Work from anywhere in the world. We focus on asynchronous communication and high trust." },
-    { title: "Top-Tier Gear", desc: "Get an M3 Macbook Pro, 4K monitor, ergonomic chair, and any software subscriptions you need." },
-    { title: "Learning Budget", desc: "Unlimited books, research papers, courses, and event tickets to keep you at the frontier of your field." }
+    {
+      title: "Flexible Work Options",
+      desc: "We offer both office-based and remote roles, so you can work in a way that fits you best."
+    },
+    {
+      title: "Hands-On Learning Environment",
+      desc: "Work closely with mentors and real students, gaining practical experience in ed-tech and skill development."
+    },
+    {
+      title: "Growth-Focused Culture",
+      desc: "We support continuous learning and skill-building for our own team, not just our students."
+    }
   ];
 
   return (
@@ -60,7 +68,7 @@ export default function CareersPage() {
             Build the Future <br className="hidden md:inline" /> of <span className="text-brand-orange">Education</span>.
           </h1>
           <p className="text-[16px] md:text-[19px] text-zinc-500 dark:text-[#9CA3AF] leading-relaxed font-medium max-w-[700px] mx-auto">
-            We are a small, fast-paced team of builders re-imagining how technical operators learn, build products, and switch careers.
+            We&apos;re a growing team of educators and builders reimagining how technical professionals learn new skills, ship real projects, and switch careers.
           </p>
         </section>
 
@@ -98,10 +106,10 @@ export default function CareersPage() {
                   </div>
                   <div className="shrink-0 flex items-center">
                     <a 
-                      href="/contact" 
-                      className="w-full md:w-auto text-center px-4 py-2.5 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 text-xs font-semibold hover:scale-[1.02] active:scale-95 transition-all"
+                      href={role.ctaLink} 
+                      className="w-full md:w-auto text-center px-5 py-3 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 text-xs font-bold tracking-wide hover:scale-[1.02] active:scale-95 transition-all"
                     >
-                      Apply Now
+                      Apply Now →
                     </a>
                   </div>
                 </div>
