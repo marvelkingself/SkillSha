@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { track } from "@vercel/analytics";
+import StatCounter from "@/components/ui/StatCounter";
 
 export default function Hero() {
   const [videoOpen, setVideoOpen] = useState(false);
@@ -73,35 +74,6 @@ export default function Hero() {
       playerRef.current.playVideo();
     }
   };
-
-  // Counter logic
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        document.querySelectorAll('.stat-counter span[data-target], .stat-counter div[data-target]').forEach(el => {
-          const target = +(el.getAttribute('data-target') || 0);
-          const suffix = el.getAttribute('data-suffix') || '';
-          const decimal = el.getAttribute('data-decimal') === 'true';
-
-          let t0: number | null = null;
-          const tick = (ts: number) => {
-            if (!t0) t0 = ts;
-            const p = Math.min((ts - t0) / 1600, 1);
-            const current = (1 - Math.pow(1 - p, 3)) * target;
-            el.textContent = (decimal ? current.toFixed(1) : Math.floor(current)) + (p === 1 ? suffix : '');
-            if (p < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-        });
-        observer.disconnect(); // Only run once
-      }
-    }, { threshold: 0.4 });
-
-    const el = document.getElementById('hero-stats');
-    if (el) observer.observe(el);
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <>
@@ -228,25 +200,10 @@ export default function Hero() {
       {/* Stats / Social Proof Bar */}
       <section id="hero-stats" className="mt-10 mb-2 animate-reveal delay-100 active">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-          <div className="stat-counter glass-panel rounded-2xl border border-zinc-200 dark:border-white/8 p-4 md:p-5 text-center hover:border-brand-orange/30 transition-all duration-300">
-            <div className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-0.5" data-target="500" data-suffix="+">0</div>
-            <div className="text-[11px] md:text-xs text-zinc-500 dark:text-zinc-400 font-medium uppercase tracking-wider">Graduates</div>
-          </div>
-          <div className="stat-counter glass-panel rounded-2xl border border-zinc-200 dark:border-white/8 p-4 md:p-5 text-center hover:border-brand-orange/30 transition-all duration-300">
-            <div className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-0.5"><span data-target="12" data-suffix="L+">0</span></div>
-            <div className="text-[11px] md:text-xs text-zinc-500 dark:text-zinc-400 font-medium uppercase tracking-wider">Avg. Package</div>
-          </div>
-          <div className="stat-counter glass-panel rounded-2xl border border-zinc-200 dark:border-white/8 p-4 md:p-5 text-center hover:border-brand-orange/30 transition-all duration-300">
-            <div className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-0.5"><span data-target="93" data-suffix="%">0</span></div>
-            <div className="text-[11px] md:text-xs text-zinc-500 dark:text-zinc-400 font-medium uppercase tracking-wider">Placement Rate</div>
-          </div>
-          <div className="stat-counter glass-panel rounded-2xl border border-zinc-200 dark:border-white/8 p-4 md:p-5 text-center hover:border-brand-orange/30 transition-all duration-300">
-            <div className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-0.5 flex items-center justify-center gap-1">
-              <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-              <span data-target="4.9" data-suffix="" data-decimal="true">0</span>
-            </div>
-            <div className="text-[11px] md:text-xs text-zinc-500 dark:text-zinc-400 font-medium uppercase tracking-wider">Rating</div>
-          </div>
+          <StatCounter target={500} suffix="+" label="Graduates" />
+          <StatCounter target={12} suffix="L+" label="Avg. Package" />
+          <StatCounter target={93} suffix="%" label="Placement Rate" />
+          <StatCounter target={4.9} suffix="" decimal={true} label="Rating" hasStar={true} />
         </div>
       </section>
 
