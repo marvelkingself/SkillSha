@@ -278,10 +278,8 @@ export default function Programs({ className = "mt-24" }: { className?: string }
 
   const categories = [
     { id: 'all', name: 'All Programs', desc: 'Browse all professional courses.' },
-    { id: 'ai-dev', name: 'AI & Development', desc: 'Build autonomous agents, neural networks, and scalable full-stack applications.' },
-    { id: 'data-analytics', name: 'Data & Analytics', desc: 'Master SQL, PowerBI, and machine learning models to extract actionable business insights.' },
     { id: 'design-marketing', name: 'Design & Marketing', desc: 'Design high-converting visual systems and automate acquisition engines powered by Gen AI.' },
-    { id: 'professional-ai', name: 'Specialized & Professional AI', desc: 'Executive-level AI masterclasses tailored for Doctors, Nurses, CAs, and Product Managers.' }
+    { id: 'data-analytics', name: 'Data & Analytics', desc: 'Master SQL, PowerBI, and machine learning models to extract actionable business insights.' }
   ];
 
   const programCategoryMap: Record<string, string> = {
