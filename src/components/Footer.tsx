@@ -175,17 +175,17 @@ export default function Footer() {
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">How to Build AI Agents</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">ChatGPT for Business</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Future of Full Stack Development</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">How to Get a Job in Data Science</a><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">How to Get a Job in Data Science</span><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Top AI Tools for Startups</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">How to Start a Career in Digital Marketing</a><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">How to Start a Career in Digital Marketing</span><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">React vs Angular vs Vue</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Best AI Certifications 2026</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">What is Prompt Engineering?</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">How to Build a SaaS Product</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Top Freelancing Skills in India</a><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Top Freelancing Skills in India</span><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Is Data Science a Good Career?</a><span className="text-brand-orange text-[10px]">|</span>
                     <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">How to Learn Python Fast</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Salary in India</a><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">UI/UX Design Salary in India</span><span className="text-brand-orange text-[10px]">|</span>
                 </div>
             </div>
 
@@ -196,169 +196,169 @@ export default function Footer() {
                 <div className="mb-4">
                     <h4 className="text-[13px] font-semibold text-zinc-700 dark:text-zinc-200 mb-1.5">Best Courses in Noida</h4>
                     <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5">
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Noida</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Noida</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Noida</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Noida</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Noida</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Noida</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Programming Course in Noida</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Course in Noida</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Noida</a><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ai-engineering-course-in-noida-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Noida</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-science-course-in-noida-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Noida</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-analyst-course-in-noida-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Noida</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/full-stack-development-course-in-noida-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Noida</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-noida-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Noida</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ui-ux-design-course-in-noida-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Noida</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Python Programming Course in Noida</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Machine Learning Course in Noida</span><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-noida-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Noida</Link><span className="text-brand-orange text-[10px]">|</span>
                     </div>
                 </div>
                 <div className="mb-4">
                     <h4 className="text-[13px] font-semibold text-zinc-700 dark:text-zinc-200 mb-1.5">Best Courses in Delhi</h4>
                     <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5">
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Delhi</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Delhi</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Delhi</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Delhi</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Delhi</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Delhi</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Programming Course in Delhi</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Course in Delhi</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Delhi</a><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ai-engineering-course-in-delhi-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Delhi</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-science-course-in-delhi-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Delhi</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-analyst-course-in-delhi-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Delhi</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/full-stack-development-course-in-delhi-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Delhi</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-delhi-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Delhi</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ui-ux-design-course-in-delhi-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Delhi</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Python Programming Course in Delhi</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Machine Learning Course in Delhi</span><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-delhi-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Delhi</Link><span className="text-brand-orange text-[10px]">|</span>
                     </div>
                 </div>
                 <div className="mb-4">
                     <h4 className="text-[13px] font-semibold text-zinc-700 dark:text-zinc-200 mb-1.5">Best Courses in Pune</h4>
                     <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5">
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Pune</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Pune</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Pune</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Pune</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Pune</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Pune</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Programming Course in Pune</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Course in Pune</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Pune</a><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ai-engineering-course-in-pune-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Pune</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-science-course-in-pune-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Pune</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-analyst-course-in-pune-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Pune</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/full-stack-development-course-in-pune-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Pune</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-pune-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Pune</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ui-ux-design-course-in-pune-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Pune</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Python Programming Course in Pune</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Machine Learning Course in Pune</span><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-pune-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Pune</Link><span className="text-brand-orange text-[10px]">|</span>
                     </div>
                 </div>
                 <div className="mb-4">
                     <h4 className="text-[13px] font-semibold text-zinc-700 dark:text-zinc-200 mb-1.5">Best Courses in Bangalore</h4>
                     <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5">
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Bangalore</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Bangalore</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Bangalore</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Bangalore</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Bangalore</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Bangalore</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Programming Course in Bangalore</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Course in Bangalore</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Bangalore</a><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ai-engineering-course-in-bangalore-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Bangalore</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-science-course-in-bangalore-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Bangalore</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-analyst-course-in-bangalore-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Bangalore</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/full-stack-development-course-in-bangalore-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Bangalore</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-bangalore-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Bangalore</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ui-ux-design-course-in-bangalore-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Bangalore</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Python Programming Course in Bangalore</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Machine Learning Course in Bangalore</span><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-bangalore-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Bangalore</Link><span className="text-brand-orange text-[10px]">|</span>
                     </div>
                 </div>
                 <div className="mb-4">
                     <h4 className="text-[13px] font-semibold text-zinc-700 dark:text-zinc-200 mb-1.5">Best Courses in Mumbai</h4>
                     <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5">
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Mumbai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Mumbai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Mumbai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Mumbai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Mumbai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Mumbai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Programming Course in Mumbai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Course in Mumbai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Mumbai</a><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ai-engineering-course-in-mumbai-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Mumbai</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-science-course-in-mumbai-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Mumbai</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-analyst-course-in-mumbai-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Mumbai</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/full-stack-development-course-in-mumbai-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Mumbai</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-mumbai-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Mumbai</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ui-ux-design-course-in-mumbai-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Mumbai</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Python Programming Course in Mumbai</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Machine Learning Course in Mumbai</span><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-mumbai-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Mumbai</Link><span className="text-brand-orange text-[10px]">|</span>
                     </div>
                 </div>
                 <div className="mb-4">
                     <h4 className="text-[13px] font-semibold text-zinc-700 dark:text-zinc-200 mb-1.5">Best Courses in Hyderabad</h4>
                     <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5">
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Hyderabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Hyderabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Hyderabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Hyderabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Hyderabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Hyderabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Programming Course in Hyderabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Course in Hyderabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Hyderabad</a><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ai-engineering-course-in-hyderabad-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Hyderabad</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-science-course-in-hyderabad-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Hyderabad</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-analyst-course-in-hyderabad-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Hyderabad</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/full-stack-development-course-in-hyderabad-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Hyderabad</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-hyderabad-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Hyderabad</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ui-ux-design-course-in-hyderabad-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Hyderabad</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Python Programming Course in Hyderabad</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Machine Learning Course in Hyderabad</span><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-hyderabad-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Hyderabad</Link><span className="text-brand-orange text-[10px]">|</span>
                     </div>
                 </div>
                 <div className="mb-4">
                     <h4 className="text-[13px] font-semibold text-zinc-700 dark:text-zinc-200 mb-1.5">Best Courses in Chennai</h4>
                     <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5">
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Chennai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Chennai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Chennai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Chennai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Chennai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Chennai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Programming Course in Chennai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Course in Chennai</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Chennai</a><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">AI Engineering Training Course in Chennai</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Data Science Training Course in Chennai</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Data Analytics Training Course in Chennai</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Full Stack Developer Training Course in Chennai</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Digital Marketing Training Course in Chennai</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">UI/UX Design Training Course in Chennai</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Python Programming Course in Chennai</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Machine Learning Course in Chennai</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Digital Marketing Course in Chennai</span><span className="text-brand-orange text-[10px]">|</span>
                     </div>
                 </div>
                 <div className="mb-4">
                     <h4 className="text-[13px] font-semibold text-zinc-700 dark:text-zinc-200 mb-1.5">Best Courses in Kolkata</h4>
                     <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5">
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Kolkata</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Kolkata</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Kolkata</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Kolkata</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Kolkata</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Kolkata</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Programming Course in Kolkata</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Course in Kolkata</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Kolkata</a><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">AI Engineering Training Course in Kolkata</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Data Science Training Course in Kolkata</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Data Analytics Training Course in Kolkata</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Full Stack Developer Training Course in Kolkata</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Digital Marketing Training Course in Kolkata</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">UI/UX Design Training Course in Kolkata</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Python Programming Course in Kolkata</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Machine Learning Course in Kolkata</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Digital Marketing Course in Kolkata</span><span className="text-brand-orange text-[10px]">|</span>
                     </div>
                 </div>
                 <div className="mb-4">
                     <h4 className="text-[13px] font-semibold text-zinc-700 dark:text-zinc-200 mb-1.5">Best Courses in Jaipur</h4>
                     <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5">
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Jaipur</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Jaipur</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Jaipur</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Jaipur</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Jaipur</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Jaipur</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Programming Course in Jaipur</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Course in Jaipur</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Jaipur</a><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ai-engineering-course-in-jaipur-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Jaipur</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-science-course-in-jaipur-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Jaipur</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-analyst-course-in-jaipur-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Jaipur</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/full-stack-development-course-in-jaipur-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Jaipur</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-jaipur-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Jaipur</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ui-ux-design-course-in-jaipur-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Jaipur</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Python Programming Course in Jaipur</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Machine Learning Course in Jaipur</span><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-jaipur-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Jaipur</Link><span className="text-brand-orange text-[10px]">|</span>
                     </div>
                 </div>
                 <div className="mb-4">
                     <h4 className="text-[13px] font-semibold text-zinc-700 dark:text-zinc-200 mb-1.5">Best Courses in Lucknow</h4>
                     <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5">
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Lucknow</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Lucknow</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Lucknow</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Lucknow</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Lucknow</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Lucknow</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Programming Course in Lucknow</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Course in Lucknow</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Lucknow</a><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ai-engineering-course-in-lucknow-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Lucknow</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-science-course-in-lucknow-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Lucknow</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-analyst-course-in-lucknow-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Lucknow</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/full-stack-development-course-in-lucknow-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Lucknow</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-lucknow-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Lucknow</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ui-ux-design-course-in-lucknow-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Lucknow</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Python Programming Course in Lucknow</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Machine Learning Course in Lucknow</span><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-lucknow-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Lucknow</Link><span className="text-brand-orange text-[10px]">|</span>
                     </div>
                 </div>
                 <div className="mb-4">
                     <h4 className="text-[13px] font-semibold text-zinc-700 dark:text-zinc-200 mb-1.5">Best Courses in Chandigarh</h4>
                     <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5">
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Chandigarh</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Chandigarh</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Chandigarh</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Chandigarh</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Chandigarh</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Chandigarh</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Programming Course in Chandigarh</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Course in Chandigarh</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Chandigarh</a><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ai-engineering-course-in-chandigarh-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Chandigarh</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-science-course-in-chandigarh-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Chandigarh</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/data-analyst-course-in-chandigarh-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Chandigarh</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/full-stack-development-course-in-chandigarh-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Chandigarh</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-chandigarh-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Chandigarh</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/ui-ux-design-course-in-chandigarh-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Chandigarh</Link><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Python Programming Course in Chandigarh</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Machine Learning Course in Chandigarh</span><span className="text-brand-orange text-[10px]">|</span>
+                        <Link href="/course/digital-marketing-course-standard-in-chandigarh-with-gen-ai" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Chandigarh</Link><span className="text-brand-orange text-[10px]">|</span>
                     </div>
                 </div>
                 <div className="mb-4">
                     <h4 className="text-[13px] font-semibold text-zinc-700 dark:text-zinc-200 mb-1.5">Best Courses in Ahmedabad</h4>
                     <div className="flex flex-wrap items-center gap-x-1 gap-y-0.5">
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineering Training Course in Ahmedabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Training Course in Ahmedabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Analytics Training Course in Ahmedabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Training Course in Ahmedabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Training Course in Ahmedabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Training Course in Ahmedabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Programming Course in Ahmedabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Course in Ahmedabad</a><span className="text-brand-orange text-[10px]">|</span>
-                        <a href="#" className="text-[11px] text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Course in Ahmedabad</a><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">AI Engineering Training Course in Ahmedabad</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Data Science Training Course in Ahmedabad</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Data Analytics Training Course in Ahmedabad</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Full Stack Developer Training Course in Ahmedabad</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Digital Marketing Training Course in Ahmedabad</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">UI/UX Design Training Course in Ahmedabad</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Python Programming Course in Ahmedabad</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Machine Learning Course in Ahmedabad</span><span className="text-brand-orange text-[10px]">|</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Digital Marketing Course in Ahmedabad</span><span className="text-brand-orange text-[10px]">|</span>
                     </div>
                 </div>
             </div>
@@ -367,22 +367,22 @@ export default function Footer() {
             <div className="border-t border-zinc-100 dark:border-white/5 pt-7 pb-5">
                 <h3 className="text-sm font-bold text-zinc-800 dark:text-zinc-100 mb-3 tracking-tight">Interview Preparation</h3>
                 <div className="flex flex-wrap items-center gap-x-1 gap-y-1">
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Python Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">JavaScript Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">React Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Node.js Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">SQL Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Science Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">System Design Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">DSA Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI & Deep Learning Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">HR Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Product Manager Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Design Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AWS Cloud Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">DevOps Interview Questions</a><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Python Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">JavaScript Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">React Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Node.js Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">SQL Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Data Science Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Machine Learning Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">System Design Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">DSA Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI & Deep Learning Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Digital Marketing Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">HR Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Product Manager Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">UI/UX Design Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AWS Cloud Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">DevOps Interview Questions</span><span className="text-brand-orange text-[10px]">|</span>
                 </div>
             </div>
 
@@ -390,21 +390,21 @@ export default function Footer() {
             <div className="border-t border-zinc-100 dark:border-white/5 pt-7 pb-5">
                 <h3 className="text-sm font-bold text-zinc-800 dark:text-zinc-100 mb-3 tracking-tight">Career Guides</h3>
                 <div className="flex flex-wrap items-center gap-x-1 gap-y-1">
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Engineer Salary in India</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Data Scientist Salary in India</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Full Stack Developer Salary in India</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Digital Marketing Manager Salary</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">UI/UX Designer Salary in India</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Product Manager Salary in India</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">DevOps Engineer Career Path</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Machine Learning Engineer Roadmap</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">How to Switch to Tech Career</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Top Companies Hiring AI Engineers</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Remote Jobs in AI & Data Science</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Freelance Developer Guide</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Resume Templates for Freshers</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">Portfolio Building Guide</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">LinkedIn Profile Optimization</a><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Engineer Salary in India</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Data Scientist Salary in India</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Full Stack Developer Salary in India</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Digital Marketing Manager Salary</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">UI/UX Designer Salary in India</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Product Manager Salary in India</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">DevOps Engineer Career Path</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Machine Learning Engineer Roadmap</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">How to Switch to Tech Career</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Top Companies Hiring AI Engineers</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Remote Jobs in AI & Data Science</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Freelance Developer Guide</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Resume Templates for Freshers</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Portfolio Building Guide</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">LinkedIn Profile Optimization</span><span className="text-brand-orange text-[10px]">|</span>
                 </div>
             </div>
 
@@ -412,19 +412,19 @@ export default function Footer() {
             <div className="border-t border-zinc-100 dark:border-white/5 pt-7 pb-5">
                 <h3 className="text-sm font-bold text-zinc-800 dark:text-zinc-100 mb-3 tracking-tight">AI Courses by Profession</h3>
                 <div className="flex flex-wrap items-center gap-x-1 gap-y-1">
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for Doctors</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for Nurses</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for Chartered Accountants</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for Lawyers</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for Teachers</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for Financial Analysts</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for Marketing Professionals</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for Product Managers</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for HR Professionals</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for Architects</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for Designers</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for Content Creators</a><span className="text-brand-orange text-[10px]">|</span>
-                    <a href="#" className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-brand-orange transition-colors">AI Course for Business Leaders</a><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for Doctors</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for Nurses</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for Chartered Accountants</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for Lawyers</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for Teachers</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for Financial Analysts</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for Marketing Professionals</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for Product Managers</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for HR Professionals</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for Architects</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for Designers</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for Content Creators</span><span className="text-brand-orange text-[10px]">|</span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">AI Course for Business Leaders</span><span className="text-brand-orange text-[10px]">|</span>
                 </div>
             </div>
 
@@ -437,7 +437,7 @@ export default function Footer() {
                     <Link href="/refund-policy" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Refund Policy</Link>
                     <Link href="/disclaimer" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Disclaimer</Link>
                     <Link href="/team" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Team</Link>
-                    <a href="#" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Sitemap</a>
+                    <Link href="/sitemap.xml" className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Sitemap</Link>
                 </div>
             </div>
         </div>
@@ -491,7 +491,7 @@ export default function Footer() {
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3l8 6v12h-5v-7H9v7H4V9l8-6z"/></svg>
                 </Link>
               </div>
-              <Link href="#" className="flex flex-col items-center justify-center w-16 h-full text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
+              <Link href="/blog" className="flex flex-col items-center justify-center w-16 h-full text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
                 <svg className="w-6 h-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                 <span className="text-[10px] font-medium">Resources</span>
               </Link>
