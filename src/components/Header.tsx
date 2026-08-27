@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { CITIES_LIST } from "@/data/cities";
+import { getCourseSlugById } from "@/data/courses";
 import { track } from "@vercel/analytics";
 
 export default function Header() {
@@ -114,39 +115,14 @@ export default function Header() {
                 <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)] p-6">
                   <div className="grid grid-cols-12 gap-6">
                     {/* Categories Grid */}
-                    <div className="col-span-9 grid grid-cols-3 gap-x-4 gap-y-4">
+                    <div className="col-span-9 grid grid-cols-2 gap-x-8 gap-y-4">
                       
-                      {/* Category: Development & AI */}
-                      <div className="space-y-2 text-left">
-                        <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">AI & Development</span>
-                        <div className="space-y-1">
-                          <Link href="/course/ai-engineering-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
-                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">AI Engineering</span>
-                          </Link>
-                          <Link href="/course/ai-ml-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
-                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">AI/ML with Gen AI</span>
-                          </Link>
-                          <Link href="/course/software-testing-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
-                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Software Testing</span>
-                          </Link>
-                          <Link href="/course/playwright-automation-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
-                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Playwright Automation</span>
-                          </Link>
-                        </div>
-                      </div>
-
                       {/* Category: Data & Business */}
                       <div className="space-y-2 text-left">
                         <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">Data & Analytics</span>
                         <div className="space-y-1">
                           <Link href="/course/data-science-course-with-gen-ai" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
                             <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Data Science & AI</span>
-                          </Link>
-                          <Link href="/course/data-analyst-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
-                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Data Analyst</span>
-                          </Link>
-                          <Link href="/course/business-analyst-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
-                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Business Analyst</span>
                           </Link>
                         </div>
                       </div>
@@ -161,27 +137,7 @@ export default function Header() {
                               <span className="px-1 text-[7px] bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded font-extrabold tracking-wider leading-normal">FLAGSHIP</span>
                             </span>
                           </Link>
-                          <Link href="/course/ui-ux-design-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
-                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">UI/UX Design</span>
-                          </Link>
-                          <Link href="/course/graphic-design-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
-                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Graphic Designing</span>
-                          </Link>
-                          <Link href="/course/product-management-course" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
-                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Product Management</span>
-                          </Link>
                         </div>
-                      </div>
-
-                      {/* Category: Trading & Somatic */}
-                      <div className="col-span-3 pt-3 border-t border-zinc-100 dark:border-white/5 grid grid-cols-2 gap-4">
-                        <Link href="/course/algorithmic-trading-course" className="group/item flex items-center gap-2 p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all text-left">
-                          <span className="material-symbols-outlined text-brand-orange text-md shrink-0">trending_up</span>
-                          <div>
-                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors block">Algorithmic Trading</span>
-                            <span className="text-[9px] text-zinc-400 block normal-case">Quant models & backtesting</span>
-                          </div>
-                        </Link>
                       </div>
 
                     </div>
@@ -225,7 +181,7 @@ export default function Header() {
               <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[280px] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                 <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.5)] p-2.5 grid grid-cols-2 gap-0.5 text-left normal-case">
                   {CITIES_LIST.map((city) => (
-                    <Link key={city.slug} href={`/course/ai-engineering-course/${city.slug}`} className="px-3 py-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white text-[11px] font-bold transition-all">{city.name}</Link>
+                    <Link key={city.slug} href={`/course/${getCourseSlugById("data-science-ai", city.slug)}`} className="px-3 py-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 hover:text-zinc-900 dark:hover:text-white text-[11px] font-bold transition-all">{city.name}</Link>
                   ))}
                 </div>
               </div>

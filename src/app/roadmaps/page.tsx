@@ -15,19 +15,9 @@ export default function RoadmapsPage() {
       desc: "A structured path from Python and statistics basics to machine learning, model deployment, and real-world data projects."
     },
     {
-      tag: "Development",
-      title: "How to Become a Full-Stack Developer",
-      desc: "Learn front-end and back-end fundamentals, build real projects, and progress toward job-ready full-stack skills."
-    },
-    {
       tag: "Marketing",
       title: "How to Become a Digital Marketer",
       desc: "Move from marketing fundamentals to running real campaigns — covering SEO, paid ads, analytics, and content strategy."
-    },
-    {
-      tag: "Design",
-      title: "How to Become a UI/UX Designer",
-      desc: "A practical path from design principles to portfolio-ready UI/UX projects using industry-standard tools."
     }
   ];
 
@@ -38,19 +28,9 @@ export default function RoadmapsPage() {
       desc: "From Python and SQL foundations to machine learning, data visualization, and capstone projects — structured week by week."
     },
     {
-      tag: "Software Testing",
-      title: "Software Testing & Automation Roadmap",
-      desc: "Progress from manual testing fundamentals to automation frameworks like Playwright, building real testing skills along the way."
-    },
-    {
       tag: "Digital Marketing",
       title: "Digital Marketing Course Roadmap",
       desc: "A step-by-step path covering SEO, social media, paid campaigns, and analytics — ending with live campaign experience."
-    },
-    {
-      tag: "Business Analysis",
-      title: "Business Analyst Course Roadmap",
-      desc: "Learn requirement gathering, data analysis, and stakeholder communication skills needed for real business analyst roles."
     }
   ];
 
