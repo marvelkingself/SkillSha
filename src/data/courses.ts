@@ -1682,37 +1682,7 @@ export const COURSES_DATA: Record<string, CourseData> = {
         "Certification: Globally verified credential"
       ]
     }
-  },  "product-management": {
-    title: "Product Management",
-    typewriter: ["Product Strategy", "Product Analytics", "Roadmap Execution", "Agile Leadership"],
-    description: "Lead product development from conception to launch. Write PRDs, manage agile teams, analyze telemetry data, and define growth strategies.",
-    duration: "20 Weeks",
-    salary: "₹ 8.9 LPA",
-    liveSessions: "30+",
-    projects: "6+",
-    milestoneWord: "Seven",
-    milestones: [
-      {
-        number: 1,
-        title: "Product Roadmap & Strategy",
-        modules: [
-          {
-            title: "Core PM Functions",
-            icon: "map",
-            color: "emerald",
-            bullets: [
-              { title: "Writing specifications & PRDs", desc: "for engineering teams", icon: "description" },
-              { title: "Agile, Scrum, and JIRA workflows", desc: "for sprint tracking", icon: "track_changes" },
-              { title: "Prioritization matrices", desc: "(RICE, MoSCoW methods)", icon: "reorder" }
-            ]
-          }
-        ]
-      }
-    ],
-    faqs: [
-      { q: "Do I need a technical degree?", a: "No, we teach the tech terminology and systems design knowledge required to collaborate with engineers effectively." }
-    ]
-  },
+  }
 };
 
 export const MENTORS_LIST = [

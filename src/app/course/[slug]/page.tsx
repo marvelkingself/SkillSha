@@ -215,35 +215,49 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: `${data.title} Certification | SkillSha`,
       description: data.description,
+      alternates: {
+        canonical: `https://skillsha.com/course/${slug}`,
+        languages: {
+          "en": `https://skillsha.com/course/${slug}`,
+          "x-default": `https://skillsha.com/course/${slug}`,
+        }
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+          "max-video-preview": -1
+        }
+      },
+      openGraph: {
+        type: "website",
+        siteName: "SkillSha",
+        title: `${data.title} Certification | SkillSha`,
+        description: data.description,
+        url: `https://skillsha.com/course/${slug}`,
+        images: [
+          {
+            url: "https://skillsha.com/files/logo-icon.png",
+            width: 512,
+            height: 512,
+            alt: `SkillSha - ${data.title}`,
+          }
+        ],
+        locale: "en_IN",
+        alternateLocale: ["en_US"]
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${data.title} Certification | SkillSha`,
+        description: data.description,
+        images: ["https://skillsha.com/files/logo-icon.png"],
+      }
     };
   })();
-
-  const excludedMainCourseSlugs = new Set([
-    "ai-engineering-course",
-    "full-stack-development-course",
-    "digital-marketing-course-with-gen-ai",
-    "ui-ux-design-course",
-    "data-science-course",
-    "product-management-course",
-    "algorithmic-trading-course",
-    "graphic-design-course",
-    "ai-healthcare-doctor-course",
-    "ai-clinical-nurse-course",
-    "ai-finance-ca-course",
-    "data-analyst-course",
-    "business-analyst-course",
-    "ai-ml-course",
-    "software-testing-course",
-    "playwright-automation-course"
-  ]);
-
-  const { id: courseId, city: courseCity } = getCourseAndCityFromSlug(slug);
-  if (excludedMainCourseSlugs.has(slug) || (courseId === "digital-marketing" && courseCity)) {
-    rawMetadata.robots = {
-      index: false,
-      follow: false,
-    };
-  }
 
   return rawMetadata;
 }
