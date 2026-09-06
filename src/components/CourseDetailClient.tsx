@@ -7,6 +7,7 @@ import CounselingModal from "@/components/CounselingModal";
 import { AlumniCompanies } from "@/components/Alumni";
 import { CourseData, MENTORS_LIST } from "@/data/courses";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
+import PortfolioProjectsSection from "@/components/PortfolioProjectsSection";
 
 interface CourseDetailClientProps {
   id: string;
@@ -2928,8 +2929,11 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
         {data.flagshipContent && <DigitalMarketingToolsSection data={data} />}
 
         {/* Portfolio Projects Section */}
+        <PortfolioProjectsSection />
+
+        {/* Featured Projects Section */}
         {data.portfolioProjects && data.portfolioProjects.length > 0 && (
-          <section id="portfolio-projects" className="mt-16 mb-20 animate-reveal delay-200 w-full">
+          <section id="featured-projects" className="mt-16 mb-20 animate-reveal delay-200 w-full">
             <style dangerouslySetInnerHTML={{ __html: `
               /* ── Portfolio Projects Section ──────────────────── */
               .pp-scroll-track {
@@ -3061,10 +3065,10 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
                 </svg>
-                Real-World Portfolio
+                Real-World Projects
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white tracking-tight">
-                Portfolio Projects
+                Featured Capstone Projects
               </h2>
               <p className="text-zinc-500 dark:text-zinc-400 mt-3 font-medium text-[15px] max-w-lg mx-auto leading-relaxed">
                 Portfolio-Ready Projects You&apos;ll Build Inside the Bootcamp
