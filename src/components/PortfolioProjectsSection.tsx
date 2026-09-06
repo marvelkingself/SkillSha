@@ -136,8 +136,8 @@ const MILESTONES: MilestoneItem[] = [
 ];
 
 export default function PortfolioProjectsSection({
-  title = "Portfolio Projects",
-  subtitle = "From fundamental live classes to real-world projects and mock interviews — see how you build a job-ready portfolio and get hired.",
+  title = "More Than Classes — A Complete Roadmap to Become Job-Ready",
+  subtitle = "We don’t just provide live classes — we follow a structured, career-focused learning roadmap designed to make students job-ready. From fundamental concepts and hands-on learning to real-world projects, portfolio building, resume preparation, mock interviews, and job preparation, every step is designed to build practical, industry-relevant skills. With continuous mentor support and the right learning path, students gain the skills, confidence, and experience needed to become job-ready and make their journey toward employment easier.",
   badge = "CAREER PATHWAY",
   className = "",
 }: PortfolioProjectsSectionProps) {
@@ -293,11 +293,11 @@ export default function PortfolioProjectsSection({
           <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
           {badge}
         </div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-white tracking-tight">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-white tracking-tight max-w-4xl mx-auto">
           {title}
         </h2>
         {subtitle && (
-          <p className="text-zinc-600 dark:text-zinc-400 mt-3 font-medium text-[15px] md:text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-zinc-600 dark:text-zinc-400 mt-3 font-medium text-[15px] md:text-base max-w-3xl md:max-w-4xl mx-auto leading-relaxed">
             {subtitle}
           </p>
         )}
