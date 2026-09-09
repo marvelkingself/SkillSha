@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://skillsha.com"),
   title: "SkillSha | IT Training & Placement Institute in India",
   description: "SkillSha offers live mentor-led courses in Data Science, ML, Full-Stack Dev, Automation Testing & Digital Marketing with placement support in India.",
+  verification: {
+    google: "ZFNsawXj5NDb5Rxk5kLEddEUxXver6B_jqoVDhf3xPU",
+  },
   alternates: {
     canonical: "https://skillsha.com/",
   },
@@ -71,6 +74,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="ZFNsawXj5NDb5Rxk5kLEddEUxXver6B_jqoVDhf3xPU" />
         {/* Warm up third-party origins on the critical path */}
         <link rel="preconnect" href="https://img.youtube.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
