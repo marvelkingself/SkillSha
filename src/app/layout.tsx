@@ -27,9 +27,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://skillsha.com"),
   title: "SkillSha | IT Training & Placement Institute in India",
   description: "SkillSha offers live mentor-led courses in Data Science, ML, Full-Stack Dev, Automation Testing & Digital Marketing with placement support in India.",
-  verification: {
-    google: "ZFNsawXj5NDb5Rxk5kLEddEUxXver6B_jqoVDhf3xPU",
-  },
   alternates: {
     canonical: "https://skillsha.com/",
   },
