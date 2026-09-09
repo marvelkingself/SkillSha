@@ -3142,9 +3142,8 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
 
                       {/* Header Logo & Stamp */}
                       <div className="flex flex-col items-center mt-2">
-                        <div className="text-[14px] font-extrabold tracking-wider uppercase text-zinc-900 dark:text-white flex items-center gap-1">
-                          <span className="text-brand-orange">SKILLSHA</span>
-                          <span>LEARN</span>
+                        <div className="text-[14px] font-extrabold tracking-wider uppercase text-zinc-900 dark:text-white flex items-center">
+                          <span className="text-brand-orange">SkillSha</span>
                         </div>
                         <div className="text-[7px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mt-0.5">
                           Credential Verification
