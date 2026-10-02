@@ -147,7 +147,7 @@ export default function CareerSuccessSection() {
             </div>
             <div>
               <div className="text-[10px] uppercase tracking-wider text-zinc-400 font-extrabold">Next Batch</div>
-              <div className="text-[13px] md:text-sm font-bold text-zinc-900 dark:text-white">15 September 2026</div>
+              <div className="text-[13px] md:text-sm font-bold text-zinc-900 dark:text-white">15 October 2026</div>
             </div>
           </div>
 

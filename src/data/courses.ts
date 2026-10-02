@@ -1698,7 +1698,7 @@ export const MENTORS_LIST = [
   { name: "Riya", img: "/files/Mentors/student-photo-10.webp", company: "Nykaa" },
   { name: "Sneha", img: "/files/Mentors/student-photo-12.webp", company: "Zepto" },
   { name: "Manish", img: "/files/Mentors/student-photo-13.webp", company: "PhonePe" },
-  { name: "Deepika", img: "/files/Mentors/student-photo-14.webp", company: "Dream11" },
+  { name: "Deepika", img: "/files/Mentors/student-photo-14.webp", company: "Uber" },
   { name: "Alok", img: "/files/Mentors/student-photo-15.webp", company: "Tata Elxsi" },
   { name: "Shweta", img: "/files/Mentors/student-photo-16.webp", company: "Wipro" },
   { name: "Rahul", img: "/files/Mentors/student-photo-17.webp", company: "TCS" },

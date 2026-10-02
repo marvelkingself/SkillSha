@@ -283,7 +283,7 @@ const companies = [
 ];
 
 const companiesRow2 = [
-  { name: 'Dream11', domain: 'dream11.com' },
+  { name: 'Uber', domain: 'uber.com' },
   { name: 'Myntra', domain: 'myntra.com' },
   { name: 'Rippling', domain: 'rippling.com' },
   { name: 'YouTube', domain: 'youtube.com' },
