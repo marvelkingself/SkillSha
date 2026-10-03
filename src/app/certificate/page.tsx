@@ -195,8 +195,15 @@ export default function CertificatePage() {
                   </div>
                 </div>
 
-                {/* Badge decoration */}
-                <div className="mt-8 flex justify-center">
+                {/* Badge decoration & Official Stamp */}
+                <div className="mt-8 flex flex-col items-center justify-center gap-3">
+                  <div className="w-16 h-16 md:w-20 md:h-20 relative filter drop-shadow-md">
+                    <img
+                      src="/files/skillsha-seal.png"
+                      alt="SkillSha IT Training Institute Official Seal"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                   <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-500 text-[10px] font-bold tracking-wide uppercase">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                     Verified Authentic

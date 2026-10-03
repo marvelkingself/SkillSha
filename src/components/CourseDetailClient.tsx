@@ -3309,15 +3309,14 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
 
                       {/* Signatures & Seal */}
                       <div className="flex justify-between items-end mt-4 px-2">
-                        {/* Left: Round Seal Badge */}
+                        {/* Left: Official Verified Stamp */}
                         <div className="flex flex-col items-center">
-                          <div className="w-10 h-10 rounded-full border border-brand-orange/20 bg-brand-orange/5 flex items-center justify-center relative">
-                            <svg className="w-7 h-7 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                              <circle cx="12" cy="12" r="10" strokeDasharray="3 3" />
-                            </svg>
-                            <svg className="w-4 h-4 text-brand-orange absolute" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                            </svg>
+                          <div className="w-11 h-11 md:w-12 md:h-12 relative flex items-center justify-center filter drop-shadow-sm">
+                            <img
+                              src="/files/skillsha-seal.png"
+                              alt="SkillSha IT Training Institute Official Verified Stamp"
+                              className="w-full h-full object-contain"
+                            />
                           </div>
                           <span className="text-[5px] text-zinc-400 uppercase tracking-widest mt-1">Verified</span>
                         </div>
