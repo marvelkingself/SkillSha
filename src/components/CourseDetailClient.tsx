@@ -3283,7 +3283,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                             This is to certify
                           </span>
                           <span className="text-lg md:text-xl font-serif italic font-semibold text-brand-orange mt-1 block">
-                            Jane Doe
+                            Ms.Muskan
                           </span>
                         </div>
                         

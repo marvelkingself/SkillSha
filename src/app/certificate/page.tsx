@@ -25,7 +25,7 @@ const MOCK_CERTIFICATES: Record<string, CertificateData> = {
   },
   "SKILLSHA-2026-UX": {
     id: "SKILLSHA-2026-UX",
-    name: "Jane Doe",
+    name: "Ms.Muskan",
     course: "Advanced UI/UX & Design Systems",
     date: "May 12, 2026",
     grade: "Excellent (A)",

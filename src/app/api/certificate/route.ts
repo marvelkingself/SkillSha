@@ -12,7 +12,7 @@ const SEED_CERTIFICATES = [
   },
   {
     credentialId: "SKILLSHA-2026-UX",
-    studentName: "Jane Doe",
+    studentName: "Ms.Muskan",
     courseName: "Advanced UI/UX & Design Systems",
     dateIssued: "May 12, 2026",
     grade: "Excellent (A)",
