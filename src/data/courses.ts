@@ -2082,9 +2082,72 @@ export const COURSES_DATA: Record<string, CourseData> = {
           ]
         }
       ],
+      toolPillars: [
+        {
+          title: "Containers & Cloud Core",
+          subtitle: "Runtime Infrastructure",
+          icon: "cloud",
+          colorClass: "text-blue-500 bg-blue-500/10",
+          tools: [
+            { name: "Docker", category: "Container Engine", desc: "Multi-stage builds, rootless containers & layer caching", icon: "inventory_2" },
+            { name: "Kubernetes (K8s)", category: "Orchestration", desc: "Deployments, StatefulSets, ingress routing & autoscaling", icon: "dns" },
+            { name: "Amazon EKS", category: "Managed Cloud K8s", desc: "Production clusters, VPC CNI & IAM service accounts", icon: "cloud_queue" },
+            { name: "AWS Cloud Core", category: "Cloud Architecture", desc: "VPC, EC2, S3, RDS, CloudFront & IAM least privilege", icon: "cloud" }
+          ],
+          pipeline: { left: "Dockerfile", middle: "EKS Cluster", right: "Production API", leftLabel: "App Container", rightLabel: "High Availability" }
+        },
+        {
+          title: "IaC & CI/CD Pipelines",
+          subtitle: "Automation Engine",
+          icon: "code",
+          colorClass: "text-purple-500 bg-purple-500/10",
+          tools: [
+            { name: "Terraform", category: "Infrastructure as Code", desc: "Declarative cloud provisioning with modules & state locking", icon: "layers" },
+            { name: "GitHub Actions", category: "CI/CD Automation", desc: "Automated linting, image building, testing & deployment", icon: "play_arrow" },
+            { name: "ArgoCD", category: "GitOps Continuous Delivery", desc: "Declarative cluster synchronization directly from git", icon: "sync" },
+            { name: "Ansible", category: "Configuration Management", desc: "Idempotent server configuration & fleet orchestration", icon: "terminal" }
+          ],
+          pipeline: { left: "Git Commit", middle: "Terraform/Actions", right: "ArgoCD Sync", leftLabel: "Code Push", rightLabel: "Zero-Downtime Deploy" }
+        },
+        {
+          title: "Observability & AIOps",
+          subtitle: "Reliability & Intelligence",
+          icon: "psychology",
+          colorClass: "text-emerald-500 bg-emerald-500/10",
+          tools: [
+            { name: "Prometheus & Grafana", category: "Metrics & Dashboards", desc: "Real-time cluster telemetry, alerting & SLA tracking", icon: "analytics" },
+            { name: "Claude & ChatGPT", category: "AI Scripting & IaC", desc: "Synthesizing Terraform, bash scripts & debugging K8s manifests", icon: "smart_toy" },
+            { name: "AIOps Incident Bot", category: "Automated Remediation", desc: "LLM-assisted log triage, root-cause diagnosis & runbooks", icon: "bolt" },
+            { name: "OpenTelemetry", category: "Distributed Tracing", desc: "Microservice latency tracing & bottleneck identification", icon: "timeline" }
+          ],
+          pipeline: { left: "K8s Alert", middle: "AIOps Triage", right: "Auto-Heal", leftLabel: "Webhook Trigger", rightLabel: "Resolved in Seconds" }
+        }
+      ],
       placement: {
         title: "100% Placement Support for DevOps & Cloud Engineers",
         subtext: "From technical portfolio building to live terminal interview preparation, our dedicated placement cell helps you transition into high-paying DevOps and Cloud roles.",
+        during: [
+          "Week 4: Technical career roadmap & Cloud/DevOps salary trajectory planning",
+          "Week 8: GitHub infrastructure portfolio setup with Terraform & Docker projects",
+          "Week 14: Kubernetes architecture & AWS networking mock technical evaluation",
+          "Week 18: Production-grade CI/CD pipeline & ArgoCD GitOps code review",
+          "Week 22: Terminal debugging challenge & scenario-based incident response mocks"
+        ],
+        after: [
+          "Direct referral access to 500+ top tech startups, scale-ups, and MNCs",
+          "Exclusive DevOps interview question bank covering K8s, AWS, and Linux internals",
+          "Personalized 1-on-1 salary negotiation support for offers up to ₹24L+ LPA",
+          "Ongoing access to alumni community and weekly live Q&A sessions",
+          "Lifetime resume re-evaluations and senior SRE career progression guidance"
+        ],
+        network: [
+          "Leading Cloud SaaS & Fintech enterprises hiring Kubernetes Engineers",
+          "Global IT Consultancies expanding AWS & Multi-Cloud teams",
+          "Product engineering firms adopting GitOps and automated delivery",
+          "Fast-growing AI and data platforms requiring resilient infrastructure",
+          "E-commerce & high-traffic platforms scaling site reliability (SRE)",
+          "Fortune 500 tech divisions hiring DevOps and Platform Engineers"
+        ],
         stats: [
           { number: "₹14L+", label: "Avg. Starting Package" },
           { number: "94%", label: "Placement Rate" },
@@ -2101,12 +2164,83 @@ export const COURSES_DATA: Record<string, CourseData> = {
       careers: {
         title: "Career Opportunities After DevOps with Gen AI",
         subtext: "DevOps and Cloud engineering are among the highest-paid and most in-demand technical fields globally. Here are the top roles you will be prepared for:",
+        marketSentiment: "Global demand for DevOps and Cloud Engineers continues to outpace supply by over 40%. Engineers skilled in Kubernetes, Infrastructure as Code, and AI automation command the highest compensation tiers in modern engineering teams.",
         roles: [
-          { title: "DevOps Engineer", salary: "₹12 - 18 LPA", duties: "CI/CD pipelines, container orchestration, automated deployments & cloud infrastructure management", availability: "SaaS companies, Fintech, E-commerce, Enterprises" },
-          { title: "Cloud Engineer / Architect", salary: "₹14 - 22 LPA", duties: "Designing multi-region AWS cloud architectures, VPC networking, security & cost governance", availability: "Tech consultancies, Cloud providers, Global enterprises" },
-          { title: "Site Reliability Engineer (SRE)", salary: "₹15 - 25 LPA", duties: "Cluster reliability, system observability, incident response, SLO management & chaos engineering", availability: "High-scale platforms, Gaming, Streaming & Banking" },
-          { title: "DevSecOps Specialist", salary: "₹14 - 20 LPA", duties: "Integrating container security scans, secret management, IAM policies & compliance automation", availability: "Cybersecurity firms, Healthcare tech, Financial institutions" },
-          { title: "Platform Engineer", salary: "₹16 - 26 LPA", duties: "Building internal developer platforms (IDP), self-service K8s infrastructure & GitOps tooling", availability: "Modern tech startups & Scale-up enterprises" }
+          {
+            title: "DevOps Engineer",
+            availability: "Immediate Placement",
+            duties: "Architects CI/CD automation pipelines, manages containerized services, automates deployments, and maintains scalable cloud infrastructure.",
+            keyPoints: [
+              "Build zero-downtime GitHub Actions & GitLab CI/CD pipelines",
+              "Manage container deployments with Docker & Kubernetes",
+              "Automate infrastructure provisioning with modular Terraform",
+              "Integrate AI code assistants for rapid pipeline scripting"
+            ],
+            baseMin: 12,
+            baseMax: 20
+          },
+          {
+            title: "Cloud Architect / Engineer",
+            availability: "High Demand",
+            duties: "Designs multi-region AWS cloud architectures, VPC networking, security boundaries, and enterprise cost governance.",
+            keyPoints: [
+              "Architect scalable, fault-tolerant AWS multi-tier topologies",
+              "Implement IAM least-privilege policies & security compliance",
+              "Design serverless architectures and managed database clusters",
+              "Optimize monthly cloud spend using AI-driven telemetry"
+            ],
+            baseMin: 14,
+            baseMax: 24
+          },
+          {
+            title: "Site Reliability Engineer (SRE)",
+            availability: "Premium Role",
+            duties: "Ensures 99.99% system uptime, manages distributed tracing, conducts chaos engineering drills, and remediates incidents.",
+            keyPoints: [
+              "Define Service Level Objectives (SLOs) and error budgets",
+              "Set up Prometheus, Grafana & OpenTelemetry observability",
+              "Automate incident root-cause triage using AIOps workflows",
+              "Conduct automated failover and disaster recovery drills"
+            ],
+            baseMin: 15,
+            baseMax: 26
+          },
+          {
+            title: "DevSecOps Specialist",
+            availability: "High Demand",
+            duties: "Integrates continuous security scanning, secret management, vulnerability audits, and compliance into build pipelines.",
+            keyPoints: [
+              "Automate static and dynamic security scans (SAST/DAST)",
+              "Enforce container image signing and vulnerability scanning",
+              "Manage secret rotation with HashiCorp Vault and AWS KMS",
+              "Ensure SOC2 and ISO compliance through automated checks"
+            ],
+            baseMin: 13,
+            baseMax: 22
+          },
+          {
+            title: "Platform Engineer",
+            availability: "Immediate Placement",
+            duties: "Builds internal developer platforms (IDP), self-service developer tooling, and automated GitOps application delivery.",
+            keyPoints: [
+              "Build self-service developer portals on top of Kubernetes",
+              "Automate GitOps workflows with ArgoCD and Helm charts",
+              "Standardize developer staging and preview environments",
+              "Reduce cycle time from commit to production deployment"
+            ],
+            baseMin: 14,
+            baseMax: 25
+          }
+        ],
+        growth: [
+          "Year 1-2: Junior/Associate DevOps Engineer -> ₹10L - ₹16L LPA",
+          "Year 3-4: Senior DevOps / Cloud Engineer -> ₹18L - ₹28L LPA",
+          "Year 5+: Principal Cloud Architect / VP of Infrastructure -> ₹35L - ₹55L+ LPA"
+        ],
+        salaryGrowth: [
+          "After 1 year: 35-50% increment common after mastering Kubernetes and Terraform",
+          "After 3 years: 2.5x to 3x starting compensation with AWS certification and GitOps expertise",
+          "After 5 years: Senior SREs and Principal Cloud Architects regularly command ₹35L to ₹60L+ LPA"
         ]
       },
       pricingDetail: {
@@ -2115,6 +2249,12 @@ export const COURSES_DATA: Record<string, CourseData> = {
         cashback: "₹2,000",
         final: "₹18,000",
         emi: "₹3,000/month (6 months)",
+        rows: [
+          { cost: "Course Tuition (24 Weeks)", amount: "₹40,000" },
+          { cost: "50% Special Enrollment Discount", amount: "-₹20,000" },
+          { cost: "Bonus Cashback (One-time payment)", amount: "-₹2,000" },
+          { cost: "Your Final Investment", amount: "₹18,000" }
+        ],
         breakdown: [
           { cost: "Course Tuition (24 Weeks)", amount: "₹40,000" },
           { cost: "50% Special Enrollment Discount", amount: "-₹20,000" },

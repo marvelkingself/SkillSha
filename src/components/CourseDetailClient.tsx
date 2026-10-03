@@ -982,7 +982,7 @@ function DigitalMarketingPlacementSection({ data }: { data: CourseData }) {
             During Your Course
           </h3>
           <ul className="space-y-4 relative pl-4 border-l border-zinc-100 dark:border-white/5">
-            {content.during.map((step: string, sIdx: number) => (
+            {(content.during || []).map((step: string, sIdx: number) => (
               <li key={sIdx} className="relative text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
                 <span className="absolute -left-[21px] top-1 w-2.5 h-2.5 rounded-full bg-brand-orange border border-white dark:border-zinc-900"></span>
                 {step}
@@ -999,7 +999,7 @@ function DigitalMarketingPlacementSection({ data }: { data: CourseData }) {
               After You Complete
             </h3>
             <ul className="space-y-3">
-              {content.after.map((item: string, aIdx: number) => (
+              {(content.after || []).map((item: string, aIdx: number) => (
                 <li key={aIdx} className="flex items-start gap-2 text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
                   <span className="text-brand-orange">•</span>
                   <span>{item}</span>
@@ -1018,7 +1018,7 @@ function DigitalMarketingPlacementSection({ data }: { data: CourseData }) {
             </h3>
             <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-4 font-sans leading-relaxed">We are connected with:</p>
             <ul className="space-y-3">
-              {content.network.map((net: string, nIdx: number) => (
+              {(content.network || []).map((net: string, nIdx: number) => (
                 <li key={nIdx} className="flex items-start gap-2 text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
                   <span className="text-brand-orange">•</span>
                   <span>{net}</span>
@@ -1582,7 +1582,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
             </h3>
           </div>
           <div className="relative border-l border-zinc-200 dark:border-white/10 pl-6 ml-3.5 space-y-6">
-            {content.growth.map((grow: string, gIdx: number) => {
+            {(content.growth || []).map((grow: string, gIdx: number) => {
               // Parse stages
               const parts = grow.split("->").map((p: string) => p.trim());
               return (
@@ -1624,7 +1624,7 @@ function DigitalMarketingCareerSection({ data }: { data: CourseData }) {
               </h3>
             </div>
             <ul className="space-y-3.5">
-              {content.salaryGrowth.map((sal: string, sIdx: number) => (
+              {(content.salaryGrowth || []).map((sal: string, sIdx: number) => (
                 <li key={sIdx} className="flex items-start gap-3 text-[11.5px] text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed">
                   <span className="w-5 h-5 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0 mt-0.5 font-bold text-[9.5px]">
                     {sIdx + 1}
@@ -1734,7 +1734,7 @@ function DigitalMarketingPricingSection({ data }: { data: CourseData }) {
           <div>
             <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-6">Transparent, Affordable Pricing</h3>
             <div className="space-y-3 font-sans text-xs">
-              {content.rows.map((row: any, rIdx: number) => (
+              {(content.rows || content.breakdown || []).map((row: any, rIdx: number) => (
                 <div key={rIdx} className={`flex items-center justify-between py-2 border-b border-zinc-100 dark:border-white/5 ${rIdx === 3 ? 'text-brand-orange font-bold text-sm' : 'text-zinc-600 dark:text-zinc-400'}`}>
                   <span>{row.cost}</span>
                   <span>{row.amount}</span>
@@ -1753,7 +1753,7 @@ function DigitalMarketingPricingSection({ data }: { data: CourseData }) {
             <div>
               <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-4">Installment Plans (0% Interest)</h3>
               <ul className="space-y-2">
-                {content.installments.map((inst: string, iIdx: number) => (
+                {(content.installments || []).map((inst: string, iIdx: number) => (
                   <li key={iIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
                     <span className="text-brand-orange">•</span>
                     <span>{inst}</span>
@@ -1764,7 +1764,7 @@ function DigitalMarketingPricingSection({ data }: { data: CourseData }) {
             <div>
               <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-2">Corporate Discounts</h3>
               <ul className="space-y-2">
-                {content.discounts.map((disc: string, dIdx: number) => (
+                {(content.discounts || []).map((disc: string, dIdx: number) => (
                   <li key={dIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
                     <span className="text-brand-orange">•</span>
                     <span>{disc}</span>
@@ -1779,7 +1779,7 @@ function DigitalMarketingPricingSection({ data }: { data: CourseData }) {
         <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 col-span-1">
           <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-4">What's Included</h3>
           <ul className="space-y-2 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
-            {content.includes.map((item: string, idx: number) => (
+            {(content.includes || []).map((item: string, idx: number) => (
               <li key={idx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
                 <span className="text-brand-orange select-none font-bold">✓</span>
                 <span>{item}</span>
@@ -1811,7 +1811,7 @@ function DigitalMarketingEnrollmentSection({ data }: { data: CourseData }) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Step List */}
         <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 col-span-2 space-y-6">
-          {content.map((stepObj: any, idx: number) => (
+          {(content || []).map((stepObj: any, idx: number) => (
             <div key={idx} className="flex gap-4 items-start">
               <div className="w-16 h-10 rounded-xl bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center font-black text-brand-orange text-sm shrink-0">
                 {stepObj.step}
@@ -1819,7 +1819,7 @@ function DigitalMarketingEnrollmentSection({ data }: { data: CourseData }) {
               <div className="space-y-1">
                 <h4 className="text-sm font-bold text-zinc-900 dark:text-white">{stepObj.title}</h4>
                 <ul className="space-y-1">
-                  {stepObj.bullets.map((bullet: string, bIdx: number) => (
+                  {(stepObj.bullets || []).map((bullet: string, bIdx: number) => (
                     <li key={bIdx} className="text-xs text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-1.5">
                       <span className="text-brand-orange select-none">•</span>
                       <span>{bullet}</span>
@@ -1858,7 +1858,7 @@ function DigitalMarketingEnrollmentSection({ data }: { data: CourseData }) {
           <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10">
             <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-4">Quick Facts</h3>
             <ul className="space-y-2 text-xs font-sans text-zinc-600 dark:text-zinc-400">
-              {quickFacts.map((fact: string, idx: number) => (
+              {(quickFacts || []).map((fact: string, idx: number) => (
                 <li key={idx} className="flex items-start gap-2 leading-relaxed">
                   <span className="text-brand-orange select-none">•</span>
                   <span>{fact}</span>
