@@ -279,7 +279,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
   const dynamicCourseSchema = isOtherFlagship ? {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": `${data.title} with Gen AI`,
+    "name": data.certificateTitle || (data.title.includes("with Gen AI") ? data.title : `${data.title} with Gen AI`),
     "description": data.description,
     "provider": {
       "@type": "EducationalOrganization",
@@ -288,7 +288,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
     },
     "url": `https://skillsha.com/course/${slug}`,
     "inLanguage": "en",
-    "educationalCredentialAwarded": `Certificate of Completion in ${data.title} with Gen AI`,
+    "educationalCredentialAwarded": `Certificate of Completion in ${data.certificateTitle || data.title}`,
     "coursePrerequisites": "No prior coding or experience required; beginner-friendly curriculum.",
     "hasCourseInstance": [
       {

@@ -33,6 +33,7 @@ export interface PortfolioProject {
 
 export interface CourseData {
   title: string;
+  certificateTitle?: string;
   typewriter: string[];
   description: string;
   duration: string;
@@ -117,6 +118,7 @@ export function getCourseIdBySlug(slug: string): string | undefined {
 export const COURSES_DATA: Record<string, CourseData> = {
   "digital-marketing-with-gen-ai": {
     title: "Digital Marketing with Gen AI",
+    certificateTitle: "Digital Marketing with Gen AI",
     typewriter: ["Gen AI Marketing", "Meta & Google Ads", "AI Content Engines", "Automation Funnels", "Data-Driven Growth"],
     description: "Master the future of marketing. Combine core growth marketing strategies with Generative AI tools to build high-converting ad engines, automate campaign copy, optimize landing pages, and scale brand distribution.",
     duration: "24 Weeks",
@@ -594,6 +596,7 @@ export const COURSES_DATA: Record<string, CourseData> = {
   },
   "digital-marketing-noida": {
     title: "Digital Marketing Course in Noida with Gen AI",
+    certificateTitle: "Digital Marketing with Gen AI",
     typewriter: ["Noida Growth Marketing", "Meta & Google Ads", "AI Content Engines", "NCR Campaigns", "Data-Driven Strategy"],
     description: "Master the future of marketing in Noida. Combine core growth marketing strategies with Generative AI tools to build high-converting ad engines, automate campaign copy, optimize landing pages, and scale brand distribution.",
     duration: "24 Weeks",
@@ -1105,6 +1108,7 @@ export const COURSES_DATA: Record<string, CourseData> = {
   },
   "data-science-ai": {
     title: "Data Science & AI",
+    certificateTitle: "Data Science & AI",
     typewriter: ["Python for Data Science", "Machine Learning & Stats", "Gen AI & Prompt Engineering", "Vector DBs & RAG", "Data-Driven Decision Making"],
     description: "Want a career in data science? Skillsha's Data Science Course with Gen AI teaches you the skills companies are hiring for right now — Python, statistics, SQL, and machine learning — plus how to use AI tools like ChatGPT and Claude to work faster.",
     duration: "28 Weeks (6–7 Months)",
@@ -1686,6 +1690,7 @@ export const COURSES_DATA: Record<string, CourseData> = {
   },
   "devops-with-gen-ai": {
     title: "DevOps Course with Gen AI",
+    certificateTitle: "DevOps with Gen AI",
     typewriter: ["CI/CD Automation", "Docker & Kubernetes", "Terraform & IaC", "AWS Cloud Architecture", "AIOps & Gen AI Workflows"],
     description: "Master modern DevOps and Cloud Engineering engineered for the AI era. Learn Linux, Docker, Kubernetes, Terraform, AWS, and CI/CD pipelines, plus how to leverage Generative AI for automated IaC synthesis, incident remediation, and self-healing deployments.",
     duration: "24 Weeks (6 Months)",

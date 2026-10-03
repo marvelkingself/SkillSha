@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import CounselingModal from "@/components/CounselingModal";
 import { AlumniCompanies } from "@/components/Alumni";
 import { CourseData, MENTORS_LIST } from "@/data/courses";
+import { CITIES_LIST } from "@/data/cities";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import PortfolioProjectsSection from "@/components/PortfolioProjectsSection";
 
@@ -1888,6 +1889,34 @@ function DigitalMarketingDisclaimerSection({ data }: { data: CourseData }) {
 
 export default function CourseDetailClient({ id, data, city }: CourseDetailClientProps) {
   const isDigitalMarketingFlagship = id === "digital-marketing-with-gen-ai" || id === "digital-marketing-noida";
+
+  // Clean, official course name for certificate (strictly without location/city keywords like "in Noida")
+  const certificateCourseName = (() => {
+    if (data.certificateTitle) {
+      return data.certificateTitle;
+    }
+    if (id === "digital-marketing-noida" || id === "digital-marketing-with-gen-ai") {
+      return "Digital Marketing with Gen AI";
+    }
+    if (id === "devops-with-gen-ai") {
+      return "DevOps with Gen AI";
+    }
+    if (id === "data-science-ai") {
+      return "Data Science & AI";
+    }
+    let title = data.title;
+    if (city) {
+      title = title.replace(new RegExp(`\\s+in\\s+${city}\\b`, "gi"), "");
+    }
+    CITIES_LIST.forEach((c) => {
+      title = title.replace(new RegExp(`\\s+in\\s+${c.name}\\b`, "gi"), "");
+      title = title.replace(new RegExp(`\\s+in\\s+${c.slug}\\b`, "gi"), "");
+    });
+    title = title.replace(/Course\s+with\s+Gen\s+AI/i, "with Gen AI");
+    title = title.replace(/\s+Course\b/i, "");
+    return title.replace(/\s+/g, " ").trim();
+  })();
+
   const [typewriterIndex, setTypewriterIndex] = useState(0);
   const [typewriterText, setTypewriterText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -3269,7 +3298,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
 
                         <div>
                           <span className="text-sm md:text-md font-extrabold tracking-tight text-brand-orange block leading-tight px-2">
-                            {data.title}
+                            {certificateCourseName}
                           </span>
                         </div>
                         
