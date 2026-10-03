@@ -61,6 +61,7 @@ export default function Footer() {
                     <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 mb-4">Programs</h4>
                     <ul className="space-y-2.5">
                         <li><Link href="/course/digital-marketing-course-with-gen-ai" className="text-[13px] text-amber-500 font-bold hover:text-amber-600 transition-colors flex items-center gap-1.5">Digital Marketing <span className="text-[8px] bg-gradient-to-r from-amber-500 to-orange-500 text-white px-1 py-0.5 rounded font-extrabold tracking-wider leading-normal">FLAGSHIP</span></Link></li>
+                        <li><Link href="/course/devops-course-with-gen-ai" className="text-[13px] text-zinc-600 dark:text-zinc-400 hover:text-brand-orange transition-colors">DevOps with Gen AI</Link></li>
                         <li><span className="text-[13px] text-zinc-600 dark:text-zinc-400">AI Engineering</span></li>
                         <li><span className="text-[13px] text-zinc-600 dark:text-zinc-400">AI/ML with Gen AI</span></li>
                         <li><span className="text-[13px] text-zinc-600 dark:text-zinc-400">UI/UX Design</span></li>

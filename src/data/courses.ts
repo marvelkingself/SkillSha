@@ -66,7 +66,8 @@ export const COURSE_SLUG_MAP: Record<string, string> = {
   "business-analyst": "business-analyst-course-with-gen-ai",
   "ai-ml-with-gen-ai": "ai-ml-course-with-gen-ai",
   "software-testing": "software-testing-course-with-gen-ai",
-  "playwright-automation": "playwright-automation-course-with-gen-ai"
+  "playwright-automation": "playwright-automation-course-with-gen-ai",
+  "devops-with-gen-ai": "devops-course-with-gen-ai"
 };
 
 export function getCourseSlugById(id: string, city?: string): string {
@@ -1681,6 +1682,505 @@ export const COURSES_DATA: Record<string, CourseData> = {
         "Access: Lifetime course materials & updates",
         "Certification: Globally verified credential"
       ]
+    }
+  },
+  "devops-with-gen-ai": {
+    title: "DevOps Course with Gen AI",
+    typewriter: ["CI/CD Automation", "Docker & Kubernetes", "Terraform & IaC", "AWS Cloud Architecture", "AIOps & Gen AI Workflows"],
+    description: "Master modern DevOps and Cloud Engineering engineered for the AI era. Learn Linux, Docker, Kubernetes, Terraform, AWS, and CI/CD pipelines, plus how to leverage Generative AI for automated IaC synthesis, incident remediation, and self-healing deployments.",
+    duration: "24 Weeks (6 Months)",
+    salary: "₹ 14L+ LPA",
+    liveSessions: "50+ hrs",
+    projects: "12+",
+    milestoneWord: "Ten",
+    milestones: [
+      {
+        number: 1,
+        title: "Linux Administration, Shell Scripting & AI Automation (Weeks 1-2)",
+        modules: [
+          {
+            title: "Linux & Terminal Foundations",
+            icon: "terminal",
+            color: "orange",
+            bullets: [
+              { title: "Linux architecture, kernel & filesystem hierarchy", desc: "Permissions, user groups & file management", icon: "folder" },
+              { title: "Bash scripting, automation & scheduling", desc: "Variables, loops, functions, cron jobs & systemd", icon: "code" },
+              { title: "Linux networking & secure shell protocols", desc: "SSH keys, iptables, DNS resolution & curl/netstat", icon: "lan" },
+              { title: "AI-assisted bash script generation", desc: "Using ChatGPT & Claude to write & debug bash scripts", icon: "bolt" },
+              { title: "Process monitoring & resource triage", desc: "htop, ps, kill, journalctl & memory leak troubleshooting", icon: "troubleshoot" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 2,
+        title: "Version Control, GitOps Foundations & GitHub Copilot (Weeks 3-4)",
+        modules: [
+          {
+            title: "Advanced Git & Team Workflows",
+            icon: "source",
+            color: "blue",
+            bullets: [
+              { title: "Git branching strategies & GitFlow model", desc: "Feature branches, pull requests & code review etiquette", icon: "fork_right" },
+              { title: "Merge conflicts, rebasing & cherry-picking", desc: "Resolving complex merge states and maintaining clean trees", icon: "merge" },
+              { title: "Git hooks & automated pre-commit linting", desc: "Husky, commitlint & automated secret scanners", icon: "security" },
+              { title: "GitHub Copilot for DevOps workflows", desc: "Generating workflow YAMLs and git command automation", icon: "smart_toy" },
+              { title: "GitHub release tagging & semantic versioning", desc: "Automated changelogs and semver tags", icon: "tag" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 3,
+        title: "Containerization Mastery with Docker & Container Security (Weeks 5-7)",
+        modules: [
+          {
+            title: "Docker Engine & Multi-Stage Builds",
+            icon: "inventory_2",
+            color: "rose",
+            bullets: [
+              { title: "Docker architecture, daemon, images & containers", desc: "Container isolation, cgroups & namespaces", icon: "layers" },
+              { title: "Writing production-grade Dockerfiles", desc: "Multi-stage builds, Alpine/distroless base images & layer caching", icon: "build" },
+              { title: "Docker networking & persistent volume storage", desc: "Bridge, host, overlay networks & bind mounts", icon: "storage" },
+              { title: "Multi-container orchestration with Docker Compose", desc: "Environment files, service dependencies & healthchecks", icon: "dns" },
+              { title: "Container vulnerability scanning with Trivy", desc: "Scanning images for CVEs and securing rootless containers", icon: "shield" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 4,
+        title: "Kubernetes Core Architecture: Pods, Deployments & Networking (Weeks 8-10)",
+        modules: [
+          {
+            title: "Kubernetes Cluster Orchestration",
+            icon: "hub",
+            color: "violet",
+            bullets: [
+              { title: "Kubernetes architecture & control plane components", desc: "API server, etcd, scheduler, kubelet & kube-proxy", icon: "schema" },
+              { title: "Pods, ReplicaSets & Declarative Deployments", desc: "Rolling updates, rollbacks & replica management", icon: "widgets" },
+              { title: "Kubernetes Services & Ingress controllers", desc: "ClusterIP, NodePort, LoadBalancer & NGINX Ingress with SSL", icon: "alt_route" },
+              { title: "ConfigMaps, Secrets & environment injection", desc: "Decoupling configuration from application codebases", icon: "key" },
+              { title: "Storage in K8s: PersistentVolumes & PVCs", desc: "Dynamic provisioning with StorageClasses & CSI drivers", icon: "hard_drive" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 5,
+        title: "Advanced Kubernetes: Helm, Autoscaling & GitOps (Weeks 11-13)",
+        modules: [
+          {
+            title: "Helm & Cloud-Native Ecosystem",
+            icon: "cloud",
+            color: "emerald",
+            bullets: [
+              { title: "Helm package management & custom charts", desc: "Templating YAML manifests, values.yaml & chart dependencies", icon: "inventory" },
+              { title: "Cluster autoscaling (HPA & VPA)", desc: "Scaling pods based on CPU, memory, and custom metrics", icon: "trending_up" },
+              { title: "Role-Based Access Control (RBAC) & ServiceAccounts", desc: "Securing cluster access with fine-grained roles & rolebindings", icon: "admin_panel_settings" },
+              { title: "GitOps deployment with ArgoCD", desc: "Continuous reconciliation, declarative app sync & rollbacks", icon: "sync" },
+              { title: "Network policies & pod security standards", desc: "Restricting inter-namespace traffic and egress/ingress rules", icon: "lock" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 6,
+        title: "Continuous Integration & Delivery (CI/CD) with GitHub Actions & Jenkins (Weeks 14-16)",
+        modules: [
+          {
+            title: "Automated Enterprise Pipelines",
+            icon: "rocket_launch",
+            color: "indigo",
+            bullets: [
+              { title: "Designing enterprise CI/CD pipeline architectures", desc: "Build stages, unit tests, artifact storage & staging environments", icon: "timeline" },
+              { title: "GitHub Actions workflow automation", desc: "Custom actions, secrets management, matrix builds & caching", icon: "play_circle" },
+              { title: "Jenkins pipeline as code with Jenkinsfile", desc: "Declarative vs scripted pipelines, agent runners & plugins", icon: "settings" },
+              { title: "Code quality & security scanning with SonarQube", desc: "Automated static analysis, code coverage & quality gates", icon: "verified" },
+              { title: "Deployment strategies: Blue-Green & Canary", desc: "Zero-downtime production rollouts and instant rollbacks", icon: "swap_calls" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 7,
+        title: "Infrastructure as Code (IaC) with Terraform & Ansible (Weeks 17-19)",
+        modules: [
+          {
+            title: "Automated Infrastructure Provisioning",
+            icon: "construction",
+            color: "teal",
+            bullets: [
+              { title: "Terraform architecture, providers & HCL syntax", desc: "Declarative cloud provisioning on AWS", icon: "architecture" },
+              { title: "State management, remote backends & state locks", desc: "S3 buckets, DynamoDB locking & team collaboration", icon: "cloud_sync" },
+              { title: "Modular Terraform & Terragrunt patterns", desc: "DRY multi-environment architectures (dev, staging, prod)", icon: "view_module" },
+              { title: "Configuration management with Ansible", desc: "Playbooks, inventory files, roles, idempotency & ad-hoc commands", icon: "tune" },
+              { title: "AI-assisted Terraform & HCL generation", desc: "Using Gen AI to generate, refactor, and security-audit IaC code", icon: "auto_fix_high" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 8,
+        title: "Production Cloud Architecture on AWS (Weeks 20-21)",
+        modules: [
+          {
+            title: "AWS for DevOps Engineers",
+            icon: "cloud_done",
+            color: "amber",
+            bullets: [
+              { title: "AWS Virtual Private Cloud (VPC) & networking", desc: "Public/private subnets, NAT gateways, route tables & security groups", icon: "router" },
+              { title: "Amazon Elastic Kubernetes Service (EKS)", desc: "Managed control planes, node groups & cluster autoscaler", icon: "cluster" },
+              { title: "IAM security, roles, policies & OIDC integration", desc: "Least-privilege access, STS assume role & service identity", icon: "badge" },
+              { title: "Cloud storage & databases (S3, RDS, DynamoDB)", desc: "High availability multi-AZ setups, backups & replication", icon: "database" },
+              { title: "AWS Cost optimization & FinOps with AI", desc: "Spot instances, right-sizing workloads & AI cost audit prompts", icon: "savings" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 9,
+        title: "Observability, SRE & Monitoring Stack (Weeks 22-23)",
+        modules: [
+          {
+            title: "Full-Stack Telemetry & SRE Metrics",
+            icon: "monitoring",
+            color: "rose",
+            bullets: [
+              { title: "Site Reliability Engineering (SRE) principles", desc: "SLIs, SLOs, SLAs, error budgets & incident lifecycle", icon: "speed" },
+              { title: "Metrics scraping with Prometheus & PromQL", desc: "Exporters, service monitors, alerting rules & metric types", icon: "analytics" },
+              { title: "Visual dashboarding with Grafana", desc: "Custom dashboards, variables, alerting channels & panel plugins", icon: "dashboard" },
+              { title: "Centralized logging with ELK Stack", desc: "Log shipping with Filebeat, indexing & log query syntax", icon: "receipt_long" },
+              { title: "Distributed tracing with OpenTelemetry & Jaeger", desc: "Tracing request latency across distributed microservices", icon: "route" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 10,
+        title: "Generative AI for DevOps: AIOps, Self-Healing & Capstone (Week 24)",
+        modules: [
+          {
+            title: "AIOps & Autonomous Infrastructure",
+            icon: "psychology",
+            color: "orange",
+            bullets: [
+              { title: "AIOps principles & LLM integration with cloud alerts", desc: "Connecting Prometheus Alertmanager webhooks to LLM endpoints", icon: "webhook" },
+              { title: "Automated root-cause analysis (RCA) with AI", desc: "Synthesizing logs, stack traces & deployment diffs for fast triage", icon: "summarize" },
+              { title: "Prompt engineering for DevOps & SRE runbooks", desc: "Building interactive runbook bots that suggest remediation commands", icon: "chat" },
+              { title: "Self-healing Kubernetes workflows", desc: "Automated pod restarts, scaling & config rollback triggers", icon: "auto_mode" },
+              { title: "Final end-to-end production capstone deployment", desc: "Presenting a live multi-region cloud deployment to industry mentors", icon: "military_tech" }
+            ]
+          }
+        ]
+      }
+    ],
+    portfolioProjects: [
+      {
+        milestone: 1,
+        codename: "KUBE-SCALE",
+        tagline: "High-Availability Microservices on EKS",
+        description: "Architect and deploy a multi-tier microservices application on AWS EKS using Helm, NGINX Ingress, TLS certificates with Let's Encrypt, and Horizontal Pod Autoscaling.",
+        bg: "#C5E3F9",
+        shape: "diamond"
+      },
+      {
+        milestone: 2,
+        codename: "GITOPS-FLOW",
+        tagline: "Enterprise GitOps CI/CD with ArgoCD",
+        description: "Build an automated continuous delivery engine with GitHub Actions and ArgoCD that automatically builds, scans with Trivy, pushes images, and reconciles K8s clusters without human intervention.",
+        bg: "#D4F1C5",
+        shape: "hexburst"
+      },
+      {
+        milestone: 3,
+        codename: "TERRA-CLOUD",
+        tagline: "Multi-Environment AWS Infrastructure with Terraform",
+        description: "Provision a production-grade multi-tier AWS architecture (VPC, private subnets, NAT, EKS, RDS PostgreSQL, and S3 backend with DynamoDB locking) using modular Terraform.",
+        bg: "#F9E4C5",
+        shape: "starburst"
+      },
+      {
+        milestone: 4,
+        codename: "AI-OPS-BOT",
+        tagline: "AIOps Incident Remediation & Log Triage Bot",
+        description: "Build a real-time SRE incident response service that consumes alerts from Prometheus Alertmanager, queries an LLM to analyze error logs, and automatically generates root-cause diagnosis reports and suggested shell patches.",
+        bg: "#E8D5F5",
+        shape: "flower"
+      }
+    ],
+    faqs: [
+      {
+        q: "What prerequisites do I need to join the DevOps with Gen AI course?",
+        a: "Basic programming or scripting familiarity (in any language like Python, Bash, or JavaScript) and a fundamental understanding of how the web works are helpful. We start from ground-zero Linux and build step-by-step to advanced Kubernetes and AIOps."
+      },
+      {
+        q: "How is Generative AI taught in this DevOps course?",
+        a: "You learn practical, production-level AI applications for DevOps: using LLMs and GitHub Copilot to generate and audit Terraform and Kubernetes manifests, configuring AIOps webhooks for automated root-cause analysis on production failures, and building intelligent runbooks that accelerate incident resolution."
+      },
+      {
+        q: "Do I get real hands-on cloud experience with AWS and Kubernetes?",
+        a: "Yes. Every student works on real AWS accounts and provisions actual cloud resources: VPCs, EKS clusters, load balancers, and CI/CD pipelines. You won't just watch videos—you will deploy live infrastructure."
+      },
+      {
+        q: "Is placement assistance included in the DevOps course?",
+        a: "Yes. SkillSha provides 100% placement support including resume optimization for DevOps and SRE roles, GitHub portfolio audits, technical mock interviews with senior DevOps engineers, and direct referrals to hiring partners across India and worldwide."
+      },
+      {
+        q: "What is the class schedule and format?",
+        a: "We offer both live interactive batches (weekday evening or weekend cohorts) and self-paced tracks with weekly doubt-clearing sessions. All live sessions are recorded and made available with lifetime access."
+      },
+      {
+        q: "What tools and technologies will I master?",
+        a: "You will master Linux, Bash, Git, GitHub Actions, Docker, Kubernetes, Helm, ArgoCD, Jenkins, Terraform, Ansible, AWS (EKS, VPC, EC2, S3, RDS), Prometheus, Grafana, ELK Stack, and Generative AI for DevOps."
+      }
+    ],
+    flagshipContent: {
+      heroSubtext: "Want a high-growth career in Cloud & DevOps Engineering? SkillSha's DevOps Course with Gen AI teaches you the exact technologies modern tech companies demand—Linux, Docker, Kubernetes, Terraform, AWS, Jenkins, GitHub Actions, and AIOps.\n\nThis is a complete, hands-on certification program built for developers, system administrators, and tech professionals worldwide. You will build and deploy real production infrastructure on AWS, automate GitOps delivery pipelines, leverage Gen AI to write IaC 5x faster, and receive dedicated 100% placement support.\n\nLimited Time Offer: 50% Discount + Cashback + 0% Interest EMI Available Worldwide",
+      whyChooseList: {
+        placement: [
+          "Direct referrals to 500+ tech companies hiring DevOps Engineers and SREs",
+          "Comprehensive resume review showcasing production-grade GitHub infrastructure code",
+          "1-on-1 technical mock interviews covering container orchestration and system architecture",
+          "Salary negotiation guidance for roles averaging ₹14L to ₹24L+ per annum"
+        ],
+        ai: [
+          "Use ChatGPT and Claude to write, optimize, and debug complex Terraform configurations",
+          "Generate Kubernetes manifests, Helm templates, and ingress rules with AI prompt engineering",
+          "Integrate AIOps into monitoring stacks for automated error log triage and incident root cause analysis",
+          "Automate repetitive Bash scripts and CI/CD pipelines using GitHub Copilot"
+        ],
+        trainers: [
+          { name: "Mr. Shad", title: "Principal Cloud & DevOps Architect", bullets: ["12+ years architecting multi-region AWS and Kubernetes clusters", "Ex-lead consultant for enterprise cloud migrations and microservices", "Specializes in GitOps, infrastructure security, and cost governance", "Trained 2,000+ engineers into top-tier Cloud and DevOps roles"], quote: "DevOps is about speed, reliability, and automation. We teach you how to build production systems that never go down.", exp: "12+ Yrs Exp" },
+          { name: "Mr. Gaurav", title: "Senior SRE & Kubernetes Specialist", bullets: ["Expert in distributed systems, service meshes, and container platforms", "Engineered automated zero-downtime CI/CD pipelines for 50+ microservices", "Deep hands-on expertise with Prometheus, Grafana, OpenTelemetry, and AIOps"], quote: "Gaurav breaks down complex K8s networking and Helm charts into clear, practical steps.", exp: "9+ Yrs Exp" }
+        ],
+        pricing: [
+          "Standard price: ₹40,000",
+          "Early-bird discount: ₹20,000 (50% off)",
+          "Additional cashback: ₹2,000 on one-time payment",
+          "0% Interest EMI available worldwide",
+          "Transparent pricing with no hidden costs",
+          "Includes AWS sandbox lab credits and real cloud deployment accounts"
+        ]
+      },
+      differencesSubtext: "Skip theoretical tutorials. We build job-ready DevOps Engineers and Cloud Architects with real AWS accounts, live Kubernetes clusters, and production GitOps workflows.",
+      differences: [
+        {
+          title: "1. Real Multi-Cloud Production Environments",
+          bullets: [
+            "Deploy live microservices on Amazon EKS with ingress controllers and automated SSL",
+            "Provision multi-environment infrastructure with modular Terraform and remote state locking",
+            "Configure zero-downtime GitOps continuous delivery with ArgoCD and GitHub Actions",
+            "Set up enterprise monitoring dashboards with Prometheus, Grafana, and Alertmanager"
+          ]
+        },
+        {
+          title: "2. Verifiable GitHub Infrastructure Portfolio",
+          bullets: [
+            "Production-ready Terraform modules for AWS VPC, EKS, RDS, and bastion setups",
+            "Custom Helm charts with dynamic templating and values overrides",
+            "Full CI/CD workflow YAML pipelines with automated security testing and container scanning",
+            "AIOps incident triage bot with webhook listeners and LLM root-cause diagnosis"
+          ]
+        },
+        {
+          title: "3. Industry-Recognized DevOps Certification",
+          bullets: [
+            "Our DevOps Course certification is globally recognized and demonstrates verifiable proficiency across modern cloud platforms, containerization, and automation."
+          ]
+        },
+        {
+          title: "4. Real Chaos Engineering & AIOps Incident Response",
+          bullets: [
+            "Practice resolving simulated production cluster outages, pod crash loops, and network partitions with AI-assisted runbooks."
+          ]
+        }
+      ],
+      toolsSubtext: "Master the complete DevOps, Cloud & AIOps ecosystem through industry-standard technologies and real-world infrastructure workflows. Learn how to combine Linux, Docker, Kubernetes, Terraform, AWS, and Generative AI across the entire software delivery lifecycle.",
+      skills: [
+        {
+          category: "Linux & Scripting",
+          list: [
+            "Linux Administration — Kernel concepts, file permissions, processes, systemd & user management",
+            "Bash Scripting — Automation scripts, functions, loops, regex, cron jobs & scheduling",
+            "Networking — SSH keys, DNS, subnetting, TCP/IP, iptables, curl, netstat & reverse proxies",
+            "Shell Automation with AI — Accelerate script creation and debugging with Claude & ChatGPT"
+          ]
+        },
+        {
+          category: "Containerization",
+          list: [
+            "Docker Engine — Containers, images, storage drivers, volume mounts & network bridges",
+            "Dockerfile Best Practices — Multi-stage builds, Alpine/distroless bases & layer minimization",
+            "Docker Compose — Multi-service application orchestration for local and test environments",
+            "Container Security — Vulnerability scanning with Trivy and non-root container hardening"
+          ]
+        },
+        {
+          category: "Kubernetes & GitOps",
+          list: [
+            "Kubernetes Core — Pods, Deployments, ReplicaSets, Namespaces & Label selectors",
+            "K8s Networking — ClusterIP, NodePort, LoadBalancer services & NGINX Ingress controllers",
+            "Config & Storage — ConfigMaps, Secrets, PersistentVolumes, PVCs & StorageClasses",
+            "Helm — Package management, chart creation, templating & release management",
+            "ArgoCD — Declarative GitOps deployment, continuous sync & automated rollbacks",
+            "Autoscaling — Horizontal Pod Autoscaler (HPA) & Cluster Autoscaler on cloud"
+          ]
+        },
+        {
+          category: "CI/CD Automation",
+          list: [
+            "GitHub Actions — Workflows, custom actions, matrix builds, artifact storage & secrets",
+            "Jenkins — Pipeline as code, Jenkinsfile syntax, multibranch pipelines & agent nodes",
+            "Code Quality & Security — Static code analysis with SonarQube & automated test gates",
+            "Release Strategies — Blue-Green deployments, Canary rollouts & zero-downtime releases"
+          ]
+        },
+        {
+          category: "Infrastructure as Code",
+          list: [
+            "Terraform — Declarative infrastructure, providers, resources, variables & outputs",
+            "State Management — Remote backends on AWS S3 with DynamoDB state locking",
+            "Terraform Modules — Reusable, DRY infrastructure architectures for multi-region setups",
+            "Ansible — Agentless configuration management, playbooks, roles, handlers & idempotency",
+            "AI for IaC — Synthesize, refactor, and security-audit Terraform code using Generative AI"
+          ]
+        },
+        {
+          category: "AWS Cloud Engineering",
+          list: [
+            "AWS VPC — Public/private subnets, Internet Gateways, NAT Gateways & Route Tables",
+            "Amazon EKS — Managed Kubernetes clusters, node groups & IAM roles for ServiceAccounts",
+            "Compute & Storage — EC2 instances, Auto Scaling groups, EBS volumes & S3 buckets",
+            "IAM & Security — Least privilege policies, roles, MFA & cross-account access",
+            "Databases & Delivery — Amazon RDS, DynamoDB, Route 53 DNS & CloudFront CDN"
+          ]
+        },
+        {
+          category: "Observability & SRE",
+          list: [
+            "Prometheus — Metrics collection, exporters, PromQL queries & Alertmanager rules",
+            "Grafana — Observability dashboards, alert channels, visualization panels & team views",
+            "ELK Stack — Elasticsearch indexing, Logstash pipeline parsing & Kibana log exploration",
+            "Distributed Tracing — OpenTelemetry instrumentation & Jaeger trace visualization",
+            "SRE Methodologies — Service Level Objectives (SLOs), SLIs, error budgets & on-call runbooks"
+          ]
+        },
+        {
+          category: "AIOps & Gen AI for DevOps",
+          list: [
+            "AIOps Integration — Connecting Prometheus alert webhooks to LLMs for automated diagnosis",
+            "Log Triage with AI — Parsing gigabytes of server logs to isolate root-cause exceptions instantly",
+            "GitHub Copilot for DevOps — Autocomplete complex YAMLs, Dockerfiles, and bash scripts",
+            "Self-Healing Infrastructure — Triggering automated remediation scripts and auto-recovery routines",
+            "AI Cost Optimization — Analyzing cloud resource utilization prompts to reduce AWS spend"
+          ]
+        }
+      ],
+      placement: {
+        title: "100% Placement Support for DevOps & Cloud Engineers",
+        subtext: "From technical portfolio building to live terminal interview preparation, our dedicated placement cell helps you transition into high-paying DevOps and Cloud roles.",
+        stats: [
+          { number: "₹14L+", label: "Avg. Starting Package" },
+          { number: "94%", label: "Placement Rate" },
+          { number: "500+", label: "Hiring Tech Partners" },
+          { number: "45 Days", label: "Avg. Time to Placement" }
+        ],
+        bullets: [
+          "Personalized resume and LinkedIn profile optimization for DevOps & SRE keywords",
+          "GitHub portfolio showcasing live Terraform code, Helm charts, and CI/CD pipelines",
+          "1-on-1 technical mock interviews covering Kubernetes architecture and Linux terminal debugging",
+          "Exclusive referral access to product startups, scale-ups, and global tech enterprises"
+        ]
+      },
+      careers: {
+        title: "Career Opportunities After DevOps with Gen AI",
+        subtext: "DevOps and Cloud engineering are among the highest-paid and most in-demand technical fields globally. Here are the top roles you will be prepared for:",
+        roles: [
+          { title: "DevOps Engineer", salary: "₹12 - 18 LPA", duties: "CI/CD pipelines, container orchestration, automated deployments & cloud infrastructure management", availability: "SaaS companies, Fintech, E-commerce, Enterprises" },
+          { title: "Cloud Engineer / Architect", salary: "₹14 - 22 LPA", duties: "Designing multi-region AWS cloud architectures, VPC networking, security & cost governance", availability: "Tech consultancies, Cloud providers, Global enterprises" },
+          { title: "Site Reliability Engineer (SRE)", salary: "₹15 - 25 LPA", duties: "Cluster reliability, system observability, incident response, SLO management & chaos engineering", availability: "High-scale platforms, Gaming, Streaming & Banking" },
+          { title: "DevSecOps Specialist", salary: "₹14 - 20 LPA", duties: "Integrating container security scans, secret management, IAM policies & compliance automation", availability: "Cybersecurity firms, Healthcare tech, Financial institutions" },
+          { title: "Platform Engineer", salary: "₹16 - 26 LPA", duties: "Building internal developer platforms (IDP), self-service K8s infrastructure & GitOps tooling", availability: "Modern tech startups & Scale-up enterprises" }
+        ]
+      },
+      pricingDetail: {
+        original: "₹40,000",
+        discounted: "₹20,000",
+        cashback: "₹2,000",
+        final: "₹18,000",
+        emi: "₹3,000/month (6 months)",
+        breakdown: [
+          { cost: "Course Tuition (24 Weeks)", amount: "₹40,000" },
+          { cost: "50% Special Enrollment Discount", amount: "-₹20,000" },
+          { cost: "Bonus Cashback (One-time payment)", amount: "-₹2,000" },
+          { cost: "Your Final Investment", amount: "₹18,000" }
+        ],
+        installments: [
+          "3-month plan: ₹6,000/month (₹18,000 total)",
+          "6-month plan: ₹3,000/month (₹18,000 total)",
+          "0% interest EMI options available worldwide",
+          "No hidden platform fees or lab charges"
+        ],
+        discounts: [
+          "Enrolling 2+ team members? Get an extra 10% group discount",
+          "Corporate upskilling packages available",
+          "Early-bird cohort incentives"
+        ],
+        includes: [
+          "24 weeks (6 months) of comprehensive, structured training",
+          "Live interactive classes with Principal Cloud & DevOps Architects",
+          "Lifetime access to all session recordings and code repositories",
+          "Hands-on labs on AWS, Docker, Kubernetes, and Terraform",
+          "12+ real-world production projects & GitOps pipelines",
+          "10+ mock technical interviews and terminal assessments",
+          "GitHub portfolio review and optimization",
+          "Industry-recognized globally verifiable DevOps Certification",
+          "100% placement support with active job referrals",
+          "Lifetime alumni community access and mentor guidance"
+        ]
+      },
+      stories: [
+        {
+          name: "Vikram R. (Bengaluru)",
+          before: "System Administrator earning ₹4.2 LPA",
+          after: "DevOps Engineer at Cloud SaaS startup, ₹14.5 LPA",
+          body: "I was stuck doing manual server maintenance for years. SkillSha's DevOps with Gen AI course gave me the exact hands-on experience with Kubernetes, Terraform, and GitHub Actions that high-paying tech companies test for. The AIOps modules were a huge differentiator during my interviews.",
+          result: "245% salary hike, 100% remote job"
+        },
+        {
+          name: "Pooja N. (Pune)",
+          before: "Software QA Engineer wanting to transition to Cloud",
+          after: "Site Reliability Engineer (SRE) at Fintech firm, ₹16 LPA",
+          body: "The course structure is phenomenal. We built real multi-region EKS clusters and automated GitOps with ArgoCD rather than just watching basic slides. The mentors guided me through technical mock interviews that felt just like the real thing.",
+          result: "Transitioned from QA to SRE in 4 months"
+        },
+        {
+          name: "Karan S. (Hyderabad)",
+          before: "Fresh Computer Science Graduate",
+          after: "Associate Cloud Engineer at Multinational Tech Consultancy, ₹9.5 LPA",
+          body: "As a fresher, most companies wanted experienced candidates for DevOps. Having a verifiable GitHub portfolio with production Terraform modules and CI/CD pipelines got me shortlisted immediately. SkillSha's placement team was with me every step.",
+          result: "Landed first Cloud engineering role straight out of college"
+        }
+      ],
+      enrollment: [
+        { step: "Step 1", title: "Schedule a Free Counseling Call", bullets: ["Connect with a senior DevOps counselor to review your career background", "Understand curriculum tracks, live schedule options & payment plans", "Get personalized roadmap advice with no obligation"] },
+        { step: "Step 2", title: "Take the Technical Orientation Assessment", bullets: ["Quick 20-minute evaluation of your baseline technical skills", "Receive tailored prep materials for Linux and Git basics"] },
+        { step: "Step 3", title: "Select Your Cohort Schedule", bullets: ["Live Interactive Track: Weekend or weekday evening live classes with mentors", "Flexible Hybrid Track: Self-paced modules with weekly live mentor Q&A"] },
+        { step: "Step 4", title: "Complete Enrollment & Cloud Lab Setup", bullets: ["Select payment or 0% interest EMI plan", "Receive credentials to learning portal, Discord community & AWS lab guidelines"] },
+        { step: "Step 5", title: "Begin Your DevOps Transformation", bullets: ["Attend cohort orientation", "Kick off Milestone 1: Linux Administration & AI Shell Scripting"] }
+      ],
+      quickFacts: [
+        "Duration: 24 Weeks (6 Months) with flexible scheduling",
+        "Format: Live Classes + Hands-on Cloud Workshops + Portfolio Reviews",
+        "Cloud Platform: AWS (Amazon Web Services) & Multi-Cloud fundamentals",
+        "Cost: 50% discount available (₹18,000 final cost with cashback)",
+        "Payment: 0% Interest EMI options worldwide",
+        "Placement: 100% Placement Support, 94% Success Rate",
+        "Certification: Industry-Recognized DevOps & AIOps Certification",
+        "Access: Lifetime access to course recordings, repositories & community"
+      ],
+      disclaimer: "Disclaimer: Results vary based on individual commitment, prior technical background, and active participation. SkillSha provides comprehensive training, portfolio mentorship, and interview preparation to maximize employment outcomes."
     }
   }
 };

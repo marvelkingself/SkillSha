@@ -115,7 +115,7 @@ export default function Header() {
                 <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)] p-6">
                   <div className="grid grid-cols-12 gap-6">
                     {/* Categories Grid */}
-                    <div className="col-span-9 grid grid-cols-2 gap-x-8 gap-y-4">
+                    <div className="col-span-9 grid grid-cols-3 gap-x-6 gap-y-4">
                       
                       {/* Category: Design & Strategy */}
                       <div className="space-y-2 text-left">
@@ -125,6 +125,19 @@ export default function Header() {
                             <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-amber-500 transition-colors flex items-center gap-1.5">
                               Digital Marketing
                               <span className="px-1 text-[7px] bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded font-extrabold tracking-wider leading-normal">FLAGSHIP</span>
+                            </span>
+                          </Link>
+                        </div>
+                      </div>
+
+                      {/* Category: Cloud & Engineering */}
+                      <div className="space-y-2 text-left">
+                        <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">Cloud & DevOps</span>
+                        <div className="space-y-1">
+                          <Link href="/course/devops-course-with-gen-ai" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-cyan-500/[0.04] dark:hover:bg-cyan-500/[0.02] border border-cyan-500/20 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-cyan-500 transition-colors flex items-center gap-1.5">
+                              DevOps with Gen AI
+                              <span className="px-1 text-[7px] bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded font-extrabold tracking-wider leading-normal">NEW</span>
                             </span>
                           </Link>
                         </div>

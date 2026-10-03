@@ -142,10 +142,51 @@ const programs: Program[] = [
     ],
     professions: ['developer', 'ca', 'doctor', 'corporate']
   },
+  {
+    id: 'devops-with-gen-ai',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan-500">
+        <rect width="18" height="18" x="3" y="3" rx="2"/>
+        <path d="m9 9 3 3-3 3"/>
+        <path d="M13 15h2"/>
+      </svg>
+    ),
+    title: 'DevOps Course with Gen AI',
+    subtitle: 'Automate CI/CD & Cloud Infrastructure',
+    description: 'Master Docker, Kubernetes, Terraform, AWS, and AI-driven CI/CD automation to deploy and scale resilient production infrastructure.',
+    duration: '24 Weeks',
+    salary: '₹14L+',
+    svgBg: (
+      <svg className="w-20 h-20 text-cyan-500/[0.08] dark:text-cyan-500/[0.05] mr-[-10px] mt-[-5px] animate-float" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
+        <rect x="20" y="20" width="60" height="60" rx="8" strokeDasharray="3 3"/>
+        <circle cx="50" cy="50" r="14"/>
+        <path d="M50 20 v16 M50 64 v16 M20 50 h16 M64 50 h16"/>
+      </svg>
+    ),
+    mobileIcon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan-500"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 9 3 3-3 3"/><path d="M13 15h2"/></svg>
+    ),
+    includes: [
+      { name: 'Docker & K8s', domain: 'kubernetes.io' },
+      { name: 'AWS Cloud', domain: 'aws.amazon.com' },
+      { name: 'Terraform IaC', domain: 'terraform.io' },
+      { name: 'GitHub Actions', domain: 'github.com' },
+      { name: 'Prometheus & Grafana', domain: 'prometheus.io' },
+      { name: 'AIOps Workflows', domain: 'openai.com' }
+    ],
+    professions: ['developer', 'corporate']
+  },
 ];
 
 const getProgramColors = (id: string) => {
   switch (id) {
+    case 'devops-with-gen-ai':
+      return {
+        bg: 'bg-cyan-500/10 dark:bg-cyan-500/15',
+        border: 'border-cyan-500/25',
+        text: 'text-cyan-500',
+        shadow: 'shadow-[0_0_15px_rgba(6,182,212,0.15)]'
+      };
     case 'digital-marketing-with-gen-ai':
     case 'digital-marketing-noida':
       return {
@@ -279,10 +320,12 @@ export default function Programs({ className = "mt-24" }: { className?: string }
   const categories = [
     { id: 'all', name: 'All Programs', desc: 'Browse all professional courses.' },
     { id: 'design-marketing', name: 'Design & Marketing', desc: 'Design high-converting visual systems and automate acquisition engines powered by Gen AI.' },
+    { id: 'ai-dev', name: 'Cloud & AI Engineering', desc: 'Master DevOps, cloud architecture, CI/CD automation, and intelligent AI workflows.' },
     { id: 'data-analytics', name: 'Data & Analytics', desc: 'Master SQL, PowerBI, and machine learning models to extract actionable business insights.' }
   ];
 
   const programCategoryMap: Record<string, string> = {
+    'devops-with-gen-ai': 'ai-dev',
     'ai-engineering': 'ai-dev',
     'full-stack-development': 'ai-dev',
     'ai-ml-with-gen-ai': 'ai-dev',
