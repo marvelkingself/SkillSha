@@ -1956,8 +1956,34 @@ export const COURSES_DATA: Record<string, CourseData> = {
           "Automate repetitive Bash scripts and CI/CD pipelines using GitHub Copilot"
         ],
         trainers: [
-          { name: "Mr. Shad", title: "Principal Cloud & DevOps Architect", bullets: ["12+ years architecting multi-region AWS and Kubernetes clusters", "Ex-lead consultant for enterprise cloud migrations and microservices", "Specializes in GitOps, infrastructure security, and cost governance", "Trained 2,000+ engineers into top-tier Cloud and DevOps roles"], quote: "DevOps is about speed, reliability, and automation. We teach you how to build production systems that never go down.", exp: "12+ Yrs Exp" },
-          { name: "Mr. Gaurav", title: "Senior SRE & Kubernetes Specialist", bullets: ["Expert in distributed systems, service meshes, and container platforms", "Engineered automated zero-downtime CI/CD pipelines for 50+ microservices", "Deep hands-on expertise with Prometheus, Grafana, OpenTelemetry, and AIOps"], quote: "Gaurav breaks down complex K8s networking and Helm charts into clear, practical steps.", exp: "9+ Yrs Exp" }
+          {
+            name: "Shadab Hussain",
+            title: "Lead Engineer & AI Specialist, MathCo | GDE",
+            bullets: [
+              "Lead Engineer at MathCo specializing in Generative AI, Cloud & MLOps Infrastructure",
+              "Google Developer Expert (GDE) in AI/ML & AWS Community Builder",
+              "Co-Founder at Quantum Computing India, TEDx speaker & Global Tech Keynote Speaker",
+              "Specializes in AIOps, automated IaC generation, and self-healing cloud deployments"
+            ],
+            quote: "DevOps and Generative AI are transforming how modern software is shipped. We teach you to architect self-healing cloud platforms with automated intelligence.",
+            exp: "10+ Yrs Exp",
+            img: "/files/shadab-hussain.jpg",
+            linkedin: "https://www.linkedin.com/in/techwithshadab"
+          },
+          {
+            name: "Md Suaib",
+            title: "Senior Cloud & DevOps Engineer, Tata Consultancy Services",
+            bullets: [
+              "Senior Cloud & DevOps Engineer at Tata Consultancy Services (TCS)",
+              "Specialist in Kubernetes orchestration, Docker container lifecycle & Azure DevOps",
+              "Expert in Terraform Infrastructure-as-Code & zero-downtime microservice pipelines",
+              "Active technical writer and community mentor on Kubernetes and platform engineering"
+            ],
+            quote: "Kubernetes reliability isn't magic—it's understanding how to configure resilient desired states, multi-stage containers, and automated GitOps delivery.",
+            exp: "8+ Yrs Exp",
+            img: "/files/md-suaib.jpg",
+            linkedin: "https://www.linkedin.com/in/md-suaib"
+          }
         ],
         pricing: [
           "Standard price: ₹40,000",

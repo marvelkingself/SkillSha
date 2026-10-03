@@ -206,138 +206,251 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
 
         {/* Desktop Editorial Bento Layout */}
         <div className="hidden md:grid grid-cols-12 gap-6">
-          
-          {/* Primary Dominant Trainer */}
-          {(() => {
-            const shad = content.trainers.find((t: any) => t.name.includes("Shad")) || content.trainers[0];
-            const shadImg = shad && shad.name.includes("Shad") ? "/files/shad.png" : "";
-            return (
-              <div className="col-span-7 bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl overflow-hidden hover:border-brand-orange/30 transition-all duration-300 flex flex-row group h-[420px] shadow-sm">
-                <div className="w-1/2 h-full relative overflow-hidden bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center border-r border-zinc-200 dark:border-white/5">
-                  {shadImg ? (
-                    <img 
-                      src={shadImg} 
-                      alt={shad.name} 
-                      className="w-full h-full object-cover object-top"
-                    />
-                  ) : (
-                    <svg className="w-16 h-16 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                    </svg>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-                  <div className="absolute bottom-4 left-4">
-                    <span className="px-2 py-0.5 rounded bg-brand-orange text-[9px] font-bold text-white uppercase tracking-widest">Lead Instructor</span>
+          {content.trainers.length === 2 ? (
+            content.trainers.map((trainer: any, idx: number) => {
+              const img = trainer.img || (
+                trainer.name.includes("Suaib")
+                  ? "/files/md-suaib.jpg"
+                  : trainer.name.includes("Shadab")
+                  ? "/files/shadab-hussain.jpg"
+                  : trainer.name.includes("Shad")
+                  ? "/files/shad.png"
+                  : ""
+              );
+              const expBadge = trainer.exp || (idx === 0 ? "10+ Yrs Exp" : "8+ Yrs Exp");
+              return (
+                <div key={idx} className="col-span-6 bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl overflow-hidden hover:border-brand-orange/30 transition-all duration-300 flex flex-row group h-[420px] shadow-sm">
+                  <div className="w-[42%] h-full relative overflow-hidden bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center border-r border-zinc-200 dark:border-white/5 shrink-0">
+                    {img ? (
+                      <img 
+                        src={img} 
+                        alt={trainer.name} 
+                        className="w-full h-full object-cover object-top"
+                      />
+                    ) : (
+                      <svg className="w-16 h-16 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                      </svg>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                    <div className="absolute bottom-4 left-4">
+                      <span className="px-2 py-0.5 rounded bg-brand-orange text-[9px] font-bold text-white uppercase tracking-widest">
+                        {idx === 0 ? "Lead Instructor" : "Senior Trainer"}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="w-1/2 p-6 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h4 className="text-xl font-bold text-zinc-950 dark:text-white leading-tight">{shad.name}</h4>
-                        <span className="text-xs text-brand-orange font-semibold block mt-0.5">{shad.title}</span>
+                  
+                  <div className="w-[58%] p-6 flex flex-col justify-between">
+                    <div>
+                      <div className="flex justify-between items-start mb-3">
+                        <div className="min-w-0 pr-2">
+                          <div className="flex items-center gap-1.5">
+                            <h4 className="text-lg font-bold text-zinc-950 dark:text-white leading-tight truncate">{trainer.name}</h4>
+                            {trainer.linkedin && (
+                              <a href={trainer.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" className="text-zinc-400 hover:text-[#0A66C2] transition-colors shrink-0">
+                                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.81a1.48 1.48 0 0 0-1.49 1.48c0 .82.66 1.48 1.49 1.48s1.48-.66 1.48-1.48c0-.82-.66-1.48-1.48-1.48Z" />
+                                </svg>
+                              </a>
+                            )}
+                          </div>
+                          <span className="text-[11px] text-brand-orange font-semibold block mt-0.5 line-clamp-1">{trainer.title}</span>
+                        </div>
+                        <span className="px-2 py-0.5 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[9px] font-bold text-zinc-500 dark:text-zinc-400 shrink-0">{expBadge}</span>
                       </div>
-                      <span className="px-2 py-1 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[9px] font-bold text-zinc-500 dark:text-zinc-400 shrink-0">{shad.exp || "12+ Yrs Exp"}</span>
+
+                      <ul className="space-y-2 mb-4">
+                        {(trainer.bullets || []).map((bullet: string, bIdx: number) => (
+                          <li key={bIdx} className="text-xs text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed flex items-start gap-1.5">
+                            <span className="text-brand-orange select-none shrink-0">•</span>
+                            <span className="line-clamp-2">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
-                    <ul className="space-y-2.5 mb-6">
-                      {shad.bullets.map((bullet: string, bIdx: number) => (
-                        <li key={bIdx} className="text-xs text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed flex items-start gap-2">
-                          <span className="text-brand-orange select-none shrink-0">•</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="pt-4 border-t border-zinc-100 dark:border-white/5 bg-zinc-50/55 dark:bg-transparent p-3 rounded-xl">
-                    <p className="text-[11px] italic text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed">
-                      &ldquo;{shad.quote}&rdquo;
-                    </p>
+                    <div className="pt-3 border-t border-zinc-100 dark:border-white/5 bg-zinc-50/50 dark:bg-transparent p-2.5 rounded-xl">
+                      <p className="text-[11px] italic text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed line-clamp-2">
+                        &ldquo;{trainer.quote}&rdquo;
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })()}
-
-          {/* Secondary supporting column of trainers */}
-          <div className="col-span-5 flex flex-col gap-6">
-            {(() => {
-              const dominantTrainer = content.trainers.find((t: any) => t.name.includes("Shad")) || content.trainers[0];
-              const supporting = content.trainers.filter((t: any) => t.name !== dominantTrainer.name);
-              return supporting.map((trainer: any, idx: number) => {
-                const img = trainer.name.includes("Umar")
-                  ? "/files/umar.jpg"
-                  : trainer.name.includes("Hema")
-                  ? ""
-                  : "";
-                const expBadge = trainer.name.includes("Hema") 
-                  ? "6+ Yrs Exp" 
-                  : trainer.name.includes("Umar") 
-                  ? "10+ Yrs Exp" 
-                  : "5+ Yrs Exp";
-                
+              );
+            })
+          ) : (
+            <>
+              {/* Primary Dominant Trainer */}
+              {(() => {
+                const shad = content.trainers.find((t: any) => t.name.includes("Shad")) || content.trainers[0];
+                const shadImg = shad?.img || (shad && shad.name.includes("Shadab") ? "/files/shadab-hussain.jpg" : shad && shad.name.includes("Shad") ? "/files/shad.png" : "");
                 return (
-                  <div key={idx} className="flex flex-row bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl overflow-hidden hover:border-brand-orange/30 transition-all duration-300 h-[198px] shadow-sm group">
-                    <div className="w-2/5 h-full relative overflow-hidden bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center border-r border-zinc-200 dark:border-white/5 shrink-0">
-                      {img ? (
+                  <div className="col-span-7 bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl overflow-hidden hover:border-brand-orange/30 transition-all duration-300 flex flex-row group h-[420px] shadow-sm">
+                    <div className="w-1/2 h-full relative overflow-hidden bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center border-r border-zinc-200 dark:border-white/5">
+                      {shadImg ? (
                         <img 
-                          src={img} 
-                          alt={trainer.name} 
+                          src={shadImg} 
+                          alt={shad.name} 
                           className="w-full h-full object-cover object-top"
                         />
                       ) : (
-                        <svg className="w-10 h-10 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                        <svg className="w-16 h-16 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                         </svg>
                       )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                      <div className="absolute bottom-4 left-4">
+                        <span className="px-2 py-0.5 rounded bg-brand-orange text-[9px] font-bold text-white uppercase tracking-widest">Lead Instructor</span>
+                      </div>
                     </div>
-                    <div className="w-3/5 p-5 flex flex-col justify-between min-w-0">
+                    
+                    <div className="w-1/2 p-6 md:p-8 flex flex-col justify-between">
                       <div>
-                        <div className="flex justify-between items-start gap-1">
-                          <div className="min-w-0">
-                            <h4 className="text-base font-bold text-zinc-900 dark:text-white leading-tight truncate">{trainer.name}</h4>
-                            <span className="text-[10px] text-brand-orange font-semibold block mt-0.5 truncate">{trainer.title}</span>
+                        <div className="flex justify-between items-start mb-4">
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <h4 className="text-xl font-bold text-zinc-950 dark:text-white leading-tight">{shad.name}</h4>
+                              {shad.linkedin && (
+                                <a href={shad.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" className="text-zinc-400 hover:text-[#0A66C2] transition-colors">
+                                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.81a1.48 1.48 0 0 0-1.49 1.48c0 .82.66 1.48 1.49 1.48s1.48-.66 1.48-1.48c0-.82-.66-1.48-1.48-1.48Z" />
+                                  </svg>
+                                </a>
+                              )}
+                            </div>
+                            <span className="text-xs text-brand-orange font-semibold block mt-0.5">{shad.title}</span>
                           </div>
-                          <span className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[8px] font-bold text-zinc-500 dark:text-zinc-400 shrink-0">{expBadge}</span>
+                          <span className="px-2 py-1 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[9px] font-bold text-zinc-500 dark:text-zinc-400 shrink-0">{shad.exp || "10+ Yrs Exp"}</span>
                         </div>
-                        
-                        <p className="text-[10px] text-zinc-600 dark:text-zinc-300 font-sans mt-2.5 line-clamp-2 leading-relaxed">
-                          • {trainer.bullets[1] || trainer.bullets[0]}
-                        </p>
+
+                        <ul className="space-y-2.5 mb-6">
+                          {(shad.bullets || []).map((bullet: string, bIdx: number) => (
+                            <li key={bIdx} className="text-xs text-zinc-600 dark:text-zinc-300 font-sans leading-relaxed flex items-start gap-2">
+                              <span className="text-brand-orange select-none shrink-0">•</span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
 
-                      <div className="pt-2 border-t border-zinc-100 dark:border-white/5">
-                        <p className="text-[10px] italic text-zinc-400 dark:text-zinc-500 font-sans leading-relaxed truncate">
-                          &ldquo;{trainer.quote}&rdquo;
+                      <div className="pt-4 border-t border-zinc-100 dark:border-white/5 bg-zinc-50/55 dark:bg-transparent p-3 rounded-xl">
+                        <p className="text-[11px] italic text-zinc-500 dark:text-zinc-400 font-sans leading-relaxed">
+                          &ldquo;{shad.quote}&rdquo;
                         </p>
                       </div>
                     </div>
                   </div>
                 );
-              });
-            })()}
-          </div>
+              })()}
+
+              {/* Secondary supporting column of trainers */}
+              <div className="col-span-5 flex flex-col gap-6">
+                {(() => {
+                  const dominantTrainer = content.trainers.find((t: any) => t.name.includes("Shad")) || content.trainers[0];
+                  const supporting = content.trainers.filter((t: any) => t.name !== dominantTrainer.name);
+                  return supporting.map((trainer: any, idx: number) => {
+                    const img = trainer.img || (
+                      trainer.name.includes("Suaib")
+                        ? "/files/md-suaib.jpg"
+                        : trainer.name.includes("Shadab")
+                        ? "/files/shadab-hussain.jpg"
+                        : trainer.name.includes("Umar")
+                        ? "/files/umar.jpg"
+                        : trainer.name.includes("Shad")
+                        ? "/files/shad.png"
+                        : ""
+                    );
+                    const expBadge = trainer.exp || (
+                      trainer.name.includes("Suaib")
+                        ? "8+ Yrs Exp"
+                        : trainer.name.includes("Hema") 
+                        ? "6+ Yrs Exp" 
+                        : trainer.name.includes("Umar") 
+                        ? "10+ Yrs Exp" 
+                        : "5+ Yrs Exp"
+                    );
+                    
+                    return (
+                      <div key={idx} className="flex flex-row bg-white dark:bg-[#0c0c0c]/80 border border-zinc-200/80 dark:border-white/5 rounded-3xl overflow-hidden hover:border-brand-orange/30 transition-all duration-300 h-[198px] shadow-sm group">
+                        <div className="w-2/5 h-full relative overflow-hidden bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center border-r border-zinc-200 dark:border-white/5 shrink-0">
+                          {img ? (
+                            <img 
+                              src={img} 
+                              alt={trainer.name} 
+                              className="w-full h-full object-cover object-top"
+                            />
+                          ) : (
+                            <svg className="w-10 h-10 text-zinc-400 dark:text-zinc-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                          )}
+                        </div>
+                        <div className="w-3/5 p-5 flex flex-col justify-between min-w-0">
+                          <div>
+                            <div className="flex justify-between items-start gap-1">
+                              <div className="min-w-0">
+                                <div className="flex items-center gap-1.5 min-w-0">
+                                  <h4 className="text-base font-bold text-zinc-900 dark:text-white leading-tight truncate">{trainer.name}</h4>
+                                  {trainer.linkedin && (
+                                    <a href={trainer.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" className="text-zinc-400 hover:text-[#0A66C2] transition-colors shrink-0">
+                                      <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.81a1.48 1.48 0 0 0-1.49 1.48c0 .82.66 1.48 1.49 1.48s1.48-.66 1.48-1.48c0-.82-.66-1.48-1.48-1.48Z" />
+                                      </svg>
+                                    </a>
+                                  )}
+                                </div>
+                                <span className="text-[10px] text-brand-orange font-semibold block mt-0.5 truncate">{trainer.title}</span>
+                              </div>
+                              <span className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[8px] font-bold text-zinc-500 dark:text-zinc-400 shrink-0">{expBadge}</span>
+                            </div>
+                            
+                            <p className="text-[10px] text-zinc-600 dark:text-zinc-300 font-sans mt-2.5 line-clamp-2 leading-relaxed">
+                              • {trainer.bullets[1] || trainer.bullets[0]}
+                            </p>
+                          </div>
+
+                          <div className="pt-2 border-t border-zinc-100 dark:border-white/5">
+                            <p className="text-[10px] italic text-zinc-400 dark:text-zinc-500 font-sans leading-relaxed truncate">
+                              &ldquo;{trainer.quote}&rdquo;
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  });
+                })()}
+              </div>
+            </>
+          )}
         </div>
 
         {/* Mobile Swipeable Slider (iOS-style app experience) */}
         <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-6 -mx-4 px-4 pb-6 mt-6">
           {content.trainers.map((trainer: any, idx: number) => {
-            const img = trainer.name.includes("Shad")
-              ? "/files/shad.png"
-              : trainer.name.includes("Umar")
-              ? "/files/umar.jpg"
-              : trainer.name.includes("Hema")
-              ? ""
-              : "";
-            const expBadge = trainer.name.includes("Shad")
-              ? "12+ Yrs Exp"
-              : trainer.name.includes("Hema")
-              ? "6+ Yrs Exp"
-              : trainer.name.includes("Umar")
-              ? "10+ Yrs Exp"
-              : "5+ Yrs Exp";
+            const img = trainer.img || (
+              trainer.name.includes("Suaib")
+                ? "/files/md-suaib.jpg"
+                : trainer.name.includes("Shadab")
+                ? "/files/shadab-hussain.jpg"
+                : trainer.name.includes("Umar")
+                ? "/files/umar.jpg"
+                : trainer.name.includes("Shad")
+                ? "/files/shad.png"
+                : ""
+            );
+            const expBadge = trainer.exp || (
+              trainer.name.includes("Shadab")
+                ? "10+ Yrs Exp"
+                : trainer.name.includes("Suaib")
+                ? "8+ Yrs Exp"
+                : trainer.name.includes("Shad")
+                ? "12+ Yrs Exp"
+                : trainer.name.includes("Hema")
+                ? "6+ Yrs Exp"
+                : trainer.name.includes("Umar")
+                ? "10+ Yrs Exp"
+                : "5+ Yrs Exp"
+            );
             
             return (
               <div 
@@ -362,7 +475,16 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                   <div>
                     <div className="flex justify-between items-start gap-1">
                       <div className="min-w-0">
-                        <h4 className="text-sm font-bold text-zinc-900 dark:text-white leading-tight truncate">{trainer.name}</h4>
+                        <div className="flex items-center gap-1.5 min-w-0">
+                          <h4 className="text-sm font-bold text-zinc-900 dark:text-white leading-tight truncate">{trainer.name}</h4>
+                          {trainer.linkedin && (
+                            <a href={trainer.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" className="text-zinc-400 hover:text-[#0A66C2] transition-colors shrink-0">
+                              <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.81a1.48 1.48 0 0 0-1.49 1.48c0 .82.66 1.48 1.49 1.48s1.48-.66 1.48-1.48c0-.82-.66-1.48-1.48-1.48Z" />
+                              </svg>
+                            </a>
+                          )}
+                        </div>
                         <span className="text-[10px] text-brand-orange font-bold block mt-0.5 truncate">{trainer.title}</span>
                       </div>
                     </div>
