@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import MetadataRemoverClient from '@/components/tools/MetadataRemoverClient';
-import FAQ, { METADATA_FAQS } from '@/components/tools/FAQ';
+import FAQ from '@/components/tools/FAQ';
+import { METADATA_FAQS } from '@/config/metadata-faqs';
 import { Sparkles, ShieldCheck, ChevronRight, Lock, CheckCircle2, AlertTriangle, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
