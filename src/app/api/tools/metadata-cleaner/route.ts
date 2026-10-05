@@ -67,6 +67,13 @@ function validateMagicBytes(buffer: Buffer): { valid: boolean; format?: string; 
   };
 }
 
+export async function GET() {
+  return NextResponse.json({
+    success: true,
+    message: 'Skillsha Image Metadata Cleaner API is running.',
+  });
+}
+
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
