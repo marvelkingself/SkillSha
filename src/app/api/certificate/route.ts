@@ -5,26 +5,26 @@ const SEED_CERTIFICATES = [
   {
     credentialId: "SKILLSHA-2026-AI",
     studentName: "Lavish",
-    courseName: "AI Engineering Masterclass",
+    courseName: "DevOps Course with Gen AI",
     dateIssued: "May 18, 2026",
     grade: "Distinction (A+)",
-    instructor: "Dr. Aris Thorne"
+    instructor: "Shadab Hussain"
   },
   {
     credentialId: "SKILLSHA-2026-UX",
     studentName: "Ms.Muskan",
-    courseName: "Advanced UI/UX & Design Systems",
+    courseName: "Digital Marketing with Gen AI",
     dateIssued: "May 12, 2026",
     grade: "Excellent (A)",
-    instructor: "Sarah Vance"
+    instructor: "Mr. Shad"
   },
   {
     credentialId: "SKILLSHA-2026-QUANT",
     studentName: "Alex Rivera",
-    courseName: "Algorithmic Trading & Quantitative Finance",
+    courseName: "Data Science & AI",
     dateIssued: "May 15, 2026",
     grade: "Distinction (A+)",
-    instructor: "Marcus Kael"
+    instructor: "Md Suaib"
   }
 ];
 

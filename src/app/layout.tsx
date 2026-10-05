@@ -115,14 +115,9 @@ export default async function RootLayout({
                     "@type": "OfferCatalog",
                     "name": "SkillSha Courses",
                     "itemListElement": [
-                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Data Science" } },
-                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Data Analytics" } },
-                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Business Analyst" } },
-                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Digital Marketing" } },
-                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Machine Learning" } },
-                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Automation Testing" } },
-                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Software Testing" } },
-                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Playwright Automation" } }
+                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Digital Marketing with Gen AI" } },
+                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "DevOps Course with Gen AI" } },
+                      { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "Data Science & AI" } }
                     ]
                   }
                 },

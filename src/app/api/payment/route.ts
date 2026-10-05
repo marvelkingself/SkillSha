@@ -3,9 +3,12 @@ import { supabase } from "@/lib/supabase";
 
 // Authoritative server-side price table
 const PROGRAM_PRICES: Record<string, { full: number; emi: number }> = {
+  "Digital Marketing with Gen AI":        { full: 40000, emi: 4000 },
+  "DevOps Course with Gen AI":            { full: 40000, emi: 4000 },
+  "Data Science & AI":                    { full: 45000, emi: 4500 },
+  "Data Science & Machine Learning":      { full: 44999, emi: 4500 },
   "AI Engineering Masterclass":           { full: 49999, emi: 5000 },
   "Advanced UI/UX & Design Systems":      { full: 39999, emi: 4000 },
-  "Data Science & Machine Learning":      { full: 44999, emi: 4500 },
   "Product Leadership & Growth":          { full: 34999, emi: 3500 },
   "Algorithmic Trading & Quantitative Finance": { full: 54999, emi: 5500 },
   "Graphic Designing":                    { full: 29999, emi: 3000 },

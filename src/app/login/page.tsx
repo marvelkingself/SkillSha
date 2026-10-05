@@ -15,7 +15,7 @@ export default function LoginPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [programInterest, setProgramInterest] = useState("AI Engineering Masterclass");
+  const [programInterest, setProgramInterest] = useState("Digital Marketing with Gen AI");
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -217,13 +217,9 @@ export default function LoginPage() {
                   onChange={(e) => setProgramInterest(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-white/[0.02] text-zinc-900 dark:text-white text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-brand-orange"
                 >
-                  <option value="AI Engineering Masterclass">AI Engineering Masterclass</option>
-                  <option value="Advanced UI/UX & Design Systems">Advanced UI/UX & Design Systems</option>
-                  <option value="Data Science & Machine Learning">Data Science & Machine Learning</option>
-                  <option value="Product Leadership & Growth">Product Leadership & Growth</option>
-                  <option value="Algorithmic Trading & Quantitative Finance">Algorithmic Trading & Quantitative Finance</option>
-                  <option value="Graphic Designing">Graphic Designing</option>
-                  <option value="Mental Health & Habit Design">Mental Health & Habit Design</option>
+                  <option value="Digital Marketing with Gen AI">Digital Marketing with Gen AI</option>
+                  <option value="DevOps Course with Gen AI">DevOps Course with Gen AI</option>
+                  <option value="Data Science & AI">Data Science & AI</option>
                 </select>
               </div>
               <button

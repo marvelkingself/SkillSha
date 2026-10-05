@@ -18,26 +18,26 @@ const MOCK_CERTIFICATES: Record<string, CertificateData> = {
   "SKILLSHA-2026-AI": {
     id: "SKILLSHA-2026-AI",
     name: "Lavish",
-    course: "AI Engineering Masterclass",
+    course: "DevOps Course with Gen AI",
     date: "May 18, 2026",
     grade: "Distinction (A+)",
-    instructor: "Dr. Aris Thorne"
+    instructor: "Shadab Hussain"
   },
   "SKILLSHA-2026-UX": {
     id: "SKILLSHA-2026-UX",
     name: "Ms.Muskan",
-    course: "Advanced UI/UX & Design Systems",
+    course: "Digital Marketing with Gen AI",
     date: "May 12, 2026",
     grade: "Excellent (A)",
-    instructor: "Sarah Vance"
+    instructor: "Mr. Shad"
   },
   "SKILLSHA-2026-QUANT": {
     id: "SKILLSHA-2026-QUANT",
     name: "Alex Rivera",
-    course: "Algorithmic Trading & Quantitative Finance",
+    course: "Data Science & AI",
     date: "May 15, 2026",
     grade: "Distinction (A+)",
-    instructor: "Marcus Kael"
+    instructor: "Md Suaib"
   }
 };
 

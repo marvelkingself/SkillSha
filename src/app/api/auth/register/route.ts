@@ -44,7 +44,7 @@ export async function POST(request: Request) {
         name,
         email: normalizedEmail,
         password: hashedPassword,
-        program_interest: programInterest || "AI Engineering Masterclass",
+        program_interest: programInterest || "Digital Marketing with Gen AI",
       })
       .select()
       .single();

@@ -50,24 +50,14 @@ export interface CourseData {
 import { CITIES_LIST } from "@/data/cities";
 
 export const COURSE_SLUG_MAP: Record<string, string> = {
-  "ai-engineering": "ai-engineering-course-with-gen-ai",
   "full-stack-development": "full-stack-development-course-with-gen-ai",
   "digital-marketing-with-gen-ai": "digital-marketing-course-with-gen-ai",
   "digital-marketing-noida": "digital-marketing-course-in-noida-with-gen-ai",
   "digital-marketing": "digital-marketing-course-standard-with-gen-ai",
-  "ui-ux-design": "ui-ux-design-course-with-gen-ai",
   "data-science-ai": "data-science-course-with-gen-ai",
-  "product-management": "product-management-course-with-gen-ai",
-  "algorithmic-trading": "algorithmic-trading-course-with-gen-ai",
-  "graphic-designing": "graphic-design-course-with-gen-ai",
   "ai-healthcare-doctor": "ai-healthcare-doctor-course-with-gen-ai",
   "ai-clinical-nurse": "ai-clinical-nurse-course-with-gen-ai",
   "ai-finance-ca": "ai-finance-ca-course-with-gen-ai",
-  "data-analyst": "data-analyst-course-with-gen-ai",
-  "business-analyst": "business-analyst-course-with-gen-ai",
-  "ai-ml-with-gen-ai": "ai-ml-course-with-gen-ai",
-  "software-testing": "software-testing-course-with-gen-ai",
-  "playwright-automation": "playwright-automation-course-with-gen-ai",
   "devops-with-gen-ai": "devops-course-with-gen-ai"
 };
 
