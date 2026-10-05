@@ -178,7 +178,7 @@ export default function PrivacyPolicyPage() {
                     Our website address is: <a href="https://skillsha.in" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:underline font-bold">https://skillsha.in</a>
                   </p>
                   <p>
-                    Skillsha is an online IT training institute based in Ghaziabad, India, offering training and placement assistance to learners across India.
+                    Skillsha is an online IT training institute based in Noida, India, offering training and placement assistance to learners across India.
                   </p>
                 </div>
               </article>
@@ -572,7 +572,7 @@ export default function PrivacyPolicyPage() {
                       Skillsha – IT Training & Placement Institute
                     </p>
                     <p className="text-zinc-500 dark:text-zinc-400 font-semibold mt-1">
-                      Prem Nagar, Ram Rahim Market, Loni, Ghaziabad, Uttar Pradesh – 201102
+                      D-34, Sector - 2, Noida, Uttar Pradesh - 201301, Near Noida Sector 16 Metro Station.
                     </p>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 text-xs mt-2 border-t border-zinc-100 dark:border-white/5 pt-4">

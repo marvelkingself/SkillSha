@@ -518,7 +518,7 @@ export default function RefundPolicyPage() {
                         🏢 Office Address
                       </span>
                       <p className="text-zinc-900 dark:text-white font-bold leading-relaxed">
-                        Prem Nagar, Ram Rahim Market, Loni, Ghaziabad – 201102
+                        D-34, Sector - 2, Noida, Uttar Pradesh - 201301, Near Noida Sector 16 Metro Station.
                       </p>
                     </div>
 

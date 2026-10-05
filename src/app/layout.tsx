@@ -100,10 +100,10 @@ export default async function RootLayout({
                   "telephone": "+91-7303082191",
                   "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "Prem Nagar, Loni",
-                    "addressLocality": "Ghaziabad",
+                    "streetAddress": "D-34, Sector - 2, Near Noida Sector 16 Metro Station",
+                    "addressLocality": "Noida",
                     "addressRegion": "Uttar Pradesh",
-                    "postalCode": "201102",
+                    "postalCode": "201301",
                     "addressCountry": "IN"
                   },
                   "areaServed": "Worldwide",

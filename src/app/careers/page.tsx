@@ -12,7 +12,7 @@ export default function CareersPage() {
     {
       title: "We're Always Looking for Great Talent",
       team: "Office & Content Roles",
-      location: "Ghaziabad Office",
+      location: "Noida Office",
       type: "Full-Time",
       description: "We regularly have openings across content creation, curriculum design, and operations at our office. If you're passionate about education and building, we'd love to hear from you.",
       ctaLink: "mailto:info@skillsha.com"

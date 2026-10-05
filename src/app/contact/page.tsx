@@ -600,10 +600,10 @@ export default function ContactPage() {
                   <div className="bg-brand-orange/[0.04] dark:bg-brand-orange/[0.02] border-l-4 border-l-brand-orange border-y border-r border-zinc-200 dark:border-white/5 p-5.5 rounded-2xl shadow-[0_4px_20px_rgba(249,115,22,0.02)] transition-all duration-500">
                     <p className="text-[13px] text-zinc-900 dark:text-zinc-200 font-extrabold leading-relaxed">
                       Skillsha - IT Training & Placement Institute<br />
-                      Prem Nagar, Ram Rahim Market, Loni, Ghaziabad, Uttar Pradesh - 201102
+                      D-34, Sector - 2, Noida, Uttar Pradesh - 201301, Near Noida Sector 16 Metro Station.
                     </p>
                     <p className="text-[11px] text-zinc-500 dark:text-zinc-400 leading-relaxed font-semibold border-t border-zinc-100 dark:border-white/5 pt-3.5 mt-3">
-                      <strong>Note:</strong> We operate 100% online training PAN India, but you can visit our Ghaziabad center for offline support and counseling.
+                      <strong>Note:</strong> We operate 100% online training PAN India, but you can visit our Noida center for offline support and counseling.
                     </p>
                   </div>
                 </div>
