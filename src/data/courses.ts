@@ -110,15 +110,615 @@ export const COURSES_DATA: Record<string, CourseData> = {
   "data-analytics-with-gen-ai": {
     title: "Data Analytics with Gen AI",
     certificateTitle: "Data Analytics with Gen AI",
-    typewriter: ["SQL & Python Analytics", "Power BI & Tableau", "Generative AI Workflows", "Business Intelligence", "Predictive Modeling"],
-    description: "Master Data Analytics with Generative AI. 6-7 Months program with 150+ hours of content, 90+ live sessions, 15+ tools, real-world capstone projects, and dedicated career and placement assistance.",
+    typewriter: ["Data Analytics with Gen AI", "SQL & Advanced Analytics", "Power BI & Tableau", "Python Data Science", "Generative AI Workflows"],
+    description: "Master Data Analytics with Generative AI. 6-7 Months comprehensive program with 150+ hours of content, 90+ live sessions, 15+ tools, real-world capstone projects, and dedicated career and placement assistance.",
     duration: "6-7 Months",
     salary: "₹ 6-10 LPA",
     liveSessions: "90+ Live Sessions",
     projects: "3+ Capstones",
     milestoneWord: "Ten",
-    milestones: [],
-    faqs: []
+    milestones: [
+      {
+        number: 1,
+        title: "Foundations of Data & Modern Analytics Ecosystem",
+        modules: [
+          {
+            title: "Data Literacy & Analytical Frameworks",
+            icon: "analytics",
+            color: "blue",
+            bullets: [
+              { title: "Data types and measurement scales", desc: "Structured, semi-structured, and unstructured data principles", icon: "dataset" },
+              { title: "Descriptive vs diagnostic vs predictive vs prescriptive analytics", desc: "Core analytical business methodologies", icon: "insights" },
+              { title: "Data lifecycle and governance essentials", desc: "Data collection, hygiene, and ethical compliance", icon: "policy" },
+              { title: "Translating business questions into analytical problem statements", desc: "KPI identification and problem framing", icon: "psychology" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 2,
+        title: "Advanced Excel, Dynamic Dashboards & Analytical Modeling",
+        modules: [
+          {
+            title: "Spreadsheet Analytics & Automation",
+            icon: "table_chart",
+            color: "emerald",
+            bullets: [
+              { title: "Advanced formulas: XLOOKUP, INDEX-MATCH, SUMIFS, and dynamic arrays", desc: "High-precision calculations and lookups", icon: "functions" },
+              { title: "Pivot tables, slicers, and calculated fields for business reporting", desc: "Rapid multidimensional data summarization", icon: "grid_view" },
+              { title: "Power Query for data extraction, transformation, and automated loading", desc: "ETL workflows directly inside Excel", icon: "transform" },
+              { title: "Sensitivity analysis, Goal Seek, scenario manager, and financial modeling", desc: "Predictive spreadsheet projections", icon: "trending_up" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 3,
+        title: "Relational Databases, Advanced SQL & Data Warehousing",
+        modules: [
+          {
+            title: "SQL Querying & Database Architecture",
+            icon: "database",
+            color: "teal",
+            bullets: [
+              { title: "Relational database concepts, normalization, and entity-relationship diagrams", desc: "PostgreSQL & MySQL schema design", icon: "schema" },
+              { title: "Complex joins, subqueries, Common Table Expressions (CTEs), and unions", desc: "Multi-table data aggregation", icon: "merge" },
+              { title: "Window functions: ROW_NUMBER, RANK, DENSE_RANK, LEAD, and LAG", desc: "Advanced partitions and analytical ranking", icon: "view_stream" },
+              { title: "Query performance optimization, indexing strategies, and execution plans", desc: "Tuning queries for large databases", icon: "speed" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 4,
+        title: "Power BI, Data Modeling (DAX) & Enterprise Reporting",
+        modules: [
+          {
+            title: "Business Intelligence & Interactive Dashboards",
+            icon: "bar_chart",
+            color: "amber",
+            bullets: [
+              { title: "Power BI Desktop interface, data ingestion, and transformation workflows", desc: "Connecting enterprise data lakes", icon: "desktop_windows" },
+              { title: "Data modeling: Star schema, snowflake schema, and relationship cardinality", desc: "Optimizing relational models for reporting", icon: "account_tree" },
+              { title: "DAX calculations: CALCULATE, FILTER, time intelligence, and custom measures", desc: "Complex business formula modeling", icon: "calculate" },
+              { title: "Interactive report design, cross-filtering, bookmarks, and mobile layouts", desc: "Executive presentation dashboards", icon: "dashboard" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 5,
+        title: "Tableau Visual Storytelling, Parameters & Executive Dashboards",
+        modules: [
+          {
+            title: "Visual Analytics & Narrative Storytelling",
+            icon: "pie_chart",
+            color: "orange",
+            bullets: [
+              { title: "Tableau architecture, dimensions, measures, and data connection options", desc: "Live and extracted data sources", icon: "cable" },
+              { title: "Advanced chart types: Treemaps, heatmaps, dual-axis charts, and box plots", desc: "Granular variance analysis", icon: "show_chart" },
+              { title: "Calculated fields, Level of Detail (LOD) expressions, and parameters", desc: "Dynamic filtering and user controls", icon: "tune" },
+              { title: "Story points, dashboard actions, and corporate reporting best practices", desc: "C-suite strategic decision presentations", icon: "slideshow" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 6,
+        title: "Python for Data Analysis (NumPy, Pandas & Exploratory Analytics)",
+        modules: [
+          {
+            title: "Programming with Python & Pandas",
+            icon: "code",
+            color: "teal",
+            bullets: [
+              { title: "Python fundamentals: Data structures, control flow, functions, and modules", desc: "Production Python foundations", icon: "data_object" },
+              { title: "NumPy arrays, vectorised operations, and mathematical computations", desc: "High-performance numeric array calculations", icon: "grid_4x4" },
+              { title: "Pandas DataFrames, Series, filtering, grouping, and aggregation techniques", desc: "Data manipulation and table reshaping", icon: "table_rows" },
+              { title: "Handling missing values, duplicates, type conversions, and text processing", desc: "Data hygiene and preparation workflows", icon: "cleaning_services" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 7,
+        title: "Exploratory Data Analysis (EDA) & Statistical Inference",
+        modules: [
+          {
+            title: "Data Exploration & Applied Statistics",
+            icon: "biotech",
+            color: "violet",
+            bullets: [
+              { title: "Summary statistics, distributions, skewness, and outlier identification methods", desc: "Identifying underlying data distributions", icon: "bar_chart" },
+              { title: "Data visualization with Matplotlib, Seaborn, and interactive Plotly charts", desc: "Publication-grade visual artifacts", icon: "palette" },
+              { title: "Correlation analysis, covariance, and feature relationship identification", desc: "Uncovering cross-variable dependencies", icon: "hub" },
+              { title: "Hypothesis testing: t-tests, chi-square, ANOVA, and p-value interpretations", desc: "Statistical validation for business claims", icon: "rule" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 8,
+        title: "Applied Machine Learning & Predictive Modeling for Analysts",
+        modules: [
+          {
+            title: "Predictive Analytics & Scikit-learn",
+            icon: "psychology",
+            color: "indigo",
+            bullets: [
+              { title: "Supervised versus unsupervised learning concepts for analytical roles", desc: "Classification, regression, and clustering", icon: "auto_awesome" },
+              { title: "Linear and logistic regression for forecasting and classification problems", desc: "Business metric predictions", icon: "trending_up" },
+              { title: "Decision trees, random forests, and k-means clustering applications", desc: "Customer segmentation models", icon: "forest" },
+              { title: "Model evaluation: RMSE, MAE, confusion matrix, precision, recall, and ROC-AUC", desc: "Model reliability and bias testing", icon: "checklist" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 9,
+        title: "Generative AI for Analytics Workflows & LLM Automation",
+        modules: [
+          {
+            title: "Gen AI Analytics & AI Agents",
+            icon: "smart_toy",
+            color: "rose",
+            bullets: [
+              { title: "Prompt engineering frameworks for SQL query generation and debugging", desc: "Writing complex queries 5x faster", icon: "terminal" },
+              { title: "Automating exploratory data analysis using LLMs and Code Interpreter", desc: "Automated statistical exploration", icon: "smart_toy" },
+              { title: "Building natural language data-querying interfaces with LangChain", desc: "Chat-with-your-database pipelines", icon: "chat" },
+              { title: "Automated executive summary generation and analytical narrative writing", desc: "Instant C-suite report generation", icon: "summarize" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 10,
+        title: "Capstone Project Delivery, Portfolio Defense & Career Launchpad",
+        modules: [
+          {
+            title: "Portfolio Defense & Career Launch",
+            icon: "work",
+            color: "amber",
+            bullets: [
+              { title: "End-to-end data analytics capstone project execution using real-world data", desc: "Multi-tool enterprise analytics pipeline", icon: "construction" },
+              { title: "GitHub portfolio repository structure, documentation, and README creation", desc: "Verifiable project code repositories", icon: "folder_zip" },
+              { title: "Resume crafting tailored for data analyst and BI analyst hiring pipelines", desc: "ATS-optimized technical profiling", icon: "badge" },
+              { title: "Mock technical interviews: SQL problem-solving, case studies, and business acumen", desc: "Live mentor interview preparation", icon: "groups" }
+            ]
+          }
+        ]
+      }
+    ],
+    portfolioProjects: [
+      {
+        milestone: 4,
+        codename: "ALPHA",
+        tagline: "Customer Retention & Lifetime Value (LTV) Engine",
+        description: "Built an end-to-end analytics pipeline on 1M+ retail transactions, modeling churn risk and customer lifetime value using SQL, Power BI, and predictive Python models.",
+        bg: "#0284c7",
+        shape: "star4"
+      },
+      {
+        milestone: 7,
+        codename: "BETA",
+        tagline: "Loan Default Risk & Credit Assessment Pipeline",
+        description: "Developed a regulatory-compliant credit scoring and default risk assessment system using advanced statistical analysis, Python ML classifiers, and automated AI explainability.",
+        bg: "#0d9488",
+        shape: "wave"
+      },
+      {
+        milestone: 9,
+        codename: "GAMMA",
+        tagline: "Logistics Delay Forecasting & Automated Root-Cause Engine",
+        description: "Designed a real-time supply chain operational dashboard forecasting multi-hub delivery delays, powered by automated SQL triggers and LLM-assisted incident triage.",
+        bg: "#d97706",
+        shape: "aura"
+      }
+    ],
+    flagshipContent: {
+      heroSubtext: "Want a high-growth career in Data Analytics & Business Intelligence? SkillSha's Data Analytics Course with Gen AI teaches you the exact technologies modern tech companies demand—SQL, Power BI, Tableau, Python, Pandas, Machine Learning, and Generative AI.\n\nThis is a complete, hands-on certification program built for college graduates, working professionals, and career switchers worldwide. You will build and deploy real production dashboards, write SQL queries 5x faster with Gen AI, extract predictive business insights, and receive dedicated 100% placement support.\n\nLimited Time Offer: Transparent Fee ₹21,500 + 18% GST (Total ₹25,370) • 0% Interest EMI Starts at ₹4,622/Month",
+      whyChooseList: {
+        placement: [
+          "Direct referrals to 500+ tech companies hiring Data Analysts and BI Engineers",
+          "Comprehensive resume review showcasing production-grade GitHub analytics repositories",
+          "1-on-1 technical mock interviews covering SQL problem-solving and business case studies",
+          "Salary negotiation guidance for roles averaging ₹6L to ₹15L+ per annum"
+        ],
+        ai: [
+          "Use ChatGPT and Claude to write, optimize, and debug complex multi-table SQL queries",
+          "Automate Exploratory Data Analysis (EDA) and outlier detection with Python AI frameworks",
+          "Build natural language querying interfaces with LangChain to chat directly with databases",
+          "Synthesize automated executive summaries, KPI narratives, and boardroom reports with AI"
+        ],
+        trainers: [
+          {
+            name: "Shadab Hussain",
+            title: "Lead Engineer & AI Specialist, MathCo | GDE",
+            bullets: [
+              "Lead Engineer at MathCo specializing in Generative AI & Enterprise Analytics Architecture",
+              "Google Developer Expert (GDE) in AI/ML & AWS Community Builder",
+              "Co-Founder at Quantum Computing India, TEDx speaker & Global Tech Keynote Speaker",
+              "Specializes in AI-accelerated analytics pipelines and predictive machine learning models"
+            ],
+            quote: "Data Analytics combined with Generative AI is the highest-leverage skill of the decade. We teach you to transform raw transactional data into strategic executive decisions.",
+            exp: "10+ Yrs Exp",
+            img: "/files/shadab-hussain.jpg",
+            linkedin: "https://www.linkedin.com/in/techwithshadab"
+          },
+          {
+            name: "Md Suaib",
+            title: "Senior Cloud & Data Engineer, Tata Consultancy Services",
+            bullets: [
+              "Senior Cloud & Data Engineer at Tata Consultancy Services (TCS)",
+              "Specialist in enterprise SQL warehousing, data pipeline ETL, and cloud analytics",
+              "Expert in complex DAX data modeling, Tableau storytelling, and performance tuning",
+              "Active technical mentor guiding 1,000+ learners into high-growth analytics careers"
+            ],
+            quote: "Real business value comes from asking the right questions and building resilient analytical pipelines. Theory is useless without hands-on database projects.",
+            exp: "8+ Yrs Exp",
+            img: "/files/md-suaib.jpg",
+            linkedin: "https://www.linkedin.com/in/md-suaib"
+          },
+          {
+            name: "Mr. Farman",
+            title: "Principal Business Intelligence Architect",
+            bullets: [
+              "Lead BI Architect with 9+ years managing enterprise dashboards for global retailers",
+              "Specialist in Power BI DAX patterns, Star-Schema data warehousing, and executive reporting",
+              "Mentored 2,000+ analysts across India into Fortune 500 corporate roles"
+            ],
+            quote: "A great dashboard tells a clear story in five seconds. We teach you how to design reports that C-level leaders actually rely on every single day.",
+            exp: "9+ Yrs Exp",
+            img: "/files/Mentors/student-photo-1.webp",
+            linkedin: "https://www.linkedin.com/school/skillsha"
+          },
+          {
+            name: "Mr. Irshad Khan",
+            title: "Senior Data Scientist & Analytics Lead",
+            bullets: [
+              "Lead Data Scientist specializing in Python, Scikit-learn, and Generative AI workflows",
+              "Technical reviewer and lead curriculum designer for Skillsha's advanced analytics track",
+              "Expert in automated feature engineering and predictive business forecasting"
+            ],
+            quote: "Generative AI doesn't replace the data analyst—it supercharges the analyst who understands how to orchestrate SQL, Python, and LLMs simultaneously.",
+            exp: "8+ Yrs Exp",
+            img: "/files/Mentors/student-photo-3.webp",
+            linkedin: "https://www.linkedin.com/school/skillsha"
+          }
+        ],
+        pricing: [
+          "Base program tuition: ₹21,500",
+          "Applicable taxes: 18% GST (₹3,870)",
+          "All-inclusive total fee: ₹25,370",
+          "Flexible monthly EMI: ₹4,622/month for 6 months",
+          "100% transparent pricing with zero hidden registration fees",
+          "Includes real datasets, cloud lab credits, and portfolio code reviews"
+        ]
+      },
+      differencesSubtext: "Skip theoretical tutorials. We build job-ready Data Analysts and BI Specialists with real production databases, live Power BI dashboards, and AI-accelerated analytics pipelines.",
+      differences: [
+        {
+          title: "1. Real Enterprise SQL & Cloud Data Warehouses",
+          bullets: [
+            "Query multi-million row datasets across PostgreSQL, MySQL, and Google BigQuery",
+            "Write advanced Window functions, CTEs, and stored procedures for complex reporting",
+            "Optimize slow-running analytical queries with indexing and query plan analysis",
+            "Connect live cloud data warehouses directly to enterprise reporting tools"
+          ]
+        },
+        {
+          title: "2. Verifiable GitHub Portfolio & Production Dashboards",
+          bullets: [
+            "Production-ready Power BI and Tableau dashboards deployed to public portfolios",
+            "End-to-end Python EDA repositories with clean documentation and statistical findings",
+            "Predictive machine learning models with precision, recall, and business ROI analysis",
+            "AI-powered SQL generator bot integrating LangChain and LLM APIs"
+          ]
+        },
+        {
+          title: "3. Dual Industry-Recognized Certification",
+          bullets: [
+            "Our Data Analytics certification is industry-recognized and verifiable online via QR credentials.",
+            "Demonstrates verified practical competence in SQL, Python, Power BI, and Generative AI."
+          ]
+        },
+        {
+          title: "4. Generative AI Integrated Into Every Module",
+          bullets: [
+            "Write, debug, and optimize complex DAX and SQL queries 5x faster using ChatGPT & Claude.",
+            "Automate executive reporting and generate polished boardroom presentations in seconds."
+          ]
+        }
+      ],
+      toolsSubtext: "Master the complete Data Analytics, Business Intelligence & Generative AI ecosystem through industry-standard tools and real-world analytical workflows. Learn how to combine SQL, Power BI, Tableau, Python, and LLMs across the entire decision-making lifecycle.",
+      skills: [
+        {
+          category: "Data Querying & Warehousing",
+          list: [
+            "PostgreSQL & MySQL — Relational modeling, normalization, indexing, and complex queries",
+            "Google BigQuery & Snowflake — Cloud data warehousing and petabyte-scale analytics",
+            "Advanced SQL — Window functions, Common Table Expressions (CTEs), and joins",
+            "Query Optimization — Indexing strategies, partition pruning, and execution plan tuning"
+          ]
+        },
+        {
+          category: "Business Intelligence & Reporting",
+          list: [
+            "Power BI Desktop & Service — Data ingestion, Star-schema modeling, and row-level security",
+            "DAX (Data Analysis Expressions) — CALCULATE, FILTER, time-intelligence, and dynamic KPIs",
+            "Tableau Desktop — Visual analytics, Level of Detail (LOD) calculations, and story points",
+            "Advanced Excel — Power Query ETL, dynamic arrays, XLOOKUP, and financial modeling"
+          ]
+        },
+        {
+          category: "Python & Data Science",
+          list: [
+            "Python Foundations — Data structures, functions, object-oriented programming, and scripts",
+            "NumPy & Pandas — Array mathematics, DataFrame manipulation, grouping, and aggregations",
+            "Data Visualization — Matplotlib, Seaborn, and interactive Plotly visualization libraries",
+            "Scikit-Learn — Regression, classification, customer clustering, and model validation"
+          ]
+        },
+        {
+          category: "Generative AI & Modern Automation",
+          list: [
+            "ChatGPT & Claude for SQL — Automated query generation, refactoring, and query explanation",
+            "LangChain Data Agents — Natural language querying interfaces over relational databases",
+            "Code Interpreter & Copilot — Automated exploratory data analysis and script autocompletion",
+            "AI Executive Reporting — Automated narrative summaries and insight presentation generators"
+          ]
+        }
+      ],
+      toolPillars: [
+        {
+          title: "Data Querying & Warehousing",
+          subtitle: "Relational & Cloud Engines",
+          icon: "database",
+          colorClass: "text-blue-500 bg-blue-500/10",
+          tools: [
+            { name: "PostgreSQL & MySQL", category: "Relational DB", desc: "Complex joins, indexing, CTEs & stored procedures", icon: "storage" },
+            { name: "Google BigQuery", category: "Cloud Data Warehouse", desc: "Serverless multi-terabyte analytical queries", icon: "cloud" },
+            { name: "Advanced SQL", category: "Query Language", desc: "Window functions, partitioning & data transformation", icon: "code" },
+            { name: "Snowflake", category: "Modern Data Cloud", desc: "Data sharing, compute clustering & analytics pipelines", icon: "ac_unit" }
+          ],
+          pipeline: { left: "Raw DB", middle: "SQL CTEs", right: "Clean Warehouse", leftLabel: "Source Tables", rightLabel: "Analytics-Ready" }
+        },
+        {
+          title: "BI & Visual Storytelling",
+          subtitle: "Executive Dashboards",
+          icon: "bar_chart",
+          colorClass: "text-amber-500 bg-amber-500/10",
+          tools: [
+            { name: "Microsoft Power BI", category: "Enterprise BI", desc: "Interactive dashboards, star-schema & Power Query", icon: "analytics" },
+            { name: "DAX Modeling", category: "Calculations", desc: "Time intelligence, dynamic KPIs & custom measures", icon: "calculate" },
+            { name: "Tableau Desktop", category: "Visual Analytics", desc: "LOD expressions, dual-axis charts & story points", icon: "pie_chart" },
+            { name: "Advanced Excel", category: "Spreadsheets", desc: "XLOOKUP, pivot tables & financial modeling", icon: "table_chart" }
+          ],
+          pipeline: { left: "Clean Data", middle: "DAX Models", right: "Executive BI", leftLabel: "Data Ingestion", rightLabel: "C-Suite Story" }
+        },
+        {
+          title: "Python Data Science & Gen AI",
+          subtitle: "Predictive & Automated Analytics",
+          icon: "smart_toy",
+          colorClass: "text-emerald-500 bg-emerald-500/10",
+          tools: [
+            { name: "Python & Pandas", category: "Data Science", desc: "DataFrame wrangling, cleaning & numeric transformations", icon: "code" },
+            { name: "Scikit-Learn", category: "Machine Learning", desc: "Regression, customer segmentation & classification", icon: "psychology" },
+            { name: "ChatGPT & Claude", category: "Generative AI", desc: "5x faster SQL query synthesis & code debugging", icon: "smart_toy" },
+            { name: "LangChain Agents", category: "AI Orchestration", desc: "Natural language query bots for enterprise databases", icon: "chat" }
+          ],
+          pipeline: { left: "Pandas EDA", middle: "ML Classifier", right: "Gen AI Insights", leftLabel: "Data Prep", rightLabel: "Actionable Forecast" }
+        }
+      ],
+      placement: {
+        title: "100% Placement Support for Data Analysts & BI Engineers",
+        subtext: "From technical portfolio building to live business case study preparation, our dedicated placement cell helps you transition into high-paying analytics roles.",
+        during: [
+          "Week 4: Analytics career trajectory planning and target salary benchmarking",
+          "Week 8: SQL problem-solving challenges and database schema design reviews",
+          "Week 14: Power BI & Tableau interactive portfolio showcase and code audit",
+          "Week 18: Python EDA and predictive modeling GitHub repository review",
+          "Week 24: End-to-end Capstone defense and 1-on-1 mock technical interviews"
+        ],
+        after: [
+          "Direct referral access to 500+ top tech startups, scale-ups, and global MNCs",
+          "Exclusive Data Analytics interview question bank covering SQL, DAX, and Python internals",
+          "Personalized 1-on-1 salary negotiation support for offers ranging ₹6L to ₹15L+ LPA",
+          "Ongoing access to alumni community and weekly live masterclasses",
+          "Lifetime resume re-evaluations and senior analyst career progression guidance"
+        ],
+        network: [
+          "Leading E-Commerce & Retail giants hiring Product & Growth Analysts",
+          "Global Fintech & Banking institutions hiring Risk & Credit Analytics Specialists",
+          "Consulting & Professional Services agencies seeking Business Intelligence Experts",
+          "Fast-growing SaaS startups looking for Analytics Engineers and Data Scientists",
+          "Healthcare & Supply Chain enterprises scaling operational intelligence",
+          "Fortune 500 technology firms hiring Full-Stack Data Analysts"
+        ],
+        stats: [
+          { number: "₹6-10 LPA", label: "Starting Package" },
+          { number: "94%", label: "Placement Rate" },
+          { number: "500+", label: "Hiring Partners" },
+          { number: "45 Days", label: "Avg. Time to Placement" }
+        ],
+        bullets: [
+          "Personalized resume and LinkedIn profile optimization for Data Analyst & BI keywords",
+          "GitHub portfolio showcasing production SQL queries, Power BI dashboards, and Python EDA",
+          "1-on-1 technical mock interviews covering live SQL coding and business metrics evaluation",
+          "Exclusive referral access to product startups, scale-ups, and global tech enterprises"
+        ]
+      },
+      careers: {
+        title: "Career Opportunities After Data Analytics with Gen AI",
+        subtext: "Data analytics and Business Intelligence are among the fastest-growing and most resilient career paths globally. Here are the top roles you will be prepared for:",
+        marketSentiment: "Global demand for Data Analysts with Generative AI skills has grown by over 65% year-over-year. Professionals who can bridge the gap between raw database queries, interactive visual dashboards, and AI automation command premium compensation packages across all industries.",
+        roles: [
+          {
+            title: "Data Analyst",
+            salary: "₹ 5-9 LPA",
+            description: "Translates complex business data into actionable recommendations using SQL, Excel, and dashboarding tools to support core business strategies."
+          },
+          {
+            title: "Business Intelligence Analyst",
+            salary: "₹ 6-11 LPA",
+            description: "Designs enterprise-grade Power BI and Tableau dashboards, constructs Star-schema data models, and tracks company-wide operational KPIs."
+          },
+          {
+            title: "Junior Data Analyst / Fresher",
+            salary: "₹ 3-6 LPA",
+            description: "Entry-level analytical role focusing on data cleansing, exploratory SQL querying, and routine management reporting for business units."
+          },
+          {
+            title: "Senior Data Analyst",
+            salary: "₹ 9-15 LPA",
+            description: "Leads analytical initiatives, designs complex predictive models, mentors junior team members, and presents findings to C-suite leadership."
+          },
+          {
+            title: "Analytics Engineer",
+            salary: "₹ 8-14 LPA",
+            description: "Bridges the gap between data engineering and business analysis by maintaining clean, tested data models in modern cloud data warehouses."
+          },
+          {
+            title: "Python Data Specialist",
+            salary: "₹ 7-13 LPA",
+            description: "Builds automated data pipelines, executes advanced exploratory statistical analyses, and trains predictive machine learning models."
+          },
+          {
+            title: "Lead / Principal Analyst",
+            salary: "₹ 15-24+ LPA",
+            description: "Spearheads cross-departmental data strategy, defines analytics architecture, and drives business decisions with Generative AI insights."
+          }
+        ]
+      },
+      comparison: {
+        title: "How SkillSha Compares to Traditional Learning Options",
+        subtext: "See why learners choose SkillSha's hands-on, mentor-led model over outdated university curricula and passive self-paced videos.",
+        rows: [
+          {
+            feature: "Curriculum Focus",
+            skillsha: "SQL, Power BI, Python, ML & Generative AI",
+            others: "Outdated Excel & basic theory only",
+            selfPaced: "Fragmented YouTube playlists without projects"
+          },
+          {
+            feature: "Live Hands-On Projects",
+            skillsha: "3+ Production Capstones with 1M+ live rows",
+            others: "Toy datasets (Titanic/Iris) with slides",
+            selfPaced: "Passive video watching with no reviews"
+          },
+          {
+            feature: "Generative AI Integration",
+            skillsha: "Gen AI in every module (SQL, EDA & Reports)",
+            others: "None or superficial overview mention",
+            selfPaced: "No guided AI tool frameworks"
+          },
+          {
+            feature: "Placement Support",
+            skillsha: "Dedicated Placement Cell & 500+ Hiring Partners",
+            others: "Job board notifications only",
+            selfPaced: "Zero placement or referral assistance"
+          },
+          {
+            feature: "Mentorship & Doubt Clearing",
+            skillsha: "1:1 Reviews with Senior Industry Practitioners",
+            others: "Teaching assistants with delayed email replies",
+            selfPaced: "Self-debug without mentor support"
+          }
+        ]
+      },
+      stories: [
+        {
+          name: "Rohan S. (Pune)",
+          before: "Commerce Graduate stuck in back-office operations at ₹2.8 LPA",
+          after: "Business Intelligence Analyst at E-Commerce Unicorn, ₹8.5 LPA",
+          body: "I had no coding background and was worried about transitioning into tech. SkillSha's step-by-step SQL and Power BI training gave me the exact confidence I needed. The capstone project on customer churn was the main discussion topic in all my job interviews.",
+          result: "203% salary hike, transitioned in 5 months"
+        },
+        {
+          name: "Ananya M. (Noida)",
+          before: "Junior Excel Reporter earning ₹3.5 LPA",
+          after: "Data Analyst at Global Financial Services Firm, ₹9.2 LPA",
+          body: "Learning to automate SQL queries with Generative AI set me apart from other candidates. SkillSha's mentors conducted 3 realistic technical mock interviews that prepared me for every tricky database question. Truly transformed my career.",
+          result: "162% hike, landed role in Noida Sector 62"
+        },
+        {
+          name: "Kunal P. (Bengaluru)",
+          before: "Fresh Engineering Graduate with no portfolio",
+          after: "Analytics Engineer at SaaS Scale-Up, ₹10 LPA",
+          body: "Most bootcamps teach only basic Excel. SkillSha taught us Google BigQuery, advanced DAX, Python, and LangChain agents. Having a verifiable GitHub repository with live dashboards made recruiters reach out to me directly on LinkedIn.",
+          result: "Placed within 40 days of graduation"
+        }
+      ],
+      enrollment: [
+        { step: "Step 1", title: "Schedule a Free Counseling Call", bullets: ["Connect with a senior analytics advisor to review your career background", "Understand curriculum tracks, live schedule options & payment plans", "Get personalized roadmap advice with no obligation"] },
+        { step: "Step 2", title: "Review Syllabus & Prerequisites", bullets: ["Receive detailed 10-module curriculum breakdown and tool checklist", "Zero prior coding required: beginner-friendly preparatory resources provided"] },
+        { step: "Step 3", title: "Select Your Cohort Schedule", bullets: ["Weekday Evening Batches: 8:00 PM – 10:00 PM for working professionals", "Weekend Cohorts: Saturday & Sunday intensive workshops for students"] },
+        { step: "Step 4", title: "Complete Enrollment & Cloud Lab Access", bullets: ["Transparent fee: ₹21,500 + GST = ₹25,370 with 0% interest EMI options", "Instant credentials to student portal, Discord community & cloud lab credits"] },
+        { step: "Step 5", title: "Begin Your Analytics Transformation", bullets: ["Attend cohort orientation and meet your lead mentors", "Kick off Milestone 1: Foundations of Data & Modern Analytics Ecosystem"] }
+      ],
+      quickFacts: [
+        "Duration: 6-7 Months (150+ hours of content)",
+        "Format: 90+ Live Interactive Sessions + Hands-On Builder Labs",
+        "Tools Mastered: 15+ Enterprise Tools (SQL, Power BI, Tableau, Python, Gen AI)",
+        "Tuition Fee: ₹21,500 + 18% GST (Total ₹25,370)",
+        "EMI Options: Starting at ₹4,622/month for 6 months",
+        "Placement: Dedicated Career & Placement Assistance, 100+ Hiring Partners",
+        "Certification: Industry-Recognized Data Analytics with Gen AI Certificate",
+        "Physical Centre: D-34, Sector - 2, Noida, Uttar Pradesh (Near Sec 16 & 15 Metro)",
+        "Online Mode: Live Interactive Batches across India with direct mentor support"
+      ],
+      disclaimer: "Disclaimer: Employment outcomes depend on individual student participation, portfolio project execution, and hiring partner selection processes. SkillSha provides comprehensive training, portfolio mentorship, and interview preparation to maximize placement success."
+    },
+    faqs: [
+      {
+        q: "What is the fee for the Data Analytics Course with Gen AI?",
+        a: "The program fee is ₹21,500 + 18% GST (₹3,870), bringing the total to ₹25,370. Flexible 0% interest EMI options are available starting at ₹4,622/month for 6 months."
+      },
+      {
+        q: "Do I need prior coding or mathematics background to join?",
+        a: "No prior programming or computer science experience is required. The curriculum begins with fundamental data concepts and spreadsheet basics before progressing into SQL, Python, and Generative AI workflows."
+      },
+      {
+        q: "How does this course differ from generic data analytics courses?",
+        a: "Unlike traditional programs focusing purely on static spreadsheets, Skillsha integrates Generative AI into every module. Learners use LLMs to generate and debug SQL queries, automate EDA, build AI query bots, and draft executive reports."
+      },
+      {
+        q: "What tools and software are taught in this program?",
+        a: "You will master 15+ industry tools including PostgreSQL, MySQL, Google BigQuery, Microsoft Power BI, Tableau Desktop, Advanced Excel, Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, ChatGPT, Claude, and LangChain."
+      },
+      {
+        q: "Is Skillsha's physical centre open for in-person visits?",
+        a: "Skillsha operates its sole national learning centre in Noida at D-34, Sector - 2, Noida - 201301 (near Noida Sector 16 and 15 Metro Station). For learners in other cities like Pune, Bangalore, and Mumbai, classes run via live interactive online batches."
+      },
+      {
+        q: "What capstone projects will I build during the program?",
+        a: "Students complete 3 production-grade capstone projects: an E-Commerce Retention & LTV Engine, a FinTech Loan Default Risk & Credit Assessment Pipeline, and a Supply Chain Delay Forecasting & Root-Cause Engine."
+      },
+      {
+        q: "What starting salary can a fresher expect after completing this course?",
+        a: "A fresher data analyst in India can realistically expect a starting salary between ₹3–6 LPA. Candidates with strong project portfolios and sharp SQL skills frequently target ₹6–10 LPA, while experienced switchers reach ₹12L+ LPA."
+      },
+      {
+        q: "Does Skillsha provide placement assistance?",
+        a: "Yes, Skillsha provides dedicated career and placement assistance including 1-on-1 resume reviews, GitHub portfolio optimization, mock technical interviews, and connections to corporate hiring drives across 100+ hiring partners."
+      },
+      {
+        q: "How many live sessions and content hours are included?",
+        a: "The course includes 150+ hours of content and 90+ live interactive sessions delivered by senior industry practitioners who solve real-world datasets in real time."
+      },
+      {
+        q: "What certification do I receive upon graduation?",
+        a: "Graduates earn an industry-recognized Certificate of Completion in Data Analytics with Gen AI, featuring unique verifiable digital credentials and QR validation for LinkedIn and corporate resumes."
+      },
+      {
+        q: "What are the batch timings and schedules?",
+        a: "We offer both weekday evening batches (8:00 PM – 10:00 PM) designed for working professionals and weekend cohorts designed for college students. All live sessions are recorded for lifetime review."
+      },
+      {
+        q: "How can I enroll or speak with an admissions advisor?",
+        a: "You can click 'Talk to Program Advisor' anywhere on the page to book a 1-on-1 counseling call. Our academic advisors will assess your background, explain curriculum tracks, and guide you through enrollment."
+      }
+    ]
   },
   "digital-marketing-with-gen-ai": {
     title: "Digital Marketing with Gen AI",

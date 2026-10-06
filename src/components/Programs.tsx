@@ -176,10 +176,50 @@ const programs: Program[] = [
     ],
     professions: ['developer', 'corporate']
   },
+  {
+    id: 'data-analytics-with-gen-ai',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500 animate-pulse">
+        <path d="M3 3v18h18"/>
+        <path d="m19 9-5 5-4-4-3 3"/>
+      </svg>
+    ),
+    title: 'Data Analytics with Gen AI',
+    subtitle: 'Master SQL, BI & AI-Driven Analytics',
+    description: 'Master SQL, Power BI, Tableau, Python, and Generative AI workflows to extract insights, automate analytics, and build enterprise dashboards.',
+    duration: '6-7 Months',
+    salary: '₹10L+',
+    svgBg: (
+      <svg className="w-20 h-20 text-blue-500/[0.08] dark:text-blue-500/[0.05] mr-[-10px] mt-[-5px] animate-float" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
+        <rect x="15" y="45" width="18" height="40" rx="3" strokeDasharray="2 2"/>
+        <rect x="41" y="25" width="18" height="60" rx="3"/>
+        <rect x="67" y="15" width="18" height="70" rx="3" strokeDasharray="3 3"/>
+      </svg>
+    ),
+    mobileIcon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+    ),
+    includes: [
+      { name: 'SQL & BigQuery', domain: 'google.com' },
+      { name: 'Power BI', domain: 'microsoft.com' },
+      { name: 'Python & Pandas', domain: 'python.org' },
+      { name: 'Tableau', domain: 'tableau.com' },
+      { name: 'Generative AI', domain: 'openai.com' },
+      { name: 'Real Capstones', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="m9 12 2 2 4-4"/></svg> }
+    ],
+    professions: ['developer', 'corporate', 'ca', 'marketer']
+  },
 ];
 
 const getProgramColors = (id: string) => {
   switch (id) {
+    case 'data-analytics-with-gen-ai':
+      return {
+        bg: 'bg-blue-500/10 dark:bg-blue-500/15',
+        border: 'border-blue-500/25',
+        text: 'text-blue-500',
+        shadow: 'shadow-[0_0_15px_rgba(59,130,246,0.15)]'
+      };
     case 'devops-with-gen-ai':
       return {
         bg: 'bg-cyan-500/10 dark:bg-cyan-500/15',
@@ -332,6 +372,7 @@ export default function Programs({ className = "mt-24" }: { className?: string }
     'software-testing': 'ai-dev',
     'playwright-automation': 'ai-dev',
     
+    'data-analytics-with-gen-ai': 'data-analytics',
     'data-science-ai': 'data-analytics',
     'data-analyst': 'data-analytics',
     'business-analyst': 'data-analytics',

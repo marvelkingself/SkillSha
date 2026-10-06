@@ -2,7 +2,6 @@ import { COURSES_DATA, COURSE_SLUG_MAP, getCourseIdBySlug, getCourseSlugById, ge
 import { CITIES_LIST } from "@/data/cities";
 import { notFound } from "next/navigation";
 import CourseDetailClient from "@/components/CourseDetailClient";
-import DataAnalyticsCityPage from "@/components/course/DataAnalyticsCityPage";
 import { getAnalyticsCityData } from "@/data/data-analytics-course";
 import type { Metadata } from "next";
 
@@ -42,10 +41,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     // Data Analytics Course with Gen AI
     if (id === "data-analytics-with-gen-ai") {
       const { city: citySlug } = getCourseAndCityFromSlug(slug);
+      const isCity = !!citySlug;
       const cityAnalytics = getAnalyticsCityData(citySlug);
-      const title = `Data Analytics Course in ${cityAnalytics.city} with Gen AI | Skillsha`;
-      const description = `Skillsha Data Analytics with Gen AI course in ${cityAnalytics.city} runs for 6-7 months with dedicated career and placement assistance. Enroll now for top-tier analytics.`;
-      const keywords = `data analytics course in ${cityAnalytics.city.toLowerCase()}, data analytics training in ${cityAnalytics.city.toLowerCase()}, data analytics course in ${cityAnalytics.city.toLowerCase()} with placement, data analyst course in ${cityAnalytics.city.toLowerCase()}, Gen AI for data analytics`;
+      const title = isCity
+        ? `Data Analytics Course in ${cityAnalytics.city} with Gen AI | Skillsha`
+        : "Data Analytics Course with Gen AI | 100% Placement Support | SkillSha";
+      const description = isCity
+        ? `Skillsha Data Analytics with Gen AI course in ${cityAnalytics.city} runs for 6-7 months with dedicated career and placement assistance. Enroll now for top-tier analytics.`
+        : "Master Data Analytics with Generative AI. 6-7 Months comprehensive program with 150+ hours of content, 90+ live sessions, 15+ tools, real-world capstone projects, and dedicated career and placement assistance.";
+      const keywords = isCity
+        ? `data analytics course in ${cityAnalytics.city.toLowerCase()}, data analytics training in ${cityAnalytics.city.toLowerCase()}, data analytics course in ${cityAnalytics.city.toLowerCase()} with placement, data analyst course in ${cityAnalytics.city.toLowerCase()}, Gen AI for data analytics`
+        : "data analytics course with gen ai, data analytics training, data analytics certification, learn sql power bi python, generative ai data analytics, SkillSha";
 
       return {
         title,
@@ -560,7 +566,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
-        <DataAnalyticsCityPage cityData={cityAnalytics} />
+        <CourseDetailClient id={id} data={data} city={cityInfo?.name} />
       </>
     );
   }

@@ -147,6 +147,12 @@ export default function Header() {
                       <div className="space-y-2 text-left">
                         <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">Data & Analytics</span>
                         <div className="space-y-1">
+                          <Link href="/course/data-analytics-course-with-gen-ai" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-blue-500/[0.04] dark:hover:bg-blue-500/[0.02] border border-blue-500/20 transition-all">
+                            <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-blue-500 transition-colors flex items-center gap-1.5">
+                              Data Analytics
+                              <span className="px-1 text-[7px] bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded font-extrabold tracking-wider leading-normal">NEW</span>
+                            </span>
+                          </Link>
                           <Link href="/course/data-science-course-with-gen-ai" className="group/item flex flex-col p-1.5 rounded-lg hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
                             <span className="text-[11px] font-bold text-zinc-900 dark:text-white group-hover/item:text-brand-orange transition-colors">Data Science & AI</span>
                           </Link>
