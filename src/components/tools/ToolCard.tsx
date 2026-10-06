@@ -87,6 +87,18 @@ export default function ToolCard({ tool }: ToolCardProps) {
                 {tool.secondaryText}
               </p>
             )}
+            {tool.tags && tool.tags.length > 0 && (
+              <div className="flex flex-wrap gap-1.5 pt-1.5">
+                {tool.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-300 border border-blue-200/60 dark:border-blue-800/40"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

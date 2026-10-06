@@ -19,6 +19,7 @@ export interface ToolConfig {
   badge?: string;
   ctaText?: string;
   secondaryText?: string;
+  tags?: string[];
   seoTitle: string;
   seoDescription: string;
   keywords?: string[];

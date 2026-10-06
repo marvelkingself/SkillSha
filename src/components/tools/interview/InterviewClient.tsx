@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   InterviewSetupConfig,
   QuestionRecord,
   InterviewEvaluationReport,
 } from '@/types/interview';
+import InterviewWelcome from './InterviewWelcome';
 import InterviewSetup from './InterviewSetup';
 import InterviewRoom from './InterviewRoom';
 import InterviewReport from './InterviewReport';
@@ -13,28 +14,59 @@ import InterviewDashboard from './InterviewDashboard';
 import {
   saveInterviewReport,
   getInterviewReportById,
+  getSavedInterviewSummaries,
 } from '@/lib/tools/interview/storage';
+import { detectRoleFromQuery } from '@/lib/tools/interview/role-detector';
 import {
   Sparkles,
   LayoutDashboard,
   PlayCircle,
   Loader2,
   AlertCircle,
-  HelpCircle,
+  Home,
 } from 'lucide-react';
 
-type ViewMode = 'setup' | 'room' | 'report' | 'dashboard';
+type ViewMode = 'welcome' | 'setup' | 'room' | 'report' | 'dashboard';
 
 export default function InterviewClient() {
-  const [viewMode, setViewMode] = useState<ViewMode>('setup');
+  const [viewMode, setViewMode] = useState<ViewMode>('welcome');
+  const [initialFlow, setInitialFlow] = useState<'role' | 'resume' | 'jd'>('role');
   const [setupConfig, setSetupConfig] = useState<InterviewSetupConfig | null>(null);
   const [initialQuestion, setInitialQuestion] = useState<QuestionRecord | null>(null);
   const [activeReport, setActiveReport] = useState<InterviewEvaluationReport | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [evaluatingStatus, setEvaluatingStatus] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [savedCount, setSavedCount] = useState<number>(0);
 
-  // 1. Handle Start from Setup Wizard
+  useEffect(() => {
+    const list = getSavedInterviewSummaries();
+    setSavedCount(list.length);
+  }, [viewMode]);
+
+  // 1. Handle Flow from Welcome Screen
+  const handleSelectFlow = (flow: 'role' | 'resume' | 'jd') => {
+    setInitialFlow(flow);
+    setViewMode('setup');
+  };
+
+  // 2. Handle Quick Start from Welcome Screen
+  const handleQuickStart = (roleName: string) => {
+    const detected = detectRoleFromQuery(roleName);
+    const config: InterviewSetupConfig = {
+      domain: detected.domain,
+      roleId: detected.roleId,
+      roleName: detected.roleName,
+      experience: '1–2 Years',
+      type: 'Full Mock Interview',
+      difficulty: 'Medium',
+      mode: 'text',
+      totalQuestionsTarget: 6,
+    };
+    handleStartInterview(config);
+  };
+
+  // 3. Handle Start from Setup Wizard
   const handleStartInterview = async (config: InterviewSetupConfig) => {
     setIsLoading(true);
     setErrorMessage(null);
@@ -77,11 +109,11 @@ export default function InterviewClient() {
     }
   };
 
-  // 2. Handle Finish from Simulator Room
+  // 4. Handle Finish from Simulator Room
   const handleFinishInterview = async (history: QuestionRecord[]) => {
     if (!setupConfig) return;
 
-    setEvaluatingStatus('Analyzing responses across 8 evaluation dimensions...');
+    setEvaluatingStatus('Evaluating your answers across 8 interview dimensions...');
     setIsLoading(true);
 
     try {
@@ -120,7 +152,7 @@ export default function InterviewClient() {
     }
   };
 
-  // 3. Handle View Report from Dashboard
+  // 5. Handle View Report from Dashboard
   const handleViewSavedReport = (sessionId: string) => {
     const report = getInterviewReportById(sessionId);
     if (report) {
@@ -131,52 +163,88 @@ export default function InterviewClient() {
     }
   };
 
-  // 4. Reset & start fresh
+  // 6. Reset & start fresh
   const handleStartNew = () => {
     setSetupConfig(null);
     setInitialQuestion(null);
     setActiveReport(null);
     setErrorMessage(null);
-    setViewMode('setup');
+    setViewMode('welcome');
+  };
+
+  // 7. Shortcut Actions from Report Screen
+  const handlePracticeWeakAreas = () => {
+    if (!setupConfig) return;
+    const weakConfig: InterviewSetupConfig = {
+      ...setupConfig,
+      type: 'Behavioral Interview',
+      totalQuestionsTarget: 5,
+    };
+    handleStartInterview(weakConfig);
+  };
+
+  const handleHarderInterview = () => {
+    if (!setupConfig) return;
+    const hardConfig: InterviewSetupConfig = {
+      ...setupConfig,
+      difficulty: 'Hard',
+      totalQuestionsTarget: 6,
+    };
+    handleStartInterview(hardConfig);
+  };
+
+  const handlePracticeRound = (roundType: string) => {
+    if (!setupConfig) return;
+    const roundConfig: InterviewSetupConfig = {
+      ...setupConfig,
+      type: roundType as any,
+      totalQuestionsTarget: 5,
+    };
+    handleStartInterview(roundConfig);
   };
 
   return (
     <div className="w-full">
-      {/* Navigation Bar / Mode Switcher (Hidden when inside active interview room) */}
+      {/* Top Header / Mode Switcher (Hidden inside active interview room) */}
       {viewMode !== 'room' && (
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Next-Gen AI Career Simulator
-            </span>
-          </div>
+        <div className="flex items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200">
+          <button
+            type="button"
+            onClick={() => setViewMode('welcome')}
+            className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 hover:text-indigo-600 transition-colors"
+          >
+            <Home className="w-4 h-4 text-indigo-600" />
+            <span className="hidden sm:inline">AI Interview Home</span>
+          </button>
 
-          <div className="inline-flex items-center p-1 bg-slate-100 rounded-2xl border border-slate-200 shadow-inner">
+          <div className="inline-flex items-center p-1 bg-slate-100 rounded-2xl border border-slate-200">
             <button
-              onClick={() => {
-                if (viewMode !== 'setup') setViewMode('setup');
-              }}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
-                viewMode === 'setup'
+              onClick={() => setViewMode('welcome')}
+              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                viewMode === 'welcome' || viewMode === 'setup'
                   ? 'bg-white text-indigo-600 shadow-sm'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <PlayCircle className="w-4 h-4" />
-              Practice Mock Interview
+              <PlayCircle className="w-3.5 h-3.5" />
+              Practice
             </button>
 
             <button
               onClick={() => setViewMode('dashboard')}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 viewMode === 'dashboard'
                   ? 'bg-white text-indigo-600 shadow-sm'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <LayoutDashboard className="w-4 h-4" />
-              My History & Track Record
+              <LayoutDashboard className="w-3.5 h-3.5" />
+              <span>Track Record</span>
+              {savedCount > 0 && (
+                <span className="w-4 h-4 rounded-full bg-indigo-600 text-white text-[10px] font-bold flex items-center justify-center">
+                  {savedCount}
+                </span>
+              )}
             </button>
           </div>
         </div>
@@ -207,19 +275,33 @@ export default function InterviewClient() {
               <Loader2 className="w-8 h-8" />
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-2">
-              {evaluatingStatus ? 'Evaluating Candidate Performance' : 'Configuring AI Interview Room'}
+              {evaluatingStatus ? 'Evaluating Candidate Performance' : 'Setting Up Your AI Interview'}
             </h3>
             <p className="text-slate-600 text-sm">
               {evaluatingStatus ||
-                'Tailoring questions based on your domain, target role, experience level, and resume...'}
+                'Personalizing question scenarios based on your target role and experience...'}
             </p>
           </div>
         </div>
       )}
 
-      {/* Main View Router */}
+      {/* Views */}
+      {viewMode === 'welcome' && (
+        <InterviewWelcome
+          onSelectFlow={handleSelectFlow}
+          onQuickStart={handleQuickStart}
+          onViewDashboard={() => setViewMode('dashboard')}
+          totalSavedSessions={savedCount}
+        />
+      )}
+
       {viewMode === 'setup' && (
-        <InterviewSetup onStart={handleStartInterview} disabled={isLoading} />
+        <InterviewSetup
+          initialFlow={initialFlow}
+          onStart={handleStartInterview}
+          onBackToWelcome={() => setViewMode('welcome')}
+          disabled={isLoading}
+        />
       )}
 
       {viewMode === 'room' && setupConfig && initialQuestion && (
@@ -242,6 +324,9 @@ export default function InterviewClient() {
             }
           }}
           onNewSetup={handleStartNew}
+          onPracticeWeakAreas={handlePracticeWeakAreas}
+          onHarderInterview={handleHarderInterview}
+          onPracticeRound={handlePracticeRound}
         />
       )}
 

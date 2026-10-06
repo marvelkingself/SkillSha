@@ -9,7 +9,6 @@ import {
   speakText,
   stopSpeaking,
   analyzeSpeechTranscript,
-  formatDuration,
   FillerWordStats,
 } from '@/lib/tools/interview/speech';
 import {
@@ -19,14 +18,12 @@ import {
   VolumeX,
   Send,
   Loader2,
-  Clock,
-  CheckCircle2,
+  Bot,
   Sparkles,
-  AlertCircle,
-  HelpCircle,
-  ChevronRight,
+  ArrowRight,
   RotateCcw,
-  Flag,
+  Keyboard,
+  X,
 } from 'lucide-react';
 
 interface InterviewRoomProps {
@@ -48,13 +45,11 @@ export default function InterviewRoom({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSpeakingAi, setIsSpeakingAi] = useState(false);
   const [isListeningMic, setIsListeningMic] = useState(false);
+  const [inputMode, setInputMode] = useState<'text' | 'voice'>(setup.mode || 'text');
   const [speechSupported, setSpeechSupported] = useState(true);
-
-  // Timers
-  const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [answerSeconds, setAnswerSeconds] = useState(0);
 
-  // Live filler words
+  // Hidden background metrics for final evaluation report
   const [fillerStats, setFillerStats] = useState<FillerWordStats>({
     totalWords: 0,
     fillerCount: 0,
@@ -64,9 +59,9 @@ export default function InterviewRoom({
   });
 
   const recognitionRef = useRef<any>(null);
-  const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const answerTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Initialize Speech Synthesis and read initial question aloud
+  // Read initial question aloud on mount
   useEffect(() => {
     speakQuestion(initialQuestion.questionText);
     return () => {
@@ -77,42 +72,55 @@ export default function InterviewRoom({
     };
   }, []);
 
-  // Main Session Timer
+  // Track answer time in background
   useEffect(() => {
-    timerIntervalRef.current = setInterval(() => {
-      setElapsedSeconds((prev) => prev + 1);
+    answerTimerRef.current = setInterval(() => {
       setAnswerSeconds((prev) => prev + 1);
     }, 1000);
-
     return () => {
-      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+      if (answerTimerRef.current) clearInterval(answerTimerRef.current);
     };
   }, []);
 
-  // Speak AI Question
   const speakQuestion = (text: string) => {
     setIsSpeakingAi(true);
     speakText(text, () => {
       setIsSpeakingAi(false);
-      // If voice mode, automatically turn on mic after AI finishes speaking
-      if (setup.mode === 'voice') {
+      // If voice mode is active, auto-start mic after AI finishes asking
+      if (inputMode === 'voice') {
         startListening();
       }
     });
+  };
+
+  const handleReplayQuestion = () => {
+    if (isSpeakingAi) {
+      stopSpeaking();
+      setIsSpeakingAi(false);
+    } else {
+      speakQuestion(currentQuestion.questionText);
+    }
   };
 
   // Web Speech Recognition
   const startListening = () => {
     if (typeof window === 'undefined') return;
 
-    const SpeechRec = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    if (!SpeechRec) {
+    const SpeechRecognition =
+      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
       setSpeechSupported(false);
+      setInputMode('text');
       return;
     }
 
     try {
-      const recognition = new SpeechRec();
+      if (recognitionRef.current) {
+        recognitionRef.current.stop();
+      }
+
+      const recognition = new SpeechRecognition();
       recognition.continuous = true;
       recognition.interimResults = true;
       recognition.lang = 'en-US';
@@ -122,21 +130,20 @@ export default function InterviewRoom({
       };
 
       recognition.onresult = (event: any) => {
-        let finalTrans = '';
-        for (let i = event.resultIndex; i < event.results.length; ++i) {
-          finalTrans += event.results[i][0].transcript;
+        let fullTranscript = '';
+        for (let i = 0; i < event.results.length; i++) {
+          fullTranscript += event.results[i][0].transcript + ' ';
         }
+        const trimmed = fullTranscript.trim();
+        setCandidateText(trimmed);
 
-        setCandidateText((prev) => {
-          const updated = (prev ? prev + ' ' : '') + finalTrans;
-          const stats = analyzeSpeechTranscript(updated);
-          setFillerStats(stats);
-          return updated;
-        });
+        // Analyze filler words in background
+        const stats = analyzeSpeechTranscript(trimmed);
+        setFillerStats(stats);
       };
 
       recognition.onerror = (e: any) => {
-        console.warn('Speech recognition event:', e.error);
+        console.warn('Speech recognition error:', e.error);
         setIsListeningMic(false);
       };
 
@@ -186,7 +193,7 @@ export default function InterviewRoom({
     const updatedHistory = history.map((q) => (q.id === answeredRecord.id ? answeredRecord : q));
     setHistory(updatedHistory);
 
-    // If reached max questions target, trigger completion
+    // If reached target questions, finish interview
     if (updatedHistory.length >= setup.totalQuestionsTarget) {
       setIsSubmitting(false);
       onFinish(updatedHistory);
@@ -233,7 +240,6 @@ export default function InterviewRoom({
       speakQuestion(nextQ.questionText);
     } catch (err) {
       console.error(err);
-      // Fallback: End interview if error
       onFinish(updatedHistory);
     } finally {
       setIsSubmitting(false);
@@ -247,7 +253,7 @@ export default function InterviewRoom({
       if (q.id === currentQuestion.id && !q.candidateAnswer) {
         return {
           ...q,
-          candidateAnswer: candidateText.trim() || 'No answer provided.',
+          candidateAnswer: candidateText.trim() || 'Completed early by candidate.',
           durationSeconds: answerSeconds,
           fillerWordsCount: fillerStats.fillerCount,
         };
@@ -257,270 +263,199 @@ export default function InterviewRoom({
     onFinish(finalHistory);
   };
 
+  const currentNumber = history.length;
+  const totalTarget = setup.totalQuestionsTarget || 6;
+
   return (
-    <div className="max-w-5xl mx-auto space-y-6">
-      {/* Top Header Bar */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-          <div>
-            <div className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-              <span>{setup.roleName}</span>
-              <span className="text-slate-400 font-normal">•</span>
-              <span className="text-xs font-semibold text-blue-600 dark:text-blue-400">{setup.type}</span>
-            </div>
-            <div className="text-[11px] text-slate-500 dark:text-zinc-400">
-              {setup.experience} • {setup.difficulty} Level
-            </div>
-          </div>
+    <div className="max-w-3xl mx-auto space-y-6 animate-fadeIn pb-12">
+      {/* Top Minimal Bar */}
+      <div className="flex items-center justify-between py-2 border-b border-slate-200">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
+            Question {currentNumber} of ~{totalTarget}
+          </span>
+          <span className="text-xs text-slate-400">• {setup.roleName}</span>
         </div>
 
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-slate-700 dark:text-zinc-300 bg-slate-100 dark:bg-zinc-800 px-3 py-1.5 rounded-xl">
-            <Clock className="w-3.5 h-3.5 text-slate-500" />
-            <span>{formatDuration(elapsedSeconds)}</span>
-          </div>
-
+        <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={handleManualFinish}
-            className="py-1.5 px-3 rounded-xl border border-slate-200 dark:border-white/10 hover:bg-red-50 dark:hover:bg-red-950/20 text-red-600 dark:text-red-400 font-bold text-xs flex items-center gap-1 transition-colors cursor-pointer"
+            className="text-xs font-semibold text-slate-600 hover:text-indigo-600 px-3 py-1.5 rounded-lg hover:bg-slate-100 transition-colors"
           >
-            <Flag className="w-3.5 h-3.5" />
-            <span>Finish Interview</span>
+            End & View Score
+          </button>
+          <button
+            type="button"
+            onClick={onExit}
+            title="Exit interview"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+          >
+            <X className="w-4 h-4" />
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        {/* Main Stage (8 Cols): AI Interviewer & Answer Input */}
-        <div className="lg:col-span-8 space-y-6">
-          {/* AI Interviewer Stage Card */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 shadow-md space-y-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                {/* Avatar with Animated Pulse Rings */}
-                <div className="relative">
-                  <div
-                    className={`w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center font-black text-base shadow-md ${
-                      isSpeakingAi ? 'ring-4 ring-blue-400/40 ring-offset-2' : ''
-                    }`}
-                  >
-                    AI
-                  </div>
-                  {isSpeakingAi && (
-                    <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white" />
-                  )}
-                </div>
-
-                <div>
-                  <div className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-                    <span>Senior Interviewer</span>
-                    {isSpeakingAi && (
-                      <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 animate-pulse">
-                        Speaking...
-                      </span>
-                    )}
-                  </div>
-                  <div className="text-xs text-slate-400">
-                    Question {currentQuestion.questionNumber} of {setup.totalQuestionsTarget}
-                  </div>
-                </div>
+      {/* AI Interviewer Card */}
+      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 text-white flex items-center justify-center shadow-md shadow-indigo-500/20">
+                <Bot className="w-6 h-6" />
               </div>
-
-              {/* Speaker Replay Button */}
-              <button
-                type="button"
-                onClick={() =>
-                  isSpeakingAi ? stopSpeaking() : speakQuestion(currentQuestion.questionText)
-                }
-                className="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-zinc-800 text-slate-600 dark:text-zinc-300 transition-colors cursor-pointer"
-                title={isSpeakingAi ? 'Mute AI' : 'Replay question audio'}
-              >
-                {isSpeakingAi ? <VolumeX className="w-4 h-4 text-red-500" /> : <Volume2 className="w-4 h-4" />}
-              </button>
+              {isSpeakingAi && (
+                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-2 ring-white animate-ping" />
+              )}
             </div>
 
-            {/* Question Display */}
-            <div className="p-5 rounded-2xl bg-slate-50/80 dark:bg-zinc-950/80 border border-slate-200/80 dark:border-white/5 space-y-2">
-              <div className="inline-block px-2.5 py-0.5 rounded-md bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 text-[10px] font-bold uppercase tracking-wider">
-                {currentQuestion.category}
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="font-bold text-slate-900 text-sm sm:text-base">AI Interviewer</h3>
+                <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100">
+                  {currentQuestion.category || 'Interview Question'}
+                </span>
               </div>
-              <h1 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-relaxed">
-                &ldquo;{currentQuestion.questionText}&rdquo;
-              </h1>
+              <p className="text-xs text-slate-400">
+                {isSpeakingAi ? 'Speaking question aloud...' : 'Listening for your response'}
+              </p>
+            </div>
+          </div>
 
-              {currentQuestion.followUpReason && (
-                <p className="text-[11px] text-amber-700 dark:text-amber-300/90 font-medium italic pt-1 border-t border-slate-200/40 dark:border-white/5">
-                  ★ Follow-up Context: {currentQuestion.followUpReason}
+          <button
+            type="button"
+            onClick={handleReplayQuestion}
+            className="p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-indigo-600 transition-colors"
+            title={isSpeakingAi ? 'Stop speech' : 'Replay question audio'}
+          >
+            {isSpeakingAi ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+          </button>
+        </div>
+
+        {/* Question Text */}
+        <div className="pt-2">
+          <p className="text-lg sm:text-xl font-semibold text-slate-900 leading-relaxed">
+            &ldquo;{currentQuestion.questionText}&rdquo;
+          </p>
+        </div>
+      </div>
+
+      {/* Candidate Answer Workspace */}
+      <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+        {/* Input Mode Selector & Guidance */}
+        <div className="flex items-center justify-between text-xs text-slate-500 border-b border-slate-100 pb-3">
+          <span className="font-semibold text-slate-700">Your Answer</span>
+
+          <div className="flex items-center gap-2">
+            {inputMode === 'voice' ? (
+              <button
+                type="button"
+                onClick={() => {
+                  stopListening();
+                  setInputMode('text');
+                }}
+                className="inline-flex items-center gap-1.5 text-indigo-600 hover:text-indigo-800 font-semibold"
+              >
+                <Keyboard className="w-3.5 h-3.5" />
+                <span>Switch to typing</span>
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setInputMode('voice')}
+                className="inline-flex items-center gap-1.5 text-indigo-600 hover:text-indigo-800 font-semibold"
+              >
+                <Mic className="w-3.5 h-3.5" />
+                <span>Switch to voice</span>
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Voice Mode View */}
+        {inputMode === 'voice' ? (
+          <div className="py-6 flex flex-col items-center justify-center space-y-4 text-center">
+            <button
+              type="button"
+              onClick={toggleMic}
+              disabled={isSubmitting}
+              className={`w-24 h-24 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 transform active:scale-95 cursor-pointer ${
+                isListeningMic
+                  ? 'bg-rose-500 text-white animate-pulse shadow-rose-500/30 ring-8 ring-rose-100'
+                  : 'bg-gradient-to-tr from-indigo-600 to-violet-600 text-white shadow-indigo-500/30 hover:scale-105'
+              }`}
+            >
+              {isListeningMic ? <Mic className="w-10 h-10" /> : <Mic className="w-10 h-10" />}
+            </button>
+
+            <div>
+              <p className="font-bold text-base text-slate-900">
+                {isListeningMic
+                  ? 'Listening... Speak now'
+                  : isSubmitting
+                  ? 'Processing your answer...'
+                  : '🎙️ Tap to Answer'}
+              </p>
+              <p className="text-xs text-slate-400 mt-0.5">
+                {isListeningMic ? 'Tap again when finished speaking' : 'Tap the microphone to speak your response'}
+              </p>
+            </div>
+
+            {/* Live Transcript Preview */}
+            <div className="w-full text-left p-4 rounded-2xl bg-slate-50 border border-slate-200 min-h-[90px] max-h-48 overflow-y-auto">
+              {candidateText ? (
+                <p className="text-slate-800 text-sm leading-relaxed">{candidateText}</p>
+              ) : (
+                <p className="text-slate-400 text-xs italic">
+                  {isListeningMic ? 'Listening to speech...' : 'Your spoken answer will appear here...'}
                 </p>
               )}
             </div>
           </div>
+        ) : (
+          /* Text Typing View */
+          <div className="space-y-2">
+            <textarea
+              rows={5}
+              value={candidateText}
+              onChange={(e) => {
+                setCandidateText(e.target.value);
+                const stats = analyzeSpeechTranscript(e.target.value);
+                setFillerStats(stats);
+              }}
+              placeholder="Type your answer here... Be specific and use real-world examples."
+              disabled={isSubmitting}
+              className="w-full p-4 rounded-2xl border border-slate-200 focus:border-indigo-600 focus:outline-none text-slate-900 placeholder-slate-400 text-sm leading-relaxed resize-y"
+              autoFocus
+            />
+          </div>
+        )}
 
-          {/* Candidate Response Workspace */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 shadow-md space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400">
-                Your Answer
-              </span>
+        {/* Action Button (Sticky on mobile, clean on desktop) */}
+        <div className="pt-2 flex items-center justify-between">
+          <span className="text-[11px] text-slate-400">
+            {candidateText ? `${candidateText.split(/\s+/).filter(Boolean).length} words` : ''}
+          </span>
 
-              {/* Voice Controls if Voice Mode */}
-              {setup.mode === 'voice' && (
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={toggleMic}
-                    className={`py-1.5 px-3.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
-                      isListeningMic
-                        ? 'bg-red-600 text-white shadow-md animate-pulse'
-                        : 'bg-blue-600 text-white hover:bg-blue-700'
-                    }`}
-                  >
-                    {isListeningMic ? <MicOff className="w-3.5 h-3.5" /> : <Mic className="w-3.5 h-3.5" />}
-                    <span>{isListeningMic ? 'Stop Recording' : 'Start Speaking'}</span>
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* Answer Textbox */}
-            <div className="relative">
-              <textarea
-                rows={5}
-                value={candidateText}
-                onChange={(e) => {
-                  setCandidateText(e.target.value);
-                  const stats = analyzeSpeechTranscript(e.target.value);
-                  setFillerStats(stats);
-                }}
-                placeholder={
-                  setup.mode === 'voice'
-                    ? 'Click "Start Speaking" and answer aloud into your microphone, or edit the transcribed text here...'
-                    : 'Type your answer here. Provide real-world examples and structure your points clearly...'
-                }
-                className="w-full p-4 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-zinc-950 text-sm text-slate-900 dark:text-white leading-relaxed focus:outline-none focus:ring-2 focus:ring-blue-500 font-sans"
-              />
-            </div>
-
-            {/* Live Filler Words & Fluency Alert */}
-            {fillerStats.totalWords > 8 && (
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200/60 dark:border-white/5 flex flex-wrap items-center justify-between gap-2 text-xs">
-                <div className="flex items-center gap-2 text-slate-600 dark:text-zinc-300">
-                  <Sparkles className="w-3.5 h-3.5 text-blue-500" />
-                  <span>
-                    Fluency: <strong>{fillerStats.totalWords} words</strong> spoken
-                  </span>
-                  <span>•</span>
-                  <span>
-                    Filler words: <strong className={fillerStats.fillerCount > 3 ? 'text-amber-500' : 'text-emerald-500'}>{fillerStats.fillerCount}</strong>
-                  </span>
-                </div>
-                <div className="text-[11px] text-slate-400 italic">
-                  {fillerStats.pacingFeedback}
-                </div>
-              </div>
+          <button
+            type="button"
+            onClick={handleSubmitAnswer}
+            disabled={!candidateText.trim() || isSubmitting}
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white font-bold text-sm shadow-md shadow-indigo-500/20 transition-all cursor-pointer"
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Processing next question...</span>
+              </>
+            ) : (
+              <>
+                <span>Send Answer</span>
+                <ArrowRight className="w-4 h-4" />
+              </>
             )}
-
-            {/* Submit Button */}
-            <div className="flex items-center justify-between pt-2">
-              <button
-                type="button"
-                onClick={() => setCandidateText('')}
-                className="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-zinc-200 cursor-pointer"
-              >
-                Clear Answer
-              </button>
-
-              <button
-                type="button"
-                disabled={!candidateText.trim() || isSubmitting}
-                onClick={handleSubmitAnswer}
-                className="py-3 px-6 rounded-2xl bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Analyzing & Preparing Next...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>Submit Answer</span>
-                    <Send className="w-3.5 h-3.5" />
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Sidebar (4 Cols): Progress & Session Diagnostics */}
-        <div className="lg:col-span-4 space-y-4">
-          <div className="p-6 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 shadow-sm space-y-5">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-              Session Progress
-            </h3>
-
-            {/* Progress Bar */}
-            <div className="space-y-1.5">
-              <div className="flex justify-between text-xs font-bold text-slate-700 dark:text-zinc-300">
-                <span>Completed</span>
-                <span className="text-blue-600">
-                  {history.length - 1} / {setup.totalQuestionsTarget}
-                </span>
-              </div>
-              <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-zinc-800 overflow-hidden">
-                <div
-                  className="h-full bg-blue-600 transition-all duration-300"
-                  style={{
-                    width: `${Math.min(100, ((history.length - 1) / setup.totalQuestionsTarget) * 100)}%`,
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* Questions Sequence List */}
-            <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-white/5">
-              <label className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                Questions Flow
-              </label>
-              <div className="space-y-2">
-                {history.map((q, idx) => {
-                  const isCurrent = q.id === currentQuestion.id;
-                  const isDone = Boolean(q.candidateAnswer);
-                  return (
-                    <div
-                      key={q.id}
-                      className={`p-2.5 rounded-xl border text-xs transition-colors flex items-center justify-between ${
-                        isCurrent
-                          ? 'border-blue-600 bg-blue-50/50 dark:bg-blue-950/40 text-blue-900 dark:text-blue-200 font-bold'
-                          : isDone
-                          ? 'border-slate-200 dark:border-white/5 text-slate-600 dark:text-zinc-400'
-                          : 'border-dashed border-slate-200 text-slate-400'
-                      }`}
-                    >
-                      <span className="truncate pr-2">
-                        Q{idx + 1}: {q.category}
-                      </span>
-                      {isDone ? (
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                      ) : isCurrent ? (
-                        <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
-                      ) : null}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Tips Card */}
-            <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-800 dark:text-amber-200/90 space-y-1">
-              <span className="font-bold block">💡 Interview Tip</span>
-              <p className="leading-relaxed">
-                When answering, state the <strong>Action</strong> you personally took, and quantify the <strong>Result</strong>. E.g. &ldquo;Reduced load time from 3.2s to 1.1s.&rdquo;
-              </p>
-            </div>
-          </div>
+          </button>
         </div>
       </div>
     </div>

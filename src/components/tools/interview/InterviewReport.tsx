@@ -10,9 +10,7 @@ import {
   CheckCircle2,
   AlertTriangle,
   Lightbulb,
-  BookOpen,
-  Calendar,
-  Download,
+  ArrowRight,
   RotateCcw,
   Sparkles,
   ChevronDown,
@@ -20,382 +18,499 @@ import {
   TrendingUp,
   Award,
   Layers,
-  ArrowRight,
   Printer,
+  Zap,
+  Target,
+  UserCheck,
+  Code,
+  Calendar,
+  BookOpen,
 } from 'lucide-react';
 
 interface InterviewReportProps {
   report: InterviewEvaluationReport;
   onRestart: () => void;
   onNewSetup: () => void;
+  onPracticeWeakAreas?: () => void;
+  onHarderInterview?: () => void;
+  onPracticeRound?: (roundType: string) => void;
 }
 
 export default function InterviewReport({
   report,
   onRestart,
   onNewSetup,
+  onPracticeWeakAreas,
+  onHarderInterview,
+  onPracticeRound,
 }: InterviewReportProps) {
-  const [openQuestionIdx, setOpenQuestionIdx] = useState<number | null>(0);
+  const [showDetailedReport, setShowDetailedReport] = useState(false);
+  const [activeTab, setActiveTab] = useState<'overview' | 'questions' | 'skills' | 'plan'>('overview');
+  const [openQuestionIdx, setOpenQuestionIdx] = useState<number | null>(null);
 
   const toggleQuestion = (idx: number) => {
     setOpenQuestionIdx(openQuestionIdx === idx ? null : idx);
   };
 
-  const { overallScore, readinessStatus, scores, setup } = report;
+  const { overallScore, readinessStatus, scores, setup, questionsFeedback } = report;
 
-  const scoreColor =
-    overallScore >= 80 ? 'text-emerald-600' : overallScore >= 70 ? 'text-blue-600' : 'text-amber-500';
+  // Primary highlights
+  const topStrength =
+    report.strongestAreas?.[0] || 'Clear baseline fundamentals and professional delivery.';
+  const topWeakness =
+    report.weakestAreas?.[0] || 'Could include more concrete metrics and real-world examples.';
+  const topFocus =
+    report.preparationPlan?.[0]?.focusArea || 'Practice structured STAR behavioral responses.';
 
   const METRIC_LABELS: { key: keyof typeof scores; label: string }[] = [
-    { key: 'technicalKnowledge', label: 'Technical Depth' },
-    { key: 'communication', label: 'Communication & Pacing' },
+    { key: 'technicalKnowledge', label: 'Technical Fundamentals' },
+    { key: 'communication', label: 'Communication & Delivery' },
     { key: 'problemSolving', label: 'Problem Solving & Logic' },
+    { key: 'answerRelevance', label: 'Answer Relevance & Depth' },
+    { key: 'answerStructure', label: 'Answer Structure (STAR)' },
     { key: 'domainKnowledge', label: 'Domain & Role Fluency' },
-    { key: 'answerRelevance', label: 'Answer Relevance' },
-    { key: 'answerStructure', label: 'Structure & STAR Method' },
-    { key: 'confidence', label: 'Confidence & Demeanor' },
-    { key: 'professionalism', label: 'Professionalism & Polish' },
   ];
 
   const handlePrint = () => {
-    if (typeof window !== 'undefined') {
-      window.print();
-    }
+    if (typeof window !== 'undefined') window.print();
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-10">
-      {/* Top Header Card */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 shadow-lg space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-6 border-b border-slate-100 dark:border-white/5">
-          <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-blue-500/10 text-blue-600 dark:text-blue-400">
-              <Award className="w-3.5 h-3.5" />
-              <span>Executive Interview Diagnostic</span>
-            </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-              {setup.roleName} Evaluation Report
-            </h1>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400">
-              {setup.domain} • {setup.experience} • {setup.type} • {report.completedAt}
-            </p>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={handlePrint}
-              className="py-2.5 px-4 rounded-xl border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-zinc-800 text-xs font-bold text-slate-700 dark:text-zinc-300 flex items-center gap-1.5 transition-colors cursor-pointer"
-            >
-              <Printer className="w-3.5 h-3.5" />
-              <span>Print / PDF</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={onRestart}
-              className="py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span>Retake Interview</span>
-            </button>
-          </div>
+    <div className="max-w-3xl mx-auto space-y-8 animate-fadeIn pb-16">
+      {/* 1. COMPLETION HERO CARD */}
+      <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-indigo-500/20 text-center space-y-6">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+          <Sparkles className="w-3.5 h-3.5" /> 🎉 Interview Complete
         </div>
 
-        {/* Overall Score & Readiness Pill */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-          {/* Big Score Meter */}
-          <div className="p-6 rounded-2xl bg-slate-50 dark:bg-zinc-950 border border-slate-100 dark:border-white/5 text-center space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Overall Score</span>
-            <div className={`text-5xl sm:text-6xl font-black tracking-tight ${scoreColor}`}>
-              {overallScore}
-              <span className="text-xl sm:text-2xl font-bold text-slate-400">/100</span>
-            </div>
-            <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 mt-1">
-              {readinessStatus}
-            </span>
-          </div>
-
-          {/* 8-Metric Breakdown Grid (2 cols span) */}
-          <div className="md:col-span-2 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2">
-              Performance Breakdown Across 8 Dimensions
-            </span>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 text-xs">
-              {METRIC_LABELS.map((m) => {
-                const val = scores[m.key] || 75;
-                return (
-                  <div key={m.key} className="space-y-1">
-                    <div className="flex justify-between font-medium">
-                      <span className="text-slate-700 dark:text-zinc-300">{m.label}</span>
-                      <span className="font-bold font-mono text-slate-900 dark:text-white">{val}%</span>
-                    </div>
-                    <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-zinc-800 overflow-hidden">
-                      <div
-                        className={`h-full ${
-                          val >= 80 ? 'bg-emerald-500' : val >= 70 ? 'bg-blue-500' : 'bg-amber-400'
-                        }`}
-                        style={{ width: `${val}%` }}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Strongest vs Weakest Areas */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {/* Strongest */}
-        <div className="p-6 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 shadow-sm space-y-3">
-          <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-sm">
-            <CheckCircle2 className="w-4 h-4" />
-            <span>Key Strengths Observed</span>
-          </div>
-          <ul className="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-            {report.strongestAreas.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <span className="text-emerald-500 font-bold">✓</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Weakest / Gaps */}
-        <div className="p-6 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 shadow-sm space-y-3">
-          <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-bold text-sm">
-            <AlertTriangle className="w-4 h-4" />
-            <span>High-Priority Gaps to Address</span>
-          </div>
-          <ul className="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
-            {report.weakestAreas.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <span className="text-amber-500 font-bold">!</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* Question-by-Question Deep Diagnostics */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <BookOpen className="w-4 h-4 text-blue-600" />
-            <span>Question-by-Question Evaluation & Model Answers</span>
+        <div className="space-y-2">
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+            You completed your mock interview
           </h2>
-          <span className="text-xs text-slate-400">
-            {report.questionsFeedback.length} Questions Evaluated
-          </span>
-        </div>
-
-        <div className="space-y-3">
-          {report.questionsFeedback.map((q, idx) => {
-            const isOpen = openQuestionIdx === idx;
-            const fb = q.feedback;
-            return (
-              <div
-                key={q.id || idx}
-                className="rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs transition-colors"
-              >
-                {/* Header Button */}
-                <button
-                  type="button"
-                  onClick={() => toggleQuestion(idx)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50/50 dark:hover:bg-zinc-800/40"
-                >
-                  <div className="flex items-center gap-3 min-w-0">
-                    <span className="w-7 h-7 rounded-xl bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 font-bold text-xs flex items-center justify-center shrink-0">
-                      {idx + 1}
-                    </span>
-                    <div className="min-w-0">
-                      <div className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white truncate">
-                        {q.questionText}
-                      </div>
-                      <div className="text-[11px] text-slate-400 mt-0.5">
-                        {q.category} • Score: <strong className="text-blue-600">{fb?.score || 75}/100</strong>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 shrink-0">
-                    <span
-                      className={`text-xs font-bold px-2.5 py-0.5 rounded-full ${
-                        (fb?.score || 75) >= 80
-                          ? 'bg-emerald-50 text-emerald-600'
-                          : 'bg-amber-50 text-amber-600'
-                      }`}
-                    >
-                      {fb?.score || 75}%
-                    </span>
-                    {isOpen ? <ChevronDown className="w-4 h-4 text-slate-400" /> : <ChevronRight className="w-4 h-4 text-slate-400" />}
-                  </div>
-                </button>
-
-                {/* Expanded Details */}
-                {isOpen && fb && (
-                  <div className="p-6 pt-2 border-t border-slate-100 dark:border-white/5 space-y-5 text-xs sm:text-sm">
-                    {/* Candidate's Answer */}
-                    <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/60 dark:border-white/5 space-y-1">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        Your Stated Answer
-                      </span>
-                      <p className="text-slate-700 dark:text-zinc-300 italic leading-relaxed">
-                        &ldquo;{q.candidateAnswer || 'No answer submitted'}&rdquo;
-                      </p>
-                    </div>
-
-                    {/* What went well & What was missing */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40 space-y-2">
-                        <span className="font-bold text-emerald-800 dark:text-emerald-300 block">
-                          What You Did Well
-                        </span>
-                        <ul className="space-y-1 text-slate-700 dark:text-zinc-300 text-xs">
-                          {fb.whatWentWell.map((w, i) => (
-                            <li key={i} className="flex items-start gap-1.5">
-                              <span className="text-emerald-600">✓</span>
-                              <span>{w}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="p-4 rounded-2xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 space-y-2">
-                        <span className="font-bold text-amber-800 dark:text-amber-300 block">
-                          What Was Missing
-                        </span>
-                        <ul className="space-y-1 text-slate-700 dark:text-zinc-300 text-xs">
-                          {fb.whatWasMissing.map((m, i) => (
-                            <li key={i} className="flex items-start gap-1.5">
-                              <span className="text-amber-600 font-bold">!</span>
-                              <span>{m}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    {/* Better Approach */}
-                    <div className="p-4 rounded-2xl bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800/40 space-y-1">
-                      <span className="font-bold text-blue-900 dark:text-blue-200 flex items-center gap-1.5">
-                        <Lightbulb className="w-3.5 h-3.5 text-blue-600" />
-                        <span>Recommended Structure (Senior Interviewer Tip)</span>
-                      </span>
-                      <p className="text-slate-700 dark:text-zinc-300 leading-relaxed text-xs">
-                        {fb.betterApproach}
-                      </p>
-                    </div>
-
-                    {/* Suggested Model Answer */}
-                    <div className="p-4 rounded-2xl bg-purple-50/60 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800/40 space-y-1.5">
-                      <span className="font-bold text-purple-900 dark:text-purple-200 flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-purple-600" />
-                        <span>Top 5% Candidate Model Answer</span>
-                      </span>
-                      <p className="text-slate-800 dark:text-zinc-200 leading-relaxed text-xs font-sans">
-                        {fb.suggestedAnswer}
-                      </p>
-                    </div>
-
-                    {/* STAR Breakdown if present */}
-                    {fb.starEvaluation && (
-                      <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-white/5 space-y-2 text-xs">
-                        <span className="font-bold text-slate-800 dark:text-zinc-200">
-                          STAR Method Audit (Score: {fb.starEvaluation.starScore}/100)
-                        </span>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 font-mono text-[11px]">
-                          <div className="p-2 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/5">
-                            <strong className="text-blue-600 block">S (Situation)</strong>
-                            <span className="text-slate-600 dark:text-zinc-400 font-sans">{fb.starEvaluation.situation}</span>
-                          </div>
-                          <div className="p-2 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/5">
-                            <strong className="text-blue-600 block">T (Task)</strong>
-                            <span className="text-slate-600 dark:text-zinc-400 font-sans">{fb.starEvaluation.task}</span>
-                          </div>
-                          <div className="p-2 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/5">
-                            <strong className="text-blue-600 block">A (Action)</strong>
-                            <span className="text-slate-600 dark:text-zinc-400 font-sans">{fb.starEvaluation.action}</span>
-                          </div>
-                          <div className="p-2 rounded-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/5">
-                            <strong className="text-blue-600 block">R (Result)</strong>
-                            <span className="text-slate-600 dark:text-zinc-400 font-sans">{fb.starEvaluation.result}</span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* 7-Day Personalized Preparation Roadmap */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 shadow-sm space-y-6">
-        <div className="space-y-1">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
-            <Calendar className="w-3.5 h-3.5" />
-            <span>Targeted Study Plan</span>
-          </div>
-          <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-            Personalized 7-Day Action Plan for {setup.roleName}
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400">
-            Engineered based on your specific knowledge gaps to maximize interview conversion rates.
+          <p className="text-slate-300 text-xs sm:text-sm max-w-md mx-auto">
+            {setup.roleName} • {setup.experience} • {setup.type}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {report.preparationPlan.map((d) => (
-            <div
-              key={d.day}
-              className="p-4 rounded-2xl bg-slate-50/70 dark:bg-zinc-950/70 border border-slate-200/80 dark:border-white/5 space-y-2 text-xs"
+        {/* Primary Score */}
+        <div className="py-2">
+          <div className="inline-block p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
+            <span className="text-5xl sm:text-6xl font-black text-white tracking-tight">
+              {overallScore}
+            </span>
+            <span className="text-2xl font-bold text-slate-400"> / 100</span>
+
+            <div className="mt-2 text-xs sm:text-sm font-semibold text-emerald-400 flex items-center justify-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4" />
+              <span>{readinessStatus}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 3 Simple Insight Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-left">
+          {/* Strength */}
+          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1">
+            <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-400 uppercase tracking-wide">
+              <span>💪 Your Strength</span>
+            </div>
+            <p className="text-xs text-slate-200 leading-relaxed font-medium">
+              {topStrength}
+            </p>
+          </div>
+
+          {/* Improve */}
+          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1">
+            <div className="flex items-center gap-1.5 text-xs font-bold text-amber-400 uppercase tracking-wide">
+              <span>⚠️ What to Improve</span>
+            </div>
+            <p className="text-xs text-slate-200 leading-relaxed font-medium">
+              {topWeakness}
+            </p>
+          </div>
+
+          {/* Focus Next */}
+          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1">
+            <div className="flex items-center gap-1.5 text-xs font-bold text-indigo-300 uppercase tracking-wide">
+              <span>🎯 Focus Next</span>
+            </div>
+            <p className="text-xs text-slate-200 leading-relaxed font-medium">
+              {topFocus}
+            </p>
+          </div>
+        </div>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+          <button
+            type="button"
+            onClick={() => setShowDetailedReport(!showDetailedReport)}
+            className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white font-bold text-sm shadow-md transition-all cursor-pointer"
+          >
+            {showDetailedReport ? 'Hide Detailed Feedback' : 'View Detailed Feedback →'}
+          </button>
+
+          <button
+            type="button"
+            onClick={onRestart}
+            className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition-colors cursor-pointer"
+          >
+            Practice Again
+          </button>
+        </div>
+      </div>
+
+      {/* 2. ONE-CLICK PRACTICE SHORTCUTS */}
+      <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-3">
+        <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+          One-Click Practice Next
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <button
+            type="button"
+            onClick={onPracticeWeakAreas || onRestart}
+            className="p-3 rounded-xl border border-slate-200 hover:border-indigo-600 hover:bg-indigo-50/50 text-left transition-all cursor-pointer group"
+          >
+            <Target className="w-4 h-4 text-indigo-600 mb-1 group-hover:scale-110 transition-transform" />
+            <span className="font-bold text-xs text-slate-900 block">Practice Weak Areas</span>
+            <span className="text-[10px] text-slate-400 block mt-0.5">Targeted drilling</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={onHarderInterview || onRestart}
+            className="p-3 rounded-xl border border-slate-200 hover:border-indigo-600 hover:bg-indigo-50/50 text-left transition-all cursor-pointer group"
+          >
+            <Zap className="w-4 h-4 text-amber-500 mb-1 group-hover:scale-110 transition-transform" />
+            <span className="font-bold text-xs text-slate-900 block">Harder Level</span>
+            <span className="text-[10px] text-slate-400 block mt-0.5">Senior scrutiny</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => onPracticeRound ? onPracticeRound('Technical Interview') : onRestart()}
+            className="p-3 rounded-xl border border-slate-200 hover:border-indigo-600 hover:bg-indigo-50/50 text-left transition-all cursor-pointer group"
+          >
+            <Code className="w-4 h-4 text-blue-600 mb-1 group-hover:scale-110 transition-transform" />
+            <span className="font-bold text-xs text-slate-900 block">Technical Round</span>
+            <span className="text-[10px] text-slate-400 block mt-0.5">Deep concepts</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => onPracticeRound ? onPracticeRound('HR Interview') : onRestart()}
+            className="p-3 rounded-xl border border-slate-200 hover:border-indigo-600 hover:bg-indigo-50/50 text-left transition-all cursor-pointer group"
+          >
+            <UserCheck className="w-4 h-4 text-emerald-600 mb-1 group-hover:scale-110 transition-transform" />
+            <span className="font-bold text-xs text-slate-900 block">HR Round</span>
+            <span className="text-[10px] text-slate-400 block mt-0.5">Culture & behavioral</span>
+          </button>
+        </div>
+      </div>
+
+      {/* 3. PROGRESSIVE DETAILED TABS (When user clicks "View Detailed Feedback") */}
+      {showDetailedReport && (
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6 animate-fadeIn">
+          {/* Tab Navigation */}
+          <div className="flex items-center gap-2 border-b border-slate-100 pb-3 overflow-x-auto">
+            {[
+              { id: 'overview', label: '📊 Overview' },
+              { id: 'questions', label: '💬 Question Breakdown' },
+              { id: 'skills', label: '🛠️ Skills Audit' },
+              { id: 'plan', label: '📅 7-Day Roadmap' },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setActiveTab(tab.id as any)}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all cursor-pointer ${
+                  activeTab === tab.id
+                    ? 'bg-indigo-50 text-indigo-700 shadow-sm'
+                    : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+
+            <button
+              type="button"
+              onClick={handlePrint}
+              className="ml-auto inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-indigo-600 py-1.5 px-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors"
             >
-              <div className="flex items-center justify-between">
-                <span className="font-bold text-sm text-blue-600 dark:text-blue-400">{d.title}</span>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-slate-200 dark:bg-zinc-800 text-slate-600">
-                  Day {d.day}
-                </span>
+              <Printer className="w-3.5 h-3.5" /> Print / PDF
+            </button>
+          </div>
+
+          {/* TAB 1: OVERVIEW (Visual Scorecard) */}
+          {activeTab === 'overview' && (
+            <div className="space-y-6 animate-fadeIn">
+              <div>
+                <h3 className="font-bold text-slate-900 text-base mb-1">
+                  6-Dimension Performance Breakdown
+                </h3>
+                <p className="text-xs text-slate-500">
+                  Scores calculated based on answer completeness, structure, and domain depth.
+                </p>
               </div>
-              <p className="text-slate-700 dark:text-zinc-300 font-medium leading-snug">{d.focusArea}</p>
-              <div className="pt-1 space-y-1 text-slate-600 dark:text-zinc-400">
-                {d.actionItems.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-1.5">
-                    <span className="text-blue-500 font-bold">•</span>
-                    <span>{item}</span>
+
+              <div className="space-y-4">
+                {METRIC_LABELS.map(({ key, label }) => {
+                  const val = scores[key] || 75;
+                  const barColor =
+                    val >= 80 ? 'bg-emerald-500' : val >= 70 ? 'bg-indigo-600' : 'bg-amber-500';
+
+                  return (
+                    <div key={key} className="space-y-1.5">
+                      <div className="flex justify-between text-xs font-semibold">
+                        <span className="text-slate-700">{label}</span>
+                        <span className="text-slate-900 font-bold">{val}%</span>
+                      </div>
+                      <div className="h-2 rounded-full bg-slate-100 overflow-hidden">
+                        <div
+                          className={`h-full rounded-full transition-all duration-700 ${barColor}`}
+                          style={{ width: `${val}%` }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Identified Strong & Weak Bullet Points */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
+                <div className="space-y-2">
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                    Key Strengths Demonstrated
+                  </h4>
+                  <ul className="space-y-1.5 text-xs text-slate-700">
+                    {(report.strongestAreas || []).map((s, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="space-y-2">
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                    Areas to Sharpen
+                  </h4>
+                  <ul className="space-y-1.5 text-xs text-slate-700">
+                    {(report.weakestAreas || []).map((w, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <AlertTriangle className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
+                        <span>{w}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 2: QUESTIONS (Candidate Answer & Collapsed Feedback) */}
+          {activeTab === 'questions' && (
+            <div className="space-y-4 animate-fadeIn">
+              <div>
+                <h3 className="font-bold text-slate-900 text-base mb-1">
+                  Question-by-Question Diagnostic
+                </h3>
+                <p className="text-xs text-slate-500">
+                  Click &ldquo;View Feedback&rdquo; on any question to view model answers and the STAR breakdown.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {questionsFeedback.map((q, idx) => {
+                  const isOpen = openQuestionIdx === idx;
+                  const fb = q.feedback;
+
+                  return (
+                    <div
+                      key={q.id || idx}
+                      className="border border-slate-200 rounded-2xl overflow-hidden bg-white"
+                    >
+                      <div className="p-4 space-y-2">
+                        <div className="flex items-center justify-between text-xs text-slate-400">
+                          <span className="font-bold uppercase tracking-wider text-slate-500">
+                            Question {idx + 1} • {q.category || 'Core Question'}
+                          </span>
+                          {fb?.score && (
+                            <span className="font-bold text-indigo-600 px-2 py-0.5 bg-indigo-50 rounded-md">
+                              {fb.score}% Match
+                            </span>
+                          )}
+                        </div>
+
+                        <p className="font-bold text-slate-900 text-sm">{q.questionText}</p>
+
+                        <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-700">
+                          <span className="font-semibold block text-slate-400 mb-1">
+                            Your Response:
+                          </span>
+                          <p className="italic leading-relaxed">
+                            &ldquo;{q.candidateAnswer || 'No verbal answer recorded.'}&rdquo;
+                          </p>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => toggleQuestion(idx)}
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 hover:text-indigo-800 transition-colors pt-1 cursor-pointer"
+                        >
+                          <span>{isOpen ? 'Hide AI Feedback' : 'View AI Feedback →'}</span>
+                          {isOpen ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
+                        </button>
+                      </div>
+
+                      {/* Collapsible Feedback Block */}
+                      {isOpen && fb && (
+                        <div className="p-4 pt-2 border-t border-slate-100 bg-indigo-50/30 text-xs space-y-3 animate-fadeIn">
+                          {/* What went well */}
+                          {fb.whatWentWell?.length > 0 && (
+                            <div className="space-y-1">
+                              <span className="font-bold text-emerald-700 flex items-center gap-1">
+                                <CheckCircle2 className="w-3.5 h-3.5" /> What Went Well:
+                              </span>
+                              <ul className="list-disc pl-5 text-slate-700 space-y-0.5">
+                                {fb.whatWentWell.map((item, i) => (
+                                  <li key={i}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {/* What could be better */}
+                          {fb.whatWasMissing?.length > 0 && (
+                            <div className="space-y-1">
+                              <span className="font-bold text-amber-700 flex items-center gap-1">
+                                <AlertTriangle className="w-3.5 h-3.5" /> Could Be Improved:
+                              </span>
+                              <ul className="list-disc pl-5 text-slate-700 space-y-0.5">
+                                {fb.whatWasMissing.map((item, i) => (
+                                  <li key={i}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {/* Model Suggested Answer */}
+                          {fb.suggestedAnswer && (
+                            <div className="p-3 rounded-xl bg-white border border-indigo-100 space-y-1">
+                              <span className="font-bold text-indigo-700 flex items-center gap-1">
+                                <Lightbulb className="w-3.5 h-3.5" /> Recommended Model Answer:
+                              </span>
+                              <p className="text-slate-700 leading-relaxed font-sans">
+                                {fb.suggestedAnswer}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: SKILLS AUDIT */}
+          {activeTab === 'skills' && (
+            <div className="space-y-6 animate-fadeIn">
+              <div>
+                <h3 className="font-bold text-slate-900 text-base mb-1">
+                  Skills Competency Verification
+                </h3>
+                <p className="text-xs text-slate-500">
+                  Skills evaluated during your responses for {setup.roleName}.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100 space-y-2">
+                  <h4 className="font-bold text-emerald-800 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <span>Skills Demonstrated</span>
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {(report.strongestAreas || ['Core Domain Knowledge', 'Professional Tone']).map((s, i) => (
+                      <span key={i} className="px-2.5 py-1 rounded-lg bg-white border border-emerald-200 text-emerald-800 text-xs font-medium">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-amber-50/50 border border-amber-100 space-y-2">
+                  <h4 className="font-bold text-amber-800 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                    <AlertTriangle className="w-4 h-4 text-amber-600" />
+                    <span>Skill Gaps to Cover</span>
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {(report.technicalGaps || ['Advanced Scenario Nuance', 'Quantifiable Metrics']).map((g, i) => (
+                      <span key={i} className="px-2.5 py-1 rounded-lg bg-white border border-amber-200 text-amber-800 text-xs font-medium">
+                        {g}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 4: 7-DAY IMPROVEMENT PLAN */}
+          {activeTab === 'plan' && (
+            <div className="space-y-6 animate-fadeIn">
+              <div>
+                <h3 className="font-bold text-slate-900 text-base mb-1">
+                  Your Personalized 7-Day Roadmap
+                </h3>
+                <p className="text-xs text-slate-500">
+                  Targeted daily revision topics to turn your weak spots into strengths.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {(report.preparationPlan || []).map((day) => (
+                  <div
+                    key={day.day}
+                    className="p-4 rounded-2xl border border-slate-200 bg-white space-y-2"
+                  >
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-extrabold text-indigo-600 px-2 py-0.5 rounded bg-indigo-50 border border-indigo-100">
+                        Day {day.day}
+                      </span>
+                      <span className="font-semibold text-slate-500">{day.focusArea}</span>
+                    </div>
+
+                    <h4 className="font-bold text-slate-900 text-sm">{day.title}</h4>
+
+                    <div className="space-y-1 text-xs text-slate-600">
+                      {(day.actionItems || []).map((act, i) => (
+                        <div key={i} className="flex items-start gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-indigo-500 shrink-0 mt-0.5" />
+                          <span>{act}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
-          ))}
+          )}
         </div>
-      </div>
+      )}
 
-      {/* Footer CTA */}
-      <div className="p-6 rounded-3xl bg-slate-100 dark:bg-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-        <div>
-          <h3 className="font-bold text-sm text-slate-900 dark:text-white">
-            Ready to drill another domain or designation?
-          </h3>
-          <p className="text-xs text-slate-500 dark:text-zinc-400">
-            Practice across IT, HR, BPO, Digital Marketing, Sales, Finance, and Management.
-          </p>
-        </div>
-
+      {/* Start New Setup button */}
+      <div className="text-center pt-4">
         <button
           type="button"
           onClick={onNewSetup}
-          className="py-2.5 px-5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 transition-colors cursor-pointer shrink-0"
+          className="text-xs font-semibold text-slate-500 hover:text-indigo-600 transition-colors"
         >
-          <span>Configure New Interview</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          ← Choose another role or start fresh
         </button>
       </div>
     </div>

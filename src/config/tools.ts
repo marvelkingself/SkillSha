@@ -132,14 +132,14 @@ export const TOOLS_CONFIG: ToolConfig[] = [
   {
     slug: 'ai-interview-preparation',
     name: 'AI Interview Preparation',
-    shortDescription: 'Practice realistic AI-powered interviews tailored to your role, experience and industry.',
+    shortDescription: 'Practice realistic interviews with AI based on your role, experience and resume.',
     category: 'Productivity Tools',
     iconName: 'Bot',
     route: '/tools/ai-interview-preparation',
     status: 'active',
     badge: 'AI Powered',
-    ctaText: 'Start Interview',
-    secondaryText: 'Practice HR, Technical, BPO, IT, Digital Marketing, Sales and more.',
+    ctaText: 'Start Practicing →',
+    tags: ['HR', 'Technical', 'BPO', 'IT', 'Marketing'],
     seoTitle: 'AI Interview Preparation - Practice Mock Interviews with AI | Skillsha',
     seoDescription: 'Practice realistic AI-powered mock interviews tailored to your role, experience, and industry. Voice and text modes, STAR feedback, and personalized 7-day plan.',
     keywords: [
