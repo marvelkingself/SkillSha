@@ -45,14 +45,20 @@ export default function ToolsFooter() {
                 </Link>
               </li>
               <li>
-                <span className="text-zinc-400 dark:text-zinc-600 flex items-center gap-1">
-                  Image Compressor <span className="text-[10px] uppercase font-bold text-zinc-400">(Soon)</span>
-                </span>
+                <Link
+                  href="/tools/image-compressor"
+                  className="hover:text-brand-orange dark:hover:text-white transition-colors"
+                >
+                  Image Compressor
+                </Link>
               </li>
               <li>
-                <span className="text-zinc-400 dark:text-zinc-600 flex items-center gap-1">
-                  Image Resizer <span className="text-[10px] uppercase font-bold text-zinc-400">(Soon)</span>
-                </span>
+                <Link
+                  href="/tools/image-resizer"
+                  className="hover:text-brand-orange dark:hover:text-white transition-colors"
+                >
+                  Image Resizer
+                </Link>
               </li>
             </ul>
           </div>
