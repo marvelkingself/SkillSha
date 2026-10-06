@@ -11,6 +11,8 @@ import {
   FileText,
   ArrowRight,
   Clock,
+  Bot,
+  Briefcase,
 } from 'lucide-react';
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -22,6 +24,8 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Globe,
   Code,
   FileText,
+  Bot,
+  Briefcase,
 };
 
 interface ToolCardProps {
@@ -78,6 +82,11 @@ export default function ToolCard({ tool }: ToolCardProps) {
             <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 leading-relaxed">
               {tool.shortDescription}
             </p>
+            {tool.secondaryText && (
+              <p className="text-[11px] text-blue-600 dark:text-blue-400 font-medium pt-0.5 line-clamp-1">
+                {tool.secondaryText}
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -89,7 +98,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
             href={tool.route}
             className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-md shadow-blue-500/25 transition-all group-hover:shadow-blue-500/40"
           >
-            <span>Open Tool</span>
+            <span>{tool.ctaText || 'Open Tool'}</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         ) : (

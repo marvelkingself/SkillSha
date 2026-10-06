@@ -120,6 +120,14 @@ export default function ToolsFooter() {
               </li>
               <li>
                 <Link
+                  href="/tools/ai-interview-preparation"
+                  className="hover:text-brand-orange dark:hover:text-white transition-colors"
+                >
+                  AI Interview Prep
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/tools"
                   className="hover:text-brand-orange dark:hover:text-white transition-colors font-semibold text-blue-600 dark:text-blue-400"
                 >

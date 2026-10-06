@@ -17,6 +17,8 @@ export interface ToolConfig {
   route: string;
   status: ToolStatus;
   badge?: string;
+  ctaText?: string;
+  secondaryText?: string;
   seoTitle: string;
   seoDescription: string;
   keywords?: string[];

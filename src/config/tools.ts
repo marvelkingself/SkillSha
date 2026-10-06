@@ -129,6 +129,29 @@ export const TOOLS_CONFIG: ToolConfig[] = [
     seoDescription: 'Compress PDF files online securely and quickly without losing quality. 100% in-browser privacy.',
     keywords: ['pdf compressor', 'reduce pdf size', 'compress pdf online', 'pdf shrinker'],
   },
+  {
+    slug: 'ai-interview-preparation',
+    name: 'AI Interview Preparation',
+    shortDescription: 'Practice realistic AI-powered interviews tailored to your role, experience and industry.',
+    category: 'Productivity Tools',
+    iconName: 'Bot',
+    route: '/tools/ai-interview-preparation',
+    status: 'active',
+    badge: 'AI Powered',
+    ctaText: 'Start Interview',
+    secondaryText: 'Practice HR, Technical, BPO, IT, Digital Marketing, Sales and more.',
+    seoTitle: 'AI Interview Preparation - Practice Mock Interviews with AI | Skillsha',
+    seoDescription: 'Practice realistic AI-powered mock interviews tailored to your role, experience, and industry. Voice and text modes, STAR feedback, and personalized 7-day plan.',
+    keywords: [
+      'ai interview preparation',
+      'ai mock interview',
+      'interview practice online',
+      'technical interview practice',
+      'hr interview questions ai',
+      'bpo mock interview',
+      'star method interview',
+    ],
+  },
 ];
 
 export function getToolBySlug(slug: string): ToolConfig | undefined {
