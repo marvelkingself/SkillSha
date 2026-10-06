@@ -4,7 +4,8 @@ export type ToolCategory =
   | 'Marketing Tools'
   | 'Developer Tools'
   | 'Productivity Tools'
-  | 'PDF Tools';
+  | 'PDF Tools'
+  | 'Career Tools';
 
 export type ToolStatus = 'active' | 'beta' | 'coming-soon';
 

@@ -120,6 +120,22 @@ export default function ToolsFooter() {
               </li>
               <li>
                 <Link
+                  href="/tools/ai-resume-builder"
+                  className="hover:text-brand-orange dark:hover:text-white transition-colors"
+                >
+                  AI Resume Builder
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/tools/ats-resume-checker"
+                  className="hover:text-brand-orange dark:hover:text-white transition-colors"
+                >
+                  ATS Resume Checker
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/tools/ai-interview-preparation"
                   className="hover:text-brand-orange dark:hover:text-white transition-colors"
                 >

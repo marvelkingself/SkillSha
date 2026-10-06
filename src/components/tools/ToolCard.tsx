@@ -13,6 +13,16 @@ import {
   Clock,
   Bot,
   Briefcase,
+  Search,
+  Mail,
+  Target,
+  Puzzle,
+  Compass,
+  DollarSign,
+  TrendingUp,
+  MapPin,
+  Share2,
+  Send,
 } from 'lucide-react';
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -26,6 +36,16 @@ const ICON_MAP: Record<string, React.ElementType> = {
   FileText,
   Bot,
   Briefcase,
+  Search,
+  Mail,
+  Target,
+  Puzzle,
+  Compass,
+  DollarSign,
+  TrendingUp,
+  MapPin,
+  Share2,
+  Send,
 };
 
 interface ToolCardProps {
