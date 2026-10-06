@@ -6,8 +6,8 @@ export default function ToolsFooter() {
   return (
     <footer className="mt-24 border-t border-zinc-200/80 dark:border-white/10 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-md pt-16 pb-12 px-6 lg:px-12">
       <div className="max-w-[1300px] mx-auto space-y-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-          {/* Brand Info */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+          {/* Brand Info (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-1.5 cursor-pointer">
               <Image
@@ -26,7 +26,7 @@ export default function ToolsFooter() {
             </p>
             <div className="flex items-center gap-2 text-xs text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/40 px-3 py-2 rounded-xl w-fit">
               <ShieldCheck className="w-4 h-4 shrink-0" />
-              <span>Zero-Storage Guarantee: In-memory temporary processing.</span>
+              <span>Zero-Storage Guarantee: 100% In-Browser Privacy.</span>
             </div>
           </div>
 
@@ -70,24 +70,66 @@ export default function ToolsFooter() {
             </h3>
             <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
               <li>
-                <span className="text-zinc-400 dark:text-zinc-600 flex items-center gap-1">
-                  QR Code Generator <span className="text-[10px] uppercase font-bold text-zinc-400">(Soon)</span>
-                </span>
+                <Link
+                  href="/tools/qr-generator"
+                  className="hover:text-brand-orange dark:hover:text-white transition-colors"
+                >
+                  QR Code Generator
+                </Link>
               </li>
               <li>
-                <span className="text-zinc-400 dark:text-zinc-600 flex items-center gap-1">
-                  UTM Link Builder <span className="text-[10px] uppercase font-bold text-zinc-400">(Soon)</span>
-                </span>
+                <Link
+                  href="/tools/utm-builder"
+                  className="hover:text-brand-orange dark:hover:text-white transition-colors"
+                >
+                  UTM Campaign Builder
+                </Link>
               </li>
               <li>
-                <span className="text-zinc-400 dark:text-zinc-600 flex items-center gap-1">
-                  SEO Meta Tag Generator <span className="text-[10px] uppercase font-bold text-zinc-400">(Soon)</span>
-                </span>
+                <Link
+                  href="/tools/seo-meta-generator"
+                  className="hover:text-brand-orange dark:hover:text-white transition-colors"
+                >
+                  SEO Meta Tag Generator
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Skillsha Platform */}
+          {/* Column 3: Developer & PDF */}
+          <div className="space-y-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+              Dev & PDF Tools
+            </h3>
+            <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+              <li>
+                <Link
+                  href="/tools/json-formatter"
+                  className="hover:text-brand-orange dark:hover:text-white transition-colors"
+                >
+                  JSON Formatter
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/tools/pdf-compressor"
+                  className="hover:text-brand-orange dark:hover:text-white transition-colors"
+                >
+                  PDF Compressor
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/tools"
+                  className="hover:text-brand-orange dark:hover:text-white transition-colors font-semibold text-blue-600 dark:text-blue-400"
+                >
+                  View All Tools →
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Skillsha Platform */}
           <div className="space-y-3">
             <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
               Skillsha
