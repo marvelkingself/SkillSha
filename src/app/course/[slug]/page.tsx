@@ -2,6 +2,8 @@ import { COURSES_DATA, COURSE_SLUG_MAP, getCourseIdBySlug, getCourseSlugById, ge
 import { CITIES_LIST } from "@/data/cities";
 import { notFound } from "next/navigation";
 import CourseDetailClient from "@/components/CourseDetailClient";
+import DataAnalyticsCityPage from "@/components/course/DataAnalyticsCityPage";
+import { getAnalyticsCityData } from "@/data/data-analytics-course";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -37,6 +39,69 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const rawMetadata = await (async (): Promise<Metadata> => {
+    // Data Analytics Course with Gen AI
+    if (id === "data-analytics-with-gen-ai") {
+      const { city: citySlug } = getCourseAndCityFromSlug(slug);
+      const cityAnalytics = getAnalyticsCityData(citySlug);
+      const title = `Data Analytics Course in ${cityAnalytics.city} with Gen AI | Skillsha`;
+      const description = `Skillsha Data Analytics with Gen AI course in ${cityAnalytics.city} runs for 6-7 months with dedicated career and placement assistance. Enroll now for top-tier analytics.`;
+      const keywords = `data analytics course in ${cityAnalytics.city.toLowerCase()}, data analytics training in ${cityAnalytics.city.toLowerCase()}, data analytics course in ${cityAnalytics.city.toLowerCase()} with placement, data analyst course in ${cityAnalytics.city.toLowerCase()}, Gen AI for data analytics`;
+
+      return {
+        title,
+        description,
+        keywords,
+        alternates: {
+          canonical: `https://skillsha.com/course/${slug}`,
+          languages: {
+            en: `https://skillsha.com/course/${slug}`,
+            "x-default": `https://skillsha.com/course/${slug}`,
+          },
+        },
+        robots: {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1,
+          },
+        },
+        other: {
+          "content-language": "en",
+          author: "SkillSha",
+          publisher: "SkillSha",
+          "theme-color": "#0F172A",
+          "msapplication-TileColor": "#0F172A",
+        },
+        openGraph: {
+          type: "website",
+          siteName: "SkillSha",
+          title,
+          description: `Master data analytics and Gen AI in ${cityAnalytics.city} with live sessions and career support from Skillsha.`,
+          url: `https://skillsha.com/course/${slug}`,
+          images: [
+            {
+              url: "https://skillsha.com/files/logo-icon.png",
+              width: 512,
+              height: 512,
+              alt: `Data Analytics Course in ${cityAnalytics.city} with Gen AI student learning analytics at Skillsha`,
+            },
+          ],
+          locale: "en_IN",
+          alternateLocale: ["en_US"],
+        },
+        twitter: {
+          card: "summary_large_image",
+          title,
+          description: `Master data analytics and Gen AI in ${cityAnalytics.city} with live sessions and career support from Skillsha.`,
+          images: ["https://skillsha.com/files/logo-icon.png"],
+        },
+      };
+    }
+
     // 1. Noida Special Case
     if (slug === "digital-marketing-course-in-noida-with-gen-ai") {
       return {
@@ -270,6 +335,234 @@ export default async function CourseDetailPage({ params }: PageProps) {
 
   if (!id || !data) {
     notFound();
+  }
+
+  // Special Handler: Data Analytics with Gen AI (City Blueprint Page)
+  if (id === "data-analytics-with-gen-ai") {
+    const cityAnalytics = getAnalyticsCityData(city);
+    const courseSchema = {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": `Data Analytics Course in ${cityAnalytics.city} with Gen AI`,
+      "description": `Comprehensive 6-7 months Data Analytics with Gen AI course for learners in ${cityAnalytics.city} featuring 150+ hours of content, 90+ live sessions, 15+ tools, and dedicated career and placement assistance.`,
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "Skillsha",
+        "url": "https://skillsha.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "D-34, Sector - 2, Near Noida Sector 16 and 15 Metro Station",
+          "addressLocality": "Noida",
+          "addressRegion": "Uttar Pradesh",
+          "postalCode": "201301",
+          "addressCountry": "IN"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "25370",
+        "priceCurrency": "INR",
+        "category": "Paid",
+        "availability": "https://schema.org/InStock",
+        "url": `https://skillsha.com/course/${slug}`
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": cityAnalytics.isNoidaCentre ? "Blended" : "Online",
+        "courseWorkload": "PT150H",
+        "duration": "P7M"
+      }
+    };
+
+    const orgSchema = {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Skillsha",
+      "url": "https://skillsha.com",
+      "logo": "https://skillsha.com/files/logo-icon.png",
+      "telephone": "+91 73030 82191",
+      "email": "info@skillsha.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "D-34, Sector - 2, Near Noida Sector 16 and 15 Metro Station",
+        "addressLocality": "Noida",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "201301",
+        "addressCountry": "IN"
+      }
+    };
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://skillsha.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Courses",
+          "item": "https://skillsha.com/courses"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": `Data Analytics Course in ${cityAnalytics.city} with Gen AI`,
+          "item": `https://skillsha.com/course/${slug}`
+        }
+      ]
+    };
+
+    const webPageSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": `Data Analytics Course in ${cityAnalytics.city} with Gen AI | Skillsha`,
+      "url": `https://skillsha.com/course/${slug}`,
+      "description": `Skillsha Data Analytics with Gen AI course in ${cityAnalytics.city} runs for 6-7 months with dedicated career and placement assistance. Enroll now for top-tier analytics.`,
+      "author": {
+        "@type": "Person",
+        "name": "Mr. Gufran"
+      },
+      "reviewedBy": {
+        "@type": "Person",
+        "name": "Mr. Irshad Khan",
+        "jobTitle": "Technical Reviewer at Skillsha"
+      },
+      "dateModified": "2026-10-06"
+    };
+
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Data Analytics with Gen AI course at Skillsha?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Data Analytics with Gen AI course is a 6-7 months comprehensive training program. It provides 150+ hours of content across 90+ live sessions covering Excel, SQL, Python, Power BI, and generative AI. Learners build portfolio projects and receive dedicated career and placement assistance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `What is the fee of the data analytics course in ${cityAnalytics.city}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `The course fee is ₹21,500 plus 18% GST, totaling ₹25,370. This comprehensive tuition covers all 150+ hours of content, 90+ live sessions, project evaluations, and dedicated career and placement assistance. Flexible monthly installment plans are available starting at ₹4,622 per month for six months. Fee verified by Admin Department, reviewed 6 October 2026.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Is EMI available for the data analytics course in ${cityAnalytics.city}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Yes, monthly EMI options are available starting at ₹4,622 per month for six months. Learners can divide the total tuition of ₹25,370 into manageable installments rather than paying upfront. Specific installment terms and payment schedules are confirmed during enrollment. Fee verified by Admin Department, reviewed 6 October 2026.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `How long is the data analytics course in ${cityAnalytics.city}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `The program duration is 6-7 months of comprehensive interactive learning. During this period, students complete 150+ hours of content delivered through 90+ live sessions. The structured schedule allows college students and working professionals to balance training commitments alongside their daily routines effectively.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Does Skillsha have a centre in ${cityAnalytics.city}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": cityAnalytics.q5Answer
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need coding knowledge to join?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No prior coding knowledge or technical programming background is required to enroll. The curriculum begins with fundamental spreadsheet formulas and introductory SQL queries before gradually progressing to Python scripting. All you need is a laptop, stable internet connection, basic mathematics familiarity, and a willingness to practice analytical concepts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which tools and software will I learn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You will master 15+ tools and software across analysis, databases, programming, visualization, and generative AI. The curriculum covers Excel, Google Sheets, MySQL, PostgreSQL, Python, Pandas, NumPy, Matplotlib, Seaborn, Jupyter Notebook, Power BI, Tableau, Looker Studio, Git, GitHub, ChatGPT, Claude, and Gemini for end-to-end data reporting workflows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What salary can a fresher expect after this course?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A fresher data analyst in India can realistically expect a starting salary between ₹3–6 LPA. Strong freshers possessing well-documented project portfolios and sharp SQL skills can target ₹6–10 LPA, while internship stipends typically range from ₹10k–30k/month. Exact compensation depends on candidate skills, project depth, and hiring company policies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Does Skillsha provide placement assistance for ${cityAnalytics.city} learners?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Yes, Skillsha provides dedicated career and placement assistance to all eligible ${cityAnalytics.city} learners. Career support includes one-on-one resume reviews, GitHub portfolio optimization, mock technical interviews, and connections to corporate hiring drives across our network of 100+ hiring partners. Source: Skillsha internal placement records, reviewed 6 October 2026.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many live sessions and content hours are included?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The course includes 150+ hours of content and 90+ live interactive sessions. Instruction is delivered live by corporate trainers who solve realistic datasets in real time. Students participate in live discussions, ask questions directly, and work through hands-on assignments to ensure thorough comprehension of analytical tools and methods."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who verified the information on this page?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This page copy was written by Mr. Gufran and verified by Mr. Farman and Mr. Irshad Khan. Technical details and final checks were completed by Mr. Irshad Khan, Technical Reviewer at Skillsha. Fee details were verified by the Admin Department, and placement data was confirmed from internal placement records."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When do the next batches start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Skillsha launches 8+ new batches every month with convenient weekday and weekend schedule options. Batches are organized to accommodate both full-time college students and working professionals across ${cityAnalytics.city}. To confirm the immediate upcoming batch dates, connect directly with a Skillsha program advisor today.`
+          }
+        }
+      ]
+    };
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <DataAnalyticsCityPage cityData={cityAnalytics} />
+      </>
+    );
   }
 
   const isNoidaFlagship = slug === "digital-marketing-course-in-noida-with-gen-ai";

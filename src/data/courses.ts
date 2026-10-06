@@ -58,7 +58,8 @@ export const COURSE_SLUG_MAP: Record<string, string> = {
   "ai-healthcare-doctor": "ai-healthcare-doctor-course-with-gen-ai",
   "ai-clinical-nurse": "ai-clinical-nurse-course-with-gen-ai",
   "ai-finance-ca": "ai-finance-ca-course-with-gen-ai",
-  "devops-with-gen-ai": "devops-course-with-gen-ai"
+  "devops-with-gen-ai": "devops-course-with-gen-ai",
+  "data-analytics-with-gen-ai": "data-analytics-course-with-gen-ai"
 };
 
 export function getCourseSlugById(id: string, city?: string): string {
@@ -106,6 +107,19 @@ export function getCourseIdBySlug(slug: string): string | undefined {
 }
 
 export const COURSES_DATA: Record<string, CourseData> = {
+  "data-analytics-with-gen-ai": {
+    title: "Data Analytics with Gen AI",
+    certificateTitle: "Data Analytics with Gen AI",
+    typewriter: ["SQL & Python Analytics", "Power BI & Tableau", "Generative AI Workflows", "Business Intelligence", "Predictive Modeling"],
+    description: "Master Data Analytics with Generative AI. 6-7 Months program with 150+ hours of content, 90+ live sessions, 15+ tools, real-world capstone projects, and dedicated career and placement assistance.",
+    duration: "6-7 Months",
+    salary: "₹ 6-10 LPA",
+    liveSessions: "90+ Live Sessions",
+    projects: "3+ Capstones",
+    milestoneWord: "Ten",
+    milestones: [],
+    faqs: []
+  },
   "digital-marketing-with-gen-ai": {
     title: "Digital Marketing with Gen AI",
     certificateTitle: "Digital Marketing with Gen AI",
