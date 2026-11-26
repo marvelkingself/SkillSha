@@ -507,18 +507,36 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
       </div>
 
       {/* Pricing Intro Card */}
-      <div className="mt-8 p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 hover:border-brand-orange/20 transition-all duration-300">
-        <h3 className="text-md font-bold text-zinc-900 dark:text-white mb-4">Affordable Yet Premium Quality</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {content.pricing.slice(0, 5).map((priceLine: string, pIdx: number) => (
-            <div key={pIdx} className="flex items-center gap-2.5">
-              <span className="material-symbols-outlined text-brand-orange text-sm shrink-0">local_offer</span>
-              <span className="text-xs text-zinc-600 dark:text-zinc-300 font-medium font-sans">{priceLine}</span>
-            </div>
-          ))}
+      <div className="mt-8 p-6 rounded-3xl border border-emerald-500/20 dark:border-emerald-500/20 bg-gradient-to-r from-emerald-500/[0.04] via-transparent to-brand-orange/[0.03] dark:bg-zinc-900/10 hover:border-brand-orange/30 transition-all duration-300">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <h3 className="text-md font-bold text-zinc-900 dark:text-white flex items-center gap-2">
+            <span>Affordable Yet Premium Quality</span>
+          </h3>
+          <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-[11px] font-bold border border-emerald-500/25">
+            🔥 50% Early-Bird Discount Active
+          </span>
         </div>
-        <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-white/5 text-xs text-zinc-500 dark:text-zinc-400 italic">
-          {content.pricing[5]}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          {content.pricing.slice(0, 5).map((priceLine: string, pIdx: number) => {
+            const isHighlight = /50%|discount|cashback|net|investment/i.test(priceLine);
+            return (
+              <div key={pIdx} className={`flex items-center gap-2.5 p-2.5 rounded-xl transition-all ${isHighlight ? 'bg-emerald-500/[0.08] dark:bg-emerald-500/15 border border-emerald-500/20' : 'bg-zinc-50 dark:bg-white/[0.02] border border-zinc-100 dark:border-white/5'}`}>
+                <span className={`material-symbols-outlined text-[15px] shrink-0 ${isHighlight ? 'text-emerald-600 dark:text-emerald-400' : 'text-brand-orange'}`}>
+                  {isHighlight ? 'verified' : 'local_offer'}
+                </span>
+                <span className={`text-xs font-sans ${isHighlight ? 'text-zinc-900 dark:text-white font-bold' : 'text-zinc-600 dark:text-zinc-300 font-medium'}`}>
+                  {priceLine}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+        <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-white/5 text-xs text-zinc-500 dark:text-zinc-400 italic flex items-center justify-between flex-wrap gap-2">
+          <span>{content.pricing[5]}</span>
+          <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 not-italic flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            0% Interest EMI Available
+          </span>
         </div>
       </div>
     </section>
@@ -1839,6 +1857,14 @@ function DigitalMarketingPricingSection({ data }: { data: CourseData }) {
   const content = data.flagshipContent?.pricingDetail;
   if (!content) return null;
 
+  const rows = content.rows || content.breakdown || [];
+  const finalRow = rows[rows.length - 1];
+  const finalAmountStr = finalRow?.amount || "₹13,500";
+  const numMatches = finalAmountStr.replace(/[^0-9]/g, '');
+  const numericVal = parseInt(numMatches, 10) || 13500;
+  const approxUSD = Math.round(numericVal / 83);
+  const approxEUR = Math.round(numericVal / 90);
+
   return (
     <section className="mt-16 mb-16 w-full max-w-5xl mx-auto px-4 md:px-0">
       <div className="text-center mb-12">
@@ -1848,66 +1874,132 @@ function DigitalMarketingPricingSection({ data }: { data: CourseData }) {
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
           {data.title} Course Pricing—Flexible Payment Options
         </h2>
+        <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto">
+          Transparent, all-inclusive pricing with zero hidden costs, 50% early-bird discount, instant cashback, and zero-interest monthly EMI plans.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Cost comparison table */}
-        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 flex flex-col justify-between col-span-1">
-          <div>
-            <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-6">Transparent, Affordable Pricing</h3>
-            <div className="space-y-3 font-sans text-xs">
-              {(content.rows || content.breakdown || []).map((row: any, rIdx: number) => (
-                <div key={rIdx} className={`flex items-center justify-between py-2 border-b border-zinc-100 dark:border-white/5 ${rIdx === 3 ? 'text-brand-orange font-bold text-sm' : 'text-zinc-600 dark:text-zinc-400'}`}>
-                  <span>{row.cost}</span>
-                  <span>{row.amount}</span>
-                </div>
-              ))}
-            </div>
+        <div className="p-6 rounded-3xl border border-emerald-500/30 dark:border-emerald-500/30 bg-gradient-to-b from-emerald-500/[0.04] to-white/60 dark:to-zinc-900/10 flex flex-col justify-between col-span-1 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-bl-xl tracking-wider">
+            50% Off
           </div>
-          <div className="mt-6 text-[10px] text-zinc-400 dark:text-zinc-500 leading-relaxed font-sans">
-            Currency Reference (approximate): ₹13,000 ≈ $156 USD ≈ €145 EUR. Payment accepted in multiple currencies.
+
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              Limited Batch Offer
+            </div>
+            <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-4">Transparent Course Fee</h3>
+            
+            <div className="space-y-2.5 font-sans text-xs">
+              {rows.map((row: any, rIdx: number) => {
+                const isFinal = rIdx === rows.length - 1;
+                const isRegular = rIdx === 0;
+                const isDiscount = rIdx === 1;
+                const isCashback = rIdx === 2;
+
+                if (isFinal) {
+                  return (
+                    <div key={rIdx} className="mt-4 p-3.5 rounded-2xl bg-gradient-to-r from-emerald-500/15 via-brand-orange/10 to-emerald-500/10 border border-emerald-500/30 flex items-center justify-between">
+                      <div>
+                        <span className="text-[10px] font-extrabold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block">{row.cost}</span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-400 font-medium">After discount & cashback</span>
+                      </div>
+                      <span className="text-xl font-extrabold text-zinc-950 dark:text-white">{row.amount}</span>
+                    </div>
+                  );
+                }
+
+                return (
+                  <div key={rIdx} className="flex items-center justify-between py-1.5 border-b border-zinc-100 dark:border-white/5">
+                    <span className="text-zinc-600 dark:text-zinc-400">{row.cost}</span>
+                    <span className={
+                      isRegular ? 'line-through text-zinc-400 dark:text-zinc-500 font-normal' :
+                      isDiscount ? 'text-emerald-600 dark:text-emerald-400 font-bold' :
+                      isCashback ? 'text-brand-orange font-bold' : 'text-zinc-900 dark:text-white font-semibold'
+                    }>
+                      {row.amount}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+
+            <button
+              onClick={() => window.dispatchEvent(new Event("openCounselingModal"))}
+              className="mt-5 w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-brand-orange to-brand-red text-white text-xs font-bold hover:opacity-95 active:scale-98 transition shadow-sm cursor-pointer flex items-center justify-center gap-1.5"
+            >
+              <span>Enrol at 50% Off / Claim Offer</span>
+              <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
+            </button>
+          </div>
+
+          <div className="mt-5 text-[10px] text-zinc-400 dark:text-zinc-500 leading-relaxed font-sans border-t border-zinc-100 dark:border-white/5 pt-3">
+            Currency Reference (approximate): ₹{numericVal.toLocaleString('en-IN')} ≈ ${approxUSD} USD ≈ €{approxEUR} EUR. Flexible payment via UPI, Cards, Net Banking & 0% EMI.
           </div>
         </div>
 
         {/* Installments & Corporate Options */}
-        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 flex flex-col justify-between col-span-1">
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 flex flex-col justify-between col-span-1 shadow-sm">
           <div className="space-y-6">
             <div>
-              <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-4">Installment Plans (0% Interest)</h3>
-              <ul className="space-y-2">
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <h3 className="text-md font-bold text-zinc-950 dark:text-white">Installment Plans</h3>
+                <span className="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[10px] font-bold border border-blue-500/20">
+                  0% Interest
+                </span>
+              </div>
+              <ul className="space-y-2.5">
                 {(content.installments || []).map((inst: string, iIdx: number) => (
                   <li key={iIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
-                    <span className="text-brand-orange">•</span>
+                    <span className="text-emerald-500 font-bold shrink-0">✓</span>
                     <span>{inst}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div>
-              <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-2">Corporate Discounts</h3>
+            <div className="pt-4 border-t border-zinc-100 dark:border-white/5">
+              <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-2">Corporate & Group Discounts</h3>
               <ul className="space-y-2">
                 {(content.discounts || []).map((disc: string, dIdx: number) => (
                   <li key={dIdx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
-                    <span className="text-brand-orange">•</span>
+                    <span className="text-brand-orange font-bold shrink-0">•</span>
                     <span>{disc}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
+
+          <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-white/5 text-[11px] text-zinc-500 font-medium">
+            💡 Zero credit card charges. Instant paperless EMI approval.
+          </div>
         </div>
 
         {/* What's Included */}
-        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 col-span-1">
-          <h3 className="text-md font-bold text-zinc-950 dark:text-white mb-4">What's Included</h3>
-          <ul className="space-y-2 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
-            {(content.includes || []).map((item: string, idx: number) => (
-              <li key={idx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
-                <span className="text-brand-orange select-none font-bold">✓</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+        <div className="p-6 rounded-3xl border border-zinc-200 dark:border-white/5 bg-white/60 dark:bg-zinc-900/10 col-span-1 shadow-sm flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between gap-2 mb-4">
+              <h3 className="text-md font-bold text-zinc-950 dark:text-white">What's Included</h3>
+              <span className="px-2 py-0.5 rounded-full bg-brand-orange/10 text-brand-orange text-[10px] font-bold">
+                All-Inclusive
+              </span>
+            </div>
+            <ul className="space-y-2 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+              {(content.includes || []).map((item: string, idx: number) => (
+                <li key={idx} className="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed flex items-start gap-2">
+                  <span className="text-emerald-500 select-none font-bold shrink-0">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-white/5 text-[10.5px] text-zinc-400 leading-snug">
+            Includes LMS access, live campaign lab budgets, verified certificate & 100% placement support.
+          </div>
         </div>
       </div>
     </section>
@@ -2401,6 +2493,14 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
     });
   }
 
+  // Pricing helpers for highlighting fee
+  const pricingDetail = data.flagshipContent?.pricingDetail;
+  const regularPrice = pricingDetail?.rows?.find((r: any) => /regular|tuition|standard/i.test(r.cost))?.amount || pricingDetail?.rows?.[0]?.amount;
+  const offerPrice = pricingDetail?.rows?.find((r: any) => /discount|special|offer|50%/i.test(r.cost))?.amount || pricingDetail?.rows?.[1]?.amount;
+  const cashbackPrice = pricingDetail?.rows?.find((r: any) => /cashback|bonus/i.test(r.cost))?.amount;
+  const netPrice = pricingDetail?.rows?.find((r: any) => /final|net|investment|your/i.test(r.cost))?.amount || (pricingDetail?.rows ? pricingDetail.rows[pricingDetail.rows.length - 1]?.amount : null);
+  const emiText = pricingDetail?.installments?.[1]?.split(':')?.[1]?.split('(')?.[0]?.trim() || pricingDetail?.installments?.[0]?.split(':')?.[1]?.split('(')?.[0]?.trim() || "₹2,750/mo";
+
   return (
     <>
       <Header />
@@ -2432,6 +2532,51 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 <p className="text-zinc-600 dark:text-zinc-400 text-base md:text-lg leading-relaxed mb-6 max-w-lg font-sans">
                   {data.description} {city ? `Learn from absolute industry leaders and accelerate your career path directly from ${city}.` : ""}
                 </p>
+              )}
+
+              {/* Prominent Course Fee & Early-Bird Offer Banner */}
+              {pricingDetail && offerPrice && (
+                <div className="mb-6 p-4 rounded-2xl bg-gradient-to-br from-emerald-500/[0.08] via-brand-orange/[0.04] to-transparent border border-emerald-500/25 dark:border-emerald-500/35 max-w-xl shadow-sm">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-600 text-white text-[10px] font-bold tracking-wide uppercase shadow-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                      50% Flat Early-Bird Discount
+                    </div>
+                    <span className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400 flex items-center gap-1">
+                      <span className="material-symbols-outlined text-[14px]">savings</span>
+                      Limited Batch Seats
+                    </span>
+                  </div>
+
+                  <div className="flex flex-wrap items-baseline gap-2.5 sm:gap-3">
+                    <span className="text-3xl sm:text-4xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+                      {offerPrice}
+                    </span>
+                    {regularPrice && (
+                      <span className="text-base sm:text-lg line-through text-zinc-400 dark:text-zinc-500 font-medium">
+                        {regularPrice}
+                      </span>
+                    )}
+                    {netPrice && (
+                      <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-500/15 dark:bg-emerald-500/20 px-2.5 py-1 rounded-lg border border-emerald-500/25">
+                        ✨ Net {netPrice} with Cashback
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="mt-2.5 pt-2.5 border-t border-zinc-200/70 dark:border-white/10 flex flex-wrap items-center justify-between gap-2 text-[11.5px] sm:text-xs text-zinc-600 dark:text-zinc-300 font-medium font-sans">
+                    <div className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-brand-orange text-[16px]">credit_card</span>
+                      <span>0% Interest EMI from <strong className="text-zinc-900 dark:text-white font-bold">{emiText}</strong></span>
+                    </div>
+                    {cashbackPrice && (
+                      <div className="flex items-center gap-1 text-zinc-500 dark:text-zinc-400">
+                        <span className="material-symbols-outlined text-emerald-600 text-[15px]">payments</span>
+                        <span>{cashbackPrice} instant cashback on full payment</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
               )}
 
               {/* Dynamic Stats */}
@@ -2482,6 +2627,13 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                   Download Curriculum
                 </button>
               </div>
+
+              {pricingDetail && (
+                <div className="mt-3 flex items-center gap-2 text-[11px] text-zinc-500 dark:text-zinc-400 self-center lg:self-start font-medium">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span>100% Transparent Fee • No Hidden Registration Charges • 7-Day Money-Back Guarantee</span>
+                </div>
+              )}
 
               {/* Mobile Mentors Marquee */}
               <div className="mt-10 lg:hidden w-full overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
@@ -2775,7 +2927,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
 
             </div>
 
-            <div className="grid grid-cols-2 border-b border-zinc-200 dark:border-zinc-800/80">
+            <div className={`grid ${pricingDetail && offerPrice ? 'grid-cols-3' : 'grid-cols-2'} border-b border-zinc-200 dark:border-zinc-800/80`}>
               <div className="p-4 border-r border-zinc-200 dark:border-zinc-800/80 flex flex-col gap-1.5 items-start justify-center">
                 <span className="text-[10px] uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-extrabold">Live Sessions</span>
                 <div className="flex items-center gap-2">
@@ -2796,7 +2948,7 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                 </div>
               </div>
 
-              <div className="p-4 flex flex-col gap-1.5 items-start justify-center">
+              <div className={`p-4 ${pricingDetail && offerPrice ? 'border-r border-zinc-200 dark:border-zinc-800/80' : ''} flex flex-col gap-1.5 items-start justify-center`}>
                 <span className="text-[10px] uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-extrabold">Projects</span>
                 <div className="flex items-center gap-2">
                   <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 shrink-0" xmlns="http://www.w3.org/2000/svg">
@@ -2816,6 +2968,18 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                   <span className="font-bold text-zinc-900 dark:text-white text-[13px] truncate">{data.projects}</span>
                 </div>
               </div>
+
+              {pricingDetail && offerPrice && (
+                <div className="p-4 flex flex-col gap-1.5 items-start justify-center">
+                  <span className="text-[10px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-extrabold">Fee (50% Off)</span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400 text-[13px] truncate">{offerPrice}</span>
+                    {regularPrice && (
+                      <span className="text-[10px] text-zinc-400 line-through truncate font-normal">{regularPrice}</span>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="p-4 flex items-center justify-center">
@@ -2944,6 +3108,23 @@ export default function CourseDetailClient({ id, data, city }: CourseDetailClien
                   <span className="font-bold text-zinc-900 dark:text-white text-[16px] truncate">{data.projects}</span>
                 </div>
               </div>
+
+              {pricingDetail && offerPrice && (
+                <>
+                  <div className="w-px h-8 bg-zinc-200 dark:bg-white/10 shrink-0"></div>
+
+                  <div className="flex flex-col gap-1 items-center px-4">
+                    <span className="text-[10px] md:text-[11px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-bold">Course Fee</span>
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-emerald-600 dark:text-emerald-400 text-[16px] truncate">{offerPrice}</span>
+                      {regularPrice && (
+                        <span className="text-[11px] text-zinc-400 line-through truncate font-normal">{regularPrice}</span>
+                      )}
+                      <span className="bg-emerald-500 text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded-full uppercase">50% Off</span>
+                    </div>
+                  </div>
+                </>
+              )}
 
               <div className="w-px h-8 bg-zinc-200 dark:bg-white/10 shrink-0"></div>
 
