@@ -53,6 +53,7 @@ export const COURSE_SLUG_MAP: Record<string, string> = {
   "full-stack-development": "full-stack-development-course-with-gen-ai",
   "digital-marketing-with-gen-ai": "digital-marketing-course-with-gen-ai",
   "digital-marketing-noida": "digital-marketing-course-in-noida-with-gen-ai",
+  "performance-marketing-noida": "performance-marketing-course-in-noida",
   "digital-marketing": "digital-marketing-course-standard-with-gen-ai",
   "data-science-ai": "data-science-course-with-gen-ai",
   "ai-healthcare-doctor": "ai-healthcare-doctor-course-with-gen-ai",
@@ -67,6 +68,9 @@ export function getCourseSlugById(id: string, city?: string): string {
   if (city) {
     if (id === "digital-marketing-noida") {
       return "digital-marketing-course-in-noida-with-gen-ai";
+    }
+    if (id === "performance-marketing-noida") {
+      return "performance-marketing-course-in-noida";
     }
     if (base.endsWith("-standard-with-gen-ai")) {
       return base.replace("-standard-with-gen-ai", `-standard-in-${city}-with-gen-ai`);
@@ -2956,6 +2960,537 @@ export const COURSES_DATA: Record<string, CourseData> = {
         "Access: Lifetime access to course recordings, repositories & community"
       ],
       disclaimer: "Disclaimer: Results vary based on individual commitment, prior technical background, and active participation. SkillSha provides comprehensive training, portfolio mentorship, and interview preparation to maximize employment outcomes."
+    }
+  },
+  "performance-marketing-noida": {
+    title: "Performance Marketing Course in Noida with Internship",
+    certificateTitle: "Performance Marketing with Internship",
+    typewriter: ["Performance Marketing", "Google & Meta Ads", "Conversion Tracking & GTM", "Media Buying & ROAS", "Smart Bidding & CRO"],
+    description: "Learn to plan, run, track and improve paid campaigns that are judged by results, not impressions. Master paid search, paid social, GTM tracking, conversion analytics, and campaign scaling under Mr. Shad with an included internship in Noida.",
+    duration: "24 Weeks",
+    salary: "₹ 8.5 LPA",
+    liveSessions: "45+ hrs",
+    projects: "4+",
+    milestoneWord: "Ten",
+    milestones: [
+      {
+        number: 1,
+        title: "Performance Marketing Foundations & Account Architecture (Weeks 1-2)",
+        modules: [
+          {
+            title: "Foundations & Architecture",
+            icon: "query_stats",
+            color: "orange",
+            bullets: [
+              { title: "Performance vs brand marketing — what clients pay for", desc: "Results-driven marketing economics", icon: "payments" },
+              { title: "The performance marketing stack: Google, Meta, GTM, GA4, Looker Studio", desc: "Core tool ecosystem", icon: "layers" },
+              { title: "Ad account structure: business managers, pixels, conversion APIs", desc: "Enterprise account hierarchy", icon: "settings" },
+              { title: "Navigating Google Ads, Meta Ads Manager, and GA4", desc: "Platform workflows and dashboards", icon: "dashboard" },
+              { title: "Noida/NCR advertising landscape: local agencies, e-commerce, and B2B", desc: "Sector 62 and NCR demand", icon: "location_on" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 2,
+        title: "Strategy, Unit Economics & Media Planning (Weeks 3-4)",
+        modules: [
+          {
+            title: "Media Planning & Unit Economics",
+            icon: "calculate",
+            color: "blue",
+            bullets: [
+              { title: "Key metrics: CPA, CAC, ROAS, MER, LTV, AOV, CTR, CPC, CVR", desc: "Conversion metric vocabulary", icon: "trending_up" },
+              { title: "Calculating target CPA and break-even ROAS from profit margins", desc: "Unit economics and profitability", icon: "price_change" },
+              { title: "Media planning: budget allocation across search, social, and retargeting", desc: "Budget flighting and distribution", icon: "pie_chart" },
+              { title: "Audience persona building: intent vs interest, cold vs warm vs hot", desc: "Full-funnel segmentation", icon: "groups" },
+              { title: "Briefing creative teams: high-converting ad copy and visual hooks", desc: "Creative strategy and scripting", icon: "rate_review" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 3,
+        title: "Google Search Ads Mastery (Weeks 5-6)",
+        modules: [
+          {
+            title: "Search Engine Marketing (SEM)",
+            icon: "search",
+            color: "indigo",
+            bullets: [
+              { title: "Keyword research: intent mapping (navigational, informational, transactional)", desc: "High-intent search capture", icon: "search" },
+              { title: "Match types (broad, phrase, exact) and negative keyword strategy", desc: "Query funneling and spend protection", icon: "filter_list" },
+              { title: "Ad copy: Responsive Search Ads (RSAs), headlines, descriptions, ad assets", desc: "High-CTR ad extensions", icon: "edit_note" },
+              { title: "Bidding strategies: Manual CPC, Max Clicks, Target CPA, Target ROAS", desc: "Auction dynamics and smart bidding", icon: "gavel" },
+              { title: "Quality Score optimization: CTR, ad relevance, landing page experience", desc: "Lowering CPCs strategically", icon: "verified" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 4,
+        title: "Display, YouTube & Performance Max Campaigns (Weeks 7-8)",
+        modules: [
+          {
+            title: "Display & Performance Max",
+            icon: "play_circle",
+            color: "rose",
+            bullets: [
+              { title: "Performance Max (PMax): asset groups, audience signals, placement control", desc: "Google AI campaign engine", icon: "auto_mode" },
+              { title: "Google Display Network (GDN): audience targeting, placements, topic exclusions", desc: "Visual awareness and retargeting", icon: "visibility" },
+              { title: "YouTube Ads: skippable in-stream, in-feed, Shorts ads, video creative strategy", desc: "Video conversion funnels", icon: "smart_display" },
+              { title: "Demand Gen campaigns: cross-channel visual storytelling", desc: "Engaging Gmail and Discover feeds", icon: "campaign" },
+              { title: "Brand safety, negative placements, and budget pacing controls", desc: "Protecting campaign efficiency", icon: "shield" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 5,
+        title: "Meta Ads Suite — Facebook & Instagram (Weeks 9-10)",
+        modules: [
+          {
+            title: "Meta Paid Social",
+            icon: "campaign",
+            color: "violet",
+            bullets: [
+              { title: "Campaign Objectives: Leads, Sales, Traffic, Engagement", desc: "Selecting optimal algorithm targets", icon: "ads_click" },
+              { title: "Targeting options: Broad targeting, Detailed targeting, Lookalike Audiences", desc: "Machine learning audience signals", icon: "group_add" },
+              { title: "Ad creative strategy: Hook-Hold-CTA framework, UGC style, Reels formats", desc: "Thumb-stopping social ads", icon: "video_library" },
+              { title: "Advantage+ Shopping Campaigns (ASC) and Advantage+ Placements", desc: "Automated dynamic ad delivery", icon: "shopping_cart" },
+              { title: "Meta Pixel, Conversions API (CAPI), and Aggregated Event Measurement", desc: "Post-iOS tracking compliance", icon: "cable" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 6,
+        title: "Measurement, Conversion Tracking & GTM (Weeks 11-12)",
+        modules: [
+          {
+            title: "Tracking & Analytics Infrastructure",
+            icon: "troubleshoot",
+            color: "teal",
+            bullets: [
+              { title: "Google Tag Manager: containers, tags, triggers, and variables", desc: "Tag orchestration without devs", icon: "terminal" },
+              { title: "GA4 event tracking: purchase, lead, add-to-cart, sign-up events", desc: "Custom parameters and conversions", icon: "analytics" },
+              { title: "Meta Pixel and CAPI implementation via GTM", desc: "Server and browser-side tagging", icon: "sync_alt" },
+              { title: "UTM parameter structure and campaign tracking hygiene", desc: "Eliminating attribution errors", icon: "link" },
+              { title: "Consent mode v2, server-side tracking, and cookie deprecation", desc: "Privacy-first tracking resilience", icon: "security" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 7,
+        title: "Conversion Rate Optimisation (CRO) & Landing Pages (Weeks 13-14)",
+        modules: [
+          {
+            title: "CRO & Landing Page Architecture",
+            icon: "view_quilt",
+            color: "amber",
+            bullets: [
+              { title: "Landing page anatomy: above-the-fold value prop, proof, CTA hierarchy", desc: "High-converting layout rules", icon: "web" },
+              { title: "Mobile-first landing page design and speed optimisation", desc: "Eliminating mobile friction", icon: "smartphone" },
+              { title: "Heuristic audit frameworks and conversion leak identification", desc: "Locating why visitors leave", icon: "find_in_page" },
+              { title: "A/B testing methodology: hypothesis formulation and statistical significance", desc: "Scientific experimentation", icon: "science" },
+              { title: "Tools: Microsoft Clarity / Hotjar heatmaps, session recordings", desc: "Observing real user interactions", icon: "contactless" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 8,
+        title: "Campaign Optimisation, Scaling & Smart Bidding (Weeks 15-16)",
+        modules: [
+          {
+            title: "Scaling & Bidding Optimization",
+            icon: "trending_up",
+            color: "emerald",
+            bullets: [
+              { title: "Daily optimisation routine: search term reports, creative fatigue, frequency caps", desc: "Weekly audit rhythm", icon: "checklist" },
+              { title: "Smart Bidding mechanics: how machine learning models adjust bids in real time", desc: "Auction-time optimization", icon: "psychology" },
+              { title: "Scaling frameworks: vertical scaling vs horizontal scaling", desc: "Multiplying spend profitably", icon: "expand" },
+              { title: "Handling ad fatigue: creative rotation, refreshes, and audience expansion", desc: "Keeping CPAs healthy", icon: "refresh" },
+              { title: "Troubleshooting: what to do when CPA spikes or impressions drop", desc: "Rapid campaign triage", icon: "build" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 9,
+        title: "Analytics, Attribution & Looker Studio Reporting (Weeks 17-18)",
+        modules: [
+          {
+            title: "Reporting & Attribution",
+            icon: "pie_chart",
+            color: "blue",
+            bullets: [
+              { title: "Attribution models: last-click, first-click, data-driven attribution (DDA)", desc: "Understanding multi-touch journeys", icon: "hub" },
+              { title: "Post-iOS 14.5 measurement challenges and modeled conversions", desc: "Navigating privacy loss", icon: "query_stats" },
+              { title: "Looker Studio: connecting GA4, Google Ads, Meta data sources", desc: "Unified reporting pipelines", icon: "dataset" },
+              { title: "Building executive dashboards: spend, revenue, ROAS, CAC, trend charts", desc: "Automating stakeholder reports", icon: "dashboard_customize" },
+              { title: "Client and stakeholder reporting: communicating performance insights clearly", desc: "Actionable executive decks", icon: "forum" }
+            ]
+          }
+        ]
+      },
+      {
+        number: 10,
+        title: "Performance Internship & Live Capstone (Weeks 19-24)",
+        modules: [
+          {
+            title: "Live Internship & Capstone",
+            icon: "handshake",
+            color: "orange",
+            bullets: [
+              { title: "Real-brand campaign audit and performance strategy blueprint", desc: "Live commercial brief", icon: "assignment" },
+              { title: "End-to-end campaign deployment: research, setup, creative brief, tracking, launch", desc: "Hands-on execution", icon: "rocket_launch" },
+              { title: "Live budget management under mentor supervision with weekly optimization reviews", desc: "Direct spend management", icon: "payments" },
+              { title: "Looker Studio dashboard delivery and client presentation", desc: "Client-facing deliverable", icon: "present_to_all" },
+              { title: "Resume crafting, portfolio review, mock interviews, and placement introduction rounds", desc: "Career launchpad", icon: "work" }
+            ]
+          }
+        ]
+      }
+    ],
+    faqs: [
+      { q: "Who is this course for?", a: "This course is built for job seekers, career changers, junior marketers, marketing executives, agency employees, and business owners looking to master paid advertising (Google Ads, Meta Ads, GTM, GA4, CRO) with hands-on budget management and an included internship in Noida." },
+      { q: "What are the prerequisites?", a: "No prior coding or advanced marketing experience is required. Basic computer literacy, familiarity with spreadsheets (Excel/Google Sheets), and curiosity about consumer psychology and analytics are all you need to get started." },
+      { q: "Does this course include an internship?", a: "Yes. Milestone 10 (Weeks 19-24) includes a structured performance marketing internship where you audit live accounts, build end-to-end campaigns, manage tracking setups, and work on real portfolio deliverables with mentor reviews." },
+      { q: "What is the batch schedule and format?", a: "We offer both classroom/hybrid batches at our Noida Sector 2 centre (near Sector 16 Metro) and interactive live online batches (weekday evenings and weekend cohorts). All sessions are recorded and accessible with lifetime updates." },
+      { q: "What budget will I manage during the course?", a: "You will configure and manage live search and social campaign budgets under mentor guidance, learning real bidding rules, ROAS calculations, and budget pacing without wasting spend." },
+      { q: "How is this different from Skillsha's general Digital Marketing course?", a: "The general Digital Marketing course covers organic channels (SEO, content, organic social, email). This Performance Marketing course focuses intensely on paid media, media buying, ROAS, Google Ads, Meta Ads, GTM conversion tracking, landing page CRO, and paid scaling." },
+      { q: "What certifications will I earn?", a: "You receive the Skillsha Performance Marketing Certification, along with preparation to clear Google Ads Search & Display certifications, Meta Certified Digital Marketing Associate, and Google Analytics (GA4) Certification." },
+      { q: "Does Skillsha offer placement support for this course?", a: "Yes. Skillsha provides 100% placement support including resume crafting, Looker Studio portfolio audits, 1-on-1 mock interviews with media buyers, and direct referrals to hiring agencies and startups across Noida and NCR." },
+      { q: "What salary can I expect after this course in Noida/NCR?", a: "Entry-level performance marketing roles in Noida/NCR typically start at ₹3.2 LPA to ₹5.5 LPA. Candidates with 1-2 years experience or strong capstone portfolios frequently secure ₹6 LPA to ₹8.5+ LPA." },
+      { q: "Can I pay the fee in installments (EMI)?", a: "Yes. We offer 0% interest EMI options spread across 3 months (₹5,400/mo) or 6 months (₹2,750/mo), as well as a ₹2,000 bonus cashback on one-time payments." },
+      { q: "What tools will I get access to?", a: "You will master Google Ads, Meta Ads Manager, Google Tag Manager (GTM), Google Analytics 4 (GA4), Looker Studio, Microsoft Clarity / Hotjar, ChatGPT & Claude for ad copy hooks, and Canva/Figma for ad creative mockups." },
+      { q: "What is the batch size?", a: "To maintain close 1-on-1 mentor guidance during ad setups and live campaign reviews, cohort sizes are strictly capped at 15 to 20 students." },
+      { q: "How does the offline / hybrid mode work at the Noida centre?", a: "Students in Noida/NCR can attend practical lab sessions and live classroom lectures at our centre (D-34, Sector 2, Noida, near Sector 16 Metro), interact directly with mentors, and collaborate with peers." },
+      { q: "What if I miss a live class?", a: "Every session is recorded in HD and uploaded to your student portal within 24 hours. You also have weekly open doubt-clearing hours with instructors." },
+      { q: "How do I get my doubt cleared outside class hours?", a: "You get direct access to our private community and mentor channels on Discord/WhatsApp, where mentors and teaching assistants resolve queries within a few hours." },
+      { q: "What is the refund policy?", a: "We provide a transparent 7-day money-back guarantee. If you attend the first week and feel the course does not meet your expectations, you can request a 100% refund, no questions asked." },
+      { q: "How does Skillsha handle AI tools in performance marketing?", a: "We teach you how to use Generative AI tools (ChatGPT, Claude, Midjourney) responsibly to accelerate audience research, generate dozens of hook variations, brainstorm angle ideas, and write ad copy — while keeping human strategic thinking at the core." },
+      { q: "How do I enrol?", a: "You can schedule a free counseling session on this page, connect with our program advisor to assess your career goals, select your batch schedule, and complete enrollment online or at our Noida centre." }
+    ],
+    portfolioProjects: [
+      {
+        milestone: 3,
+        codename: "AURA",
+        tagline: "Local Business Lead Gen Campaign",
+        description: "Deploy a full Google Search Ads lead campaign for a Noida healthcare or real estate client, complete with call extensions, GTM form-submit tracking, and negative keyword lists.",
+        bg: "#F9C5C0",
+        shape: "star4"
+      },
+      {
+        milestone: 5,
+        codename: "ECHO",
+        tagline: "E-Commerce Meta & Shopping Engine",
+        description: "Set up Meta Advantage+ Shopping and Google PMax campaigns with catalog feeds, dynamic product ads, and Custom Audiences targeting high-intent purchasers.",
+        bg: "#C5E3F9",
+        shape: "diamond"
+      },
+      {
+        milestone: 6,
+        codename: "NEXUS",
+        tagline: "Full-Funnel GTM & GA4 Tracking Audit",
+        description: "Architect a robust GTM server/client tagging container, implement GA4 enhanced e-commerce events, Meta Conversions API (CAPI), and debug conversion leaks.",
+        bg: "#D4F1C5",
+        shape: "hexburst"
+      },
+      {
+        milestone: 8,
+        codename: "PULSE",
+        tagline: "60-Day Scaling & Looker Studio Pack",
+        description: "Build an automated Looker Studio executive dashboard consolidating Google Ads and Meta spend, ROAS, CPA, and draft a 60-day budget scaling strategy.",
+        bg: "#F9E4C5",
+        shape: "starburst"
+      }
+    ],
+    flagshipContent: {
+      heroSubtext: "Are you looking to build a high-income career in paid media, media buying, and conversion tracking? Skillsha's Performance Marketing Course in Noida gives you hands-on experience running live paid campaigns on Google and Meta Ads with real budgets, conversion analytics, and an included internship.\n\nNoida and NCR are home to hundreds of high-growth startups, D2C brands, and marketing agencies searching for talent that understands ROAS, GTM, and CAC over vanity impressions. Learn practical performance marketing from Mr. Shad and graduate with a verified campaign portfolio.\n\nSpecial Offer: 50% Discount (₹15,500 instead of ₹31,000) + ₹2,000 Cashback + 0% Interest EMI Available in Noida",
+      whyChooseList: {
+        placement: [
+          "Direct referrals to 500+ agencies, D2C brands, and startups across Noida & NCR",
+          "Mock interviews conducted by active media buyers and performance marketers",
+          "Resume and Looker Studio portfolio review tailored to modern hiring demands",
+          "Dedicated placement coordinator sending curated performance marketing openings",
+          "Job readiness assessment and interview question packs based on recent hiring rounds"
+        ],
+        ai: [
+          "Generate 20+ ad copy angles, hooks, and CTAs in minutes using ChatGPT and Claude",
+          "Leverage AI image prompts for fast UGC-style ad creatives and concept testing",
+          "Understand Smart Bidding machine learning algorithms in Google and Meta Ads",
+          "Automate campaign performance summaries and ad creative fatigue detection"
+        ],
+        trainers: [
+          {
+            name: "Mr. Shad",
+            title: "SEM & Conversion Rate Optimization Specialist",
+            bullets: [
+              "12+ years experience in digital marketing, paid search, and conversion optimization",
+              "Specialization: Google Search Ads, Smart Bidding, and CRO landing page architecture",
+              "Managed ₹10Cr+ in ad spend across 50+ clients from startups to enterprise brands",
+              "Key strength: Breaks down complex bidding strategies and ROAS equations into actionable steps"
+            ],
+            quote: "Shad explains complex bidding strategies and ROAS equations in plain Hindi and English.",
+            exp: "12+ Yrs Exp",
+            img: "/files/shad.png"
+          },
+          {
+            name: "Mr. Akshay Mishra",
+            title: "Social Media & Brand Strategy Specialist",
+            bullets: [
+              "10+ years in paid social advertising, creative strategy, and brand acquisition",
+              "Specialization: High-converting Meta Ad creative funnels and audience segmentation",
+              "Managed performance campaigns for lifestyle, tech, and fast-growing D2C brands",
+              "Key strength: Teaches you how to build creative hooks that stop the thumb scroll"
+            ],
+            quote: "Akshay's creative frameworks completely changed how I approach Facebook & Instagram ads.",
+            exp: "10+ Yrs Exp",
+            img: ""
+          },
+          {
+            name: "Ms. Hema",
+            title: "Tracking, Automation & Retention Specialist",
+            bullets: [
+              "6+ years in marketing automation, funnel optimization, and tag management",
+              "Specialization: Google Tag Manager, GA4 event tracking, and customer retention funnels",
+              "Expert in setting up server-side tagging and Conversions API (CAPI)",
+              "Key strength: Eliminates conversion leakage and ensures 100% data tracking hygiene"
+            ],
+            quote: "Hema's GTM walkthrough made technical tracking easy even for a non-coder.",
+            exp: "6+ Yrs Exp",
+            img: "/files/hema.jpg"
+          }
+        ],
+        pricing: [
+          "Regular Course Fee: ₹31,000",
+          "Special Discount: ₹15,500 (50% Off)",
+          "Bonus: ₹2,000 Cashback on One-Time Payment",
+          "Net Investment: ₹13,500 with Cashback",
+          "0% Interest EMI: 3-month (₹5,400/mo) or 6-month (₹2,750/mo)",
+          "Includes full internship, live budget labs, and verified certification"
+        ]
+      },
+      differencesSubtext: "Forget generic marketing tutorials that only show impressions. We build data-driven media buyers with real ad budgets, live GTM tracking, and verifiable Looker Studio reporting.",
+      differences: [
+        {
+          title: "1. Real Paid Campaigns & Live Budgets",
+          bullets: [
+            "Deploy live Google Search and Meta Ads campaigns with actual budgets",
+            "Test and optimize bidding strategies (Target CPA, Target ROAS, Max Conversions)",
+            "Analyze real conversion data, search query reports, and click-through rates",
+            "Learn to troubleshoot live campaign performance dips under mentor supervision"
+          ]
+        },
+        {
+          title: "2. Technical Tracking & Tag Management",
+          bullets: [
+            "End-to-end Google Tag Manager (GTM) setup for form leads and purchases",
+            "Implement GA4 custom events, parameters, and conversion triggers",
+            "Deploy Meta Pixel & Conversions API (CAPI) for accurate tracking post-iOS 14",
+            "Eliminate attribution errors with clean UTM naming conventions"
+          ]
+        },
+        {
+          title: "3. Conversion Rate Optimisation (CRO) Lab",
+          bullets: [
+            "Conduct heuristic audits to locate why visitors bounce without converting",
+            "Design high-converting mobile-first landing pages with clear above-the-fold value",
+            "Run A/B split tests on headlines, CTA buttons, and form lengths",
+            "Analyze heatmap data with Microsoft Clarity and Hotjar"
+          ]
+        },
+        {
+          title: "4. Included Performance Marketing Internship",
+          bullets: [
+            "Work on a structured 6-week live brand capstone in Milestone 10",
+            "Build an interactive Looker Studio dashboard showing client ROAS and CPA",
+            "Graduate with tangible proof of work rather than just a theoretical diploma",
+            "Receive mentor recommendations and verification letters for recruiters"
+          ]
+        }
+      ],
+      skills: [
+        {
+          category: "Content & Creative",
+          list: [
+            "High-converting ad copywriting for Search and Meta",
+            "Hook-Hold-CTA scripting for Reels and Shorts",
+            "UGC and founder-led creative brief frameworks",
+            "Using AI for rapid creative variations and headlines",
+            "Designing click-worthy display and carousel ad mockups"
+          ]
+        },
+        {
+          category: "Paid Search (Google Ads)",
+          list: [
+            "Account structure and campaign hierarchy",
+            "Intent-based keyword research and negative lists",
+            "Responsive Search Ads (RSAs) and asset extensions",
+            "Quality Score optimization (CTR, relevance, landing page)",
+            "Performance Max (PMax) asset groups and audience signals"
+          ]
+        },
+        {
+          category: "Paid Social (Meta Ads)",
+          list: [
+            "Meta Ads Manager navigation and campaign objectives",
+            "Advantage+ Shopping Campaigns (ASC) and broad targeting",
+            "Custom Audiences and Lookalike (LAL) creation",
+            "Creative testing methodologies and ad fatigue management",
+            "Instagram Stories, Reels, and feed ad placements"
+          ]
+        },
+        {
+          category: "Measurement & Tracking",
+          list: [
+            "Google Tag Manager (GTM) containers, tags, and triggers",
+            "Google Analytics 4 (GA4) event and conversion setup",
+            "Meta Pixel and Conversions API (CAPI) integration",
+            "Standardized UTM parameters and campaign naming hygiene",
+            "Attribution models: last-click vs data-driven attribution (DDA)"
+          ]
+        },
+        {
+          category: "CRO & Landing Pages",
+          list: [
+            "Landing page wireframing and conversion copywriting",
+            "Mobile UX optimization and page speed factors",
+            "Heuristic audits to identify drop-off points",
+            "A/B testing hypotheses and statistical significance",
+            "Session recording and heatmap analysis via Clarity"
+          ]
+        },
+        {
+          category: "Scaling & Reporting",
+          list: [
+            "Vertical and horizontal ad account scaling frameworks",
+            "Unit economics: CAC, LTV, ROAS, and breakeven equations",
+            "Building automated Looker Studio executive dashboards",
+            "Client performance reporting and insight communication",
+            "Daily, weekly, and monthly campaign audit routines"
+          ]
+        }
+      ],
+      placement: {
+        during: [
+          "Week 4: Career orientation on Noida & Delhi-NCR performance marketing landscape",
+          "Week 8: Resume and LinkedIn optimization targeting media buyer and SEM roles",
+          "Week 12: Mock technical interview round 1 (account setups & keyword strategy)",
+          "Week 16: Looker Studio portfolio review with media buyer feedback",
+          "Week 20: Mock interview round 2 (live case-study solving & budget scaling logic)"
+        ],
+        after: [
+          "Profile featured on Skillsha's hiring portal with direct access to 500+ partners",
+          "Dedicated placement coordinator shares 2-3 verified job openings weekly",
+          "Direct candidate submissions to hiring agencies in Sector 62, Sector 18, and NCR",
+          "Weekly alumni interview prep sessions and case-study discussions",
+          "Skill verification and certificate authentication for employers"
+        ],
+        network: [
+          "Performance marketing agencies across Noida Sectors 2, 16, 62, and 63",
+          "D2C and e-commerce brands based in Delhi-NCR",
+          "B2B SaaS companies and IT service providers in Noida Tech Parks",
+          "Real estate and healthcare lead generation marketing teams",
+          "Remote agency opportunities across India and international clients"
+        ]
+      },
+      careers: {
+        roles: [
+          { title: "Performance Marketer / Media Buyer", salary: "₹3.5 - 5.5 Lakh/year", duties: "End-to-end campaign execution, ad budget allocation, ROAS optimization", availability: "Performance agencies, D2C brands, startups" },
+          { title: "Google Ads / SEM Specialist", salary: "₹3.5 - 6.0 Lakh/year", duties: "Search campaigns, keyword research, bidding strategies, Quality Score", availability: "Digital agencies, SaaS companies, lead-gen firms" },
+          { title: "Paid Social Specialist (Meta Ads)", salary: "₹3.2 - 5.0 Lakh/year", duties: "Facebook/Instagram ads, creative testing, audience segmentation", availability: "E-commerce brands, fashion, D2C, marketing agencies" },
+          { title: "CRO & Landing Page Executive", salary: "₹4.0 - 6.5 Lakh/year", duties: "Landing page optimization, A/B testing, user behavior analytics", availability: "Growth teams, e-commerce, tech startups" },
+          { title: "Digital Media Planner / Growth Associate", salary: "₹4.5 - 7.5 Lakh/year", duties: "Multi-channel media mix planning, budget forecasting, Looker dashboards", availability: "Mid-to-large agencies, enterprise marketing teams" }
+        ],
+        growth: [
+          "Year 1-2: Media Buyer / SEM Specialist managing ₹2L - ₹10L monthly budgets",
+          "Year 3-4: Senior Performance Marketer / Team Lead managing ₹25L+ monthly budgets",
+          "Year 5+: Head of Performance Marketing, Growth Director, or Agency Lead"
+        ],
+        salaryGrowth: [
+          "After 2 years: ₹6 - 9 Lakh per year",
+          "After 4 years: ₹10 - 16 Lakh per year",
+          "After 6 years: ₹18 - 25+ Lakh per year in leadership & growth roles"
+        ]
+      },
+      pricingDetail: {
+        rows: [
+          { cost: "Regular Course Fee", amount: "₹31,000" },
+          { cost: "Special Discount (50% Off)", amount: "₹15,500" },
+          { cost: "Bonus Cashback (One-Time)", amount: "₹2,000" },
+          { cost: "Final Net Investment", amount: "₹13,500" }
+        ],
+        installments: [
+          "3-month plan: ₹5,400/month (0% interest)",
+          "6-month plan: ₹2,750/month (0% interest)",
+          "Transparent pricing with no hidden registration or exam charges",
+          "Multiple payment options: UPI, Net Banking, Credit/Debit cards"
+        ],
+        discounts: [
+          "Enrolling 2+ people? Extra 10% group discount per person",
+          "Corporate and team upskilling packages available in Noida",
+          "Alumni referral incentives"
+        ],
+        includes: [
+          "24 weeks (6 months) of structured performance marketing training",
+          "Interactive live classes with Mr. Shad and experienced media buyers",
+          "Live campaign labs managing real search and social ad budgets",
+          "Full 6-week performance marketing internship in Milestone 10",
+          "Hands-on Google Tag Manager, GA4, and Meta Pixel implementation",
+          "Looker Studio portfolio and executive dashboard build",
+          "10+ 1-on-1 mock technical interviews and case study prep",
+          "Industry-recognized Skillsha Performance Marketing Certificate",
+          "100% placement support with direct agency introductions in Noida/NCR",
+          "Lifetime access to session recordings and curriculum updates",
+          "Alumni network and active private mentor community access"
+        ]
+      },
+      stories: [
+        {
+          name: "Aman V. (Noida)",
+          before: "Working as a general social media executive earning ₹2.2 Lakh/year",
+          after: "Performance Marketer at Noida D2C brand earning ₹5.2 Lakh/year",
+          body: "I was only posting graphics on Instagram before this course. Skillsha's Performance Marketing course taught me actual media buying, Meta ASC campaigns, and GTM tracking. The capstone project gave me real numbers to show in interviews.",
+          result: "136% salary increase within 2 months of completion"
+        },
+        {
+          name: "Kavita S. (Delhi)",
+          before: "Fresh graduate without technical marketing background",
+          after: "SEM Executive at Sector 62 Digital Agency earning ₹4.0 Lakh/year",
+          body: "Mr. Shad's sessions on Google Search Ads and Smart Bidding made everything clear. We practiced keyword intent and negative lists on real accounts. Having a verified Looker Studio dashboard set me apart from other freshers.",
+          result: "Landed first job within 30 days of internship completion"
+        },
+        {
+          name: "Rahul M. (Ghaziabad)",
+          before: "Freelancer struggling with inconsistent ad results and low client retainers",
+          after: "Senior Media Buyer managing ₹15L monthly ad spend, earning ₹7.5 Lakh/year",
+          body: "Learning CRO and proper GA4/CAPI tracking was the biggest turning point. I stopped guessing why campaigns failed and started fixing conversion drop-offs. Skillsha helped me transition to a high-paying full-time role.",
+          result: "Stable corporate career with 2x income growth"
+        }
+      ],
+      enrollment: [
+        { step: "Step 1", title: "Schedule a Free Counseling Call", bullets: ["Connect with a Skillsha course advisor to evaluate your career goals", "Understand batch options (Classroom in Sector 2 Noida vs Live Online)", "Review installment and cashback payment options", "Phone: +91 73030 82191, Email: info@skillsha.com"] },
+        { step: "Step 2", title: "Attend the Strategy Orientation", bullets: ["Short 20-minute evaluation to align your current marketing knowledge", "Learn how the live budget labs and internship milestones operate", "Receive onboarding checklist for Google Ads and Meta accounts"] },
+        { step: "Step 3", title: "Select Your Learning Mode", bullets: ["Classroom/Hybrid Track: In-person lab sessions at Sector 2 Noida centre (near Sector 16 Metro)", "Live Online Track: Real-time interactive weekend or weekday evening cohorts"] },
+        { step: "Step 4", title: "Complete Enrollment", bullets: ["Choose one-time payment with ₹2,000 cashback or 0% interest EMI", "Sign the student enrollment agreement and receive portal credentials", "Join the private student cohort and mentor channel"] },
+        { step: "Step 5", title: "Begin Your Performance Marketing Track", bullets: ["Attend cohort kick-off session", "Start Milestone 1: Performance Marketing Foundations & Account Architecture"] }
+      ],
+      quickFacts: [
+        "Duration: 24 Weeks (6 Months) with flexible schedules",
+        "Format: Classroom/Hybrid in Sector 2 Noida + Live Online",
+        "Tuition: ₹15,500 (50% discount) with ₹2,000 cashback option",
+        "Payment: 0% Interest EMI from ₹2,750/month",
+        "Internship: Included 6-week hands-on performance capstone",
+        "Placement: 100% placement support with 94% placement rate",
+        "Certification: Skillsha Performance Marketing Verified Certificate",
+        "Lead Trainer: Mr. Shad (SEM & CRO Expert, 12+ Yrs Experience)",
+        "Location: D-34, Sector 2, Noida, UP (near Sector 16 Metro)"
+      ],
+      disclaimer: "Disclaimer: Results vary based on individual effort, prior background, and market conditions. While we maintain a 94% placement track record and provide 100% placement support, employment and exact salaries are not guaranteed. Course outcomes depend on active cohort participation and portfolio completion."
     }
   }
 };

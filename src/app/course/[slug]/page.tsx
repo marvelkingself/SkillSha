@@ -222,6 +222,67 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       };
     }
 
+    // Performance Marketing Course in Noida
+    if (slug === "performance-marketing-course-in-noida") {
+      const title = "Performance Marketing Course in Noida with Internship | SkillSha";
+      const description = "Master performance marketing in Noida with Mr. Shad. Learn Google Ads, Meta Ads, GTM tracking, GA4, CRO, and Looker Studio. 24-week course with real ad budgets, live internship, and 100% placement support in NCR.";
+      const keywords = "performance marketing course in noida, google ads course noida, meta ads training noida, performance marketing institute noida, sem course noida, conversion tracking gtm course noida, media buyer training noida, performance marketing internship noida, SkillSha Noida";
+
+      return {
+        title,
+        description,
+        keywords,
+        alternates: {
+          canonical: "https://skillsha.com/course/performance-marketing-course-in-noida",
+          languages: {
+            "en": "https://skillsha.com/course/performance-marketing-course-in-noida",
+            "x-default": "https://skillsha.com/course/performance-marketing-course-in-noida",
+          }
+        },
+        robots: {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1
+          }
+        },
+        other: {
+          "content-language": "en",
+          "author": "SkillSha",
+          "publisher": "SkillSha",
+          "theme-color": "#0F172A",
+          "msapplication-TileColor": "#0F172A",
+        },
+        openGraph: {
+          type: "website",
+          siteName: "SkillSha",
+          title,
+          description: "Master performance marketing in Noida with Mr. Shad. Real ad budgets, Google & Meta Ads, GTM tracking, Looker Studio, and included internship.",
+          url: "https://skillsha.com/course/performance-marketing-course-in-noida",
+          images: [
+            {
+              url: "https://skillsha.com/files/logo-icon.png",
+              width: 512,
+              height: 512,
+              alt: "SkillSha - Performance Marketing Course in Noida with Internship",
+            }
+          ],
+          locale: "en_IN",
+          alternateLocale: ["en_US"]
+        },
+        twitter: {
+          card: "summary_large_image",
+          title,
+          description: "Master performance marketing in Noida. Real ad spend, Google Ads, Meta Ads, GTM, GA4, and included internship with placement support.",
+          images: ["https://skillsha.com/files/logo-icon.png"],
+        }
+      };
+    }
+
     // 3. Dynamic Metadata for any other flagship courses
     if (data.flagshipContent) {
       const title = `${data.title} Course with Gen AI | Certification Training | SkillSha`;
@@ -573,7 +634,8 @@ export default async function CourseDetailPage({ params }: PageProps) {
 
   const isNoidaFlagship = slug === "digital-marketing-course-in-noida-with-gen-ai";
   const isDMFlagship = slug === "digital-marketing-course-with-gen-ai" || slug === "digital-marketing-course";
-  const isOtherFlagship = !isNoidaFlagship && !isDMFlagship && !!data.flagshipContent;
+  const isPerformanceMarketing = slug === "performance-marketing-course-in-noida";
+  const isOtherFlagship = !isNoidaFlagship && !isDMFlagship && !isPerformanceMarketing && !!data.flagshipContent;
 
   const dynamicCourseSchema = isOtherFlagship ? {
     "@context": "https://schema.org",
@@ -901,7 +963,161 @@ export default async function CourseDetailPage({ params }: PageProps) {
         </>
       )}
 
-      {/* 3. Dynamic Schemas for other flagships */}
+      {/* 3. Performance Marketing Course in Noida Schemas */}
+      {isPerformanceMarketing && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@graph": [
+                  {
+                    "@type": "EducationalOrganization",
+                    "@id": "https://skillsha.com/#organization",
+                    "name": "Skillsha",
+                    "alternateName": "SkillSha",
+                    "url": "https://skillsha.com",
+                    "logo": {
+                      "@type": "ImageObject",
+                      "url": "https://skillsha.com/files/logo-icon.png",
+                      "caption": "Skillsha Logo"
+                    },
+                    "address": {
+                      "@type": "PostalAddress",
+                      "streetAddress": "D-34, Sector 2",
+                      "addressLocality": "Noida",
+                      "addressRegion": "Uttar Pradesh",
+                      "postalCode": "201301",
+                      "addressCountry": "IN"
+                    },
+                    "contactPoint": {
+                      "@type": "ContactPoint",
+                      "telephone": "+91 73030 82191",
+                      "contactType": "admissions",
+                      "email": "info@skillsha.com",
+                      "availableLanguage": ["English", "Hindi"]
+                    },
+                    "sameAs": [
+                      "https://www.linkedin.com/company/skillsha",
+                      "https://www.instagram.com/skillsha_official"
+                    ]
+                  },
+                  {
+                    "@type": "WebSite",
+                    "@id": "https://skillsha.com/#website",
+                    "url": "https://skillsha.com",
+                    "name": "Skillsha",
+                    "publisher": {
+                      "@id": "https://skillsha.com/#organization"
+                    }
+                  },
+                  {
+                    "@type": "BreadcrumbList",
+                    "@id": "https://skillsha.com/course/performance-marketing-course-in-noida#breadcrumb",
+                    "itemListElement": [
+                      {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://skillsha.com/"
+                      },
+                      {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Courses",
+                        "item": "https://skillsha.com/courses"
+                      },
+                      {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Performance Marketing Course in Noida",
+                        "item": "https://skillsha.com/course/performance-marketing-course-in-noida"
+                      }
+                    ]
+                  },
+                  {
+                    "@type": "WebPage",
+                    "@id": "https://skillsha.com/course/performance-marketing-course-in-noida#webpage",
+                    "url": "https://skillsha.com/course/performance-marketing-course-in-noida",
+                    "name": "Performance Marketing Course in Noida with Internship | Skillsha",
+                    "description": "Master performance marketing in Noida. Real ad spend, Google Ads, Meta Ads, GTM tracking, conversion rate optimisation and an included internship.",
+                    "isPartOf": {
+                      "@id": "https://skillsha.com/#website"
+                    },
+                    "breadcrumb": {
+                      "@id": "https://skillsha.com/course/performance-marketing-course-in-noida#breadcrumb"
+                    },
+                    "inLanguage": "en-IN"
+                  },
+                  {
+                    "@type": "Course",
+                    "@id": "https://skillsha.com/course/performance-marketing-course-in-noida#course",
+                    "name": "Performance Marketing Course in Noida with Internship",
+                    "description": "Learn to plan, run, track and improve paid campaigns that are judged by results, not impressions. Master paid search, paid social, GTM tracking, conversion analytics, and campaign scaling under Mr. Shad with an included internship.",
+                    "provider": {
+                      "@id": "https://skillsha.com/#organization"
+                    },
+                    "educationalCredentialAwarded": "Certificate of Completion in Performance Marketing with Internship",
+                    "coursePrerequisites": "Basic computer literacy and familiarity with spreadsheets; no prior marketing experience required.",
+                    "hasCourseInstance": [
+                      {
+                        "@type": "CourseInstance",
+                        "courseMode": ["blended", "onsite", "online"],
+                        "courseWorkload": "PT45H",
+                        "duration": "P24W",
+                        "location": {
+                          "@type": "Place",
+                          "name": "Skillsha Noida Centre",
+                          "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "D-34, Sector 2",
+                            "addressLocality": "Noida",
+                            "addressRegion": "Uttar Pradesh",
+                            "postalCode": "201301",
+                            "addressCountry": "IN"
+                          }
+                        },
+                        "instructor": [
+                          {
+                            "@type": "Person",
+                            "name": "Mr. Shad",
+                            "jobTitle": "SEM & Conversion Rate Optimization Specialist",
+                            "image": "https://skillsha.com/files/shad.png"
+                          }
+                        ]
+                      }
+                    ],
+                    "offers": {
+                      "@type": "Offer",
+                      "category": "Paid",
+                      "price": "15500",
+                      "priceCurrency": "INR",
+                      "url": "https://skillsha.com/course/performance-marketing-course-in-noida",
+                      "availability": "https://schema.org/InStock",
+                      "validFrom": "2024-01-01"
+                    }
+                  },
+                  {
+                    "@type": "FAQPage",
+                    "@id": "https://skillsha.com/course/performance-marketing-course-in-noida#faq",
+                    "mainEntity": data.faqs.map((faq: any) => ({
+                      "@type": "Question",
+                      "name": faq.q,
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": faq.a
+                      }
+                    }))
+                  }
+                ]
+              })
+            }}
+          />
+        </>
+      )}
+
+      {/* 4. Dynamic Schemas for other flagships */}
       {isOtherFlagship && (
         <>
           <script
