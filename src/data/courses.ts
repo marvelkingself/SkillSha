@@ -976,7 +976,7 @@ export const COURSES_DATA: Record<string, CourseData> = {
         trainers: [
           { name: "Mr. Shad", title: "Performance Marketing Specialist", bullets: ["Experience: 12+ years in SEM and conversion optimization", "Specialization: Google Ads, paid search, ROI optimization", "Global Work: Managed campaigns across USA, UK, Germany, India, and Southeast Asia", "Companies: Has worked with 50+ brands globally, from startups to enterprises", "Expertise: Performance marketing that delivers measurable results"], quote: "Shad breaks down complex bidding strategies into actionable steps" },
           { name: "Mr. Akshay Mishra", "img": "", title: "Social Media & Brand Strategy Expert", bullets: ["Experience: 10+ years in social media marketing and brand building", "Specialization: Content strategy, community building, viral marketing", "Global Work: Managed international campaigns for lifestyle and tech brands", "Companies: Built social presence for brands across multiple continents", "Expertise: Creating engaged communities and brand visibility at scale"], quote: "Mr. Akshay's real-world examples are incredibly practical" },
-          { name: "Ms. Hema", title: "Email & Marketing Automation Expert", bullets: ["Experience: 6+ years in email marketing and marketing automation", "Specialization: Email funnels, customer lifecycle marketing, automation", "Global Work: Expert with international marketing automation platforms", "Companies: Helped businesses automate customer engagement globally", "Expertise: Building scalable marketing systems with automation"], quote: "Hema teaches conversion psychology through email" }
+          { name: "Ms. Hema", "img": "", title: "Email & Marketing Automation Expert", bullets: ["Experience: 6+ years in email marketing and marketing automation", "Specialization: Email funnels, customer lifecycle marketing, automation", "Global Work: Expert with international marketing automation platforms", "Companies: Helped businesses automate customer engagement globally", "Expertise: Building scalable marketing systems with automation"], quote: "Hema teaches conversion psychology through email" }
         ],
         pricing: [
           "Regular price: ₹30,000 / approximately $360 USD / €330 EUR equivalent",
@@ -1450,7 +1450,7 @@ export const COURSES_DATA: Record<string, CourseData> = {
         trainers: [
           { name: "Mr. Shad", title: "Performance Marketing Expert", bullets: ["12+ years in digital marketing", "Specialization: SEM (Search Engine Marketing) and conversion rate optimization", "Background: Worked with 50+ brands ranging from startups to Fortune 500 companies", "Key strength: He'll teach you how to make every rupee of ad spend count"], quote: "Shad explains complex bidding strategies in simple terms" },
           { name: "Mr. Akshay Mishra", "img": "", title: "Social Media & Brand Strategy Specialist", bullets: ["10+ years in social media marketing and brand building", "Specialization: Creating viral campaigns and building engaged communities", "Background: Has managed social media for lifestyle, tech, and e-commerce brands", "Key strength: Practical tactics that actually build brand presence on social platforms"], quote: "Mr. Akshay's case studies made everything click for me" },
-          { name: "Ms. Hema", title: "Email & Marketing Automation Expert", bullets: ["6+ years in email marketing and marketing automation", "Specialization: Building email funnels that convert and marketing automation workflows", "Background: Expert in platforms like Mailchimp, ActiveCampaign, HubSpot", "Key strength: Shows you how to nurture leads into paying customers"], quote: "Hema's email sequences taught me conversion psychology" }
+          { name: "Ms. Hema", "img": "", title: "Email & Marketing Automation Expert", bullets: ["6+ years in email marketing and marketing automation", "Specialization: Building email funnels that convert and marketing automation workflows", "Background: Expert in platforms like Mailchimp, ActiveCampaign, HubSpot", "Key strength: Shows you how to nurture leads into paying customers"], quote: "Hema's email sequences taught me conversion psychology" }
         ],
         pricing: [
           "Regular Fee: ₹30,000",
@@ -3262,7 +3262,7 @@ export const COURSES_DATA: Record<string, CourseData> = {
             ],
             quote: "Hema's GTM walkthrough made technical tracking easy even for a non-coder.",
             exp: "6+ Yrs Exp",
-            img: "/files/hema.jpg"
+            img: ""
           }
         ],
         pricing: [

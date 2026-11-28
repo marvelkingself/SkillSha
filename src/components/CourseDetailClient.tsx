@@ -349,7 +349,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                   const dominantTrainer = content.trainers.find((t: any) => t.name.includes("Shad")) || content.trainers[0];
                   const supporting = content.trainers.filter((t: any) => t.name !== dominantTrainer.name);
                   return supporting.map((trainer: any, idx: number) => {
-                    const img = trainer.img || (
+                    const img = trainer.name.includes("Hema") ? "" : (trainer.img || (
                       trainer.name.includes("Suaib")
                         ? "/files/md-suaib.jpg"
                         : trainer.name.includes("Shadab")
@@ -359,7 +359,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                         : trainer.name.includes("Shad")
                         ? "/files/shad.png"
                         : ""
-                    );
+                    ));
                     const expBadge = trainer.exp || (
                       trainer.name.includes("Suaib")
                         ? "8+ Yrs Exp"
@@ -427,7 +427,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
         {/* Mobile Swipeable Slider (iOS-style app experience) */}
         <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-6 -mx-4 px-4 pb-6 mt-6">
           {content.trainers.map((trainer: any, idx: number) => {
-            const img = trainer.img || (
+            const img = trainer.name.includes("Hema") ? "" : (trainer.img || (
               trainer.name.includes("Suaib")
                 ? "/files/md-suaib.jpg"
                 : trainer.name.includes("Shadab")
@@ -437,7 +437,7 @@ function DigitalMarketingWhySection({ data }: { data: CourseData }) {
                 : trainer.name.includes("Shad")
                 ? "/files/shad.png"
                 : ""
-            );
+            ));
             const expBadge = trainer.exp || (
               trainer.name.includes("Shadab")
                 ? "10+ Yrs Exp"
